@@ -42,7 +42,8 @@ private:
     pinocchio::Data data_;
     pinocchio::FrameIndex leg_id;
     FootJac jacobian;
-    pinocchio::Data::Matrix6x J;
+    Eigen::Matrix<double, 6, 12> J;
+    // pinocchio::Data::Matrix6x J;
     pinocchio::SE3 T;
     JointState prev_q = JointState::Zero();
     

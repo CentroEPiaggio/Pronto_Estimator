@@ -29,17 +29,17 @@ class ImuBiasLockBaseROS : public DualSensingModule<sensor_msgs::msg::Imu, Joint
 public:
     ImuBiasLockBaseROS() = delete;
     ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh);
-    RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) /*override*/;
+    RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) override;
     // tf2_ros::Buffer tfBuffer;    
 
     bool processMessageInit(
-        const sensor_msgs::msg::Imu::SharedPtr msg,
+        const sensor_msgs::msg::Imu* msg,
         const std::map<std::string, bool> &sensor_initialized,
         const RBIS &default_state,
         const RBIM &default_cov,
         RBIS &init_state,
         RBIM &init_cov
-    ) /*override*/;
+    ) override;
 
 protected:
     rclcpp::Node::SharedPtr nh_;
@@ -67,14 +67,14 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
     tf2_ros::Buffer tfBuffer(nh_->get_clock());
     tf2_ros::TransformListener tf_imu_to_body_listener_(tfBuffer);
 
-    std::string ins_param_prefix = "ins/";
-    std::string lock_param_prefix = "bias_lock/";
+    std::string ins_param_prefix = "ins.";
+    std::string lock_param_prefix = "bias_lock.";
 
-    std::string imu_frame = "imu";
+    std::string imu_frame = "imu_link";
 
-    nh_->get_parameter_or("ins/frame", imu_frame, imu_frame);
+    nh_->get_parameter_or("ins.frame", imu_frame, imu_frame);
     std::string base_frame = "base";
-    nh_->get_parameter_or<std::string>("base_link_name", base_frame, "base");
+    nh_->get_parameter_or<std::string>("base_link_name", base_frame, "base_link");
     RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Name of base_link: '" << base_frame << "'");
     Eigen::Isometry3d ins_to_body = Eigen::Isometry3d::Identity();
     while (rclcpp::ok()) {
@@ -82,10 +82,11 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
             // lookupTransform API is : target_frame, source_frame
             geometry_msgs::msg::TransformStamped temp_transform = tfBuffer.lookupTransform(base_frame, imu_frame, tf2::TimePointZero);
             ins_to_body = tf2::transformToEigen(temp_transform.transform);
-            RCLCPP_INFO_STREAM(nh_->get_logger(), "IMU (" << imu_frame << ") to base (" << base_frame << ") transform: translation=(" << ins_to_body.translation().transpose() << "), rotation=(" << ins_to_body.rotation() << ")");
+            RCLCPP_INFO_STREAM(nh_->get_logger(), "IMU (" << imu_frame << ") to base (" << base_frame << ") transform: translation=(" << ins_to_body.translation().transpose() << "),");
+            RCLCPP_INFO_STREAM(nh_->get_logger(), "rotation=(" << ins_to_body.rotation() << ")");
             break;
         } catch (const tf2::TransformException& ex) {
-            RCLCPP_ERROR(nh_->get_logger(), "%s", ex.what());
+            RCLCPP_ERROR_SKIPFIRST(nh_->get_logger(), "%s", ex.what());
             rclcpp::sleep_for(std::chrono::seconds(1));
         }
     }
@@ -102,14 +103,15 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
     // Determine what to publish:
     nh_->get_parameter_or(lock_param_prefix + "publish_debug_topics", publish_debug_topics_, true);  // Default to 'true' to preserve previous behaviour
     nh_->get_parameter_or(lock_param_prefix + "publish_transforms", publish_transforms_, true);    // Default to 'true' to preserve previous behaviour
-    RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Publishing debug topics:  " << std::boolalpha << publish_debug_topics_ << "\n" <<
-                                          "                   Publishing transforms:    " << publish_transforms_);
+    RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Publishing debug topics:  " << std::boolalpha << publish_debug_topics_);
+    RCLCPP_INFO_STREAM(nh_->get_logger(),"[ImuBiasLockBaseROS] Publishing transforms:    " << std::boolalpha << publish_transforms_);
 
     if (publish_debug_topics_) {
         status_pub_ = nh_->create_publisher<geometry_msgs::msg::PointStamped>("/state_estimator_pronto/recording_bias", 100);
         marker_pub_ = nh_->create_publisher<visualization_msgs::msg::Marker>("/state_estimator_pronto/imu_arrows", 100);
         base_marker_pub_ = nh_->create_publisher<visualization_msgs::msg::Marker>("/state_estimator_pronto/base_arrow", 100);
         base_more_marker_pub_ = nh_->create_publisher<visualization_msgs::msg::Marker>("/state_estimator_pronto/base_more_arrow", 100);
+
         imu_arrow_.color.a = 1;
         imu_arrow_.color.r = 1;
         imu_arrow_.color.g = 0;
@@ -213,7 +215,7 @@ RBISUpdateInterface* ImuBiasLockBaseROS<JointStateT>::processMessage(const senso
 
 template <class JointStateT>
 bool ImuBiasLockBaseROS<JointStateT>::processMessageInit(
-    const sensor_msgs::msg::Imu::SharedPtr msg,
+    const sensor_msgs::msg::Imu* msg,
     const std::map<std::string, bool> &sensor_initialized,
     const RBIS &default_state,
     const RBIM &default_cov,
@@ -255,10 +257,14 @@ public:
 class ImuBiasLockWithAccelerationROS : public ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>
 {
 public:
-    ImuBiasLockWithAccelerationROS(rclcpp::Node::SharedPtr nh) : ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>(nh) {}
+    ImuBiasLockWithAccelerationROS(rclcpp::Node::SharedPtr nh) : 
+    nh_(nh),
+    ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>(nh_) {}
     virtual ~ImuBiasLockWithAccelerationROS() = default;
 
     void processSecondaryMessage(const pronto_msgs::msg::JointStateWithAcceleration &msg);
+
+    rclcpp::Node::SharedPtr nh_;
 };
 
 }  // namespace quadruped

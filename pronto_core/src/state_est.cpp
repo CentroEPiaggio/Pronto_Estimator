@@ -21,7 +21,7 @@ StateEstimator::StateEstimator(RBISResetUpdate * init_state,
   unprocessed_updates_start = history.updateMap.end();
 
   std::cout << init_state->posterior_state << std::endl;
-  Eigen::IOFormat clean_format(4, 0, ", ", "\n", "[", "]");
+  Eigen::IOFormat clean_format(4, 0, ", ", "\n", "[", "]", "STATE COVARIANCE: ");
   std::cout << init_state->posterior_covariance.format(clean_format) << std::endl;
 }
 
@@ -93,6 +93,7 @@ bool StateEstimator::getInterpolatedPose(const uint64_t &utime,
 void StateEstimator::addUpdate(RBISUpdateInterface * update, bool roll_forward)
 {
 #if DEBUG_MODE
+  bool verbose_ = true;
    if(verbose_){
        std::cout << "[ " << update->utime <<" ] "<< update->getSensorIdString() << std::endl;
    }

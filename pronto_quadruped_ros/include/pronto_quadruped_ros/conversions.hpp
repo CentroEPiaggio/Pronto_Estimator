@@ -2,6 +2,7 @@
 #include <sensor_msgs/msg/joint_state.hpp>
 #include "pronto_msgs/msg/joint_state_with_acceleration.hpp"
 #include "pronto_quadruped_commons/declarations.h"
+#include <rclcpp/rclcpp.hpp>
 
 namespace pronto {
 namespace quadruped {
@@ -10,13 +11,15 @@ bool jointStateFromROS(const sensor_msgs::msg::JointState& msg,
                        JointState& q,
                        JointState& qd,
                        JointState& qdd,
-                       JointState& tau);
+                       JointState& tau,
+                       rclcpp::Node::SharedPtr nh_);
 
 bool jointStateWithAccelerationFromROS(const pronto_msgs::msg::JointStateWithAcceleration& msg,
                                uint64_t& utime,
                                JointState& q,
                                JointState& qd,
                                JointState& qdd,
-                               JointState& tau);
+                               JointState& tau,
+                               rclcpp::Node::SharedPtr nh_);
 }  // namespace quadruped
 }  // namespace pronto

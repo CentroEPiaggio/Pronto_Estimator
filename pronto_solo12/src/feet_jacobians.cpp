@@ -28,24 +28,32 @@ namespace solo{
 
             switch (leg)
             {
-                case quadruped::LegID::LF:
+                case pronto::quadruped::LF:
                     leg_id = model_.getFrameId("LF_FOOT");
                     pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J);
+                    break;
                     
-                case quadruped::LegID::RF:
+                case pronto::quadruped::RF:
                     leg_id = model_.getFrameId("RF_FOOT");
                     pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J);
+                    // break;
                     
-                case quadruped::LegID::LH:
+                case pronto::quadruped::LH:
                     leg_id = model_.getFrameId("LH_FOOT");
                     pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J);
+                    break;
                     
-                case quadruped::LegID::RH:
+                case pronto::quadruped::RH:
                     leg_id = model_.getFrameId("RH_FOOT");
                     pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J);
+                    break;
 
                 default:
-                    J = pinocchio::Data::Matrix6::Identity();
+                    std::cerr << "[FeetJacobians::ComputeJacobian(...)] "
+                        << "ERROR: legID not recognized. Returning zero."
+                        << std::endl;   
+                    J.setZero(6, 12);
+                    break;
                     
             }
 
@@ -81,27 +89,32 @@ namespace solo{
 
         switch (leg)
         {
-            case quadruped::LegID::LF:
+            case pronto::quadruped::LF:
                 leg_id = model_.getFrameId("LF_FOOT");
                 T = data_.oMf[leg_id];
+                break;
                 
-            case quadruped::LegID::RF:
+            case pronto::quadruped::RF:
                 leg_id = model_.getFrameId("RF_FOOT");
                 T = data_.oMf[leg_id];
+                break;
                 
-            case quadruped::LegID::LH:
+            case pronto::quadruped::LH:
                 leg_id = model_.getFrameId("LH_FOOT");
                 T = data_.oMf[leg_id];
+                break;
                 
-            case quadruped::LegID::RH:
+            case pronto::quadruped::RH:
                 leg_id = model_.getFrameId("RH_FOOT");
                 T = data_.oMf[leg_id];
+                break;
 
             default:
-               std::cerr << "[ ForwardKinematics::getFootOrientation(...) ] "
+               std::cerr << "[ForwardKinematics::getFootPos(...)] "
                   << "ERROR: legID not recognized. Returning identity."
                   << std::endl;       
                 T.setIdentity();
+                break;
         }
 
         return T.translation();        
@@ -117,27 +130,32 @@ namespace solo{
 
         switch (leg)
         {
-            case quadruped::LegID::LF:
+            case pronto::quadruped::LF:
                 leg_id = model_.getFrameId("LF_FOOT");
                 T = data_.oMf[leg_id];
+                break;
                 
-            case quadruped::LegID::RF:
+            case pronto::quadruped::RF:
                 leg_id = model_.getFrameId("RF_FOOT");
                 T = data_.oMf[leg_id];
+                break;
                 
-            case quadruped::LegID::LH:
+            case pronto::quadruped::LH:
                 leg_id = model_.getFrameId("LH_FOOT");
                 T = data_.oMf[leg_id];
+                break;
                 
-            case quadruped::LegID::RH:
+            case pronto::quadruped::RH:
                 leg_id = model_.getFrameId("RH_FOOT");
                 T = data_.oMf[leg_id];
+                break;
 
             default:
-                std::cerr << "[ ForwardKinematics::getFootOrientation(...) ] "
+                std::cerr << "[ForwardKinematics::getFootOrientation(...)] "
                   << "ERROR: legID not recognized. Returning identity."
                   << std::endl; 
-                T.setIdentity();       
+                T.setIdentity();   
+                break;    
         }
 
         return T.rotation();  // TODO: check how rotation is defined      
