@@ -49,10 +49,22 @@ namespace solo{
         Eigen::Vector3d tau_leg = quadruped::getLegJointState(LegID(leg), tau);
         Eigen::Vector3d qdd_leg = qdd.block<3, 1>(leg * 3, 0);
 
-        // TODO: check if this computation has errors
+        // TODO: correct errors
 
-        foot_grf = -(foot_jacobian.transpose()).inverse() *
-                    (tau_leg - M_leg * qdd_leg - c_leg);
+        Eigen::Matrix3d inv_jac = (foot_jacobian.transpose()).inverse();
+
+        foot_grf = - inv_jac * (tau_leg - M_leg * qdd_leg - c_leg);
+        
+        // if(!foot_grf.allFinite()){
+        //     std::cerr << "ERROR: For leg " << leg << " grf is " << foot_grf;
+        // }
+        // else{
+        //     std::cerr << "INFO: For leg " << leg <<"\n";
+        //     std::cerr << "M_leg: " << M_leg << "\n";
+        //     std::cerr << "c_leg: " << c_leg << "\n";
+        //     std::cerr << "inv_jac: " << inv_jac << "\n";
+        //     std::cerr << "foot_grf: " << foot_grf << "\n";
+        // }
 
         return foot_grf.allFinite();
 }

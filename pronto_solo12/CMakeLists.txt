@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(pronto_solo12)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-Wall -Wextra -Wpedantic -g)
   # add_compile_options(-Wall)
 endif()
 
@@ -19,6 +19,7 @@ add_library(${PROJECT_NAME}  SHARED src/feet_jacobians.cpp
                                     src/forward_kinematics.cpp
                                     src/dynamics.cpp
                                     src/feet_contact_forces.cpp
+                                    # src/pronto_node.cpp
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)

@@ -42,7 +42,7 @@ LegodoHandlerBase::LegodoHandlerBase(rclcpp::Node::SharedPtr nh,
     stance_estimator_(stance_est),
     leg_odometer_(legodo)
 {
-    const std::string prefix = "legodo/";
+    const std::string prefix = "legodo.";
 
     int downsample_factor_ = nh_->get_parameter_or<int>(prefix + "downsample_factor", 1);
     int utime_offset_ = nh_->get_parameter_or<int>(prefix + "utime_offset", 0);
@@ -122,6 +122,8 @@ void LegodoHandlerBase::getPreviousState(const StateEstimator *est)
     // take the acceleration, rotational rate and orientation from the current
     // state of the filter
     xd_ = head_state_.velocity();
+    Eigen::Vector3d acc = head_state_.acceleration();
+    Eigen::Vector3d g_acc = head_state_.orientation().inverse() * pronto::g_vec;
     xdd_ = head_state_.acceleration() + head_state_.orientation().inverse() * pronto::g_vec;
 
     omega_ = head_state_.angularVelocity();
@@ -283,7 +285,7 @@ LegodoHandlerROS::LegodoHandlerROS(rclcpp::Node::SharedPtr nh,
                                    StanceEstimatorROS& stance_est,
                                    LegOdometerROS& legodo) :
     nh_(nh),
-    LegodoHandlerBase(nh_, stance_est, legodo)
+    LegodoHandlerBase(nh, stance_est, legodo)
 {
 }
 
@@ -293,7 +295,7 @@ LegodoHandlerROS::Update* LegodoHandlerROS::processMessage(const sensor_msgs::ms
     nsec_ = toNsec(msg->header.stamp); // save nsecs for later.
     utime_ = nsec_ / 1000;  // A lot of internals still assume microseconds
     // TODO: transition from microseconds to nanoseconds everywhere
-    if(!jointStateFromROS(*msg, utime_, q_, qd_, qdd_, tau_)){
+    if(!jointStateFromROS(*msg, utime_, q_, qd_, qdd_, tau_, nh_)){
       RCLCPP_WARN(nh_->get_logger(), "[LegodoHandlerROS::processMessage] Could not process joint state from ROS!");
       return nullptr;
     }
@@ -326,7 +328,7 @@ LegodoHandlerWithAccelerationROS::Update* LegodoHandlerWithAccelerationROS::proc
     nsec_ = toNsec(msg->header.stamp); // save nsecs for later.
     utime_ = 1e-3 * nsec_;  // A lot of internals still assume microseconds
     // TODO: transition from microseconds to nanoseconds everywhere
-    if(!jointStateWithAccelerationFromROS(*msg, utime_, q_, qd_, qdd_, tau_)){
+    if(!jointStateWithAccelerationFromROS(*msg, utime_, q_, qd_, qdd_, tau_, nh_)){
       RCLCPP_WARN(nh_->get_logger(),"[LegodoHandlerWithAccelerationROS::processMessage] Could not process joint state from ROS!");
       return nullptr;
     }
@@ -365,7 +367,7 @@ LegodoHandlerBase::Update * FootSensorLegodoHandlerROS::processMessage(const sen
   nsec_ = toNsec(msg->header.stamp); // save nsecs for later.
   utime_ = nsec_ / 1000;  // A lot of internals still assume microseconds
   // TODO: transition from microseconds to nanoseconds everywhere
-  if(!jointStateFromROS(*msg, utime_, q_, qd_, qdd_, tau_)){
+  if(!jointStateFromROS(*msg, utime_, q_, qd_, qdd_, tau_, nh_)){
     RCLCPP_WARN(nh_->get_logger(),"[FootSensorLegodoHandlerROS::processMessage] Could not process joint state from ROS!");
     return nullptr;
   }
@@ -401,7 +403,7 @@ LegodoHandlerBase::Update * ForceSensorLegodoHandlerROS::processMessage(const se
   nsec_ = toNsec(msg->header.stamp);// save nsecs for later.
   utime_ = nsec_ / 1000;  // A lot of internals still assume microseconds
   // TODO: transition from microseconds to nanoseconds everywhere
-  if(!jointStateFromROS(*msg, utime_, q_, qd_, qdd_, tau_)){
+  if(!jointStateFromROS(*msg, utime_, q_, qd_, qdd_, tau_, nh_)){
     RCLCPP_WARN(nh_->get_logger(),"[ForceSensorLegodoHandlerROS::processMessage] Could not extract joint states from ROS message!");
     return nullptr;
   }
