@@ -37,15 +37,14 @@ struct ImuBiasLockConfig {
 
 class ImuBiasLock : public DualSensingModule<ImuMeasurement,pronto::JointState>
 {
-public:
-    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
 public:
     // the measurement and index sizes is 8: 3 for gyro bias, 3 for accel bias
     // and 2 for roll/pitch estimation
     using MeasVector = Eigen::Matrix<double, 8, 1>;
     using IndexVector = Eigen::Matrix<int, 8, 1>;
     using CovMatrix = Eigen::Matrix<double, 8, 8>;
-public:
+
     ImuBiasLock(const Eigen::Isometry3d& ins_to_body_ = Eigen::Isometry3d::Identity(),
                 const ImuBiasLockConfig& cfg = ImuBiasLockConfig());
     virtual ~ImuBiasLock() {}
@@ -61,7 +60,7 @@ public:
                             RBIM &init_cov) override;
 
     void processSecondaryMessage(const pronto::JointState& msg) override;
-public:
+
     const Eigen::Vector3d& getCurrentOmega() const {
       return current_omega_;
     }
@@ -95,6 +94,7 @@ public:
     }
 
 protected:
+
     bool debug_ = false;
     std::vector<Eigen::Vector3d> gyro_bias_history_;
     std::vector<Eigen::Vector3d> accel_bias_history_;
@@ -123,7 +123,7 @@ protected:
     double eps_ = 0.006;
     double dt_ = 0.0025;
     Eigen::Isometry3d ins_to_body_;
-protected:
+
     bool isStatic(const pronto::JointState& state);
     Eigen::Vector3d getBias(const std::vector<Eigen::Vector3d>& history) const;
     Eigen::Matrix3d getBiasCovariance(const std::vector<Eigen::Vector3d>& history) const;

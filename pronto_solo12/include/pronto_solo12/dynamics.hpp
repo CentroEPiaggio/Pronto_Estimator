@@ -20,7 +20,9 @@ public:
     Dynamics(pinocchio::Model & model, 
                                 pinocchio::Data & data) :
             model_(model), data_(data)
-    {}
+    {
+        prev_q.setZero();
+    }
 
     virtual ~Dynamics() {};
 
@@ -33,7 +35,7 @@ public:
 private:
     pinocchio::Model model_;
     pinocchio::Data data_;
-    JointState prev_q = JointState::Zero();
+    JointState prev_q;
 
 };
 

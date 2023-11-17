@@ -32,10 +32,10 @@ namespace solo{
 
     Dynamics::Vector3d Dynamics::getNonLinear(const JointState& q, const JointState& qd, const LegID& leg)
     {
-        if(q != prev_q){ // suppose that if q didn't change, qd didn't change as well
-            Dynamics::computeDynamics(q, qd);
-        }
-
+        // if(q != prev_q){ // suppose that if q didn't change, qd didn't change as well
+        //     Dynamics::computeDynamics(q, qd);
+        // }
+        Dynamics::computeDynamics(q, qd);
         return data_.nle.block<3, 1>(leg * 3, 0);
     }
 

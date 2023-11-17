@@ -35,7 +35,7 @@ void getIMUProcessLinearizationContinuous(const RBIS & state, RBIM & Ac)
 
 }
 
-#define DEBUG_MODE 0
+
 
 void insUpdateState(const Eigen::Vector3d & gyro,
                     const Eigen::Vector3d & accelerometer,
