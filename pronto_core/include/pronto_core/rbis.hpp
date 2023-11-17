@@ -3,9 +3,11 @@
 #include <eigen3/Eigen/Dense>
 #include <eigen3/Eigen/Geometry>
 #include "pronto_core/rigidbody.hpp"
+#include <iostream>
 
 namespace pronto {
 
+#define DEBUG_MODE 0
 /**
  * Rigid body state
  */

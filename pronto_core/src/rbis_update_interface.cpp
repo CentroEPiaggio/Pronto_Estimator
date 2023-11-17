@@ -116,16 +116,16 @@ void RBISIndexedMeasurement::updateFilter(const RBIS & prior_state, const RBIM &
   
 
 #if DEBUG_MODE
-  is << "    Prior velocity: " << prior_state.velocity().transpose().format(CleanFmt) << std::endl;
-  is << "Posterior velocity: " << posterior_state.velocity().transpose().format(CleanFmt) << std::endl;
-  is << "    Prior position: " << prior_state.position().transpose().format(CleanFmt) << std::endl;
-  is << "Posterior position: " << posterior_state.position().transpose().format(CleanFmt) << std::endl;
+  std::cout << "    Prior velocity: " << prior_state.velocity().transpose().format(CleanFmt) << std::endl;
+  std::cout << "Posterior velocity: " << posterior_state.velocity().transpose().format(CleanFmt) << std::endl;
+  std::cout << "    Prior position: " << prior_state.position().transpose().format(CleanFmt) << std::endl;
+  std::cout << "Posterior position: " << posterior_state.position().transpose().format(CleanFmt) << std::endl;
 #endif
 
 
 #if DEBUG_MODE
     std::cout << " post: " << posterior_state <<"\n";
-    if (verbose_cov) std::cout << "ptcov: " << posterior_covariance <<"\n";
+    std::cout << "ptcov: " << posterior_covariance <<"\n";
     std::cout << "mfallon b\n";
 #endif
 

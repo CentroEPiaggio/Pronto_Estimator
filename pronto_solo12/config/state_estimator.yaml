@@ -1,4 +1,4 @@
-pronto_estimator :
+pronto_estimator:
   ros__parameters:
     pose_topic : "pose"
     pose_frame_id : "odom"
@@ -9,10 +9,13 @@ pronto_estimator :
     publish_pose : true
     publish_tf : true
     tf_child_frame_id : "base_pronto"
-    republish_sensors : false
-    init_sensors : [ins, pose_meas] 
+    init_sensors : [ins] 
     active_sensors : [ins, legodo, bias_lock]
+    republish_sensors : false
     utime_history_span : 60000000.0
+    base_link_name : "base_link"
+    debug_mode : true
+    joint_names : ["LF_HAA", "LF_HFE", "LF_KFE", "RF_HAA", "RF_HFE", "RF_KFE", "LH_HAA", "LH_HFE", "LH_KFE", "RH_HAA", "RH_HFE", "RH_KFE"]
 
     sigma0 :
       vb : 0.15 # m/s
@@ -20,20 +23,20 @@ pronto_estimator :
       chi_z : 3.0 # degrees?
       Delta_xy : 0.05 #0.5 # m
       Delta_z : 0.05 # 1   # m
-      gyro_bias : 0 # deg/s
-      accel_bias : 0 # m/s^2 # 0.1 worked during tuning
+      gyro_bias : 0.0 # deg/s
+      accel_bias : 0.0 # m/s^2 # 0.1 worked during tuning
 
     x0 :
-      velocity : [ 0, 0, 0 ]
-      angular_velocity : [ 0, 0, 0 ]
-      position : [ 0, 0, 0 ]
-      rpy : [ 0, 0, 0 ]
+      velocity : [ 0.0, 0.0, 0.0 ]
+      angular_velocity : [ 0.0, 0.0, 0.0 ]
+      position : [ 0.0, 0.0, 0.0 ]
+      rpy : [ 0.0, 0.0, 0.0 ]
 
     init_message :
       channel : "filter_initializer"
 
     ins :
-      topic : "/imu_plugin"
+      topic : "/imu_plugin/out"
       utime_offset : 0 # units 1e-6 seconds
       downsample_factor : 1 # process 1 out of every this many. for 333Hz use 1. for 1kHz use 3
       roll_forward_on_receive : true
@@ -70,18 +73,19 @@ pronto_estimator :
     legodo :
       topic : "/joint_states"
       # ground_truth_channel : "POSE_GROUND_TRUTH"
+      publish_debug_topics : true
 
       time_offset : 0.0 # time offset between vicon and other messages (useful for logs)
       verbose : false # Prints warnings and messages 
       debug : false # Sends signals and saves text files with signals
 
-      legodo_mode : 2 # STATIC_SIGMA 0x00, VAR_SIGMA 0x01, IMPACT_SIGMA 0x02, WEIGHTED_AVG 0x04, ALPHA_FILTER : 0x08, KALMAN_FILTER : 0x10
+      legodo_mode : 1 # STATIC_SIGMA 0x00, VAR_SIGMA 0x01, IMPACT_SIGMA 0x02, WEIGHTED_AVG 0x04, ALPHA_FILTER : 0x08, KALMAN_FILTER : 0x10
       
       stance_mode : 0 # 0 : THRESHOLD, 1 : HYSTERESIS, 2 : REGRESSION
-      stance_threshold : 82 # threshold of GRF[z] to trigger the stance phase
+      stance_threshold : 82.0 # threshold of GRF[z] to trigger the stance phase
       
-      stance_hysteresis_low : 10 # hysteresis low threshold
-      stance_hysteresis_high : 60 # hysteresis high threshold
+      stance_hysteresis_low : 10.0 # hysteresis low threshold
+      stance_hysteresis_high : 60.0 # hysteresis high threshold
       stance_hysteresis_delay_low : 250 # delay low for schmitt trigger in milliseconds
       stance_hysteresis_delay_high : 250 # delay in for schmitt trigger in milliseconds
 
@@ -126,22 +130,22 @@ pronto_estimator :
     #   r_ryaw : 52.0 # sigma yaw [deg]
 
       
-    # # correct the pose to this value (to init using Pose BDI)
-    # pose_meas:
-    #   no_corrections : 100 # apply this number of corrections before going silent
-    #   topic : "/state_estimator/pose_in_odom"
-    #   utime_offset : 0 #units 1e-6 seconds
-    #   downsample_factor : 1 # process 1 out of every this many
-    #   roll_forward_on_receive : true
-    #   publish_head_on_message : false
+    # correct the pose to this value (to init using Pose BDI)
+    pose_meas:
+      no_corrections : 100 # apply this number of corrections before going silent
+      topic : "/state_estimator/pose_in_odom"
+      utime_offset : 0 #units 1e-6 seconds
+      downsample_factor : 1 # process 1 out of every this many
+      roll_forward_on_receive : true
+      publish_head_on_message : false
 
-    #   r_xyz : 0.01 #m
-    #   r_chi : 3.0 #degrees
+      r_xyz : 0.01 #m
+      r_chi : 3.0 #degrees
 
-    #   mode: "position_orient" # "position" "position_orient"
+      mode: "position_orient" # "position" "position_orient"
 
     bias_lock:
-      topic : "imu_plugin"
+      topic : "/imu_plugin/out"
       secondary_topic : "/joint_states"
       torque_threshold : 12.5 # Nm on knee joints
       velocity_threshold : 0.006 # rad/s
