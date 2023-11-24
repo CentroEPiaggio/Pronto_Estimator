@@ -78,6 +78,11 @@ public:
 
     virtual FootJac getFootJacobianAngular(const pronto::quadruped::JointState& q,
                                          const pronto::quadruped::LegID& leg) = 0;
+
+    virtual FootJac getFootJacobian(const JointStatePinocchio& q, const LegID& leg) = 0;
+
+    virtual FootJac getFootJacobianAngular(const JointStatePinocchio& q,
+                                         const pronto::quadruped::LegID& leg) = 0;
     ///@}
 };
 

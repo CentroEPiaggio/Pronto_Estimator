@@ -87,6 +87,15 @@ public:
     }
 
     bool estimateVelocity(const uint64_t utime,
+                          const JointStatePinocchio& q,
+                          const JointVelocityPinocchio& qd,
+                          const Vector3d& omega,
+                          const LegBoolMap& stance_legs,
+                          const LegScalarMap& stance_prob,
+                          Vector3d& velocity,
+                          Matrix3d& covariance);
+
+    bool estimateVelocity(const uint64_t utime,
                           const JointState& q,
                           const JointState& qd,
                           const Vector3d& omega,

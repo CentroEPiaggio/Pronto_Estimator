@@ -11,6 +11,9 @@ namespace solo{
 class FeetContactForces : public pronto::quadruped::FeetContactForces {
 
 public:
+    typedef Eigen::Matrix<double, 19, 1> JointStatePinocchio;
+    typedef Eigen::Matrix<double, 18, 1> JointVelocityPinocchio;
+    
     using Vector3d = pronto::quadruped::Vector3d;
     using JointState = pronto::quadruped::JointState;
     using LegID = pronto::quadruped::LegID;

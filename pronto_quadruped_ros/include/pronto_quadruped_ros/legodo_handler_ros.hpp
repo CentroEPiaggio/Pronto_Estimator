@@ -95,6 +95,12 @@ protected:
     JointState qdd_;
     JointState tau_;
 
+    JointStatePinocchio qP;
+    JointVelocityPinocchio qdP;
+    JointVelocityPinocchio qddP;
+    JointVelocityPinocchio tauP;
+
+
     RBIS head_state_;
     RBIM head_cov_;
 

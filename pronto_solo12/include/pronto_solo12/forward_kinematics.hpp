@@ -15,6 +15,7 @@ class ForwardKinematics : public pronto::quadruped::ForwardKinematics {
 public:
 
     typedef pronto::quadruped::JointState JointState;
+    typedef Eigen::Matrix<double,19,1> JointStatePinocchio;
     typedef pronto::quadruped::LegID LegID;
     typedef pronto::quadruped::Vector3d Vector3d; 
     typedef pronto::quadruped::Matrix3d Matrix3d;  
@@ -25,6 +26,9 @@ public:
 
     Vector3d getFootPos(const JointState& q, const LegID& leg) override;
     Matrix3d getFootOrientation(const JointState& q, const LegID& leg) override; 
+
+    Vector3d getFootPos(const JointStatePinocchio& q, const LegID& leg);
+    Matrix3d getFootOrientation(const JointStatePinocchio& q, const LegID& leg); 
 
 
 private:

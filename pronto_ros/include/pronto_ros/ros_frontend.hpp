@@ -279,18 +279,20 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT> &module,
 template <class MsgT>
 void ROSFrontEnd::initCallback(std::shared_ptr<const MsgT> msg, const SensorId& sensor_id)
 {
+
     if(verbose_){
         RCLCPP_INFO_STREAM(nh_->get_logger(), "Init callback for sensor " << sensor_id);
     }
+    // TODO: check why "initialized_list_.count(sensor_id) > 0 && !initialized_list_[sensor_id]" returns memory error
     if(initialized_list_.count(sensor_id) > 0 && !initialized_list_[sensor_id])
     {
         initialized_list_[sensor_id] = static_cast<SensingModule<MsgT>*>(init_modules_[sensor_id])->processMessageInit(
-            msg.get(),
-            initialized_list_,
-            default_state,
-            default_cov,
-            init_state,
-            init_cov);
+        msg.get(),
+        initialized_list_,
+        default_state,
+        default_cov,
+        init_state,
+        init_cov);
 
         // if the sensor has been successfully initialized, we unsubscribe.
         // This happens only for the sensors which are only for initialization.
@@ -302,6 +304,8 @@ void ROSFrontEnd::initCallback(std::shared_ptr<const MsgT> msg, const SensorId& 
             initializeFilter();
         }
     } else {
+
+        RCLCPP_INFO_STREAM(nh_->get_logger(), "initialized_list: " << initialized_list_[sensor_id]);
         // if we are here it means that the module is not in the list of
         // initialized modules or that the module is already initialized
         // in both cases we don't want to subscribe to this topic anymore,
@@ -309,7 +313,9 @@ void ROSFrontEnd::initCallback(std::shared_ptr<const MsgT> msg, const SensorId& 
         if(init_subscribers_.count(sensor_id) > 0){
             init_subscribers_[sensor_id].reset();
         }
-    }
+    
+    } 
+    
 }
 
 template <class MsgT>
@@ -460,6 +466,9 @@ void ROSFrontEnd::callback(std::shared_ptr<MsgT const> msg, const SensorId& sens
         RCLCPP_INFO_STREAM(nh_->get_logger(), "Time elapsed till the end: " << std::chrono::duration_cast<std::chrono::microseconds>(end -start).count());
         std::cout << std::endl;
 #endif
+    }
+    else{
+        RCLCPP_INFO(nh_->get_logger(), "FILTER IS NOT INITIALIZED");
     }
 }
 
