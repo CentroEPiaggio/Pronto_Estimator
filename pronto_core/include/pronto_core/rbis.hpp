@@ -7,7 +7,7 @@
 
 namespace pronto {
 
-#define DEBUG_MODE 0
+#define DEBUG_MODE 1
 /**
  * Rigid body state
  */

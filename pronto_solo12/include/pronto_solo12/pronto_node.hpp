@@ -128,7 +128,7 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
     leg_odometer = std::make_shared<quadruped::LegOdometerROS>(shared_from_this(), feet_jacs, fwd_kin);
     legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(shared_from_this(), *stance_estimator, *leg_odometer);
     bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this());
-    front_end = std::make_shared<ROSFrontEnd>(shared_from_this());
+    front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), true);
 
    
 
@@ -150,10 +150,11 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
     std::string topic;
     std::string secondary_topic;
 
-    for (SensorList::iterator it = active_sensors.begin(); it != active_sensors.end(); ++it) {
+
+    for (SensorList::iterator it = init_sensors.begin(); it != init_sensors.end(); ++it) {
         all_sensors.insert(*it);
     }
-    for (SensorList::iterator it = init_sensors.begin(); it != init_sensors.end(); ++it) {
+    for (SensorList::iterator it = active_sensors.begin(); it != active_sensors.end(); ++it) {
         all_sensors.insert(*it);
     }
 
@@ -183,15 +184,18 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
         // is the IMU module in the list? Typically yes.
         if (it->compare("ins") == 0) {
             ins_handler_ = std::make_shared<InsHandlerROS>(this->shared_from_this());
-            if (active) {
-                front_end->addSensingModule(*ins_handler_, *it, roll_forward, publish_head, topic, subscribe);
-            }
             if (init) {
                 front_end->addInitModule(*ins_handler_, *it, topic, subscribe);
+            }
+            if (active) {
+                front_end->addSensingModule(*ins_handler_, *it, roll_forward, publish_head, topic, subscribe);
             }
         }
         // is the leg odometry module in the list?
         if(it->compare("legodo") == 0) {
+            if(init){
+                front_end->addInitModule(*legodo_handler, *it, topic, subscribe);
+            }
             if(active){
                 front_end->addSensingModule(*legodo_handler, *it, roll_forward, publish_head, topic, subscribe);
                 // if secondary topic is provided, and the second message is not dummy,
@@ -214,17 +218,14 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
                     RCLCPP_WARN_STREAM(this->get_logger(), "Legodo not subscribing to secondary topic: Dummy message check: " << is_dummy_msg<ContactStateMsgT>::value);
                 }
             }
-            if(init){
-                front_end->addInitModule(*legodo_handler, *it, topic, subscribe);
-            }
         }
         if(it->compare("pose_meas") == 0){
+            if(init){
+                front_end->addInitModule(*pose_handler_, *it, topic, subscribe);
+            }
             pose_handler_ = std::make_shared<PoseHandlerROS>(this->shared_from_this());
             if(active){
                 front_end->addSensingModule(*pose_handler_, *it, roll_forward, publish_head, topic, subscribe);
-            }
-            if(init){
-                front_end->addInitModule(*pose_handler_, *it, topic, subscribe);
             }
         }
 

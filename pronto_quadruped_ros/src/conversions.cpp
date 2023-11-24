@@ -31,6 +31,7 @@ bool jointStateFromROS(const sensor_msgs::msg::JointState& msg,
 
     // store message time in microseconds
     utime = msg.header.stamp.nanosec / 1000;
+    utime += msg.header.stamp.sec * std::pow(10, 6);
     for(int i=0; i<12; i++){
 
       // joint states are not in order, we need to sort them
@@ -82,6 +83,7 @@ bool jointStateWithAccelerationFromROS(const pronto_msgs::msg::JointStateWithAcc
 
     // store message time in microseconds
     utime = msg.header.stamp.nanosec / 1000;
+    utime += msg.header.stamp.sec * std::pow(10, 6);
     for(int i=0; i<12; i++){
 
       // joint states are not in order, we need to sort them

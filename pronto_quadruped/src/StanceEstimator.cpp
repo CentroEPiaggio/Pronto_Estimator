@@ -191,27 +191,26 @@ bool StanceEstimator::getStance(LegBoolMap &stance,
     if(!getGRF(grf_)){
         return false;
     }
-    // TODO: replace Y with Z and check why they're switched
-
+   
     // get the Ground Reaction Forces at the feet, expressed in the base frame
     for(int leg_id  = 0; leg_id < _LEGS_COUNT; leg_id++) {
-        grForceDelta[leg_id] = -grf_[leg_id](Y);
+        grForceDelta[leg_id] = -grf_[leg_id](Z);
 
-        grForceDelta[leg_id] += grf_[leg_id](Y);
+        grForceDelta[leg_id] += grf_[leg_id](Z);
         grForce_W[leg_id] = grf_[leg_id]; // FIXME retrieve orientation
 
         switch(mode_) {
         case Mode::THRESHOLD:
-            stance[leg_id] = grf_[leg_id](Y) > force_threshold_ ? true : false;
+            stance[leg_id] = grf_[leg_id](Z) > force_threshold_ ? true : false;
             stance_probability[leg_id] = stance[leg_id];
             break;
         case Mode::HYSTERESIS:
-            force_triggers_[leg_id].updateState(nsec_, grf_[leg_id](Y));
+            force_triggers_[leg_id].updateState(nsec_, grf_[leg_id](Z));
             stance[leg_id] = force_triggers_[leg_id].getState();
             stance_probability[leg_id] = stance[leg_id];
             break;
         case Mode::REGRESSION:
-            stance_probability[leg_id] = 1.0 - 1.0 / (1.0 + exp(-(beta_[0 + leg_id * 2] + grf_[leg_id](Y) * beta_[1 + leg_id * 2])));
+            stance_probability[leg_id] = 1.0 - 1.0 / (1.0 + exp(-(beta_[0 + leg_id * 2] + grf_[leg_id](Z) * beta_[1 + leg_id * 2])));
             stance[leg_id] = (stance_probability[leg_id] > 0.5 ? true : false);
             break;
         }
@@ -224,7 +223,7 @@ void StanceEstimator::setMode(const Mode &mode) {
 }
 
 void StanceEstimator::getNormalizedGRF(Eigen::Vector4d &normgrf) {
-    normgrf << grf_[0](Y), grf_[1](Y), grf_[2](Y), grf_[3](Y);
+    normgrf << grf_[0](Z), grf_[1](Z), grf_[2](Z), grf_[3](Z);
     double max = normgrf.maxCoeff();
     if(max > 200) {
         normgrf /= max;

@@ -163,7 +163,12 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
 
             // Publish GRF in locally-aligned (foot) frame (for visualization)
             // TODO: Fix the upstream API to not require a cast
-            Eigen::Matrix3d R = reinterpret_cast<LegOdometer*>(&leg_odometer_)->getForwardKinematics().getFootOrientation(q_, LegID(i));
+
+            // changing JointState q_ with JointStatePinocchio qP
+            qP.head<3>() << Eigen::Vector3d::Zero();
+            qP.block<4,1>(3,0) = orientation_.coeffs();
+            qP.block<12,1>(7,0) = q_;
+            Eigen::Matrix3d R = reinterpret_cast<LegOdometer*>(&leg_odometer_)->getForwardKinematics().getFootOrientation(qP, LegID(i));
             Eigen::Vector3d grf_in_foot_frame = R.transpose() * grf[LegID(i)];
             wrench_msg_.header.frame_id = foot_names_[i];
             wrench_msg_.wrench.force.x = grf_in_foot_frame.x();
@@ -228,8 +233,8 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
 
     // NB: All required variables are updated in their respective processMessage() methods
     if (leg_odometer_.estimateVelocity(utime_,
-                                       q_,
-                                       qd_,
+                                       qP,
+                                       qdP,
                                        omega_,
                                        stance_,
                                        stance_prob_,
