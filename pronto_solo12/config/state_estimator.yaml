@@ -82,7 +82,7 @@ pronto_estimator:
       legodo_mode : 1 # STATIC_SIGMA 0x00, VAR_SIGMA 0x01, IMPACT_SIGMA 0x02, WEIGHTED_AVG 0x04, ALPHA_FILTER : 0x08, KALMAN_FILTER : 0x10
       
       stance_mode : 0 # 0 : THRESHOLD, 1 : HYSTERESIS, 2 : REGRESSION
-      stance_threshold : 82.0 # threshold of GRF[z] to trigger the stance phase
+      stance_threshold : 1.20 # threshold of GRF[z] to trigger the stance phase
       
       stance_hysteresis_low : 10.0 # hysteresis low threshold
       stance_hysteresis_high : 60.0 # hysteresis high threshold
