@@ -151,8 +151,8 @@ void LegOdometer::getFeetPositions(LegVectorMap &jd) {
 }
 
 bool LegOdometer::estimateVelocity(const uint64_t utime,
-                                   const JointState &q,
-                                   const JointState &qd,
+                                   const JointStatePinocchio &q,
+                                   const JointVelocityPinocchio &qd,
                                    const Vector3d &omega,
                                    const LegBoolMap &stance_legs,
                                    const LegScalarMap &stance_prob,
@@ -161,11 +161,13 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
 {
     vel_cov_ = initial_vel_cov_;
 
+    int first_leg = 6; // starting point actual joint states
+
     // Recording foot position and base velocity from legs
     foot_pos_ = forward_kinematics_.getFeetPos(q);
     for(int leg = LF; leg <= RH; leg++){
         base_vel_leg_[LegID(leg)] = - feet_jacobians_.getFootJacobian(q, LegID(leg))
-                            * qd.block<3,1>(leg * 3, 0)
+                            * qd.block<3,1>(first_leg + leg * 3, 0)
                             - omega.cross(foot_pos_[LegID(leg)]);
     }
 
@@ -327,6 +329,18 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
     return true;
 }
 
+bool LegOdometer::estimateVelocity(const uint64_t utime,
+                          const JointState& q,
+                          const JointState& qd,
+                          const Vector3d& omega,
+                          const LegBoolMap& stance_legs,
+                          const LegScalarMap& stance_prob,
+                          Vector3d& velocity,
+                          Matrix3d& covariance)
+{
+    std::cerr << "ERROR CHECK: Program entered wrong \"estimateVelocity\" function" << std::endl;
+    return false;    
+}
 LegVectorMap LegOdometer::getFootPos() {
     return foot_pos_;
 }

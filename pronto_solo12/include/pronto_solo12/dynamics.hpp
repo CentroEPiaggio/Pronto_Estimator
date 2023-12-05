@@ -13,29 +13,26 @@ namespace solo{
 
 class Dynamics{
 public:
-    typedef pronto::quadruped::JointState JointState;
+    // typedef pronto::quadruped::JointState JointState;
+    typedef Eigen::Matrix<double, 19, 1> JointStatePinocchio;
+    typedef Eigen::Matrix<double, 18, 1> JointVelocityPinocchio;
     typedef pronto::quadruped::LegID LegID;
     typedef pronto::quadruped::Vector3d Vector3d; 
 
-    Dynamics(pinocchio::Model & model, 
-                                pinocchio::Data & data) :
-            model_(model), data_(data)
-    {
-        prev_q.setZero();
-    }
+    Dynamics(pinocchio::Model & model, pinocchio::Data & data);
 
     virtual ~Dynamics() {};
 
-    void computeDynamics(const JointState& q, const JointState& qd);
-    void computeInertiaMatrix(const JointState& q);
-    Eigen::Matrix3d getInertiaMatrix(const JointState& q, const LegID& leg);
-    Vector3d getNonLinear(const JointState& q, const JointState& qd, const LegID& leg);  
+    void updateDynamics(const JointStatePinocchio& q, const JointVelocityPinocchio& qd, const JointVelocityPinocchio& qdd);
+    Eigen::Matrix3d getInertiaMatrix(const JointStatePinocchio& q, const JointVelocityPinocchio& qd, const JointVelocityPinocchio& qdd, const LegID& leg);
+    Vector3d getNonLinear(const JointStatePinocchio& q, const JointVelocityPinocchio& qd, const JointVelocityPinocchio& qdd, const LegID& leg);  
+    Vector3d getRNEA(const JointStatePinocchio& q, const JointVelocityPinocchio& qd, const JointVelocityPinocchio& qdd, const LegID& leg);
 
 
 private:
     pinocchio::Model model_;
     pinocchio::Data data_;
-    JointState prev_q;
+    JointStatePinocchio prev_q;
 
 };
 
