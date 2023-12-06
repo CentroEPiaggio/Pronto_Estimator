@@ -5,6 +5,8 @@
 
 namespace pronto {
 
+#define DEBUG_MODE 0
+
 typedef Eigen::Vector3d Position;
 typedef Eigen::Quaterniond Orientation;
 typedef Eigen::Vector3d LinearVelocity;

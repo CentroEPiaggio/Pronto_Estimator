@@ -10,8 +10,8 @@ def generate_launch_description():
 
     package_path = get_package_share_path("pronto_solo12")
     config_path = os.path.join(package_path, "config","state_estimator.yaml")
-    
-
+    rviz_config_path = get_package_share_path("pronto_solo12")
+    rviz_config_path = os.path.join(rviz_config_path, "rviz/pronto2.rviz")
 
     return LaunchDescription([
 
@@ -24,6 +24,14 @@ def generate_launch_description():
             parameters=[config_path], 
             # prefix=['gdbserver localhost:3000'], # debug option
             output='screen'
+        ),
+
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz',
+            output= 'screen',
+            arguments=['-d',rviz_config_path],
         ),
 
         # # Converts TSIF Pose messages into TF

@@ -8,7 +8,7 @@ pronto_estimator:
     publish_filter_state : true
     publish_pose : true
     publish_tf : true
-    tf_child_frame_id : "base_pronto"
+    tf_child_frame_id : "base_link"
     init_sensors : [ins] 
     active_sensors : [ins, legodo, bias_lock]
     republish_sensors : false
@@ -29,7 +29,7 @@ pronto_estimator:
     x0 :
       velocity : [ 0.0, 0.0, 0.0 ]
       angular_velocity : [ 0.0, 0.0, 0.0 ]
-      position : [ 0.0, 0.0, 0.0 ]
+      position : [ 0.0, 0.0, 0.25 ]
       rpy : [ 0.0, 0.0, 0.0 ]
 
     init_message :
@@ -52,7 +52,7 @@ pronto_estimator:
       q_accel_bias : 0.001 # m / sec^2 / sec | 0.001 suggested by charlie and worked well on logs
 
       # number of samples for the bias estimation
-      num_to_init : 500 
+      num_to_init : 100 
       
       accel_bias_initial : [0.0, 0.0, 0.0] 
       accel_bias_recalc_at_start : true

@@ -72,21 +72,6 @@ protected:
     std::shared_ptr<quadruped::LegodoHandlerROS> legodo_handler;
     std::shared_ptr<quadruped::ImuBiasLockROS> bias_lock_handler;
     std::shared_ptr<ROSFrontEnd> front_end;
-
-    // quadruped::StanceEstimatorROS stance_estimator;
-    // quadruped::LegOdometerROS leg_odometer;
-    // std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator;
-    // std::shared_ptr<quadruped::LegOdometerROS> leg_odometer;
-    // // quadruped::ImuBiasLockROS imu_bias_lock;
-
-
-    // quadruped::LegodoHandlerROS legodo_handler;
-    // quadruped::ImuBiasLockROS bias_lock_handler;
-    // ROSFrontEnd front_end;
-    // // SensingModule<JointStateMsgT>& legodo_handler;
-    // std::shared_ptr<quadruped::LegodoHandlerROS> legodo_handler;
-    // std::shared_ptr<quadruped::ImuBiasLockROS> bias_lock_handler;
-    // std::shared_ptr<ROSFrontEnd> front_end;   
 };
 
 template <class JointStateMsgT, class ContactStateMsgT> 
@@ -94,9 +79,7 @@ ProntoNode<JointStateMsgT, ContactStateMsgT>::ProntoNode() :
     
     Node("pronto_estimator")
     {
-
-    RCLCPP_INFO(this->get_logger(), "Constructor begins here"); // print for debug
-          
+       
     params_declaration(); // declares alla the parameters defined in YAML file
 
     // get the list of active and init sensors from the param server
@@ -112,8 +95,6 @@ ProntoNode<JointStateMsgT, ContactStateMsgT>::ProntoNode() :
     if (!this->get_parameter("publish_pose", publish_pose)) {
         RCLCPP_WARN(this->get_logger(), "Not able to get publish_pose param. Not publishing pose.");
     }
-
-    RCLCPP_INFO(this->get_logger(), "Constructor ends here"); // print for debug
 }
 
 template <class JointStateMsgT, class ContactStateMsgT>
@@ -128,15 +109,7 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
     leg_odometer = std::make_shared<quadruped::LegOdometerROS>(shared_from_this(), feet_jacs, fwd_kin);
     legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(shared_from_this(), *stance_estimator, *leg_odometer);
     bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this());
-    front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), true);
-
-   
-
-        // stance_estimator = std::make_shared<quadruped::StanceEstimatorROS>(this->shared_from_this(), feet_forces);
-        // leg_odometer = std::make_shared<quadruped::LegOdometerROS>(this->shared_from_this(), feet_jacs, fwd_kin);
-        // legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(this->shared_from_this(), stance_estimator, leg_odometer);
-        // bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(this->shared_from_this());
-        // front_end = std::make_shared<ROSFrontEnd>(this->shared_from_this());
+    front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), false);
 
     // parameters:
     // is the module used for init?
@@ -241,31 +214,10 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
           }
         }
 
-        // if(it->compare("scan_matcher") == 0 ){
-        //   bool use_relative_pose = true;
-        //   this->get_parameter(*it + "/relative_pose", use_relative_pose);
-        //   RCLCPP_WARN_STREAM(this->get_logger(),"Scan matcher will use " << (use_relative_pose ? "relative " : "absolute ") << "pose");
 
-        //   if(use_relative_pose){
-        //     sm_handler_ = std::make_shared<LidarOdometryHandlerROS>(this->shared_from_this());
-        //     if(active){
-        //         front_end->addSensingModule(*sm_handler_, *it, roll_forward, publish_head, topic, subscribe);
-        //     }
-        //     if(init){
-        //         front_end->addInitModule(*sm_handler_, *it, topic, subscribe);
-        //     }
-        //   } else {
-        //     sm2_handler_ = std::make_shared<ScanMatcherHandler>(this->shared_from_this());
-        //     if(active){
-        //         front_end->addSensingModule(*sm2_handler_, *it, roll_forward, publish_head, topic, subscribe);
-        //     }
-        //     if(init){
-        //         front_end->addInitModule(*sm2_handler_, *it, topic, subscribe);
-        //     }
-        //   }
-        // }
-
-        // TODO: add vicon and fovis
+        // =========================================================================================
+        //                                  TODO: add vicon and fovis
+        // =========================================================================================
     }
 
     RCLCPP_INFO(this->get_logger(), "Node initialized"); // print for debug
@@ -277,16 +229,16 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::run(solo::ForwardKinematics& 
                                                         solo::FeetContactForces& feet_forces) 
 {
     init(fwd_kin, feet_jacs, feet_forces, true);
-    if (!this->get_node_base_interface() || !this->get_node_timers_interface()) {
-        RCLCPP_ERROR(get_logger(), "Errore durante la creazione del nodo.");
-    }
-    else if(!this->get_node_topics_interface()){
-        RCLCPP_ERROR(this->get_logger(), "Errore nella creazione dei topic.");
-    }
-    else{
-        auto info = this->get_subscriptions_info_by_topic("/joint_states");
-        RCLCPP_INFO_STREAM(this->get_logger(), "Funziona.");
-    }
+    // if (!this->get_node_base_interface() || !this->get_node_timers_interface()) {
+    //     RCLCPP_ERROR(get_logger(), "Errore durante la creazione del nodo.");
+    // }
+    // else if(!this->get_node_topics_interface()){
+    //     RCLCPP_ERROR(this->get_logger(), "Errore nella creazione dei topic.");
+    // }
+    // else{
+    //     auto info = this->get_subscriptions_info_by_topic("/joint_states");
+    //     RCLCPP_INFO_STREAM(this->get_logger(), "Funziona.");
+    // }
     rclcpp::spin(this->shared_from_this());
     rclcpp::shutdown();
 }
@@ -297,7 +249,8 @@ template <class JointStateMsgT, class ContactStateMsgT>
 void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
 {
     try{
-        // these are critical parameters, if not declared properly the code won't work        
+        // EVERY PARAMETER HAS TO BE SET: in case one parameter has not been declared properly the program stops
+
         this->declare_parameter("pose_topic", std::string());
         this->declare_parameter("pose_frame_id", std::string());
         this->declare_parameter("twist_topic", std::string());
@@ -315,37 +268,22 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("debug_mode", bool());
         this->declare_parameter("joint_names", std::vector<std::string>());
 
-        this->declare_parameter("init_message.channel", std::string());
-        this->declare_parameter("ins.topic", std::string());
-        this->declare_parameter("ins.frame", std::string());
-
-        this->declare_parameter("legodo.topic", rclcpp::PARAMETER_STRING);
-
-        this->declare_parameter("bias_lock.topic", std::string());
-        this->declare_parameter("bias_lock.secondary_topic", std::string());
-    
-    } catch(const rclcpp::exceptions::InvalidParameterTypeException & ex) {
-        RCLCPP_ERROR(this->get_logger(), "Error in critical params declaration: %s", ex.what());
-        RCLCPP_ERROR(this->get_logger(), "Shutting down...");
-        rclcpp::shutdown();
-    }
-
-    try{
-        // in case one parameter is not set the program stops
-        // EVERY PARAMETER HAS TO BE SET
-        this->declare_parameter("sigma0.vb", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.chi_xy", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.chi_z", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.Delta_xy", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.Delta_z", rclcpp::PARAMETER_DOUBLE);        
-        this->declare_parameter("sigma0.gyro_bias", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.accel_bias", rclcpp::PARAMETER_DOUBLE);
+        this->declare_parameter("sigma0.vb", double());
+        this->declare_parameter("sigma0.chi_xy", double());
+        this->declare_parameter("sigma0.chi_z", double());
+        this->declare_parameter("sigma0.Delta_xy", double());
+        this->declare_parameter("sigma0.Delta_z", double());        
+        this->declare_parameter("sigma0.gyro_bias", double());
+        this->declare_parameter("sigma0.accel_bias", double());
 
         this->declare_parameter("x0.velocity", std::vector<double>());
         this->declare_parameter("x0.angular_velocity", std::vector<double>());
         this->declare_parameter("x0.position", std::vector<double>());
         this->declare_parameter("x0.rpy", std::vector<double>());
 
+        this->declare_parameter("init_message.channel", std::string());
+
+        this->declare_parameter("ins.topic", std::string());
         this->declare_parameter("ins.utime_offset", int());
         this->declare_parameter("ins.downsample_factor", int());
         this->declare_parameter("ins.roll_forward_on_receive", bool());
@@ -359,12 +297,14 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("ins.accel_bias_initial", std::vector<double>());
         this->declare_parameter("ins.accel_bias_recalc_at_start", bool());
         this->declare_parameter("ins.accel_bias_update_online", bool());
+        this->declare_parameter("ins.frame", std::string());
         this->declare_parameter("ins.gyro_bias_initial", std::vector<double>());
         this->declare_parameter("ins.gyro_bias_recalc_at_start", bool());
         this->declare_parameter("ins.gyro_bias_update_online", bool());
         this->declare_parameter("ins.timestep_dt", double());
         this->declare_parameter("ins.max_initial_gyro_bias", double());
 
+        this->declare_parameter("legodo.topic", std::string());
         this->declare_parameter("legodo.publish_debug_topics", bool());
         this->declare_parameter("legodo.time_offset", double());
         this->declare_parameter("legodo.verbose", bool());
@@ -394,6 +334,8 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("pose_meas.roll_forward_on_receive", bool());
         this->declare_parameter("pose_meas.publish_head_on_message", bool());
 
+        this->declare_parameter("bias_lock.topic", std::string());
+        this->declare_parameter("bias_lock.secondary_topic", std::string());
         this->declare_parameter("bias_lock.torque_threshold", double());
         this->declare_parameter("bias_lock.velocity_threshold", double());
         this->declare_parameter("bias_lock.roll_forward_on_receive", bool());
@@ -401,7 +343,7 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("bias_lock.utime_offset", int());
 
     } catch(const rclcpp::exceptions::InvalidParameterTypeException & ex) {
-        RCLCPP_ERROR(this->get_logger(), "Error in non critical params declaration: %s", ex.what());
+        RCLCPP_ERROR(this->get_logger(), "Error in params declaration: %s", ex.what());
         RCLCPP_INFO(this->get_logger(), "Shutting down...");
         rclcpp::shutdown();
     }

@@ -172,7 +172,6 @@ ROSFrontEnd::~ROSFrontEnd()
 
 bool ROSFrontEnd::initializeFilter()
 {
-    RCLCPP_INFO(nh_->get_logger(), "Entra in ROSFrontend::initializeFilter");
     // if the modules are not ready we return false
     if(!areModulesInitialized())
     {
