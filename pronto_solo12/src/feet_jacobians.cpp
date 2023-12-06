@@ -36,22 +36,18 @@ namespace solo{
             {
                 case pronto::quadruped::LF:
                     leg_id = model_.getFrameId("LF_FOOT");
-                    pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::LOCAL, J);
                     break;
                     
                 case pronto::quadruped::RF:
                     leg_id = model_.getFrameId("RF_FOOT");
-                    pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::LOCAL, J);
-                    // break;
+                    break;
                     
                 case pronto::quadruped::LH:
                     leg_id = model_.getFrameId("LH_FOOT");
-                    pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::LOCAL, J);
                     break;
                     
                 case pronto::quadruped::RH:
                     leg_id = model_.getFrameId("RH_FOOT");
-                    pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::LOCAL, J);
                     break;
 
                 default:
@@ -59,10 +55,11 @@ namespace solo{
                         << "ERROR: legID not recognized. Returning zero."
                         << std::endl;   
                     J.setZero();
-                    break;
-                    
+
+                    return J;                    
             }
 
+            pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::LOCAL_WORLD_ALIGNED, J);
             return J;
 
         }
@@ -71,6 +68,9 @@ namespace solo{
     {
         J = ComputeJacobian(q, leg);
 
+        // std::cerr << "Leg: " << leg << std::endl;
+        // std::cerr << "Jacobiano Completo: " << std::endl;
+        // std::cerr << J << std::endl;
         
         return J.block<3,3>(0, 6 + leg*3);
     }
@@ -109,22 +109,18 @@ namespace solo{
         {
             case pronto::quadruped::LF:
                 leg_id = model_.getFrameId("LF_FOOT");
-                T = data_.oMf[leg_id];
                 break;
                 
             case pronto::quadruped::RF:
                 leg_id = model_.getFrameId("RF_FOOT");
-                T = data_.oMf[leg_id];
                 break;
                 
             case pronto::quadruped::LH:
                 leg_id = model_.getFrameId("LH_FOOT");
-                T = data_.oMf[leg_id];
                 break;
                 
             case pronto::quadruped::RH:
                 leg_id = model_.getFrameId("RH_FOOT");
-                T = data_.oMf[leg_id];
                 break;
 
             default:
@@ -132,9 +128,11 @@ namespace solo{
                   << "ERROR: legID not recognized. Returning identity."
                   << std::endl;       
                 T.setIdentity();
-                break;
+
+                return T.translation();
         }
 
+        T = data_.oMf[leg_id];
         return T.translation();        
     }
 
@@ -150,22 +148,18 @@ namespace solo{
         {
             case pronto::quadruped::LF:
                 leg_id = model_.getFrameId("LF_FOOT");
-                T = data_.oMf[leg_id];
                 break;
                 
             case pronto::quadruped::RF:
                 leg_id = model_.getFrameId("RF_FOOT");
-                T = data_.oMf[leg_id];
                 break;
                 
             case pronto::quadruped::LH:
                 leg_id = model_.getFrameId("LH_FOOT");
-                T = data_.oMf[leg_id];
                 break;
                 
             case pronto::quadruped::RH:
                 leg_id = model_.getFrameId("RH_FOOT");
-                T = data_.oMf[leg_id];
                 break;
 
             default:
@@ -173,9 +167,11 @@ namespace solo{
                   << "ERROR: legID not recognized. Returning identity."
                   << std::endl; 
                 T.setIdentity();   
-                break;    
+
+                return T.rotation();    
         }
 
+        T = data_.oMf[leg_id];
         return T.rotation();  // TODO: check how rotation is defined      
     }
 }
