@@ -191,11 +191,11 @@ void ROSFrontEnd::addInitModule(SensingModule<MsgT> &module,
     // add the sensor to the list of sensor that require initialization
     std::pair<SensorId, bool> init_id_pair(sensor_id, false);
     initialized_list_.insert(init_id_pair);
+
     // store the module as void*, to allow for different types of module to stay
     // in the same container. The type will be known when the message arrives
     // so we can properly cast back to the right type.
 
-    // std::pair<SensorId, void*> pair(sensor_id, (void*)&module);
     std::pair<SensorId, void *> pair(sensor_id, reinterpret_cast<void *> (&module));
 
     init_modules_.insert(pair);
@@ -253,25 +253,6 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT> &module,
             [this, sensor_id](typename MsgT::SharedPtr msg) {
                 this->callback<MsgT>(std::move(msg), sensor_id);
             });
-        // subscription_ = nh_->create_subscription<MsgT>(
-        //     topic, 
-        //     5, 
-        //     [this, sensor_id](std::shared_ptr<MsgT const> msg) {
-        //         callback(msg, sensor_id);
-        //     }
-        // );
-
-
-        // subscription_ = nh_->create_subscription<MsgT>(
-        //     topic, 
-        //     5, 
-        //     std::bind(&ROSFrontEnd::callback<MsgT>, this, std::placeholders::_1, sensor_id)
-        // );
-
-
-        // RCLCPP_INFO_STREAM(nh_->get_logger(), "Subscription: " << subscription_->get_topic_name());
-        // RCLCPP_INFO_STREAM(nh_->get_logger(), "Validità: " << subscription_->get_subscription_handle());
-
     }
 }
 
@@ -283,7 +264,7 @@ void ROSFrontEnd::initCallback(std::shared_ptr<const MsgT> msg, const SensorId& 
     if(verbose_){
         RCLCPP_INFO_STREAM(nh_->get_logger(), "Init callback for sensor " << sensor_id);
     }
-    // TODO: check why "initialized_list_.count(sensor_id) > 0 && !initialized_list_[sensor_id]" returns memory error
+    
     if(initialized_list_.count(sensor_id) > 0 && !initialized_list_[sensor_id])
     {
         initialized_list_[sensor_id] = static_cast<SensingModule<MsgT>*>(init_modules_[sensor_id])->processMessageInit(
@@ -465,11 +446,13 @@ void ROSFrontEnd::callback(std::shared_ptr<MsgT const> msg, const SensorId& sens
 
         RCLCPP_INFO_STREAM(nh_->get_logger(), "Time elapsed till the end: " << std::chrono::duration_cast<std::chrono::microseconds>(end -start).count());
         std::cout << std::endl;
-#endif
+
     }
     else{
         RCLCPP_INFO(nh_->get_logger(), "FILTER IS NOT INITIALIZED");
+#endif
     }
+
 }
 
 template <class PrimaryMsgT, class SecondaryMsgT>
