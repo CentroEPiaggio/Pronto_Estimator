@@ -1,12 +1,12 @@
-#include <pronto_solo12/feet_contact_forces.hpp>
+#include <pronto_estimator_quadruped/feet_contact_forces.hpp>
 #include <pronto_quadruped_commons/geometry/rotations.h>
 #include <pronto_quadruped_commons/joint_id_tricks.h>
-#include "pronto_solo12/feet_contact_forces.hpp"
+#include "pronto_estimator_quadruped/feet_contact_forces.hpp"
 
 using namespace iit;  //rbd library
 
 namespace pronto {
-namespace solo{
+namespace estimator_quad{
     
     bool FeetContactForces::getFootGRF(const JointState &q,
                                         const JointState &qd,
@@ -33,10 +33,6 @@ namespace solo{
 
         base_acceleration.segment(rbd::LX, 3) = xdd; //this is the absolute accel of the trunk without the gravity!!!
         base_acceleration.segment(rbd::AX, 3) = omegad;
-
-        // std::cerr << "xdd = " << xdd.transpose() << std::endl;
-        // std::cerr << "gravity = " << gravity_base.segment(rbd::LX, 3).transpose() << std::endl;
-
 
         base_twist.segment(rbd::AX, 3) = omega;
         base_twist.segment(rbd::LX, 3) = xd;
@@ -72,21 +68,26 @@ namespace solo{
         Eigen::Matrix3d inv_jac = (foot_jacobian.transpose()).inverse();
 
         foot_grf = - inv_jac * (tau_leg - tau_dyn_leg);
-        
+
+        #if DEBUG_MODE    
         if(!foot_grf.allFinite()){
             std::cerr << "ERROR: For leg " << leg << " grf is " << foot_grf;
         }
         else{
             std::cerr << "\n \n";
             std::cerr << "INFO: For leg " << leg << std::endl;
+            // std::cerr << "xdd = " << xdd.transpose() << std::endl;
+            // std::cerr << "gravity = " << gravity_base.segment(rbd::LX, 3).transpose() << std::endl;
             std::cerr << "M_leg: " << std::endl << M_leg << std::endl;
             std::cerr << "tau_dyn_leg: " << tau_dyn_leg.transpose() << std::endl;
             std::cerr << "c_leg: " << c_leg.transpose() << std::endl;
+            std::cerr << "Jacobian: " << foot_jacobian << std::endl;
             std::cerr << "inv_jac: " << std::endl << inv_jac << std::endl;
             std::cerr << "foot_grf: " << foot_grf.transpose() << std::endl;
         }
+        #endif
 
         return foot_grf.allFinite();
 }
-}  // namespace solo
+}  // namespace estimator_quad
 }  // namespace pronto

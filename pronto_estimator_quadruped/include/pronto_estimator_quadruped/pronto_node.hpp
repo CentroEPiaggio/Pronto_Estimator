@@ -14,14 +14,18 @@
 #include "pronto_quadruped_ros/bias_lock_handler_ros.hpp"
 #include "pronto_quadruped_ros/legodo_handler_ros.hpp"
 
-#include "pronto_solo12/feet_jacobians.hpp"
-#include "pronto_solo12/feet_contact_forces.hpp"
-#include "pronto_solo12/forward_kinematics.hpp"
+#include "pronto_estimator_quadruped/feet_contact_forces.hpp"
+#include "pronto_estimator_quadruped/feet_jacobians.hpp"
+#include "pronto_estimator_quadruped/forward_kinematics.hpp"
+#include "pronto_estimator_quadruped/dynamics.hpp"
+
+#include <pinocchio/parsers/urdf.hpp>
+#include <pinocchio/algorithm/kinematics.hpp>
 
 
 // TODO: add visual odometry
 namespace pronto {
-namespace solo{
+namespace estimator_quad{
 
 template <class MsgT>
 struct is_dummy_msg {
@@ -46,14 +50,9 @@ public:
 
     void params_declaration();
 
-    void init(solo::ForwardKinematics& fwd_kin,
-                    solo::FeetJacobians& feet_jacs,
-                    solo::FeetContactForces& feet_forces,
-                    bool subscribe = true);
+    void init(bool subscribe = true);
 
-    void run(solo::ForwardKinematics& fwd_kin,
-                        solo::FeetJacobians& feet_jacs,
-                        solo::FeetContactForces& feet_forces);
+    void run();
 
 protected:
 
@@ -64,29 +63,19 @@ protected:
     // pointers to the modules we might want to initialize
     std::shared_ptr<InsHandlerROS> ins_handler_;
     std::shared_ptr<PoseHandlerROS> pose_handler_;
-    std::shared_ptr<ScanMatcherHandler> sm2_handler_;
 
-    // quadruped added here
+    // quadruped classes
     std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator;
     std::shared_ptr<quadruped::LegOdometerROS> leg_odometer;
     std::shared_ptr<quadruped::LegodoHandlerROS> legodo_handler;
     std::shared_ptr<quadruped::ImuBiasLockROS> bias_lock_handler;
     std::shared_ptr<ROSFrontEnd> front_end;
 
-    // quadruped::StanceEstimatorROS stance_estimator;
-    // quadruped::LegOdometerROS leg_odometer;
-    // std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator;
-    // std::shared_ptr<quadruped::LegOdometerROS> leg_odometer;
-    // // quadruped::ImuBiasLockROS imu_bias_lock;
-
-
-    // quadruped::LegodoHandlerROS legodo_handler;
-    // quadruped::ImuBiasLockROS bias_lock_handler;
-    // ROSFrontEnd front_end;
-    // // SensingModule<JointStateMsgT>& legodo_handler;
-    // std::shared_ptr<quadruped::LegodoHandlerROS> legodo_handler;
-    // std::shared_ptr<quadruped::ImuBiasLockROS> bias_lock_handler;
-    // std::shared_ptr<ROSFrontEnd> front_end;   
+    // Pinocchio classes
+    std::shared_ptr<pronto::estimator_quad::FeetJacobians> feet_jacs;
+    std::shared_ptr<pronto::estimator_quad::ForwardKinematics> fwd_kin;
+    std::shared_ptr<pronto::estimator_quad::Dynamics> dynamics;
+    std::shared_ptr<pronto::estimator_quad::FeetContactForces> feet_forces;
 };
 
 template <class JointStateMsgT, class ContactStateMsgT> 
@@ -94,9 +83,7 @@ ProntoNode<JointStateMsgT, ContactStateMsgT>::ProntoNode() :
     
     Node("pronto_estimator")
     {
-
-    RCLCPP_INFO(this->get_logger(), "Constructor begins here"); // print for debug
-          
+       
     params_declaration(); // declares alla the parameters defined in YAML file
 
     // get the list of active and init sensors from the param server
@@ -112,32 +99,13 @@ ProntoNode<JointStateMsgT, ContactStateMsgT>::ProntoNode() :
     if (!this->get_parameter("publish_pose", publish_pose)) {
         RCLCPP_WARN(this->get_logger(), "Not able to get publish_pose param. Not publishing pose.");
     }
-
-    RCLCPP_INFO(this->get_logger(), "Constructor ends here"); // print for debug
 }
 
 template <class JointStateMsgT, class ContactStateMsgT>
-void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics& fwd_kin,
-                                                        solo::FeetJacobians& feet_jacs,
-                                                        solo::FeetContactForces& feet_forces,
-                                                        bool subscribe) {
+void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(bool subscribe) {
 
     RCLCPP_INFO(this->get_logger(), "Initialization begins");
-
-    stance_estimator = std::make_shared<quadruped::StanceEstimatorROS>(shared_from_this(), feet_forces);
-    leg_odometer = std::make_shared<quadruped::LegOdometerROS>(shared_from_this(), feet_jacs, fwd_kin);
-    legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(shared_from_this(), *stance_estimator, *leg_odometer);
-    bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this());
-    front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), true);
-
-   
-
-        // stance_estimator = std::make_shared<quadruped::StanceEstimatorROS>(this->shared_from_this(), feet_forces);
-        // leg_odometer = std::make_shared<quadruped::LegOdometerROS>(this->shared_from_this(), feet_jacs, fwd_kin);
-        // legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(this->shared_from_this(), stance_estimator, leg_odometer);
-        // bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(this->shared_from_this());
-        // front_end = std::make_shared<ROSFrontEnd>(this->shared_from_this());
-
+    
     // parameters:
     // is the module used for init?
     // do we need to move forward the filter once computed the update?
@@ -150,6 +118,37 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
     std::string topic;
     std::string secondary_topic;
 
+    // Pinocchio initialization
+    std::string urdf_file;
+    if(!this->get_parameter("urdf_path", urdf_file)){
+        RCLCPP_ERROR(this->get_logger(), "Robot URDF not declared. \nShutting down ...");
+        rclcpp::shutdown();
+    }
+    else{
+        RCLCPP_INFO(this->get_logger(), "URDF path is: %s", urdf_file.c_str());
+    }
+    pinocchio::Model robot_model;
+    const pinocchio::JointModelFreeFlyer root_joint;
+    pinocchio::urdf::buildModel(urdf_file, root_joint, robot_model);
+    robot_model.gravity.linear() << 0.0, 0.0, -9.81;
+    pinocchio::Data robot_data(robot_model);
+
+    std::vector<std::string> feet_names;
+    if(!this->get_parameter("feet_names", feet_names)){
+        RCLCPP_ERROR(this->get_logger(), "\"urdf_file\" not declared. Cannot process kinematics.\nShutting down ...");
+        rclcpp::shutdown();
+    }
+    feet_jacs = std::make_shared<pronto::estimator_quad::FeetJacobians>(robot_model, robot_data, feet_names);
+    fwd_kin = std::make_shared<pronto::estimator_quad::ForwardKinematics>(*feet_jacs);
+    dynamics = std::make_shared<pronto::estimator_quad::Dynamics>(robot_model, robot_data);
+    feet_forces = std::make_shared<pronto::estimator_quad::FeetContactForces>(*feet_jacs, *dynamics);
+
+    // Pronto initialization
+    stance_estimator = std::make_shared<quadruped::StanceEstimatorROS>(shared_from_this(), *feet_forces);
+    leg_odometer = std::make_shared<quadruped::LegOdometerROS>(shared_from_this(), *feet_jacs, *fwd_kin);
+    legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(shared_from_this(), *stance_estimator, *leg_odometer);
+    bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this());
+    front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), false);
 
     for (SensorList::iterator it = init_sensors.begin(); it != init_sensors.end(); ++it) {
         all_sensors.insert(*it);
@@ -241,52 +240,20 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(solo::ForwardKinematics&
           }
         }
 
-        // if(it->compare("scan_matcher") == 0 ){
-        //   bool use_relative_pose = true;
-        //   this->get_parameter(*it + "/relative_pose", use_relative_pose);
-        //   RCLCPP_WARN_STREAM(this->get_logger(),"Scan matcher will use " << (use_relative_pose ? "relative " : "absolute ") << "pose");
 
-        //   if(use_relative_pose){
-        //     sm_handler_ = std::make_shared<LidarOdometryHandlerROS>(this->shared_from_this());
-        //     if(active){
-        //         front_end->addSensingModule(*sm_handler_, *it, roll_forward, publish_head, topic, subscribe);
-        //     }
-        //     if(init){
-        //         front_end->addInitModule(*sm_handler_, *it, topic, subscribe);
-        //     }
-        //   } else {
-        //     sm2_handler_ = std::make_shared<ScanMatcherHandler>(this->shared_from_this());
-        //     if(active){
-        //         front_end->addSensingModule(*sm2_handler_, *it, roll_forward, publish_head, topic, subscribe);
-        //     }
-        //     if(init){
-        //         front_end->addInitModule(*sm2_handler_, *it, topic, subscribe);
-        //     }
-        //   }
-        // }
-
-        // TODO: add vicon and fovis
+        // =========================================================================================
+        //                                  TODO: add vicon and fovis
+        // =========================================================================================
     }
 
     RCLCPP_INFO(this->get_logger(), "Node initialized"); // print for debug
 }
 
 template <class JointStateMsgT, class ContactStateMsgT>
-void ProntoNode<JointStateMsgT, ContactStateMsgT>::run(solo::ForwardKinematics& fwd_kin,
-                                                        solo::FeetJacobians& feet_jacs,
-                                                        solo::FeetContactForces& feet_forces) 
+void ProntoNode<JointStateMsgT, ContactStateMsgT>::run() 
 {
-    init(fwd_kin, feet_jacs, feet_forces, true);
-    if (!this->get_node_base_interface() || !this->get_node_timers_interface()) {
-        RCLCPP_ERROR(get_logger(), "Errore durante la creazione del nodo.");
-    }
-    else if(!this->get_node_topics_interface()){
-        RCLCPP_ERROR(this->get_logger(), "Errore nella creazione dei topic.");
-    }
-    else{
-        auto info = this->get_subscriptions_info_by_topic("/joint_states");
-        RCLCPP_INFO_STREAM(this->get_logger(), "Funziona.");
-    }
+    init(true);
+  
     rclcpp::spin(this->shared_from_this());
     rclcpp::shutdown();
 }
@@ -297,7 +264,8 @@ template <class JointStateMsgT, class ContactStateMsgT>
 void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
 {
     try{
-        // these are critical parameters, if not declared properly the code won't work        
+        // EVERY PARAMETER HAS TO BE SET: in case one parameter has not been declared properly the program stops
+        this->declare_parameter("urdf_path", std::string());
         this->declare_parameter("pose_topic", std::string());
         this->declare_parameter("pose_frame_id", std::string());
         this->declare_parameter("twist_topic", std::string());
@@ -314,38 +282,24 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("base_link_name", std::string());
         this->declare_parameter("debug_mode", bool());
         this->declare_parameter("joint_names", std::vector<std::string>());
+        this->declare_parameter("feet_names", std::vector<std::string>());
 
-        this->declare_parameter("init_message.channel", std::string());
-        this->declare_parameter("ins.topic", std::string());
-        this->declare_parameter("ins.frame", std::string());
-
-        this->declare_parameter("legodo.topic", rclcpp::PARAMETER_STRING);
-
-        this->declare_parameter("bias_lock.topic", std::string());
-        this->declare_parameter("bias_lock.secondary_topic", std::string());
-    
-    } catch(const rclcpp::exceptions::InvalidParameterTypeException & ex) {
-        RCLCPP_ERROR(this->get_logger(), "Error in critical params declaration: %s", ex.what());
-        RCLCPP_ERROR(this->get_logger(), "Shutting down...");
-        rclcpp::shutdown();
-    }
-
-    try{
-        // in case one parameter is not set the program stops
-        // EVERY PARAMETER HAS TO BE SET
-        this->declare_parameter("sigma0.vb", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.chi_xy", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.chi_z", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.Delta_xy", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.Delta_z", rclcpp::PARAMETER_DOUBLE);        
-        this->declare_parameter("sigma0.gyro_bias", rclcpp::PARAMETER_DOUBLE);
-        this->declare_parameter("sigma0.accel_bias", rclcpp::PARAMETER_DOUBLE);
+        this->declare_parameter("sigma0.vb", double());
+        this->declare_parameter("sigma0.chi_xy", double());
+        this->declare_parameter("sigma0.chi_z", double());
+        this->declare_parameter("sigma0.Delta_xy", double());
+        this->declare_parameter("sigma0.Delta_z", double());        
+        this->declare_parameter("sigma0.gyro_bias", double());
+        this->declare_parameter("sigma0.accel_bias", double());
 
         this->declare_parameter("x0.velocity", std::vector<double>());
         this->declare_parameter("x0.angular_velocity", std::vector<double>());
         this->declare_parameter("x0.position", std::vector<double>());
         this->declare_parameter("x0.rpy", std::vector<double>());
 
+        this->declare_parameter("init_message.channel", std::string());
+
+        this->declare_parameter("ins.topic", std::string());
         this->declare_parameter("ins.utime_offset", int());
         this->declare_parameter("ins.downsample_factor", int());
         this->declare_parameter("ins.roll_forward_on_receive", bool());
@@ -359,12 +313,14 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("ins.accel_bias_initial", std::vector<double>());
         this->declare_parameter("ins.accel_bias_recalc_at_start", bool());
         this->declare_parameter("ins.accel_bias_update_online", bool());
+        this->declare_parameter("ins.frame", std::string());
         this->declare_parameter("ins.gyro_bias_initial", std::vector<double>());
         this->declare_parameter("ins.gyro_bias_recalc_at_start", bool());
         this->declare_parameter("ins.gyro_bias_update_online", bool());
         this->declare_parameter("ins.timestep_dt", double());
         this->declare_parameter("ins.max_initial_gyro_bias", double());
 
+        this->declare_parameter("legodo.topic", std::string());
         this->declare_parameter("legodo.publish_debug_topics", bool());
         this->declare_parameter("legodo.time_offset", double());
         this->declare_parameter("legodo.verbose", bool());
@@ -394,6 +350,8 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("pose_meas.roll_forward_on_receive", bool());
         this->declare_parameter("pose_meas.publish_head_on_message", bool());
 
+        this->declare_parameter("bias_lock.topic", std::string());
+        this->declare_parameter("bias_lock.secondary_topic", std::string());
         this->declare_parameter("bias_lock.torque_threshold", double());
         this->declare_parameter("bias_lock.velocity_threshold", double());
         this->declare_parameter("bias_lock.roll_forward_on_receive", bool());
@@ -401,11 +359,11 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("bias_lock.utime_offset", int());
 
     } catch(const rclcpp::exceptions::InvalidParameterTypeException & ex) {
-        RCLCPP_ERROR(this->get_logger(), "Error in non critical params declaration: %s", ex.what());
+        RCLCPP_ERROR(this->get_logger(), "Error in params declaration: %s", ex.what());
         RCLCPP_INFO(this->get_logger(), "Shutting down...");
         rclcpp::shutdown();
     }
 }
 
-} // namespace solo
+} // namespace estimator_quad
 }  // namespace pronto

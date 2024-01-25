@@ -7,7 +7,7 @@
 #include <pinocchio/algorithm/frames.hpp>
 
 namespace pronto {
-namespace solo{
+namespace estimator_quad{
 
 class FeetJacobians : public pronto::quadruped::FeetJacobians {
 public:
@@ -20,7 +20,7 @@ public:
     typedef pronto::quadruped::Vector3d Vector3d;   
     typedef pronto::quadruped::Matrix3d Matrix3d; 
 
-    FeetJacobians(pinocchio::Model & model, pinocchio::Data & data);
+    FeetJacobians(pinocchio::Model & model, pinocchio::Data & data, std::vector<std::string> feet_names);
 
     virtual ~FeetJacobians() override {};
 
@@ -40,7 +40,8 @@ public:
         
 
 private:
-    
+
+    std::vector<std::string> feet_names_;    
     pinocchio::Model model_;
     pinocchio::Data data_;
     pinocchio::FrameIndex leg_id;
@@ -52,6 +53,6 @@ private:
     
 };
 
-}  // namespace solo
+}  // namespace estimator_quad
 }  // namespace pronto 
 

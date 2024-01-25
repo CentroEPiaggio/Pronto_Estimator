@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(pronto_solo12)
+project(pronto_estimator_quadruped)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic -g)
@@ -44,7 +44,7 @@ install(
   DESTINATION include
 )
 install(
-  TARGETS pronto_solo12
+  TARGETS pronto_estimator_quadruped
   EXPORT export_${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
@@ -73,7 +73,7 @@ install(TARGETS pronto_estimator_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(
-  DIRECTORY launch config
+  DIRECTORY launch config rviz
   DESTINATION share/${PROJECT_NAME}
 )
 
