@@ -8,14 +8,15 @@ pronto_estimator:
     publish_filter_state : true
     publish_pose : true
     publish_tf : true
-    tf_child_frame_id : "base_pronto"
+    tf_child_frame_id : "base_link"
     init_sensors : [ins] 
     active_sensors : [ins, legodo, bias_lock]
     republish_sensors : false
     utime_history_span : 60000000.0
     base_link_name : "base_link"
     debug_mode : true
-    joint_names : ["LF_HAA", "LF_HFE", "LF_KFE", "RF_HAA", "RF_HFE", "RF_KFE", "LH_HAA", "LH_HFE", "LH_KFE", "RH_HAA", "RH_HFE", "RH_KFE"]
+    joint_names : ["FL_HAA", "FL_HFE", "FL_KFE", "FR_HAA", "FR_HFE", "FR_KFE", "HL_HAA", "HL_HFE", "HL_KFE", "HR_HAA", "HR_HFE", "HR_KFE"]
+    feet_names : ["FL_FOOT", "FR_FOOT", "HL_FOOT", "HR_FOOT"]
 
     sigma0 :
       vb : 0.15 # m/s
@@ -29,14 +30,14 @@ pronto_estimator:
     x0 :
       velocity : [ 0.0, 0.0, 0.0 ]
       angular_velocity : [ 0.0, 0.0, 0.0 ]
-      position : [ 0.0, 0.0, 0.0 ]
+      position : [ 0.0, 0.0, 0.25 ]
       rpy : [ 0.0, 0.0, 0.0 ]
 
     init_message :
       channel : "filter_initializer"
 
     ins :
-      topic : "/imu_plugin/out"
+      topic : "/real_imu/out"
       utime_offset : 0 # units 1e-6 seconds
       downsample_factor : 1 # process 1 out of every this many. for 333Hz use 1. for 1kHz use 3
       roll_forward_on_receive : true
@@ -52,7 +53,7 @@ pronto_estimator:
       q_accel_bias : 0.001 # m / sec^2 / sec | 0.001 suggested by charlie and worked well on logs
 
       # number of samples for the bias estimation
-      num_to_init : 500 
+      num_to_init : 100 
       
       accel_bias_initial : [0.0, 0.0, 0.0] 
       accel_bias_recalc_at_start : true

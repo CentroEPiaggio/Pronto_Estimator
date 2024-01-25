@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pronto_solo12/feet_jacobians.hpp"
+#include "pronto_estimator_quadruped/feet_jacobians.hpp"
 
 #include <pinocchio/multibody/model.hpp>
 #include <pinocchio/multibody/data.hpp>
@@ -9,7 +9,7 @@
 #include <pinocchio/algorithm/frames.hpp>
 
 namespace pronto{
-namespace solo{
+namespace estimator_quad{
 
 class Dynamics{
 public:
@@ -36,5 +36,5 @@ private:
 
 };
 
-}  // namespace solo
+}  // namespace estimator_quad
 }  // namespace pronto 

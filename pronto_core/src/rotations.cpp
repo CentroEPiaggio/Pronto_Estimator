@@ -45,8 +45,7 @@ double mod2pi(double vin) {
  */
 Eigen::Vector3d getEulerAngles(const Eigen::Quaterniond & quat)
 {
-  // return quat.toRotationMatrix().eulerAngles(2, 1, 0).reverse();
-  return quat.toRotationMatrix().eulerAngles(0,1,2);
+  return quat.toRotationMatrix().eulerAngles(2, 1, 0).reverse();
 }
 
 Eigen::Quaterniond setQuatEulerAngles(const Eigen::Vector3d & eulers)

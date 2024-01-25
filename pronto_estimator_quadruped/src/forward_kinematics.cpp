@@ -1,7 +1,7 @@
-#include "pronto_solo12/forward_kinematics.hpp"
+#include "pronto_estimator_quadruped/forward_kinematics.hpp"
 
 namespace pronto{
-namespace solo{
+namespace estimator_quad{
 
     typedef pronto::quadruped::Vector3d Vector3d;
     typedef pronto::quadruped::Matrix3d Matrix3d;
@@ -25,6 +25,6 @@ namespace solo{
     {
         return feet_jacobian_.getFootOrientation(q, leg);
     }
-} // namespace solo
+} // namespace estimator_quad
 
 }

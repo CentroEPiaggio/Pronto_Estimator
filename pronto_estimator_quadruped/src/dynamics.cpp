@@ -1,7 +1,7 @@
-#include "pronto_solo12/dynamics.hpp"
+#include "pronto_estimator_quadruped/dynamics.hpp"
 
 namespace pronto{
-namespace solo{
+namespace estimator_quad{
 
     Dynamics::Dynamics(pinocchio::Model & model, pinocchio::Data & data) :
             model_(model), data_(data)
@@ -98,5 +98,5 @@ namespace solo{
     }
 
 
-} // namespace solo
+} // namespace estimator_quad
 } // namespace pronto
