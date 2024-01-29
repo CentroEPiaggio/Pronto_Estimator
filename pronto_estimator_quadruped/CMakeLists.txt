@@ -14,6 +14,7 @@ find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(pinocchio REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(gazebo_msgs REQUIRED)
 
 add_library(${PROJECT_NAME}  SHARED src/feet_jacobians.cpp
                                     src/forward_kinematics.cpp
@@ -34,6 +35,7 @@ ament_target_dependencies(
   "sensor_msgs"
   "pinocchio"
   "nav_msgs"
+  "gazebo_msgs"
 )
 
 # ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
@@ -58,7 +60,8 @@ ament_export_dependencies("pronto_ros"
 "rclcpp"
 "sensor_msgs"
 "pinocchio"
-"nav_msgs")
+"nav_msgs"
+"gazebo_msgs")
 
 
 add_executable(pronto_estimator_node src/pronto_estimator.cpp)
@@ -70,6 +73,17 @@ target_compile_features(pronto_estimator_node PUBLIC c_std_99 cxx_std_17)  # Req
 target_link_libraries(pronto_estimator_node ${PROJECT_NAME})
 
 install(TARGETS pronto_estimator_node
+  DESTINATION lib/${PROJECT_NAME})
+
+add_executable(link_states_republisher src/link_states_republisher.cpp)
+target_include_directories(link_states_republisher PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(link_states_republisher PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+target_link_libraries(link_states_republisher ${PROJECT_NAME})
+
+install(TARGETS link_states_republisher
   DESTINATION lib/${PROJECT_NAME})
 
 install(

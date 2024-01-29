@@ -14,6 +14,7 @@
 #include "visualization_msgs/msg/marker_array.hpp"
 #include "geometry_msgs/msg/point_stamped.hpp"
 #include "pronto_msgs/msg/joint_state_with_acceleration.hpp"
+#include "pronto_quadruped_ros/stance_estimator_ros.hpp"
 
 #include "tf2_ros/buffer.h"
 #include "tf2_ros/transform_listener.h"
@@ -28,7 +29,7 @@ class ImuBiasLockBaseROS : public DualSensingModule<sensor_msgs::msg::Imu, Joint
 {
 public:
     ImuBiasLockBaseROS() = delete;
-    ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh);
+    ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh, std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator);
     RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) override;
     // tf2_ros::Buffer tfBuffer;    
 
@@ -62,7 +63,9 @@ protected:
 };
 
 template <class JointStateT>
-ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
+ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh, 
+                                                    std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator) : 
+    nh_(nh)
 {
     tf2_ros::Buffer tfBuffer(nh_->get_clock());
     tf2_ros::TransformListener tf_imu_to_body_listener_(tfBuffer);
@@ -72,8 +75,8 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
 
     std::string imu_frame = "imu_link";
 
-    nh_->get_parameter_or("ins.frame", imu_frame, imu_frame);
-    std::string base_frame = "base";
+    nh_->get_parameter_or(ins_param_prefix + "frame", imu_frame, imu_frame);
+    std::string base_frame;
     nh_->get_parameter_or<std::string>("base_link_name", base_frame, "base_link");
     RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Name of base_link: '" << base_frame << "'");
     Eigen::Isometry3d ins_to_body = Eigen::Isometry3d::Identity();
@@ -95,6 +98,9 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
     nh_->get_parameter_or(lock_param_prefix + "torque_threshold", cfg.torque_threshold_, 0.0);
     nh_->get_parameter_or(lock_param_prefix + "velocity_threshold", cfg.velocity_threshold_, 0.0);
     nh_->get_parameter_or(lock_param_prefix + "verbose", cfg.verbose_, false);
+    nh_->get_parameter_or(lock_param_prefix + "compute_stance", cfg.compute_stance, false);
+    nh_->get_parameter_or(lock_param_prefix + "min_size", cfg.min_size, (uint)500);
+    nh_->get_parameter_or(lock_param_prefix + "max_size", cfg.max_size, (uint)3000);
 
     if (!nh_->get_parameter(ins_param_prefix + "timestep_dt", cfg.dt_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't read dt. Using default: " << cfg.dt_);
@@ -136,7 +142,7 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
         base_arrow_.color.g = 1;
     }
 
-    bias_lock_module_ = std::make_unique<quadruped::ImuBiasLock>(ins_to_body, cfg);
+    bias_lock_module_ = std::make_unique<quadruped::ImuBiasLock>(stance_estimator, ins_to_body, cfg);
 }
 
 template <class JointStateT>
@@ -237,7 +243,7 @@ bool ImuBiasLockBaseROS<JointStateT>::processMessageInit(
 class ImuBiasLockROS : public ImuBiasLockBaseROS<sensor_msgs::msg::JointState>
 {
 public:
-    ImuBiasLockROS(rclcpp::Node::SharedPtr nh);
+    ImuBiasLockROS(rclcpp::Node::SharedPtr nh, std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator);
     virtual ~ImuBiasLockROS() = default;
 
     RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) /*override*/; 
@@ -257,9 +263,9 @@ public:
 class ImuBiasLockWithAccelerationROS : public ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>
 {
 public:
-    ImuBiasLockWithAccelerationROS(rclcpp::Node::SharedPtr nh) : 
+    ImuBiasLockWithAccelerationROS(rclcpp::Node::SharedPtr nh, std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator) : 
     nh_(nh),
-    ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>(nh_) {}
+    ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>(nh_, stance_estimator) {}
     virtual ~ImuBiasLockWithAccelerationROS() = default;
 
     void processSecondaryMessage(const pronto_msgs::msg::JointStateWithAcceleration &msg);

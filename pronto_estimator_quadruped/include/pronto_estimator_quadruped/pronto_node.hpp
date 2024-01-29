@@ -135,7 +135,7 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(bool subscribe) {
 
     std::vector<std::string> feet_names;
     if(!this->get_parameter("feet_names", feet_names)){
-        RCLCPP_ERROR(this->get_logger(), "\"urdf_file\" not declared. Cannot process kinematics.\nShutting down ...");
+        RCLCPP_ERROR(this->get_logger(), "\"feet_names\" not declared. Cannot process kinematics.\nShutting down ...");
         rclcpp::shutdown();
     }
     feet_jacs = std::make_shared<pronto::estimator_quad::FeetJacobians>(robot_model, robot_data, feet_names);
@@ -146,8 +146,8 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(bool subscribe) {
     // Pronto initialization
     stance_estimator = std::make_shared<quadruped::StanceEstimatorROS>(shared_from_this(), *feet_forces);
     leg_odometer = std::make_shared<quadruped::LegOdometerROS>(shared_from_this(), *feet_jacs, *fwd_kin);
-    legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(shared_from_this(), *stance_estimator, *leg_odometer);
-    bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this());
+    legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(shared_from_this(), stance_estimator, *leg_odometer);
+    bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this(), stance_estimator);
     front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), false);
 
     for (SensorList::iterator it = init_sensors.begin(); it != init_sensors.end(); ++it) {
@@ -280,7 +280,7 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("republish_sensors", bool());
         this->declare_parameter("utime_history_span", double());
         this->declare_parameter("base_link_name", std::string());
-        this->declare_parameter("debug_mode", bool());
+        this->declare_parameter("verbose", bool());
         this->declare_parameter("joint_names", std::vector<std::string>());
         this->declare_parameter("feet_names", std::vector<std::string>());
 
@@ -304,7 +304,6 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("ins.downsample_factor", int());
         this->declare_parameter("ins.roll_forward_on_receive", bool());
         this->declare_parameter("ins.publish_head_on_message", bool());
-        this->declare_parameter("ins.ignore_accel", bool());
         this->declare_parameter("ins.q_gyro", double());
         this->declare_parameter("ins.q_accel", double());
         this->declare_parameter("ins.q_gyro_bias", double());
@@ -323,8 +322,7 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("legodo.topic", std::string());
         this->declare_parameter("legodo.publish_debug_topics", bool());
         this->declare_parameter("legodo.time_offset", double());
-        this->declare_parameter("legodo.verbose", bool());
-        this->declare_parameter("legodo.debug", bool());
+        this->declare_parameter("legodo.output_log_to_file", bool());
         this->declare_parameter("legodo.legodo_mode", int());
         this->declare_parameter("legodo.stance_mode", int());
         this->declare_parameter("legodo.stance_threshold", double());
@@ -356,7 +354,13 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::params_declaration()
         this->declare_parameter("bias_lock.velocity_threshold", double());
         this->declare_parameter("bias_lock.roll_forward_on_receive", bool());
         this->declare_parameter("bias_lock.publish_head_on_message", bool());
+        this->declare_parameter("bias_lock.publish_debug_topics", bool());
+        this->declare_parameter("bias_lock.publish_transforms", bool());
         this->declare_parameter("bias_lock.utime_offset", int());
+        this->declare_parameter("bias_lock.verbose", bool());
+        this->declare_parameter("bias_lock.compute_stance", bool());
+        this->declare_parameter("bias_lock.min_size", int());
+        this->declare_parameter("bias_lock.max_size", int());
 
     } catch(const rclcpp::exceptions::InvalidParameterTypeException & ex) {
         RCLCPP_ERROR(this->get_logger(), "Error in params declaration: %s", ex.what());

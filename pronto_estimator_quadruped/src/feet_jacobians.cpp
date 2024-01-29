@@ -1,4 +1,5 @@
 #include "pronto_estimator_quadruped/feet_jacobians.hpp"
+#include "pronto_core/definitions.hpp"
 
 using namespace iit::rbd;
 
@@ -15,9 +16,17 @@ namespace estimator_quad{
 
     void FeetJacobians::updateConfiguration(const JointStatePinocchio& q)
     {            
+        #if DEBUG_MODE
+
+        std::cerr << "Joint states = " << q.transpose() << std::endl;
+        
+        #endif
+        
         // compute legs update if joint states are different from previous configuration
         // q must always be a vector of 19 elements
-        pinocchio::computeJointJacobians(model_, data_, q);
+        JointStatePinocchio q2 = q;
+        q2.segment(3, 4) << 0.0, 0.0, 0.0, 1.0;
+        pinocchio::computeJointJacobians(model_, data_, q2);
         pinocchio::updateFramePlacements(model_, data_);
 
         // update previous configuration

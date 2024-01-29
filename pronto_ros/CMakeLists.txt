@@ -90,12 +90,6 @@ ament_export_dependencies(
 "rclcpp"
 "nav_msgs")
 
-add_executable(${PROJECT_NAME}_node src/pronto_ros_node.cpp)
-target_include_directories(${PROJECT_NAME}_node PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME} ${LIBS})
-
 add_executable(joint_state_with_acceleration_republisher src/joint_state_with_acceleration_republisher.cpp)
 target_include_directories(joint_state_with_acceleration_republisher PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -103,7 +97,7 @@ target_include_directories(joint_state_with_acceleration_republisher PUBLIC
 target_link_libraries(joint_state_with_acceleration_republisher
   ${PROJECT_NAME} ${LIBS})
 
-install(TARGETS joint_state_with_acceleration_republisher pronto_ros_node
+install(TARGETS joint_state_with_acceleration_republisher 
   DESTINATION lib/${PROJECT_NAME})
 
 # Install launch files.
