@@ -54,7 +54,7 @@ namespace estimator_quad{
         JointVelocityPinocchio qddP;
         qddP.head(3) = xdd;
         qddP.block<3,1>(3,0) = omegad;
-        qddP.block<12,1>(6,0) = qdd; // these are measured joint acceleration, if not available they're set zero
+        qddP.block<12,1>(6,0) = qdd; // these are measured joint acceleration, if not available they're set to zero
 
         Eigen::Matrix3d foot_jacobian = feet_jacs_.getFootJacobian(qP, leg);
         Eigen::Vector3d tau_dyn_leg = dynamics_.getRNEA(qP, qdP, qddP, leg); 
@@ -63,8 +63,6 @@ namespace estimator_quad{
         
         // 3 joints of the LF leg, on a 3x1 vector;
         Eigen::Vector3d tau_leg = quadruped::getLegJointState(LegID(leg), tau);
-        Eigen::Vector3d qdd_leg = qdd.block<3, 1>(leg * 3, 0);
-
         Eigen::Matrix3d inv_jac = (foot_jacobian.transpose()).inverse();
 
         foot_grf = - inv_jac * (tau_leg - tau_dyn_leg);
@@ -78,10 +76,11 @@ namespace estimator_quad{
             std::cerr << "INFO: For leg " << leg << std::endl;
             // std::cerr << "xdd = " << xdd.transpose() << std::endl;
             // std::cerr << "gravity = " << gravity_base.segment(rbd::LX, 3).transpose() << std::endl;
-            std::cerr << "M_leg: " << std::endl << M_leg << std::endl;
+            // std::cerr << "M_leg: " << std::endl << M_leg << std::endl;
+            std::cerr << "tau_leg: " << tau_leg.transpose() << std::endl;
             std::cerr << "tau_dyn_leg: " << tau_dyn_leg.transpose() << std::endl;
             std::cerr << "c_leg: " << c_leg.transpose() << std::endl;
-            std::cerr << "Jacobian: " << foot_jacobian << std::endl;
+            std::cerr << "Jacobian: " << std::endl << foot_jacobian << std::endl;
             std::cerr << "inv_jac: " << std::endl << inv_jac << std::endl;
             std::cerr << "foot_grf: " << foot_grf.transpose() << std::endl;
         }

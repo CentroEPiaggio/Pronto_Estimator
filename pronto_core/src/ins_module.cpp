@@ -1,6 +1,7 @@
 #include "pronto_core/ins_module.hpp"
 #include "pronto_core/rigidbody.hpp"
 #include "pronto_core/rotations.hpp"
+#include "pronto_core/definitions.hpp"
 #include <iostream>
 
 namespace pronto {
@@ -27,7 +28,9 @@ InsModule::InsModule(const InsConfig &config, const Eigen::Affine3d &ins_to_body
     gyro_bias_recalc_at_start(config.gyro_bias_recalc_at_start),
     accel_bias_update_online(config.accel_bias_update_online),
     accel_bias_initial(config.accel_bias_initial),
-    accel_bias_recalc_at_start(config.accel_bias_recalc_at_start)
+    accel_bias_recalc_at_start(config.accel_bias_recalc_at_start),
+    previous_omega_(Eigen::Vector3d::Zero()),
+    dt_(config.dt)
 {
     cov_accel = std::pow(config.cov_accel, 2);
     cov_gyro = std::pow(config.cov_gyro * M_PI / 180.0, 2);
@@ -51,17 +54,30 @@ bool InsModule::allInitializedExcept(const std::map<std::string, bool> &_sensors
 RBISUpdateInterface * InsModule::processMessage(const ImuMeasurement * msg,
                                                  StateEstimator* state_estimator)
 {
-
-  Eigen::Vector3d accelerometer(ins_to_body_.rotation() * msg->acceleration);
   current_omega_ = (ins_to_body_.rotation() * msg->omega);
+  // Ignore coriolis and angular acceleration effects because the distance between imu and body frame is small
+  Eigen::Vector3d accelerometer(ins_to_body_.rotation() * msg->acceleration); 
+  Eigen::Vector3d coriolis(rotation::skewHat(current_omega_)*(rotation::skewHat(current_omega_)*ins_to_body_.translation()));
+  Eigen::Vector3d relative_acc(rotation::skewHat((current_omega_ - previous_omega_) / dt_)*ins_to_body_.translation());
+  Eigen::Vector3d accelerometer_new (accelerometer - relative_acc - coriolis);
 
+  #if DEBUG_MODE
+
+  std::cerr << "==========================================\n" << "INS CORRECTION\n" << "==========================================\n";
+  std::cerr << "accelerometer = " << accelerometer.transpose() << std::endl;
+  std::cerr << "relative acceleration = " << relative_acc.transpose() << std::endl;
+  std::cerr << "coriolis and centrifugal = " << coriolis.transpose() << std::endl;
+  std::cerr << "corrected accelerometer = " << accelerometer_new.transpose() << std::endl;
+
+  #endif
+  
   // mfallon thinks this was incorrect as the addition of the translation seems wrong:
   // experimentally the bias estimator estimates the body-imu translation (fixed may 2014):
-  Eigen::Vector3d gyro(ins_to_body_.rotation() * msg->omega);
+  // Eigen::Vector3d gyro(ins_to_body_.rotation() * msg->omega);
 
 
   RBISIMUProcessStep* update = new RBISIMUProcessStep(current_omega_,
-                                                      accelerometer,
+                                                      accelerometer_new,
                                                       cov_gyro,
                                                       cov_accel,
                                                       cov_gyro_bias,
@@ -77,6 +93,8 @@ RBISUpdateInterface * InsModule::processMessage(const ImuMeasurement * msg,
     if(!accel_bias_update_online) {
         update->posterior_state.accelBias() = accel_bias_initial;
     }
+
+    previous_omega_ = current_omega_;
 
     return update;
 }
