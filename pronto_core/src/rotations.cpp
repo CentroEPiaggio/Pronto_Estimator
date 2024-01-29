@@ -7,7 +7,7 @@ Eigen::Matrix3d skewHat(const Eigen::Vector3d & vec)
   Eigen::Matrix3d skew_hat;
   skew_hat << 0, -vec(2), vec(1), vec(2), 0, -vec(0), -vec(1), vec(0), 0;
   return skew_hat;
-}
+} 
 
 /**
  * returns the exponential coordinates of quat1 - quat2

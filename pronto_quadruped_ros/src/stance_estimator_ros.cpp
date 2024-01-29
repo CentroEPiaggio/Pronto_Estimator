@@ -26,7 +26,7 @@
 namespace pronto {
 namespace quadruped {
 
-StanceEstimatorROS::StanceEstimatorROS(rclcpp::Node::SharedPtr nh,
+StanceEstimatorROS:: StanceEstimatorROS(rclcpp::Node::SharedPtr nh,
                                        FeetContactForces &feet_forces) :
      StanceEstimator(feet_forces), nh_(nh)
 {

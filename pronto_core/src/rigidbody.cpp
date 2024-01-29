@@ -79,6 +79,7 @@ void RigidBodyState::addState(const RigidBodyState & state_to_add) {
   this->vec += state_to_add.vec;
   this->chiToQuat();
   this->quat *= state_to_add.quat;
+  this->quat.normalize();
 }
 
 void RigidBodyState::subtractState(const RigidBodyState & state_to_subtract) {

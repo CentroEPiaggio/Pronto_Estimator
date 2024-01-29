@@ -84,9 +84,8 @@ inline Eigen::Isometry3d transfToEigen(const geometry_msgs::msg::Transform & t)
     Eigen::Translation3d(t.translation.x, t.translation.y, t.translation.z) *
     Eigen::Quaterniond(t.rotation.w, t.rotation.x, t.rotation.y, t.rotation.z));
 }
-inline
 
-geometry_msgs::msg::TransformStamped eigToTransf(const Eigen::Isometry3d & T)
+inline geometry_msgs::msg::TransformStamped eigToTransf(const Eigen::Isometry3d & T)
 {
   geometry_msgs::msg::TransformStamped t;
   t.transform.translation.x = T.translation().x();

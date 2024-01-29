@@ -17,10 +17,10 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 
     const std::string ins_param_prefix = "ins.";
     std::string imu_frame = "imu";
-
-    imu_frame = nh_->get_parameter(ins_param_prefix + "frame").as_string();
+    nh_->get_parameter_or(ins_param_prefix + "frame", imu_frame, imu_frame);
     std::string base_frame = "base";
-    base_frame = nh_->get_parameter("base_link_name").as_string();
+    nh_->get_parameter_or("base_link_name", base_frame, base_frame);
+    
     RCLCPP_INFO_STREAM(nh_->get_logger(), 
         "[InsHandlerROS] Name of base_link: " 
         << base_frame);
@@ -121,15 +121,13 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
             << "topic\". Using default: "
             << imu_topic_);
     }
-    int downsample_factor = downsample_factor_;
-    if (!nh_->get_parameter(ins_param_prefix + "downsample_factor", downsample_factor)) {
+    
+    if (!nh_->get_parameter(ins_param_prefix + "downsample_factor", downsample_factor_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
             "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "downsample_factor\". Using default: "
-            << downsample_factor);
-    } else {
-        downsample_factor_ = downsample_factor;
-    }
+            << downsample_factor_);
+    } 
 
     if (!nh_->get_parameter(ins_param_prefix + "roll_forward_on_receive", roll_forward_on_receive_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
@@ -137,15 +135,13 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
             << "roll_forward_on_receive\". Using default: "
             << roll_forward_on_receive_);
     }
-    int utime_offset = utime_offset_;
-    if (!nh_->get_parameter(ins_param_prefix + "utime_offset", utime_offset)) {
+    
+    if (!nh_->get_parameter(ins_param_prefix + "utime_offset", utime_offset_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
             "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "utime_offset\". Using default: "
-            << utime_offset);
-    } else {
-        utime_offset_ = utime_offset;
-    }
+            << utime_offset_);
+    } 
 
     double std_accel = 0;
     double std_gyro = 0;

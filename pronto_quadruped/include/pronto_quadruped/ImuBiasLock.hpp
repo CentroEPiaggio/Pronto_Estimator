@@ -24,6 +24,7 @@
 #include <map>
 #include <pronto_core/sensing_module.hpp>
 #include <pronto_core/definitions.hpp>
+#include "pronto_quadruped/StanceEstimator.hpp"
 
 namespace pronto {
 namespace quadruped {
@@ -33,6 +34,9 @@ struct ImuBiasLockConfig {
   double velocity_threshold_ = 0.006;
   double dt_ = 0.0025;
   bool verbose_ = false;
+  bool compute_stance = false;
+  uint min_size;
+  uint max_size;
 };
 
 class ImuBiasLock : public DualSensingModule<ImuMeasurement,pronto::JointState>
@@ -45,7 +49,8 @@ public:
     using IndexVector = Eigen::Matrix<int, 8, 1>;
     using CovMatrix = Eigen::Matrix<double, 8, 8>;
 
-    ImuBiasLock(const Eigen::Isometry3d& ins_to_body_ = Eigen::Isometry3d::Identity(),
+    ImuBiasLock(std::shared_ptr<quadruped::StanceEstimator> stance_estimator,
+                const Eigen::Isometry3d& ins_to_body_ = Eigen::Isometry3d::Identity(),
                 const ImuBiasLockConfig& cfg = ImuBiasLockConfig());
     virtual ~ImuBiasLock() {}
 
@@ -96,12 +101,16 @@ public:
 protected:
 
     bool debug_ = false;
+    bool compute_stance_;
     std::vector<Eigen::Vector3d> gyro_bias_history_;
     std::vector<Eigen::Vector3d> accel_bias_history_;
     bool do_record_ = true;
     bool is_static_ = false;
-    size_t max_size = 3000;
-    size_t min_size = 500;
+    uint max_size_ = 3000;
+    uint min_size_ = 500;
+    
+    LegBoolMap stance_;
+    std::shared_ptr<quadruped::StanceEstimator> stance_estimator_;
 
     Eigen::Vector3d gyro_bias_ = Eigen::Vector3d::Zero();
     Eigen::Vector3d accel_bias_ = Eigen::Vector3d::Zero();
