@@ -8,10 +8,21 @@ namespace estimator_quad{
 
     typedef pronto::quadruped::Matrix3d Matrix3d;
 
-    FeetJacobians::FeetJacobians(pinocchio::Model & model, pinocchio::Data & data, std::vector<std::string> feet_names) :
+    FeetJacobians::FeetJacobians(pinocchio::Model & model, pinocchio::Data & data, std::vector<std::string> feet_names, std::vector<std::string> joint_names) :
             model_(model), data_(data), feet_names_(feet_names)
     {
         prev_q.setZero();
+
+        // Pinocchio needs joints sorted in alphabetic order
+        std::vector<std::string> joint_sorted(joint_names);
+        std::sort(joint_sorted.begin(), joint_sorted.end());
+
+        for(int i = 0; i < joint_names.size(); i++)
+        {
+            auto index = std::find(joint_names.begin(), joint_names.end(), joint_sorted[i]);
+            int j = index - joint_names.begin();
+            joints_order_[i] = j; // the i-th sorted joint corresponds to the j-th joint in user order
+        }
     }
 
     void FeetJacobians::updateConfiguration(const JointStatePinocchio& q)
@@ -26,6 +37,10 @@ namespace estimator_quad{
         // q must always be a vector of 19 elements
         JointStatePinocchio q2 = q;
         q2.segment(3, 4) << 0.0, 0.0, 0.0, 1.0;
+        for(int i = 0; i < joints_order_.size(); i++)
+        {
+            q2[7+i] = q[joints_order_[i]+7];
+        }
         pinocchio::computeJointJacobians(model_, data_, q2);
         pinocchio::updateFramePlacements(model_, data_);
 
@@ -45,11 +60,15 @@ namespace estimator_quad{
 
         if(leg_id < model_.frames.size()){                
         pinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::LOCAL_WORLD_ALIGNED, J);
-        return J;
+        for(int i = 0; i < joints_order_.size(); i++)
+        {
+            J_ordered.block<6,1>(0, 6 + joints_order_[i]) = J.block<6,1>(0, 6 + i);
+        }
+        return J_ordered;
         }
         else{
             std::cerr << "[FeetJacobians::ComputeJacobian(...)] "
-            << "ERROR: foot not found. Returning zero."
+            << "ERROR: foot" << feet_names_[leg] << "not found. Returning zero."
             << std::endl;
 
             J.setZero();

@@ -15,7 +15,7 @@ pronto_estimator:
     republish_sensors : false
     utime_history_span : 60000000.0
     base_link_name : "base_link"
-    verbose : true # Prints warnings and messages 
+    verbose : false # Prints warnings and messages 
     joint_names : ["FL_HAA", "FL_HFE", "FL_KFE", "FR_HAA", "FR_HFE", "FR_KFE", "HL_HAA", "HL_HFE", "HL_KFE", "HR_HAA", "HR_HFE", "HR_KFE"]
     feet_names : ["FL_FOOT", "FR_FOOT", "HL_FOOT", "HR_FOOT"]
 
@@ -47,7 +47,7 @@ pronto_estimator:
       
       # not clear what value to set for the omega, if it is rad/s it seems too much
       q_gyro : 0.01 # deg / s
-      q_accel : 0.01 # m / s^2,
+      q_accel : 0.1 # m / s^2,
       q_gyro_bias : 0.001 # deg / sec^2 
       q_accel_bias : 0.001 # m / sec^2 / sec 
 
@@ -56,11 +56,11 @@ pronto_estimator:
       
       accel_bias_initial : [0.0, 0.0, 0.0] 
       accel_bias_recalc_at_start : true
-      accel_bias_update_online : true
+      accel_bias_update_online : false
 
       gyro_bias_initial : [0.0, 0.0, 0.0] # rad/s
       gyro_bias_recalc_at_start : true
-      gyro_bias_update_online : true
+      gyro_bias_update_online : false
     
       frame : "imu_link"
       # frame : "base_link"
@@ -83,13 +83,13 @@ pronto_estimator:
 
       legodo_mode : 5 # STATIC_SIGMA 0x00, VAR_SIGMA 0x01, IMPACT_SIGMA 0x02, WEIGHTED_AVG 0x04, ALPHA_FILTER : 0x08, KALMAN_FILTER : 0x10
       
-      stance_mode : 0 # 0 : THRESHOLD, 1 : HYSTERESIS, 2 : REGRESSION
-      stance_threshold : 2.50 # threshold of GRF[z] to trigger the stance phase
+      stance_mode : 1 # 0 : THRESHOLD, 1 : HYSTERESIS, 2 : REGRESSION
+      stance_threshold : 4.50 # threshold of GRF[z] to trigger the stance phase
       
-      stance_hysteresis_low : 1.50 # hysteresis low threshold
-      stance_hysteresis_high : 3.0 # hysteresis high threshold
-      stance_hysteresis_delay_low : 150 # delay low for schmitt trigger in milliseconds
-      stance_hysteresis_delay_high : 150 # delay in for schmitt trigger in milliseconds
+      stance_hysteresis_low : 3.50 # hysteresis low threshold
+      stance_hysteresis_high : 5.0 # hysteresis high threshold
+      stance_hysteresis_delay_low : 0 # delay low for schmitt trigger in milliseconds
+      stance_hysteresis_delay_high : 250 # delay in for schmitt trigger in milliseconds
 
       stance_alpha : 0.02 # alpha for the alpha filter
       
@@ -98,7 +98,7 @@ pronto_estimator:
       stance_regression_beta : [3.7252,-0.018077,2.8191,-0.015947,3.2241,-0.018661,3.8836,-0.019669]    
       r_vx : 0.001 # sigma velocity x
       r_vy : 0.001 # sigma velocity y
-      r_vz : 0.005 # sigma velocity z
+      r_vz : 0.001 # sigma velocity z
       
       # true only if you have stance ground truth from simulation
       # im_stance_gt : false 
@@ -158,6 +158,6 @@ pronto_estimator:
       publish_debug_topics : true
       publish_transforms : true
       utime_offset : 0
-      min_size : 200
+      min_size : 500
       max_size : 5000
       verbose : false
