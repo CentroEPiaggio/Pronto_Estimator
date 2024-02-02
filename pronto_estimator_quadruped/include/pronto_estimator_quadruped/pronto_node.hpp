@@ -132,15 +132,24 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(bool subscribe) {
     pinocchio::urdf::buildModel(urdf_file, root_joint, robot_model);
     robot_model.gravity.linear() << 0.0, 0.0, -9.81;
     pinocchio::Data robot_data(robot_model);
-
+     
     std::vector<std::string> feet_names;
     if(!this->get_parameter("feet_names", feet_names)){
         RCLCPP_ERROR(this->get_logger(), "\"feet_names\" not declared. Cannot process kinematics.\nShutting down ...");
         rclcpp::shutdown();
     }
-    feet_jacs = std::make_shared<pronto::estimator_quad::FeetJacobians>(robot_model, robot_data, feet_names);
+    std::vector<std::string> joint_names;
+    if(!this->get_parameter("joint_names", joint_names)){
+        RCLCPP_ERROR(this->get_logger(), "\"joint_names\" not declared. Cannot process kinematics.\nShutting down ...");
+        rclcpp::shutdown();
+    }
+
+    bool verbose;
+    this->get_parameter_or("verbose", verbose, false);
+
+    feet_jacs = std::make_shared<pronto::estimator_quad::FeetJacobians>(robot_model, robot_data, feet_names, joint_names);
     fwd_kin = std::make_shared<pronto::estimator_quad::ForwardKinematics>(*feet_jacs);
-    dynamics = std::make_shared<pronto::estimator_quad::Dynamics>(robot_model, robot_data);
+    dynamics = std::make_shared<pronto::estimator_quad::Dynamics>(robot_model, robot_data, joint_names);
     feet_forces = std::make_shared<pronto::estimator_quad::FeetContactForces>(*feet_jacs, *dynamics);
 
     // Pronto initialization
@@ -148,7 +157,7 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(bool subscribe) {
     leg_odometer = std::make_shared<quadruped::LegOdometerROS>(shared_from_this(), *feet_jacs, *fwd_kin);
     legodo_handler = std::make_shared<quadruped::LegodoHandlerROS>(shared_from_this(), stance_estimator, *leg_odometer);
     bias_lock_handler = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this(), stance_estimator);
-    front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), false);
+    front_end = std::make_shared<ROSFrontEnd>(shared_from_this(), verbose);
 
     for (SensorList::iterator it = init_sensors.begin(); it != init_sensors.end(); ++it) {
         all_sensors.insert(*it);

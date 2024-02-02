@@ -19,7 +19,7 @@ public:
     typedef pronto::quadruped::LegID LegID;
     typedef pronto::quadruped::Vector3d Vector3d; 
 
-    Dynamics(pinocchio::Model & model, pinocchio::Data & data);
+    Dynamics(pinocchio::Model & model, pinocchio::Data & data, std::vector<std::string> joint_names);
 
     virtual ~Dynamics() {};
 
@@ -33,6 +33,8 @@ private:
     pinocchio::Model model_;
     pinocchio::Data data_;
     JointStatePinocchio prev_q;
+    JointVelocityPinocchio tau_;
+    std::array<int,12> joints_order_;
 
 };
 
