@@ -37,16 +37,12 @@ namespace estimator_quad{
         base_twist.segment(rbd::AX, 3) = omega;
         base_twist.segment(rbd::LX, 3) = xd;
 
-        // rbd::ForceVector h_base;
-        // JointState  h_joints;
-
-        // From now on we use pinocchio
-
+        //-------------------------------From now on we use pinocchio-------------------------------
         JointStatePinocchio qP = JointStatePinocchio::Zero();
         qP.block<4,1>(3,0) = orient.coeffs();
         qP.block<12,1>(7,0) = q;
 
-        JointVelocityPinocchio qdP = JointVelocityPinocchio::Zero();
+        JointVelocityPinocchio qdP;
         qdP.block<3,1>(0,0) = xd;
         qdP.block<3,1>(3,0) = omega;
         qdP.block<12,1>(6,0) = qd;
@@ -58,8 +54,6 @@ namespace estimator_quad{
 
         Eigen::Matrix3d foot_jacobian = feet_jacs_.getFootJacobian(qP, leg);
         Eigen::Vector3d tau_dyn_leg = dynamics_.getRNEA(qP, qdP, qddP, leg); 
-        M_leg = dynamics_.getInertiaMatrix(qP, qdP, qddP, leg); // inertia matrix
-        c_leg = dynamics_.getNonLinear(qP, qdP, qddP, leg); // C(q,qd)*qd + G(q)
         
         // 3 joints of the LF leg, on a 3x1 vector;
         Eigen::Vector3d tau_leg = quadruped::getLegJointState(LegID(leg), tau);
@@ -69,9 +63,11 @@ namespace estimator_quad{
 
         #if DEBUG_MODE    
         if(!foot_grf.allFinite()){
-            std::cerr << "ERROR: For leg " << leg << " grf is " << foot_grf;
+            std::cerr << "ERROR: For leg " << LegID(leg) << " grf is " << foot_grf;
         }
         else{
+            M_leg = dynamics_.getInertiaMatrix(qP, qdP, qddP, leg); // inertia matrix
+            c_leg = dynamics_.getNonLinear(qP, qdP, qddP, leg); // C(q,qd)*qd + G(q)
             std::cerr << "\n \n";
             std::cerr << "INFO: For leg " << leg << std::endl;
             // std::cerr << "xdd = " << xdd.transpose() << std::endl;

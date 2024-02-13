@@ -288,7 +288,7 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
                                                  utime_);
     } else {
         if (debug_) {
-            RCLCPP_WARN_STREAM(nh_->get_logger(), "[LegodoHandlerBase::computeVelocity] Could not estimate velocity");
+            RCLCPP_WARN_STREAM_SKIPFIRST(nh_->get_logger(), "[LegodoHandlerBase::computeVelocity] Could not estimate velocity");
         }
     }
     return nullptr;

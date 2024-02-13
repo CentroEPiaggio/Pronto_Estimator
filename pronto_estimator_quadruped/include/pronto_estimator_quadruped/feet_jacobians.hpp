@@ -20,7 +20,7 @@ public:
     typedef pronto::quadruped::Vector3d Vector3d;   
     typedef pronto::quadruped::Matrix3d Matrix3d; 
 
-    FeetJacobians(pinocchio::Model & model, pinocchio::Data & data, std::vector<std::string> feet_names);
+    FeetJacobians(pinocchio::Model & model, pinocchio::Data & data, std::vector<std::string> feet_names, std::vector<std::string> joint_names);
 
     virtual ~FeetJacobians() override {};
 
@@ -41,13 +41,14 @@ public:
 
 private:
 
-    std::vector<std::string> feet_names_;    
+    std::vector<std::string> feet_names_;  
+    std::array<int,12> joints_order_;  
     pinocchio::Model model_;
     pinocchio::Data data_;
     pinocchio::FrameIndex leg_id;
     FootJac jacobian;
     Eigen::Matrix<double, 6, 18> J;
-    // pinocchio::Data::Matrix6x J;
+    Eigen::Matrix<double, 6, 18> J_ordered;
     pinocchio::SE3 T;
     JointStatePinocchio prev_q;
     
