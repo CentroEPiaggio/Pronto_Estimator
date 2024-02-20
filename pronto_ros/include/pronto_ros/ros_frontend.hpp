@@ -59,7 +59,8 @@ inline void QuaternionToMsg(const Eigen::Quaterniond & in , geometry_msgs::msg::
     out.set__z(in.z());
 }
 class ROSFrontEnd {
-
+public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 public:
     using SensorId = std::string;
 
@@ -67,7 +68,7 @@ public:
     virtual ~ROSFrontEnd();
 
     template<class MsgT>
-    void addSensingModule(SensingModule<MsgT> &module,
+    void addSensingModule(SensingModule<MsgT>& module,
                           const SensorId& sensor_id,
                           bool roll_forward,
                           bool publish_head,
@@ -75,7 +76,7 @@ public:
                           bool subscribe = true);
 
     template<class MsgT, class SecondaryMsgT>
-    inline void addSecondarySensingModule(DualSensingModule<MsgT, SecondaryMsgT>& module,
+    inline void addSecondarySensingModule(DualSensingModule<MsgT, SecondaryMsgT>& /*module*/,
                                           const SensorId& sensor_id,
                                           const std::string& topic,
                                           bool subscribe)
@@ -86,14 +87,14 @@ public:
         RCLCPP_INFO_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic
                                                       << " with SecondaryMsgT = " << type_name<SecondaryMsgT>());
         secondary_subscribers_[sensor_id] = nh_->create_subscription<SecondaryMsgT>(
-            topic, 5,
-            [this, sensor_id](typename SecondaryMsgT::SharedPtr msg) {
+            topic, 10000,
+            [this, sensor_id](typename SecondaryMsgT::UniquePtr msg) {
                 this->secondaryCallback<MsgT, SecondaryMsgT>(std::move(msg), sensor_id);
             });
     }
 
     template <class MsgT>
-    void addInitModule(SensingModule<MsgT> & module,
+    void addInitModule(SensingModule<MsgT>& module,
                        const SensorId& sensor_id,
                        const std::string& topic,
                        bool subscribe = true);
@@ -170,13 +171,13 @@ private:
     tf2::Quaternion temp_q_;
 
     bool filter_initialized_ = false;
-    bool verbose_ = true;
+    bool verbose_ = false;
 };
 }  // namespace pronto
 
 namespace pronto {
 template <class MsgT>
-void ROSFrontEnd::addInitModule(SensingModule<MsgT> &module,
+void ROSFrontEnd::addInitModule(SensingModule<MsgT>& module,
                                 const SensorId& sensor_id,
                                 const std::string& topic,
                                 bool subscribe)
@@ -191,34 +192,31 @@ void ROSFrontEnd::addInitModule(SensingModule<MsgT> &module,
     // add the sensor to the list of sensor that require initialization
     std::pair<SensorId, bool> init_id_pair(sensor_id, false);
     initialized_list_.insert(init_id_pair);
-
     // store the module as void*, to allow for different types of module to stay
     // in the same container. The type will be known when the message arrives
     // so we can properly cast back to the right type.
-
-    std::pair<SensorId, void *> pair(sensor_id, reinterpret_cast<void *> (&module));
-
+    std::pair<SensorId, void*> pair(sensor_id, (void*)&module);
     init_modules_.insert(pair);
     if (subscribe) {
-        RCLCPP_INFO_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic);
-        RCLCPP_INFO_STREAM(nh_->get_logger(), " with MsgT = " << type_name<MsgT>());
+        RCLCPP_ERROR_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic);
+        RCLCPP_ERROR_STREAM(nh_->get_logger(), " with MsgT = " << type_name<MsgT>());
         init_subscribers_[sensor_id] = nh_->create_subscription<MsgT>(
-            topic, 5,
-            [this, sensor_id](typename MsgT::SharedPtr msg) {
+            topic, 10000,
+            [this, sensor_id](typename MsgT::UniquePtr msg) {
                 this->initCallback<MsgT>(std::move(msg), sensor_id);
             });
     }
 }
 
 template <class MsgT>
-void ROSFrontEnd::addSensingModule(SensingModule<MsgT> &module,
+void ROSFrontEnd::addSensingModule(SensingModule<MsgT>& module,
                                    const SensorId& sensor_id,
                                    bool roll_forward,
                                    bool publish_head,
                                    const std::string& topic,
                                    bool subscribe)
 {
-    // int this implementation we allow only one different type of modulemodule
+    // int this implementation we allow only one different type of module
     if (active_modules_.count(sensor_id) > 0) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), "Sensing Module \"" << sensor_id << "\" already added. Skipping.");
         return;
@@ -240,17 +238,15 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT> &module,
     // store the module as void*, to allow for different types of module to stay
     // in the same container. The type will be known when the message arrives
     // so we can properly cast back to the right type.
-    std::pair<SensorId, void *> pair(sensor_id, reinterpret_cast<void *>(&module));
+    std::pair<SensorId, void*> pair(sensor_id, (SensingModule<MsgT>*)&module);
     active_modules_.insert(pair);
     // subscribe the generic templated callback for all modules
     if (subscribe) {
-
-        rclcpp::SubscriptionBase::SharedPtr subscription_;
-        RCLCPP_INFO_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic
+        RCLCPP_ERROR_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic
                                                          << " with MsgT = " << type_name<MsgT>());
         sensors_subscribers_[sensor_id] = nh_->create_subscription<MsgT>(
-            topic, 5,
-            [this, sensor_id](typename MsgT::SharedPtr msg) {
+            topic, 10000,
+            [this, sensor_id](typename MsgT::UniquePtr msg) {
                 this->callback<MsgT>(std::move(msg), sensor_id);
             });
     }
@@ -258,22 +254,20 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT> &module,
 
 
 template <class MsgT>
-void ROSFrontEnd::initCallback(std::shared_ptr<const MsgT> msg, const SensorId& sensor_id)
+void ROSFrontEnd::initCallback(std::shared_ptr<MsgT const> msg, const SensorId& sensor_id)
 {
-
     if(verbose_){
         RCLCPP_INFO_STREAM(nh_->get_logger(), "Init callback for sensor " << sensor_id);
     }
-    
     if(initialized_list_.count(sensor_id) > 0 && !initialized_list_[sensor_id])
     {
         initialized_list_[sensor_id] = static_cast<SensingModule<MsgT>*>(init_modules_[sensor_id])->processMessageInit(
-        msg.get(),
-        initialized_list_,
-        default_state,
-        default_cov,
-        init_state,
-        init_cov);
+            msg.get(),
+            initialized_list_,
+            default_state,
+            default_cov,
+            init_state,
+            init_cov);
 
         // if the sensor has been successfully initialized, we unsubscribe.
         // This happens only for the sensors which are only for initialization.
@@ -285,8 +279,6 @@ void ROSFrontEnd::initCallback(std::shared_ptr<const MsgT> msg, const SensorId& 
             initializeFilter();
         }
     } else {
-
-        RCLCPP_INFO_STREAM(nh_->get_logger(), "initialized_list: " << initialized_list_[sensor_id]);
         // if we are here it means that the module is not in the list of
         // initialized modules or that the module is already initialized
         // in both cases we don't want to subscribe to this topic anymore,
@@ -294,16 +286,16 @@ void ROSFrontEnd::initCallback(std::shared_ptr<const MsgT> msg, const SensorId& 
         if(init_subscribers_.count(sensor_id) > 0){
             init_subscribers_[sensor_id].reset();
         }
-    
-    } 
-    
+    }
 }
+
+// TODO come up with a better way to activate / deactivate debug mode
+#define DEBUG_MODE 0
 
 template <class MsgT>
 void ROSFrontEnd::callback(std::shared_ptr<MsgT const> msg, const SensorId& sensor_id)
 {
 #if DEBUG_MODE
-    RCLCPP_WARN(nh_->get_logger(), "---------DEBUG MODE ON -------------");
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Callback for sensor " << sensor_id);
 #endif
     // this is a generic templated callback that does the same for every module:
@@ -446,13 +438,8 @@ void ROSFrontEnd::callback(std::shared_ptr<MsgT const> msg, const SensorId& sens
 
         RCLCPP_INFO_STREAM(nh_->get_logger(), "Time elapsed till the end: " << std::chrono::duration_cast<std::chrono::microseconds>(end -start).count());
         std::cout << std::endl;
-
-    }
-    else{
-        RCLCPP_INFO(nh_->get_logger(), "FILTER IS NOT INITIALIZED");
 #endif
     }
-
 }
 
 template <class PrimaryMsgT, class SecondaryMsgT>

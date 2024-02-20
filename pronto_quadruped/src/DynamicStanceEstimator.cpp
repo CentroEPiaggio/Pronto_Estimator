@@ -36,11 +36,11 @@ using namespace pronto::quadruped;
 
 namespace pronto {
 DynamicStanceEstimator::DynamicStanceEstimator(InverseDynamics &inverse_dynamics,
-                                                JSIM &jsim,
-                                                FeetContactForces &feet_contact_forces,
-                                                ForwardKinematics &forward_kinematics) :
-    StanceEstimator(feet_contact_forces),
-    forward_kinematics_(forward_kinematics),
+        JSIM &jsim,
+        FeetContactForces &feet_contact_forces,
+        ForwardKinematics &forward_kinematics) :
+  StanceEstimator(feet_contact_forces),
+      forward_kinematics_(forward_kinematics),
     dynamics_violation_(std::vector<Wrench>(15)),
     wrench_legs(std::vector<Wrench>(15)),
     inverse_dynamics_(inverse_dynamics),

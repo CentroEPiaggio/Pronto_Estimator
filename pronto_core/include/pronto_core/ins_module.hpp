@@ -86,8 +86,6 @@ protected:
   Eigen::Vector3d gyro_bias_sum;
 
   Eigen::Vector3d current_omega_;
-  Eigen::Vector3d previous_omega_;
-  double dt_;
   bool gyro_bias_update_online;
   Eigen::Vector3d gyro_bias_initial;
   bool gyro_bias_recalc_at_start;

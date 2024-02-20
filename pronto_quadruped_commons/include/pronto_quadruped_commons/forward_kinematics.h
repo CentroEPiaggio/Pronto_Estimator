@@ -56,18 +56,6 @@ public:
         return feetPos;
     }
     virtual Matrix3d getFootOrientation(const JointState& q, const LegID& leg) = 0;
-
-    virtual Vector3d getFootPos(const JointStatePinocchio& qP, const LegID& leg) = 0;
-    inline virtual LegVectorMap getFeetPos(const JointStatePinocchio& qP)
-    {
-        LegVectorMap feetPos(Vector3d::Zero());
-        feetPos[quadruped::LF] = getFootPos(qP, LegID::LF);
-        feetPos[quadruped::RF] = getFootPos(qP, LegID::RF);
-        feetPos[quadruped::LH] = getFootPos(qP, LegID::LH);
-        feetPos[quadruped::RH] = getFootPos(qP, LegID::RH);
-        return feetPos;
-    }
-    virtual Matrix3d getFootOrientation(const JointStatePinocchio& qP, const LegID& leg) = 0;
 };
 
 }  // namespace quadruped

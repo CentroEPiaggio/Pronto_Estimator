@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.8)
 project(pronto_core)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic -g)
-  # add_compile_options(-Wall)
+  # add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-Wall)
 endif()
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # solution 3
@@ -11,6 +11,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON) # solution 3
 find_package(ament_cmake REQUIRED)
 # find_package(ament_cmake_ros REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(rclcpp REQUIRED)
 
 add_library(pronto_core SHARED  src/rbis.cpp
                                 src/rotations.cpp
@@ -22,11 +23,7 @@ add_library(pronto_core SHARED  src/rbis.cpp
                                 src/update_history.cpp
                                 src/indexed_meas_module.cpp
                                 src/init_message_module.cpp
-                                src/pose_meas_module.cpp
-                                # src/visual_odometry_module.cpp
-                                # src/lidar_odometry_module.cpp
-                                # src/vicon_module.cpp
-                                # src/gps_module.cpp
+                                src/pose_meas_module.cpp 
 )
 
 target_compile_features(pronto_core PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
@@ -36,6 +33,7 @@ target_include_directories(pronto_core PUBLIC
 ament_target_dependencies(
   pronto_core
   "Eigen3"
+  "rclcpp"
 )
 
 # Causes the visibility macros to use dllexport rather than dllimport,
@@ -44,7 +42,7 @@ target_compile_definitions(pronto_core PRIVATE "PRONTO_CORE_BUILDING_LIBRARY")
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
-ament_export_dependencies("Eigen3")
+ament_export_dependencies("Eigen3" "rclcpp")
 
 install(
   DIRECTORY include/

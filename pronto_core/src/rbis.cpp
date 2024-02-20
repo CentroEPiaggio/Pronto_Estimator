@@ -1,5 +1,6 @@
 #include "pronto_core/rbis.hpp"
 #include "pronto_core/rotations.hpp"
+#include <iostream>
 
 using namespace pronto::rotation;
 using namespace Eigen;
@@ -35,7 +36,7 @@ void getIMUProcessLinearizationContinuous(const RBIS & state, RBIM & Ac)
 
 }
 
-
+#define DEBUG_MODE 0
 
 void insUpdateState(const Eigen::Vector3d & gyro,
                     const Eigen::Vector3d & accelerometer,
@@ -44,10 +45,10 @@ void insUpdateState(const Eigen::Vector3d & gyro,
 {
 #if DEBUG_MODE
         std::cout << "mfallon insUpdateState\n";
-        std::cout << "prior state: " << state << "\n";
-        std::cout << "gyro: " << gyro.transpose() << "\n";
-        std::cout << "acceleration: " << accelerometer.transpose() << "\n";
-        std::cout << "dt: " << dt << "\n";
+        std::cout << state << " state prior\n";
+        std::cout << gyro.transpose() << "\n";
+        std::cout << accelerometer.transpose() << "\n";
+        std::cout << dt << "\n";
 
         static uint64_t utime;
         std::cerr << "INS prior pos: " << state.position().transpose()        << std::endl;
@@ -75,13 +76,11 @@ void insUpdateState(const Eigen::Vector3d & gyro,
   //compute derivatives
   RBIS dstate; //initialize everything to 0
 
-  // dstate.velocity() = -state.angularVelocity().cross(state.velocity());
-  // dstate.velocity().noalias() += state.quat.inverse() * g_vec + state.acceleration();
-  dstate.velocity() = state.quat.inverse() * g_vec + state.acceleration();
+  dstate.velocity() = -state.angularVelocity().cross(state.velocity());
+  dstate.velocity().noalias() += state.quat.inverse() * g_vec + state.acceleration();
 #if DEBUG_MODE
-  // std::cerr << "dstate.velocity() = [" << -state.angularVelocity().transpose() << "]' x [" << state.velocity().transpose()<< "]'" << std::endl;
-  // std::cerr << "dstate.velocity() += [" << (state.quat.inverse() * g_vec).transpose() << "]' + [" << state.acceleration().transpose()<< "]'" << std::endl;
-  std::cerr << "dstate.velocity() = [" << (state.quat.inverse() * g_vec).transpose() << "]' + [" << state.acceleration().transpose()<< "]'" << std::endl;
+  std::cerr << "dstate.velocity() = [" << -state.angularVelocity().transpose() << "]' x [" << state.velocity().transpose()<< "]'" << std::endl;
+  std::cerr << "dstate.velocity() += [" << (state.quat.inverse() * g_vec).transpose() << "]' + [" << state.acceleration().transpose()<< "]'" << std::endl;
 #endif
 
   dstate.chi() = state.angularVelocity();

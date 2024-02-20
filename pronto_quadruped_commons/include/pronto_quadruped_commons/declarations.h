@@ -50,8 +50,6 @@ static const int linksCount  = 13;
 
 typedef Eigen::Matrix<double, 12, 1> Column12d;
 typedef Column12d JointState;
-typedef Eigen::Matrix<double, 19, 1> JointStatePinocchio;
-typedef Eigen::Matrix<double, 18, 1> JointVelocityPinocchio;
 typedef Eigen::Array<bool, 3, 1> LegJointBool;
 
 typedef iit::rbd::Vector3d Vector3d;

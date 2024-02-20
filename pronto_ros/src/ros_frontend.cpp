@@ -66,30 +66,28 @@ ROSFrontEnd::ROSFrontEnd(rclcpp::Node::SharedPtr nh, bool verbose) :
 void ROSFrontEnd::initializeState()
 {
     // setting the initial values from the state
-    std::string x0_prefix = "x0.";
-
     std::vector<double> init_velocity = std::vector<double>(3,0.0);
-    if(!nh_->get_parameter(x0_prefix + "velocity", init_velocity)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get " << x0_prefix << "velocity. Setting to zero.");
+    if(!nh_->get_parameter("x0/velocity", init_velocity)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get default velocity. Setting to zero.");
     }
     default_state.velocity() = Eigen::Map<Eigen::Vector3d>(init_velocity.data());
 
     // setting the initial values from the state
     std::vector<double> init_position  = std::vector<double>(3,0.0);
-    if(!nh_->get_parameter(x0_prefix + "position", init_position)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get " << x0_prefix << "position. Setting to zero.");
+    if(!nh_->get_parameter("x0/position", init_position)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get default position. Setting to zero.");
     }
     default_state.position() = Eigen::Map<Eigen::Vector3d>(init_position.data());
 
     std::vector<double> init_omega = std::vector<double>(3,0.0);
-    if(!nh_->get_parameter(x0_prefix + "angular_velocity", init_omega)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get " << x0_prefix << "angular_velocity. Setting to zero.");
+    if(!nh_->get_parameter("x0/angular_velocity", init_omega)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get default ang velocity. Setting to zero.");
     }
     default_state.angularVelocity() = Eigen::Map<Eigen::Vector3d>(init_omega.data());
 
     std::vector<double> init_orient = std::vector<double>(3,0.0);
-    if(!nh_->get_parameter(x0_prefix + "rpy", init_orient)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get " << x0_prefix << "rpy. Setting to zero.");
+    if(!nh_->get_parameter("x0/rpy", init_orient)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get default ang velocity. Setting to zero.");
         default_state.orientation() = Eigen::Quaterniond::Identity();
     }
     default_state.orientation() = rotation::setQuatEulerAngles(Eigen::Map<Eigen::Vector3d>(init_orient.data()));
@@ -104,45 +102,43 @@ void ROSFrontEnd::initializeState()
 void ROSFrontEnd::initializeCovariance(){
     default_cov = RBIM::Zero();
 
-    std::string sigma0_prefix = "sigma0.";
-
     double sigma_Delta_xy_init = 0;
-    if(!nh_->get_parameter(sigma0_prefix + "Delta_xy", sigma_Delta_xy_init)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param " << sigma0_prefix << "Delta_xy. Setting to zero.");
+    if(!nh_->get_parameter("sigma0/Delta_xy", sigma_Delta_xy_init)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param sigma0/Delta_xy. Setting to zero.");
     }
 
 
     double sigma_Delta_z_init = 0;
-    if(!nh_->get_parameter(sigma0_prefix + "Delta_z", sigma_Delta_z_init)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param " << sigma0_prefix << "Delta_z. Setting to zero.");
+    if(!nh_->get_parameter("sigma0/Delta_z", sigma_Delta_z_init)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param sigma0/Delta_z. Setting to zero.");
     }
 
     double sigma_chi_xy_init = 0;
-    if(!nh_->get_parameter(sigma0_prefix + "chi_xy", sigma_chi_xy_init)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param " << sigma0_prefix << "chi_xy. Setting to zero.");
+    if(!nh_->get_parameter("sigma0/chi_xy", sigma_chi_xy_init)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param sigma0/chi_xy. Setting to zero.");
     }
     sigma_chi_xy_init *= M_PI / 180.0; // convert to radians
 
     double sigma_chi_z_init = 0;
-    if(!nh_->get_parameter(sigma0_prefix + "chi_z", sigma_chi_z_init)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param "<< sigma0_prefix << "chi_z. Setting to zero.");
+    if(!nh_->get_parameter("sigma0/chi_z", sigma_chi_z_init)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param sigma0/chi_z. Setting to zero.");
     }
     sigma_chi_z_init *= M_PI / 180.0; // convert to radians
 
     double sigma_vb_init = 0;
-    if(!nh_->get_parameter(sigma0_prefix + "vb", sigma_vb_init)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param " << sigma0_prefix << "vb. Setting to zero.");
+    if(!nh_->get_parameter("sigma0/vb", sigma_vb_init)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param sigma0/vb. Setting to zero.");
     }
 
     double sigma_gyro_bias_init = 0;
-    if(!nh_->get_parameter(sigma0_prefix + "gyro_bias", sigma_gyro_bias_init)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(),"Couldn't get param " << sigma0_prefix << "accel_bias. Setting to zero.");
+    if(!nh_->get_parameter("sigma0/gyro_bias", sigma_gyro_bias_init)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(),"Couldn't get param sigma0/accel_bias. Setting to zero.");
     }
     sigma_gyro_bias_init *= M_PI / 180.0; // convert to radians
 
     double sigma_accelerometer_bias_init = 0;
-    if(!nh_->get_parameter(sigma0_prefix + "accel_bias", sigma_accelerometer_bias_init)){
-        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param " << sigma0_prefix << "accel_bias. Setting to zero.");
+    if(!nh_->get_parameter("sigma0/accel_bias", sigma_accelerometer_bias_init)){
+        RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't get param sigma0/accel_bias. Setting to zero.");
     }
 
     Eigen::Vector3d xyz_cov_diag =

@@ -5,7 +5,7 @@ namespace pronto {
 
 PoseHandlerROS::PoseHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh) {
     PoseMeasConfig cfg;
-    std::string prefix = "pose_meas.";
+    std::string prefix = "pose_meas/";
     std::string mode_str;
     if (!nh_->get_parameter(prefix + "mode", mode_str)) {
         RCLCPP_WARN(nh_->get_logger(), "Parameter 'mode' not found. Setting to POSITION_ORIENT.");

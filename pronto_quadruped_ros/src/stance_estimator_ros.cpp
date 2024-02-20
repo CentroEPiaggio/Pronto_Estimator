@@ -26,12 +26,13 @@
 namespace pronto {
 namespace quadruped {
 
-StanceEstimatorROS:: StanceEstimatorROS(rclcpp::Node::SharedPtr nh,
+StanceEstimatorROS::StanceEstimatorROS(rclcpp::Node::SharedPtr nh,
                                        FeetContactForces &feet_forces) :
      StanceEstimator(feet_forces), nh_(nh)
 {
     // get parameters for the leg odometry
-    std::string legodo_prefix = "legodo.";
+    std::string legodo_prefix = "legodo/";
+
     // stance estimator parameters
     std::vector<double> beta;
 

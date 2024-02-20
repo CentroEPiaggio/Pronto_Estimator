@@ -3,9 +3,7 @@
 using namespace pronto;
 using namespace pronto::quadruped;
 
-ImuBiasLockROS::ImuBiasLockROS(rclcpp::Node::SharedPtr nh, 
-                                std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator) :
-ImuBiasLockBaseROS(nh, stance_estimator){}
+ImuBiasLockROS::ImuBiasLockROS(rclcpp::Node::SharedPtr nh) : ImuBiasLockBaseROS(nh){}
 
 RBISUpdateInterface* ImuBiasLockROS::processMessage(const sensor_msgs::msg::Imu *msg,
                                                     StateEstimator *est)
