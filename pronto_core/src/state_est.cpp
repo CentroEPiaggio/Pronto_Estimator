@@ -21,7 +21,7 @@ StateEstimator::StateEstimator(RBISResetUpdate * init_state,
   unprocessed_updates_start = history.updateMap.end();
 
   std::cout << init_state->posterior_state << std::endl;
-  Eigen::IOFormat clean_format(4, 0, ", ", "\n", "[", "]", "STATE COVARIANCE: ");
+  Eigen::IOFormat clean_format(4, 0, ", ", "\n", "[", "]");
   std::cout << init_state->posterior_covariance.format(clean_format) << std::endl;
 }
 
@@ -93,7 +93,6 @@ bool StateEstimator::getInterpolatedPose(const uint64_t &utime,
 void StateEstimator::addUpdate(RBISUpdateInterface * update, bool roll_forward)
 {
 #if DEBUG_MODE
-  bool verbose_ = true;
    if(verbose_){
        std::cout << "[ " << update->utime <<" ] "<< update->getSensorIdString() << std::endl;
    }
@@ -112,7 +111,6 @@ void StateEstimator::addUpdate(RBISUpdateInterface * update, bool roll_forward)
     std::cerr << history.toString(update->utime,3) << std::endl;
   }
 #endif
-
   // If there are no unprocessed updates other than the current one,
   // the current one only is where the "unprocessed" queue starts
   if (unprocessed_updates_start == history.updateMap.end() ||
@@ -122,26 +120,21 @@ void StateEstimator::addUpdate(RBISUpdateInterface * update, bool roll_forward)
   if (!roll_forward) {
     return;
   }
-
   // Get the update before the first unprocessed update
   updateHistory::historyMapIterator prev_it = unprocessed_updates_start;
   prev_it--;
   updateHistory::historyMapIterator current_it = unprocessed_updates_start;
   //  fprintf(stderr, "roll forward: %s ", RBISUpdateInterface::sensor_enum_strings[prev_it->second->sensor_id]);
-
   // Iterate over unprocessed updates
   while (current_it != history.updateMap.end()) {
     RBISUpdateInterface * current_update = current_it->second;
     RBISUpdateInterface * prev_update = prev_it->second;
-
     // The prior is the previous posterior
     current_update->updateFilter(prev_update->posterior_state,
                                  prev_update->posterior_covariance,
                                  prev_update->loglikelihood);
-
     // Update the time for the current posterior
     current_update->posterior_state.utime = current_update->utime;
-
     // if (current_update->posterior_state.hasNan()){
     //   fprintf(stderr,"ERROR: %s Update Made state NAN!\n", 
     //       RBISUpdateInterface::sensor_enum_strings[current_update->sensor_id]);

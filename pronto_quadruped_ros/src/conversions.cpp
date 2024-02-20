@@ -1,4 +1,5 @@
 #include "pronto_quadruped_ros/conversions.hpp"
+#include <rclcpp/rclcpp.hpp>
 
 namespace pronto {
 namespace quadruped {
@@ -8,8 +9,7 @@ bool jointStateFromROS(const sensor_msgs::msg::JointState& msg,
                        JointState& q,
                        JointState& qd,
                        JointState& qdd,
-                       JointState& tau,
-                       rclcpp::Node::SharedPtr nh_)
+                       JointState& tau)
 {
     // if the size of the joint state message does not match our own,
     // we silently return an invalid update
@@ -18,37 +18,21 @@ bool jointStateFromROS(const sensor_msgs::msg::JointState& msg,
     if (msg.position.size() != size ||
         msg.velocity.size() != size ||
         msg.effort.size() != size){
-        RCLCPP_WARN(nh_->get_logger(), "Joint State is expected %zu joints but %zu / %zu / %zu are provided.",
+        RCLCPP_WARN(rclcpp::get_logger("jointStateFromROS"), "Joint State is expected %zu joints but %zu / %zu / %zu are provided.",
                          size, msg.position.size(), msg.velocity.size(), msg.effort.size());
         return false;
     }
-
-    std::vector<std::string> joint_names;
-    if(!nh_->get_parameter("joint_names", joint_names)){
-      RCLCPP_ERROR(nh_->get_logger(), "JOINT STATES CONVERSION: Couldn't get joint names, conversion not possible.");
-      return false;
-    }
-
     // store message time in microseconds
     utime = msg.header.stamp.nanosec / 1000;
-    utime += msg.header.stamp.sec * std::pow(10, 6);
     for(int i=0; i<12; i++){
-
-      // joint states are not in order, we need to sort them
-      auto j = std::find(msg.name.begin(), msg.name.end(), joint_names[i]);
-
-      if(j!=msg.name.end()){
-        int index = j - msg.name.begin();
-        q(i) = msg.position[index];
-        qd(i) = msg.velocity[index];
-        tau(i) = msg.effort[index];
-      }
-      else{
-        RCLCPP_ERROR(nh_->get_logger(), "JOINT STATES CONVERSION: Joint named %s doesn't exists.", joint_names[i]);
-        return false;
-      }
-      
+      q(i) = msg.position[i];
+      qd(i) = msg.velocity[i];
+      tau(i) = msg.effort[i];
     }
+    //q = Eigen::Map<const JointState>(msg.position.data());
+    //qd = Eigen::Map<const JointState>(msg.velocity.data());
+    //tau = Eigen::Map<const JointState>(msg.effort.data());
+
     qdd.setZero(); // TODO compute the acceleration
 
     return true;
@@ -59,8 +43,7 @@ bool jointStateWithAccelerationFromROS(const pronto_msgs::msg::JointStateWithAcc
                                JointState& q,
                                JointState& qd,
                                JointState& qdd,
-                               JointState& tau,
-                               rclcpp::Node::SharedPtr nh_)
+                               JointState& tau)
 {
     // if the size of the joint state message does not match our own,
     // we silently return an invalid update
@@ -74,32 +57,13 @@ bool jointStateWithAccelerationFromROS(const pronto_msgs::msg::JointStateWithAcc
                          size, msg.position.size(), msg.velocity.size(), msg.acceleration.size(), msg.effort.size());
         return false;
     }
-    
-    std::vector<std::string> joint_names;
-    if(!nh_->get_parameter("joint_names", joint_names)){
-      RCLCPP_ERROR(nh_->get_logger(), "JOINT STATES CONVERSION: Couldn't get joint names, conversion not possible.");
-      return false;
-    }
-
     // store message time in microseconds
-    utime = msg.header.stamp.nanosec / 1000;
-    utime += msg.header.stamp.sec * std::pow(10, 6);
+    utime = 1e-3 * msg.header.stamp.nanosec;
     for(int i=0; i<12; i++){
-
-      // joint states are not in order, we need to sort them
-      auto j = std::find(msg.name.begin(), msg.name.end(), joint_names[i]);
-
-      if(j!=msg.name.end()){
-        int index = j - msg.name.begin();
-        q(i) = msg.position[index];
-        qd(i) = msg.velocity[index];
-        qdd(i) = msg.acceleration[index];
-        tau(i) = msg.effort[index];
-      }
-      else{
-        RCLCPP_ERROR(nh_->get_logger(), "JOINT STATES CONVERSION: Joint named %s doesn't exists.", joint_names[i]);
-        return false;
-      }
+      q(i) = msg.position[i];
+      qd(i) = msg.velocity[i];
+      qdd(i) = msg.acceleration[i];
+      tau(i) = msg.effort[i];
     }
 
     return true;

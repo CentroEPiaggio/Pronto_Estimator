@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.8)
 project(pronto_ros)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic -g)
-  # add_compile_options(-Wall)
+  # add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-Wall)
 endif()
 
 # find dependencies
@@ -22,7 +22,7 @@ find_package(rclcpp REQUIRED)
 find_package(nav_msgs REQUIRED)
 
 add_library(pronto_ros  SHARED  src/ins_ros_handler.cpp
-                                src/index_meas_ros_handler.cpp
+                                # src/index_meas_ros_handler.cpp
                                 src/init_message_ros_handler.cpp
                                 src/scan_matcher_ros_handler.cpp
                                 src/ros_frontend.cpp
@@ -90,6 +90,12 @@ ament_export_dependencies(
 "rclcpp"
 "nav_msgs")
 
+add_executable(${PROJECT_NAME}_node src/pronto_ros_node.cpp)
+target_include_directories(${PROJECT_NAME}_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME} ${LIBS})
+
 add_executable(joint_state_with_acceleration_republisher src/joint_state_with_acceleration_republisher.cpp)
 target_include_directories(joint_state_with_acceleration_republisher PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -97,7 +103,7 @@ target_include_directories(joint_state_with_acceleration_republisher PUBLIC
 target_link_libraries(joint_state_with_acceleration_republisher
   ${PROJECT_NAME} ${LIBS})
 
-install(TARGETS joint_state_with_acceleration_republisher 
+install(TARGETS joint_state_with_acceleration_republisher pronto_ros_node
   DESTINATION lib/${PROJECT_NAME})
 
 # Install launch files.

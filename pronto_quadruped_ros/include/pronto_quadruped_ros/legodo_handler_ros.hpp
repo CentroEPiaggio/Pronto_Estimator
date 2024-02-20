@@ -76,16 +76,15 @@ public:
 
 public:
     LegodoHandlerBase(rclcpp::Node::SharedPtr nh,
-                     std::shared_ptr<quadruped::StanceEstimator> stance_est,
+                      StanceEstimatorROS& fcf,
                       LegOdometerROS& fj);
     virtual ~LegodoHandlerBase() = default;
 
 protected:
-    std::shared_ptr<quadruped::StanceEstimator> stance_estimator_;
+    StanceEstimatorROS& stance_estimator_;
     LegOdometerROS& leg_odometer_;
 
     std::string base_link_name_;           ///< Name of the base_link
-    std::string twist_frame;
     std::vector<std::string> foot_names_;  ///< Name of the feet frames (in LF, RF, LH, RH order)
 
     Eigen::Vector3d r_legodo_;
@@ -95,12 +94,6 @@ protected:
     JointState qd_;
     JointState qdd_;
     JointState tau_;
-
-    JointStatePinocchio qP;
-    JointVelocityPinocchio qdP;
-    JointVelocityPinocchio qddP;
-    JointVelocityPinocchio tauP;
-
 
     RBIS head_state_;
     RBIM head_cov_;
@@ -155,7 +148,7 @@ class LegodoHandlerROS : public pronto::SensingModule<sensor_msgs::msg::JointSta
 {
 public:
     LegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                     std::shared_ptr<quadruped::StanceEstimator> stance_est,
+                     StanceEstimatorROS &stance_est,
                      LegOdometerROS &legodo);
     virtual ~LegodoHandlerROS() = default;
 
@@ -178,7 +171,7 @@ class LegodoHandlerWithAccelerationROS : public pronto::SensingModule<pronto_msg
 {
 public:
     LegodoHandlerWithAccelerationROS(rclcpp::Node::SharedPtr nh,
-                                       std::shared_ptr<quadruped::StanceEstimator> stance_est,
+                                       StanceEstimatorROS &stance_est,
                                        LegOdometerROS &legodo) : 
     nh_(nh),
     LegodoHandlerBase(nh, stance_est, legodo) 
@@ -207,7 +200,7 @@ class ForceSensorLegodoHandlerROS : public LegodoHandlerBase,
 {
 public:
     ForceSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                                std::shared_ptr<quadruped::StanceEstimator> stance_est,
+                                StanceEstimatorROS& stance_est,
                                 LegOdometerROS& legodo);
     virtual ~ForceSensorLegodoHandlerROS() = default;
 
@@ -234,7 +227,7 @@ class FootSensorLegodoHandlerROS : public LegodoHandlerBase,
 {
 public:
     FootSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                                std::shared_ptr<quadruped::StanceEstimator> stance_est,
+                                StanceEstimatorROS& stance_est,
                                 LegOdometerROS& legodo);
     virtual ~FootSensorLegodoHandlerROS() = default;
 

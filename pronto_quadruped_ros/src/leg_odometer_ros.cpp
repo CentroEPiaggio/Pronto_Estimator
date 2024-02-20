@@ -33,7 +33,7 @@ LegOdometerROS::LegOdometerROS(rclcpp::Node::SharedPtr nh,
     LegOdometer(feet_jacobians, forward_kinematics), nh_(nh)
 {
     // get parameters for the leg odometry
-    std::string legodo_prefix = "legodo.";
+    std::string legodo_prefix = "legodo/";
     int legodo_mode;
     if (!nh_->get_parameter(legodo_prefix + "legodo_mode", legodo_mode)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), "Could not get param \"" << legodo_prefix + "legodo_mode\". Using default.");

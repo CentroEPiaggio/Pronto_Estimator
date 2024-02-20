@@ -14,7 +14,6 @@
 #include "visualization_msgs/msg/marker_array.hpp"
 #include "geometry_msgs/msg/point_stamped.hpp"
 #include "pronto_msgs/msg/joint_state_with_acceleration.hpp"
-#include "pronto_quadruped_ros/stance_estimator_ros.hpp"
 
 #include "tf2_ros/buffer.h"
 #include "tf2_ros/transform_listener.h"
@@ -29,18 +28,18 @@ class ImuBiasLockBaseROS : public DualSensingModule<sensor_msgs::msg::Imu, Joint
 {
 public:
     ImuBiasLockBaseROS() = delete;
-    ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh, std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator);
-    RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) override;
+    ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh);
+    RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) /*override*/;
     // tf2_ros::Buffer tfBuffer;    
 
     bool processMessageInit(
-        const sensor_msgs::msg::Imu* msg,
+        const sensor_msgs::msg::Imu::SharedPtr msg,
         const std::map<std::string, bool> &sensor_initialized,
         const RBIS &default_state,
         const RBIM &default_cov,
         RBIS &init_state,
         RBIM &init_cov
-    ) override;
+    ) /*override*/;
 
 protected:
     rclcpp::Node::SharedPtr nh_;
@@ -63,21 +62,19 @@ protected:
 };
 
 template <class JointStateT>
-ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh, 
-                                                    std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator) : 
-    nh_(nh)
+ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 {
     tf2_ros::Buffer tfBuffer(nh_->get_clock());
     tf2_ros::TransformListener tf_imu_to_body_listener_(tfBuffer);
 
-    std::string ins_param_prefix = "ins.";
-    std::string lock_param_prefix = "bias_lock.";
+    std::string ins_param_prefix = "ins/";
+    std::string lock_param_prefix = "bias_lock/";
 
-    std::string imu_frame = "imu_link";
+    std::string imu_frame = "imu";
 
-    nh_->get_parameter_or(ins_param_prefix + "frame", imu_frame, imu_frame);
-    std::string base_frame;
-    nh_->get_parameter_or<std::string>("base_link_name", base_frame, "base_link");
+    nh_->get_parameter_or("ins/frame", imu_frame, imu_frame);
+    std::string base_frame = "base";
+    nh_->get_parameter_or<std::string>("base_link_name", base_frame, "base");
     RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Name of base_link: '" << base_frame << "'");
     Eigen::Isometry3d ins_to_body = Eigen::Isometry3d::Identity();
     while (rclcpp::ok()) {
@@ -85,11 +82,10 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh,
             // lookupTransform API is : target_frame, source_frame
             geometry_msgs::msg::TransformStamped temp_transform = tfBuffer.lookupTransform(base_frame, imu_frame, tf2::TimePointZero);
             ins_to_body = tf2::transformToEigen(temp_transform.transform);
-            RCLCPP_INFO_STREAM(nh_->get_logger(), "IMU (" << imu_frame << ") to base (" << base_frame << ") transform: translation=(" << ins_to_body.translation().transpose() << "),");
-            RCLCPP_INFO_STREAM(nh_->get_logger(), "rotation=(" << ins_to_body.rotation() << ")");
+            RCLCPP_INFO_STREAM(nh_->get_logger(), "IMU (" << imu_frame << ") to base (" << base_frame << ") transform: translation=(" << ins_to_body.translation().transpose() << "), rotation=(" << ins_to_body.rotation() << ")");
             break;
         } catch (const tf2::TransformException& ex) {
-            RCLCPP_ERROR_SKIPFIRST(nh_->get_logger(), "%s", ex.what());
+            RCLCPP_ERROR(nh_->get_logger(), "%s", ex.what());
             rclcpp::sleep_for(std::chrono::seconds(1));
         }
     }
@@ -98,9 +94,6 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh,
     nh_->get_parameter_or(lock_param_prefix + "torque_threshold", cfg.torque_threshold_, 0.0);
     nh_->get_parameter_or(lock_param_prefix + "velocity_threshold", cfg.velocity_threshold_, 0.0);
     nh_->get_parameter_or(lock_param_prefix + "verbose", cfg.verbose_, false);
-    nh_->get_parameter_or(lock_param_prefix + "compute_stance", cfg.compute_stance, false);
-    nh_->get_parameter_or(lock_param_prefix + "min_size", cfg.min_size, (uint)500);
-    nh_->get_parameter_or(lock_param_prefix + "max_size", cfg.max_size, (uint)3000);
 
     if (!nh_->get_parameter(ins_param_prefix + "timestep_dt", cfg.dt_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't read dt. Using default: " << cfg.dt_);
@@ -109,15 +102,14 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh,
     // Determine what to publish:
     nh_->get_parameter_or(lock_param_prefix + "publish_debug_topics", publish_debug_topics_, true);  // Default to 'true' to preserve previous behaviour
     nh_->get_parameter_or(lock_param_prefix + "publish_transforms", publish_transforms_, true);    // Default to 'true' to preserve previous behaviour
-    RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Publishing debug topics:  " << std::boolalpha << publish_debug_topics_);
-    RCLCPP_INFO_STREAM(nh_->get_logger(),"[ImuBiasLockBaseROS] Publishing transforms:    " << std::boolalpha << publish_transforms_);
+    RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Publishing debug topics:  " << std::boolalpha << publish_debug_topics_ << "\n" <<
+                                          "                   Publishing transforms:    " << publish_transforms_);
 
     if (publish_debug_topics_) {
         status_pub_ = nh_->create_publisher<geometry_msgs::msg::PointStamped>("/state_estimator_pronto/recording_bias", 100);
         marker_pub_ = nh_->create_publisher<visualization_msgs::msg::Marker>("/state_estimator_pronto/imu_arrows", 100);
         base_marker_pub_ = nh_->create_publisher<visualization_msgs::msg::Marker>("/state_estimator_pronto/base_arrow", 100);
         base_more_marker_pub_ = nh_->create_publisher<visualization_msgs::msg::Marker>("/state_estimator_pronto/base_more_arrow", 100);
-
         imu_arrow_.color.a = 1;
         imu_arrow_.color.r = 1;
         imu_arrow_.color.g = 0;
@@ -142,7 +134,7 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh,
         base_arrow_.color.g = 1;
     }
 
-    bias_lock_module_ = std::make_unique<quadruped::ImuBiasLock>(stance_estimator, ins_to_body, cfg);
+    bias_lock_module_ = std::make_unique<quadruped::ImuBiasLock>(ins_to_body, cfg);
 }
 
 template <class JointStateT>
@@ -221,7 +213,7 @@ RBISUpdateInterface* ImuBiasLockBaseROS<JointStateT>::processMessage(const senso
 
 template <class JointStateT>
 bool ImuBiasLockBaseROS<JointStateT>::processMessageInit(
-    const sensor_msgs::msg::Imu* msg,
+    const sensor_msgs::msg::Imu::SharedPtr msg,
     const std::map<std::string, bool> &sensor_initialized,
     const RBIS &default_state,
     const RBIM &default_cov,
@@ -243,7 +235,7 @@ bool ImuBiasLockBaseROS<JointStateT>::processMessageInit(
 class ImuBiasLockROS : public ImuBiasLockBaseROS<sensor_msgs::msg::JointState>
 {
 public:
-    ImuBiasLockROS(rclcpp::Node::SharedPtr nh, std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator);
+    ImuBiasLockROS(rclcpp::Node::SharedPtr nh);
     virtual ~ImuBiasLockROS() = default;
 
     RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) /*override*/; 
@@ -263,14 +255,10 @@ public:
 class ImuBiasLockWithAccelerationROS : public ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>
 {
 public:
-    ImuBiasLockWithAccelerationROS(rclcpp::Node::SharedPtr nh, std::shared_ptr<quadruped::StanceEstimatorROS> stance_estimator) : 
-    nh_(nh),
-    ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>(nh_, stance_estimator) {}
+    ImuBiasLockWithAccelerationROS(rclcpp::Node::SharedPtr nh) : ImuBiasLockBaseROS<pronto_msgs::msg::JointStateWithAcceleration>(nh) {}
     virtual ~ImuBiasLockWithAccelerationROS() = default;
 
     void processSecondaryMessage(const pronto_msgs::msg::JointStateWithAcceleration &msg);
-
-    rclcpp::Node::SharedPtr nh_;
 };
 
 }  // namespace quadruped

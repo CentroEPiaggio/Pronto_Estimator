@@ -15,12 +15,12 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
     tf2::BufferCore tf_imu_to_body_buffer_;
     tf2_ros::TransformListener tf_imu_to_body_listener_(tf_imu_to_body_buffer_);
 
-    const std::string ins_param_prefix = "ins.";
+    const std::string ins_param_prefix = "ins/";
     std::string imu_frame = "imu";
-    nh_->get_parameter_or(ins_param_prefix + "frame", imu_frame, imu_frame);
+
+    imu_frame = nh_->get_parameter(ins_param_prefix + "frame").as_string();
     std::string base_frame = "base";
-    nh_->get_parameter_or("base_link_name", base_frame, base_frame);
-    
+    base_frame = nh_->get_parameter("base_link_name").get_value<std::string>();
     RCLCPP_INFO_STREAM(nh_->get_logger(), 
         "[InsHandlerROS] Name of base_link: " 
         << base_frame);
@@ -37,7 +37,7 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
             break;
         } 
         catch (const tf2::TransformException& ex) {
-            RCLCPP_ERROR_SKIPFIRST(nh_->get_logger(), "%s", ex.what());
+            RCLCPP_ERROR(nh_->get_logger(), "%s", ex.what());
             rclcpp::sleep_for(std::chrono::seconds(1));
         }
     }
@@ -46,8 +46,10 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 
     if (!nh_->get_parameter(ins_param_prefix + "num_to_init", cfg.num_to_init)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(),
-        "[InsHandlerROS] Couldn't get param " << ins_param_prefix 
-        << "num_to_init. Using default: " << cfg.num_to_init);
+        "Couldn't get param \"" 
+        << nh_->get_namespace() << "/" << ins_param_prefix 
+        << "num_to_init\". Using default: "
+        << cfg.num_to_init);
     } else {
         RCLCPP_INFO_STREAM(nh_->get_logger(), 
             "num_to_init: " << cfg.num_to_init);
@@ -55,31 +57,31 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 
     if (!nh_->get_parameter(ins_param_prefix + "accel_bias_update_online", cfg.accel_bias_update_online)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param" << nh_->get_namespace() << "/" 
+            "Couldn't get param" << nh_->get_namespace() << "/" 
             << ins_param_prefix << "accel_bias_update_online\". Using default: "
             << cfg.accel_bias_update_online);
     }
     if (!nh_->get_parameter(ins_param_prefix + "gyro_bias_update_online", cfg.gyro_bias_update_online)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "gyro_bias_update_online\". Using default: "
             << cfg.gyro_bias_update_online);
     }
     if (!nh_->get_parameter(ins_param_prefix + "accel_bias_recalc_at_start", cfg.accel_bias_recalc_at_start)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "accel_bias_recalc_at_start\". Using default: "
             << cfg.accel_bias_recalc_at_start);
     }
     if (!nh_->get_parameter(ins_param_prefix + "gyro_bias_recalc_at_start", cfg.gyro_bias_recalc_at_start)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "gyro_bias_recalc_at_start\". Using default: "
             << cfg.gyro_bias_recalc_at_start);
     }
     if (!nh_->get_parameter(ins_param_prefix + "timestep_dt", cfg.dt)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix
             << "timestep_dt\". Using default: "
             << cfg.dt);
     }
@@ -87,7 +89,7 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
     std::vector<double> gyro_bias_initial_v;
     if (!nh_->get_parameter(ins_param_prefix + "accel_bias_initial", accel_bias_initial_v)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "accel_bias_initial\". Using default: "
             << cfg.accel_bias_initial.transpose());
     } else {
@@ -98,7 +100,7 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 
     if (!nh_->get_parameter(ins_param_prefix + "gyro_bias_initial", gyro_bias_initial_v)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "gyro_bias_initial\". Using default: "
             << cfg.gyro_bias_initial.transpose());
     } else {
@@ -110,38 +112,42 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 
     if (!nh_->get_parameter(ins_param_prefix + "max_initial_gyro_bias", cfg.max_initial_gyro_bias)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "max_initial_gyro_bias\". Using default: "
             << cfg.max_initial_gyro_bias);
     }
 
     if (!nh_->get_parameter(ins_param_prefix + "topic", imu_topic_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "topic\". Using default: "
             << imu_topic_);
     }
-    
-    if (!nh_->get_parameter(ins_param_prefix + "downsample_factor", downsample_factor_)) {
+    int downsample_factor = downsample_factor_;
+    if (!nh_->get_parameter(ins_param_prefix + "downsample_factor", downsample_factor)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "downsample_factor\". Using default: "
-            << downsample_factor_);
-    } 
+            << downsample_factor);
+    } else {
+        downsample_factor_ = downsample_factor;
+    }
 
     if (!nh_->get_parameter(ins_param_prefix + "roll_forward_on_receive", roll_forward_on_receive_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "roll_forward_on_receive\". Using default: "
             << roll_forward_on_receive_);
     }
-    
-    if (!nh_->get_parameter(ins_param_prefix + "utime_offset", utime_offset_)) {
+    int utime_offset = utime_offset_;
+    if (!nh_->get_parameter(ins_param_prefix + "utime_offset", utime_offset)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "utime_offset\". Using default: "
-            << utime_offset_);
-    } 
+            << utime_offset);
+    } else {
+        utime_offset_ = utime_offset;
+    }
 
     double std_accel = 0;
     double std_gyro = 0;
@@ -150,25 +156,25 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 
     if (!nh_->get_parameter(ins_param_prefix + "q_gyro", std_gyro)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "q_gyro\". Using default: "
             << std_gyro);
     }
     if (!nh_->get_parameter(ins_param_prefix + "q_gyro_bias", std_gyro_bias)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "q_gyro_bias\". Using default: "
             << std_gyro_bias);
     }
     if (!nh_->get_parameter(ins_param_prefix + "q_accel", std_accel)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "q_accel\". Using default: "
             << std_accel);
     }
     if (!nh_->get_parameter(ins_param_prefix + "q_accel_bias", std_accel_bias)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
-            "[InsHandlerROS] Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
+            "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
             << "q_accel_bias\". Using default: "
             << std_accel_bias);
     }

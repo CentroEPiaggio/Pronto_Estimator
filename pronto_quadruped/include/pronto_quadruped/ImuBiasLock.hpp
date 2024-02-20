@@ -24,7 +24,6 @@
 #include <map>
 #include <pronto_core/sensing_module.hpp>
 #include <pronto_core/definitions.hpp>
-#include "pronto_quadruped/StanceEstimator.hpp"
 
 namespace pronto {
 namespace quadruped {
@@ -34,23 +33,20 @@ struct ImuBiasLockConfig {
   double velocity_threshold_ = 0.006;
   double dt_ = 0.0025;
   bool verbose_ = false;
-  bool compute_stance = false;
-  uint min_size;
-  uint max_size;
 };
 
 class ImuBiasLock : public DualSensingModule<ImuMeasurement,pronto::JointState>
 {
-
+public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 public:
     // the measurement and index sizes is 8: 3 for gyro bias, 3 for accel bias
     // and 2 for roll/pitch estimation
     using MeasVector = Eigen::Matrix<double, 8, 1>;
     using IndexVector = Eigen::Matrix<int, 8, 1>;
     using CovMatrix = Eigen::Matrix<double, 8, 8>;
-
-    ImuBiasLock(std::shared_ptr<quadruped::StanceEstimator> stance_estimator,
-                const Eigen::Isometry3d& ins_to_body_ = Eigen::Isometry3d::Identity(),
+public:
+    ImuBiasLock(const Eigen::Isometry3d& ins_to_body_ = Eigen::Isometry3d::Identity(),
                 const ImuBiasLockConfig& cfg = ImuBiasLockConfig());
     virtual ~ImuBiasLock() {}
 
@@ -65,7 +61,7 @@ public:
                             RBIM &init_cov) override;
 
     void processSecondaryMessage(const pronto::JointState& msg) override;
-
+public:
     const Eigen::Vector3d& getCurrentOmega() const {
       return current_omega_;
     }
@@ -97,20 +93,20 @@ public:
     inline bool getRecordStatus() const {
       return do_record_;
     }
+    
+    inline void setTimeStep(double dt)
+    {
+      dt_ = dt;
+    }
 
 protected:
-
     bool debug_ = false;
-    bool compute_stance_;
     std::vector<Eigen::Vector3d> gyro_bias_history_;
     std::vector<Eigen::Vector3d> accel_bias_history_;
     bool do_record_ = true;
     bool is_static_ = false;
-    uint max_size_ = 3000;
-    uint min_size_ = 500;
-    
-    LegBoolMap stance_;
-    std::shared_ptr<quadruped::StanceEstimator> stance_estimator_;
+    size_t max_size = 3000;
+    size_t min_size = 500;
 
     Eigen::Vector3d gyro_bias_ = Eigen::Vector3d::Zero();
     Eigen::Vector3d accel_bias_ = Eigen::Vector3d::Zero();
@@ -132,7 +128,7 @@ protected:
     double eps_ = 0.006;
     double dt_ = 0.0025;
     Eigen::Isometry3d ins_to_body_;
-
+protected:
     bool isStatic(const pronto::JointState& state);
     Eigen::Vector3d getBias(const std::vector<Eigen::Vector3d>& history) const;
     Eigen::Matrix3d getBiasCovariance(const std::vector<Eigen::Vector3d>& history) const;

@@ -1,7 +1,7 @@
 #include "pronto_core/ins_module.hpp"
 #include "pronto_core/rigidbody.hpp"
 #include "pronto_core/rotations.hpp"
-#include "pronto_core/definitions.hpp"
+#include "rclcpp/rclcpp.hpp"
 #include <iostream>
 
 namespace pronto {
@@ -28,9 +28,7 @@ InsModule::InsModule(const InsConfig &config, const Eigen::Affine3d &ins_to_body
     gyro_bias_recalc_at_start(config.gyro_bias_recalc_at_start),
     accel_bias_update_online(config.accel_bias_update_online),
     accel_bias_initial(config.accel_bias_initial),
-    accel_bias_recalc_at_start(config.accel_bias_recalc_at_start),
-    previous_omega_(Eigen::Vector3d::Zero()),
-    dt_(config.dt)
+    accel_bias_recalc_at_start(config.accel_bias_recalc_at_start)
 {
     cov_accel = std::pow(config.cov_accel, 2);
     cov_gyro = std::pow(config.cov_gyro * M_PI / 180.0, 2);
@@ -54,27 +52,13 @@ bool InsModule::allInitializedExcept(const std::map<std::string, bool> &_sensors
 RBISUpdateInterface * InsModule::processMessage(const ImuMeasurement * msg,
                                                  StateEstimator* state_estimator)
 {
+
+  Eigen::Vector3d accelerometer(ins_to_body_.rotation() * msg->acceleration);
   current_omega_ = (ins_to_body_.rotation() * msg->omega);
-  // Ignore coriolis and angular acceleration effects because the distance between imu and body frame is small
-  Eigen::Vector3d accelerometer(ins_to_body_.rotation() * msg->acceleration); 
 
-  #if DEBUG_MODE
-  Eigen::Vector3d coriolis(rotation::skewHat(current_omega_)*(rotation::skewHat(current_omega_)*ins_to_body_.translation()));
-  Eigen::Vector3d relative_acc(rotation::skewHat((current_omega_ - previous_omega_) / dt_)*ins_to_body_.translation());
-  Eigen::Vector3d accelerometer_new (accelerometer - relative_acc - coriolis);
-  
-  std::cerr << "==========================================\n" << "INS CORRECTION\n" << "==========================================\n";
-  std::cerr << "accelerometer = " << accelerometer.transpose() << std::endl;
-  std::cerr << "relative acceleration = " << relative_acc.transpose() << std::endl;
-  std::cerr << "coriolis and centrifugal = " << coriolis.transpose() << std::endl;
-  std::cerr << "corrected accelerometer = " << accelerometer_new.transpose() << std::endl;
-
-  #endif
-  
   // mfallon thinks this was incorrect as the addition of the translation seems wrong:
   // experimentally the bias estimator estimates the body-imu translation (fixed may 2014):
-  // Eigen::Vector3d gyro(ins_to_body_.rotation() * msg->omega);
-
+  Eigen::Vector3d gyro(ins_to_body_.rotation() * msg->omega);
 
   RBISIMUProcessStep* update = new RBISIMUProcessStep(current_omega_,
                                                       accelerometer,
@@ -94,8 +78,6 @@ RBISUpdateInterface * InsModule::processMessage(const ImuMeasurement * msg,
         update->posterior_state.accelBias() = accel_bias_initial;
     }
 
-    previous_omega_ = current_omega_;
-
     return update;
 }
 
@@ -106,6 +88,7 @@ bool InsModule::processMessageInit(const ImuMeasurement * msg,
                                     RBIS & init_state,
                                    RBIM & init_cov)
 {
+    // RCLCPP_INFO(rclcpp::get_logger("INS Init"),"the counter is %d",init_counter);
     init_state.utime = msg->utime;
 
     RBISIMUProcessStep * update = dynamic_cast<RBISIMUProcessStep *>(processMessage(msg, NULL));
@@ -116,6 +99,7 @@ bool InsModule::processMessageInit(const ImuMeasurement * msg,
     }
 
     init_counter++;
+    
     // TODO not using magnetometer, sending zero
     // Eigen::Vector3d mag_vec(ins_to_body.rotation() * Eigen::Map<const Eigen::Vector3d>(msg->mag));
 
@@ -139,7 +123,7 @@ bool InsModule::processMessageInitCommon(const std::map<std::string, bool> & sen
   g_vec_sum += -update->accelerometer;
   mag_vec_sum += mag_vec;
   gyro_bias_sum += update->gyro;
-
+  
   delete update;
 
   if (init_counter < num_to_init) {
@@ -162,14 +146,14 @@ bool InsModule::processMessageInitCommon(const std::map<std::string, bool> & sen
               max_initial_gyro_bias);
       ins_gyro_bias_est = Eigen::Vector3d(0,0,0);
     }
-
+    std::cerr <<"the estimate g is "<<ins_g_vec_est.transpose()<< " and its norm is " << ins_g_vec_est.norm()<<std::endl;
     //set orientation
     Eigen::Quaterniond quat_g_vec;
     quat_g_vec.setFromTwoVectors(ins_g_vec_est, -Eigen::Vector3d::UnitZ()); //the gravity vector points in the negative z axis
 
     Eigen::Vector3d g_vec_rpy = (rotation::getEulerAngles(quat_g_vec) * 180.0 / M_PI);
-    fprintf(stderr, "Roll, Pitch, Yaw Initialized from INS: %f, %f, %f \n", g_vec_rpy(0), g_vec_rpy(1), g_vec_rpy(2));
-    // fprintf(stderr, "Yaw from INS: %f, \n", g_vec_rpy(2));
+    fprintf(stderr, "Roll, Pitch Initialized from INS: %f, %f \n", g_vec_rpy(0), g_vec_rpy(1));
+    fprintf(stderr, "Yaw from INS: %f, \n", g_vec_rpy(2));
 
     init_state.orientation() = init_state.orientation() * quat_g_vec;
     init_cov.block<2, 2>(RBIS::chi_ind, RBIS::chi_ind) = default_cov.block<2, 2>(
@@ -208,6 +192,9 @@ bool InsModule::processMessageInitCommon(const std::map<std::string, bool> & sen
         gyro_bias_initial = init_state.gyroBias();
     }
 
+    // fprintf(stderr, "the initial gyro and acceleration bias are [%f,%f,%f] and  [%f,%f,%f]\n", gyro_bias_initial(0), gyro_bias_initial(1), gyro_bias_initial(2),
+    // accel_bias_initial(0),accel_bias_initial(1),accel_bias_initial(2));
+    
     init_state.gyroBias() = gyro_bias_initial;
     init_state.accelBias() = accel_bias_initial;
 

@@ -3,8 +3,6 @@
 #include <eigen3/Eigen/Dense>
 #include <eigen3/Eigen/Geometry>
 #include "pronto_core/rigidbody.hpp"
-#include "pronto_core/definitions.hpp"
-#include <iostream>
 
 namespace pronto {
 
