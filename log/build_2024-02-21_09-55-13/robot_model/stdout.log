@@ -1,0 +1,47 @@
+[35m[1mConsolidate compiler generated dependencies of target robot_model[0m
+[  0%] Built target ament_cmake_python_symlink_robot_model
+[ 50%] Built target robot_model
+[35m[1mConsolidate compiler generated dependencies of target TestRobotModel[0m
+[100%] Built target TestRobotModel
+running egg_info
+writing robot_model.egg-info/PKG-INFO
+writing dependency_links to robot_model.egg-info/dependency_links.txt
+writing top-level names to robot_model.egg-info/top_level.txt
+reading manifest file 'robot_model.egg-info/SOURCES.txt'
+writing manifest file 'robot_model.egg-info/SOURCES.txt'
+[100%] Built target ament_cmake_python_build_robot_model_egg
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/library_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/library_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/include/robot_model/robot_model/robot_model.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/robots/all_robots.yaml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/pythonpath.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/pythonpath.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/PKG-INFO
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/top_level.txt
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model/__init__.py
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model/robot_model.py
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/ament_index/resource_index/package_run_dependencies/robot_model
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/ament_index/resource_index/parent_prefix_path/robot_model
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/ament_index/resource_index/packages/robot_model
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_modelConfig.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_modelConfig-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/package.xml
+-- Up-to-date: /home/ros/docker_pronto_ws/install/robot_model/lib/librobot_model.so
+Listing '/home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model'...
+-- Up-to-date: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_model_targetsExport.cmake
+-- Up-to-date: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_model_targetsExport-release.cmake

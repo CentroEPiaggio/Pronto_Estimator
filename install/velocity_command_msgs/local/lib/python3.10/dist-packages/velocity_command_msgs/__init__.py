@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/velocity_command_msgs/rosidl_generator_py/velocity_command_msgs/__init__.py

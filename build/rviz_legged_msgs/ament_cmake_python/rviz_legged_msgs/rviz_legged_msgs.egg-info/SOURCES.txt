@@ -1,0 +1,11 @@
+setup.py
+rviz_legged_msgs/__init__.py
+rviz_legged_msgs.egg-info/PKG-INFO
+rviz_legged_msgs.egg-info/SOURCES.txt
+rviz_legged_msgs.egg-info/dependency_links.txt
+rviz_legged_msgs.egg-info/top_level.txt
+rviz_legged_msgs/msg/__init__.py
+rviz_legged_msgs/msg/_friction_cone.py
+rviz_legged_msgs/msg/_friction_cones.py
+rviz_legged_msgs/msg/_paths.py
+rviz_legged_msgs/msg/_wrenches_stamped.py

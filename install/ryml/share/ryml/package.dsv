@@ -1,0 +1,11 @@
+source;share/ryml/hook/cmake_prefix_path.ps1
+source;share/ryml/hook/cmake_prefix_path.dsv
+source;share/ryml/hook/cmake_prefix_path.sh
+source;share/ryml/hook/ld_library_path_lib.ps1
+source;share/ryml/hook/ld_library_path_lib.dsv
+source;share/ryml/hook/ld_library_path_lib.sh
+source;share/ryml/local_setup.bash
+source;share/ryml/local_setup.dsv
+source;share/ryml/local_setup.ps1
+source;share/ryml/local_setup.sh
+source;share/ryml/local_setup.zsh

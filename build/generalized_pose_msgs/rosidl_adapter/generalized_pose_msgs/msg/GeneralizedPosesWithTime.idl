@@ -1,0 +1,13 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from generalized_pose_msgs/msg/GeneralizedPosesWithTime.msg
+// generated code does not contain a copyright notice
+
+#include "generalized_pose_msgs/msg/GeneralizedPoseWithTime.idl"
+
+module generalized_pose_msgs {
+  module msg {
+    struct GeneralizedPosesWithTime {
+      sequence<generalized_pose_msgs::msg::GeneralizedPoseWithTime> generalized_poses_with_time;
+    };
+  };
+};

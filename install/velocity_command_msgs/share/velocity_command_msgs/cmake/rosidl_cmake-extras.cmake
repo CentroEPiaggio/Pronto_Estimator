@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/velocity_command_msgs/rosidl_cmake/rosidl_cmake-extras.cmake

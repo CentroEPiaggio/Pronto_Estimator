@@ -1,0 +1,1 @@
+rclcpp;rclcpp_lifecycle;hardware_interface;pluginlib;pinocchio;Eigen3;controller_interface;pronto_core;pronto_solo12;pronto_quadruped;urdf;geometry_msgs;sensor_msgs;pronto_msgs;ament_lint_auto;ament_lint_common

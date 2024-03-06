@@ -1,0 +1,9 @@
+# CMake generated Testfile for 
+# Source directory: /home/ros/docker_pronto_ws/src/motion_control/motion_generation/lip_walking_trot_planner
+# Build directory: /home/ros/docker_pronto_ws/build/lip_walking_trot_planner
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(lip_walking_trot_planner_test "/usr/bin/python3.10" "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/ros/docker_pronto_ws/build/lip_walking_trot_planner/test_results/lip_walking_trot_planner/lip_walking_trot_planner_test.gtest.xml" "--package-name" "lip_walking_trot_planner" "--output-file" "/home/ros/docker_pronto_ws/build/lip_walking_trot_planner/ament_cmake_gtest/lip_walking_trot_planner_test.txt" "--command" "/home/ros/docker_pronto_ws/build/lip_walking_trot_planner/lip_walking_trot_planner_test" "--gtest_output=xml:/home/ros/docker_pronto_ws/build/lip_walking_trot_planner/test_results/lip_walking_trot_planner/lip_walking_trot_planner_test.gtest.xml")
+set_tests_properties(lip_walking_trot_planner_test PROPERTIES  LABELS "gtest" REQUIRED_FILES "/home/ros/docker_pronto_ws/build/lip_walking_trot_planner/lip_walking_trot_planner_test" TIMEOUT "60" WORKING_DIRECTORY "/home/ros/docker_pronto_ws/build/lip_walking_trot_planner" _BACKTRACE_TRIPLES "/opt/ros/humble/share/ament_cmake_test/cmake/ament_add_test.cmake;125;add_test;/opt/ros/humble/share/ament_cmake_gtest/cmake/ament_add_gtest_test.cmake;86;ament_add_test;/opt/ros/humble/share/ament_cmake_gtest/cmake/ament_add_gtest.cmake;93;ament_add_gtest_test;/home/ros/docker_pronto_ws/src/motion_control/motion_generation/lip_walking_trot_planner/CMakeLists.txt;111;ament_add_gtest;/home/ros/docker_pronto_ws/src/motion_control/motion_generation/lip_walking_trot_planner/CMakeLists.txt;0;")
+subdirs("gtest")

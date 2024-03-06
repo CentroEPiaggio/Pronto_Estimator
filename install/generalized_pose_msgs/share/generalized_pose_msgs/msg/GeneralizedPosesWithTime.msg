@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/src/motion_control/generalized_pose_msgs/msg/GeneralizedPosesWithTime.msg

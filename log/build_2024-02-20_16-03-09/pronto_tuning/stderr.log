@@ -1,0 +1,8 @@
+[01m[K/home/ros/docker_pronto_ws/src/pronto_tuning/src/tuning_node.cpp:[m[K In member function ‘[01m[Kvoid tuning_node::Tuning_Node::stop_record(std::shared_ptr<std_srvs::srv::Empty_Request_<std::allocator<void> > >, std::shared_ptr<std_srvs::srv::Empty_Response_<std::allocator<void> > >)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_tuning/src/tuning_node.cpp:202:70:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kreq[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  202 |             void stop_record([01;35m[Kconst std::shared_ptr<StopSrv::Request> req[m[K, const std::shared_ptr<StopSrv::Response> res)
+      |                              [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_tuning/src/tuning_node.cpp:202:116:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kres[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  202 | cord(const std::shared_ptr<StopSrv::Request> req, [01;35m[Kconst std::shared_ptr<StopSrv::Response> res[m[K)
+      |                                                   [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+

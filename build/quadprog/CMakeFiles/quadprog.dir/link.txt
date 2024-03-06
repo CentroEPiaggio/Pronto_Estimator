@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -DNDEBUG -shared -Wl,-soname,libquadprog.so -o libquadprog.so CMakeFiles/quadprog.dir/src/quadprog.cpp.o CMakeFiles/quadprog.dir/src/solve.QP.cpp.o CMakeFiles/quadprog.dir/src/qr-update.cpp.o CMakeFiles/quadprog.dir/src/linear-algebra.cpp.o 

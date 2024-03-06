@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/src/robot/robot_gazebo/launch/ign_solo12.launch.py

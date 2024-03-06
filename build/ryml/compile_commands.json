@@ -1,0 +1,107 @@
+[
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/src/c4/yml/common.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/common.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/common.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/src/c4/yml/node.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/node.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/node.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/src/c4/yml/parse.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/parse.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/parse.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/src/c4/yml/preprocess.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/preprocess.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/preprocess.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/src/c4/yml/tree.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/tree.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/src/c4/yml/tree.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/base64.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/base64.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/base64.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/char_traits.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/char_traits.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/char_traits.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/error.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/error.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/error.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/format.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/format.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/format.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/language.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/language.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/language.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/memory_resource.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_resource.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_resource.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/memory_util.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_util.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_util.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml",
+  "command": "/usr/bin/c++ -Dryml_EXPORTS -I/home/ros/docker_pronto_ws/src/external/rapidyaml/src -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -fPIC -std=c++11 -o CMakeFiles/ryml.dir/ext/c4core/src/c4/utf.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/utf.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/utf.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/base64.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/base64.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/base64.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/char_traits.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/char_traits.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/char_traits.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/error.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/error.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/error.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/format.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/format.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/format.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/language.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/language.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/language.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/memory_resource.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_resource.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_resource.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/memory_util.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_util.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/memory_util.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/ryml/subprojects/c4core/build",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src -O3 -DNDEBUG -std=c++11 -o CMakeFiles/c4core.dir/src/c4/utf.cpp.o -c /home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/utf.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/rapidyaml/ext/c4core/src/c4/utf.cpp"
+}
+]

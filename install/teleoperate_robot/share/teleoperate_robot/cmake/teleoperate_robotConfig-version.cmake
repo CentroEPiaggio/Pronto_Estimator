@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/teleoperate_robot/ament_cmake_core/teleoperate_robotConfig-version.cmake

@@ -1,0 +1,19 @@
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running egg_info
+writing terrain_estimator.egg-info/PKG-INFO
+writing dependency_links to terrain_estimator.egg-info/dependency_links.txt
+writing entry points to terrain_estimator.egg-info/entry_points.txt
+writing requirements to terrain_estimator.egg-info/requires.txt
+writing top-level names to terrain_estimator.egg-info/top_level.txt
+reading manifest file 'terrain_estimator.egg-info/SOURCES.txt'
+writing manifest file 'terrain_estimator.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ros/docker_pronto_ws/install/terrain_estimator/lib/python3.10/site-packages/terrain-estimator.egg-link (link to .)
+Installing terrain_estimator_node script to /home/ros/docker_pronto_ws/install/terrain_estimator/lib/terrain_estimator
+
+Installed /home/ros/docker_pronto_ws/build/terrain_estimator
+running install_data

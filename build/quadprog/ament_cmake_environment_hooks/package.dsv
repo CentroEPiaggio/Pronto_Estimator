@@ -1,0 +1,4 @@
+source;share/quadprog/local_setup.bash
+source;share/quadprog/local_setup.dsv
+source;share/quadprog/local_setup.sh
+source;share/quadprog/local_setup.zsh

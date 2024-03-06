@@ -1,0 +1,113 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found rclcpp_lifecycle: 16.0.7 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+-- Found hardware_interface: 2.37.0 (/opt/ros/humble/share/hardware_interface/cmake)
+-- pinocchio FOUND. pinocchio at /opt/ros/humble/lib/x86_64-linux-gnu/libpinocchio.so
+-- boost_filesystem FOUND. boost_filesystem at /lib/x86_64-linux-gnu/libboost_filesystem.so
+-- boost_serialization FOUND. boost_serialization at /lib/x86_64-linux-gnu/libboost_serialization.so
+-- boost_system FOUND. boost_system at /lib/x86_64-linux-gnu/libboost_system.so
+-- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system 
+-- eigenpy FOUND. eigenpy at /opt/ros/humble/lib/x86_64-linux-gnu/libeigenpy.so
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module NumPy 
+-- PythonLibraryDirs: 
+-- PythonLibVersionString: 3.10.12
+-- Python site lib: lib/python3.10/dist-packages
+-- Python include dirs: /usr/include/python3.10
+-- Checking for NumPy
+--   NUMPY_INCLUDE_DIRS=/home/ros/.local/lib/python3.10/site-packages/numpy/core/include
+--   NUMPY_VERSION=1.26.4
+-- NumPy include dir: /home/ros/.local/lib/python3.10/site-packages/numpy/core/include
+-- Found Boost: /usr/include (found version "1.74.0") found components: python310 
+-- Boost_PYTHON_LIBRARY: /usr/lib/x86_64-linux-gnu/libboost_python310.so
+-- Default C++ standard: 201703
+-- Minimal C++ standard upgraded to 11
+-- C++ standard sufficient: Minimal required 11, currently defined: 17
+-- CMAKE_CXX_STANDARD was not set: automatically set to currently defined standard 17
+-- hpp-fcl FOUND. hpp-fcl at /opt/ros/humble/lib/x86_64-linux-gnu/libhpp-fcl.so
+-- Found Boost: /usr/include (found version "1.74.0") found components: chrono serialization 
+-- C++ standard sufficient: Minimal required 11, currently defined: 17
+-- C++ standard sufficient: Minimal required 11, currently defined: 17
+-- Found controller_interface: 2.37.0 (/opt/ros/humble/share/controller_interface/cmake)
+-- Found pronto_core: 0.0.0 (/home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake)
+-- Found pronto_solo12: 0.0.0 (/home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Found ament_cmake_gtest: 1.3.6 (/opt/ros/humble/share/ament_cmake_gtest/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ros/docker_pronto_ws/src/pronto_ros2_controller/include>
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ros/docker_pronto_ws/build/pronto_ros2_controller
+[ 14%] [32mBuilding CXX object CMakeFiles/pronto_ros2_controller.dir/src/pronto_controller.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/pronto_ros2_controller.dir/src/proprioceptive_sensor_manager.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/pronto_ros2_controller.dir/src/legodom_manager.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/pronto_ros2_controller.dir/src/quad_model_parser.cpp.o[0m
+[ 71%] [32m[1mLinking CXX shared library libpronto_ros2_controller.so[0m
+[ 71%] Built target pronto_ros2_controller
+[ 85%] [32mBuilding CXX object CMakeFiles/test_node.dir/src/test_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable test_node[0m
+[100%] Built target test_node
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller//pronto_controller.xml
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/library_path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/library_path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib/pronto_ros2_controller/test_node
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/package_run_dependencies/pronto_ros2_controller
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/parent_prefix_path/pronto_ros2_controller
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/ament_prefix_path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/ament_prefix_path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.bash
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.zsh
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/package.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/packages/pronto_ros2_controller
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/controller_interface__pluginlib__plugin/pronto_ros2_controller
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/pronto_ros2_controllerConfig.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/pronto_ros2_controllerConfig-version.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/package.xml
+-- Installing: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib/libpronto_ros2_controller.so
+-- Set runtime path of "/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib/libpronto_ros2_controller.so" to ""

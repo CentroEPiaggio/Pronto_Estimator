@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++ -Dwhole_body_controller_EXPORTS -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -o CMakeFiles/whole_body_controller.dir/src/deformations_history_manager.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/deformations_history_manager.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/deformations_history_manager.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++ -Dwhole_body_controller_EXPORTS -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -o CMakeFiles/whole_body_controller.dir/src/control_tasks.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/control_tasks.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/control_tasks.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++ -Dwhole_body_controller_EXPORTS -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -o CMakeFiles/whole_body_controller.dir/src/prioritized_tasks.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/prioritized_tasks.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/prioritized_tasks.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++ -Dwhole_body_controller_EXPORTS -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -o CMakeFiles/whole_body_controller.dir/src/whole_body_controller.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/whole_body_controller.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/src/whole_body_controller.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/TestDeformationsHistoryManager.dir/test/test_deformations_history_manager.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_deformations_history_manager.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_deformations_history_manager.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/TestControlTasks.dir/test/test_control_tasks.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_control_tasks.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_control_tasks.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/TestPrioritizedTasks.dir/test/test_prioritized_tasks.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_prioritized_tasks.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_prioritized_tasks.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/whole_body_controller",
+  "command": "/usr/bin/c++  -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/include -isystem /usr/include/eigen3 -isystem /opt/ros/humble/include -isystem /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -isystem /home/ros/docker_pronto_ws/install/robot_model/include/robot_model -isystem /home/ros/docker_pronto_ws/install/ryml/include -isystem /opt/ros/humble/include/ament_index_cpp -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/TestWBC.dir/test/test_whole_body_controller.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_whole_body_controller.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/whole_body_controller/test/test_whole_body_controller.cpp"
+}
+]

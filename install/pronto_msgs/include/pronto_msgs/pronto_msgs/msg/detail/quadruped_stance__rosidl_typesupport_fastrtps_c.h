@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/pronto_msgs/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_fastrtps_c.h

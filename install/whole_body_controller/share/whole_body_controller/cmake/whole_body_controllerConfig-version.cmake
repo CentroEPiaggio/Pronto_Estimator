@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/whole_body_controller/ament_cmake_core/whole_body_controllerConfig-version.cmake

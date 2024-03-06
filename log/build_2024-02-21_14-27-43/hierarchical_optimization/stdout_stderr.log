@@ -1,0 +1,29 @@
+[ 25%] Built target gtest_main
+[ 50%] Built target hierarchical_optimization
+[ 75%] Built target gtest
+[100%] Built target hierarchical_optimization_test
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/environment/library_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/environment/library_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/include/hierarchical_optimization/hierarchical_optimization/hierarchical_qp.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/ament_index/resource_index/package_run_dependencies/hierarchical_optimization
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/ament_index/resource_index/parent_prefix_path/hierarchical_optimization
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/ament_index/resource_index/packages/hierarchical_optimization
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/cmake/hierarchical_optimizationConfig.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/cmake/hierarchical_optimizationConfig-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/package.xml
+-- Up-to-date: /home/ros/docker_pronto_ws/install/hierarchical_optimization/lib/libhierarchical_optimization.so
+-- Up-to-date: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/cmake/hierarchical_optimization_targetsExport.cmake
+-- Up-to-date: /home/ros/docker_pronto_ws/install/hierarchical_optimization/share/hierarchical_optimization/cmake/hierarchical_optimization_targetsExport-release.cmake

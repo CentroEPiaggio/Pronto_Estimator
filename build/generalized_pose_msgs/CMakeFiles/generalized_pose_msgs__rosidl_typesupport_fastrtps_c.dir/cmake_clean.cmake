@@ -1,0 +1,21 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/generalized_pose_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose__type_support_c.cpp.o"
+  "CMakeFiles/generalized_pose_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose__type_support_c.cpp.o.d"
+  "CMakeFiles/generalized_pose_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose_with_time__type_support_c.cpp.o"
+  "CMakeFiles/generalized_pose_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose_with_time__type_support_c.cpp.o.d"
+  "CMakeFiles/generalized_pose_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_poses_with_time__type_support_c.cpp.o"
+  "CMakeFiles/generalized_pose_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_poses_with_time__type_support_c.cpp.o.d"
+  "libgeneralized_pose_msgs__rosidl_typesupport_fastrtps_c.pdb"
+  "libgeneralized_pose_msgs__rosidl_typesupport_fastrtps_c.so"
+  "rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose_with_time__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_pose_with_time__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_poses_with_time__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/generalized_pose_msgs/msg/detail/generalized_poses_with_time__type_support_c.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/generalized_pose_msgs__rosidl_typesupport_fastrtps_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,46 @@
+[100%] Built target pronto_core
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/library_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/library_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/definitions.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/gps_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/indexed_meas_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/init_message_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/ins_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/lidar_odometry_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/pose_meas_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/pronto_core.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rbis.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rbis_update_interface.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rigidbody.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rotations.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/scan_matcher_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/sensing_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/state_est.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/update_history.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/vicon_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/visibility_control.h
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/visual_odometry_module.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/ament_index/resource_index/package_run_dependencies/pronto_core
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/ament_index/resource_index/parent_prefix_path/pronto_core
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/ament_index/resource_index/packages/pronto_core
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/pronto_coreConfig.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/pronto_coreConfig-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/package.xml
+-- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_core/lib/libpronto_core.so
+-- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/export_pronto_coreExport.cmake
+-- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/export_pronto_coreExport-release.cmake

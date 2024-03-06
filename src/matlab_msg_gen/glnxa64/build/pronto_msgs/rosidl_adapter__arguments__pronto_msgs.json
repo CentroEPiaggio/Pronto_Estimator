@@ -1,0 +1,16 @@
+{
+  "package_name": "pronto_msgs",
+  "non_idl_tuples": [
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/BipedForceTorqueSensors.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/ControllerFootContact.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/FilterState.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/GPSData.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/IndexedMeasurement.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/JointStateWithAcceleration.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/LidarOdometryUpdate.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/QuadrupedForceTorqueSensors.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/QuadrupedStance.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/VelocityWithSigmaBounds.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs:msg/VisualOdometryUpdate.msg"
+  ]
+}

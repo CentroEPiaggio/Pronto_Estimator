@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/lip_walking_trot_planner/ament_cmake_core/lip_walking_trot_plannerConfig-version.cmake

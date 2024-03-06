@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/pronto_quadruped_ros/ament_cmake_core/pronto_quadruped_rosConfig-version.cmake

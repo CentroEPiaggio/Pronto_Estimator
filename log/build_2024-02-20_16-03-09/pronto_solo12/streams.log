@@ -1,0 +1,229 @@
+[0.057s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_solo12': CMAKE_PREFIX_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros:/home/ros/docker_pronto_ws/install/pronto_ros:/home/ros/docker_pronto_ws/install/pronto_quadruped:/home/ros/docker_pronto_ws/install/pronto_utils:/home/ros/docker_pronto_ws/install/pronto_quadruped_commons:/home/ros/docker_pronto_ws/install/pronto_msgs:/home/ros/docker_pronto_ws/install/pronto_core:/home/ros/docker_pronto_ws/install/hqp_controller:/home/ros/docker_pronto_ws/install/whole_body_controller:/home/ros/docker_pronto_ws/install/teleoperate_robot:/home/ros/docker_pronto_ws/install/pronto_tuning:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner:/home/ros/docker_pronto_ws/install/velocity_command_msgs:/home/ros/docker_pronto_ws/install/static_walk_planner:/home/ros/docker_pronto_ws/install/robot_gazebo:/home/ros/docker_pronto_ws/install/solo_description:/home/ros/docker_pronto_ws/install/robot_model:/home/ros/docker_pronto_ws/install/ryml:/home/ros/docker_pronto_ws/install/rviz_legged_plugins:/home/ros/docker_pronto_ws/install/rviz_legged_msgs:/home/ros/docker_pronto_ws/install/anymal_c_simple_description:/home/ros/docker_pronto_ws/install/robot_control:/home/ros/docker_pronto_ws/install/hierarchical_optimization:/home/ros/docker_pronto_ws/install/quadprog:/home/ros/docker_pronto_ws/install/pronto_ros2_controller:/home/ros/docker_pronto_ws/install/pronto_solo12:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs:/home/ros/docker_pronto_ws/install/generalized_pose_msgs:/opt/openrobots:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble LD_LIBRARY_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros/lib:/home/ros/docker_pronto_ws/install/pronto_ros/lib:/home/ros/docker_pronto_ws/install/pronto_quadruped/lib:/home/ros/docker_pronto_ws/install/pronto_utils/lib:/home/ros/docker_pronto_ws/install/pronto_msgs/lib:/home/ros/docker_pronto_ws/install/pronto_core/lib:/home/ros/docker_pronto_ws/install/hqp_controller/lib:/home/ros/docker_pronto_ws/install/whole_body_controller/lib:/home/ros/docker_pronto_ws/install/teleoperate_robot/lib:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner/lib:/home/ros/docker_pronto_ws/install/velocity_command_msgs/lib:/home/ros/docker_pronto_ws/install/static_walk_planner/lib:/home/ros/docker_pronto_ws/install/robot_model/lib:/home/ros/docker_pronto_ws/install/ryml/lib:/home/ros/docker_pronto_ws/install/rviz_legged_plugins/lib:/home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib:/home/ros/docker_pronto_ws/install/hierarchical_optimization/lib:/home/ros/docker_pronto_ws/install/quadprog/lib:/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib:/home/ros/docker_pronto_ws/install/pronto_solo12/lib:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs/lib:/home/ros/docker_pronto_ws/install/generalized_pose_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/openrobots/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /home/ros/docker_pronto_ws/src/pronto_solo12 -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ros/docker_pronto_ws/install/pronto_solo12
+[0.159s] -- The C compiler identification is GNU 11.4.0
+[0.266s] -- The CXX compiler identification is GNU 11.4.0
+[0.280s] -- Detecting C compiler ABI info
+[0.422s] -- Detecting C compiler ABI info - done
+[0.437s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.437s] -- Detecting C compile features
+[0.438s] -- Detecting C compile features - done
+[0.444s] -- Detecting CXX compiler ABI info
+[0.608s] -- Detecting CXX compiler ABI info - done
+[0.623s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.624s] -- Detecting CXX compile features
+[0.625s] -- Detecting CXX compile features - done
+[0.635s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.004s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[1.108s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.190s] -- Found pronto_ros: 0.0.0 (/home/ros/docker_pronto_ws/install/pronto_ros/share/pronto_ros/cmake)
+[1.246s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.253s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.264s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.278s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.299s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.516s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.521s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.614s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.644s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.686s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.698s] -- Looking for pthread.h
+[1.802s] -- Looking for pthread.h - found
+[1.802s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.951s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.953s] -- Found Threads: TRUE  
+[2.446s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.447s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.447s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.520s] -- Found pronto_quadruped_ros: 0.0.0 (/home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake)
+[2.652s] -- pinocchio FOUND. pinocchio at /opt/ros/humble/lib/x86_64-linux-gnu/libpinocchio.so
+[2.653s] -- boost_filesystem FOUND. boost_filesystem at /lib/x86_64-linux-gnu/libboost_filesystem.so
+[2.653s] -- boost_serialization FOUND. boost_serialization at /lib/x86_64-linux-gnu/libboost_serialization.so
+[2.654s] -- boost_system FOUND. boost_system at /lib/x86_64-linux-gnu/libboost_system.so
+[2.722s] -- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system 
+[2.725s] -- eigenpy FOUND. eigenpy at /opt/ros/humble/lib/x86_64-linux-gnu/libeigenpy.so
+[3.076s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module NumPy 
+[3.076s] -- PythonLibraryDirs: 
+[3.077s] -- PythonLibVersionString: 3.10.12
+[3.102s] -- Python site lib: lib/python3.10/dist-packages
+[3.102s] -- Python include dirs: /usr/include/python3.10
+[3.151s] -- Checking for NumPy
+[3.276s] --   NUMPY_INCLUDE_DIRS=/home/ros/.local/lib/python3.10/site-packages/numpy/core/include
+[3.401s] --   NUMPY_VERSION=1.26.4
+[3.401s] -- NumPy include dir: /home/ros/.local/lib/python3.10/site-packages/numpy/core/include
+[3.406s] [33mCMake Warning at /usr/share/cmake-3.22/Modules/FindBoost.cmake:2201 (message):
+[3.406s]   No header defined for python310; skipping header check (note: header-only
+[3.406s]   libraries have no designated component)
+[3.406s] Call Stack (most recent call first):
+[3.407s]   /opt/ros/humble/lib/x86_64-linux-gnu/cmake/eigenpy/boost.cmake:144 (find_package)
+[3.407s]   /opt/ros/humble/lib/x86_64-linux-gnu/cmake/eigenpy/eigenpyConfig.cmake:149 (SEARCH_FOR_BOOST_PYTHON)
+[3.407s]   /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+[3.407s]   /opt/ros/humble/lib/x86_64-linux-gnu/cmake/pinocchio/pinocchioConfig.cmake:160 (find_dependency)
+[3.407s]   CMakeLists.txt:15 (find_package)
+[3.407s] 
+[3.407s] [0m
+[3.408s] -- Found Boost: /usr/include (found version "1.74.0") found components: python310 
+[3.408s] -- Boost_PYTHON_LIBRARY: /usr/lib/x86_64-linux-gnu/libboost_python310.so
+[3.676s] -- Default C++ standard: 201703
+[3.677s] -- Minimal C++ standard upgraded to 11
+[3.677s] -- C++ standard sufficient: Minimal required 11, currently defined: 17
+[3.677s] -- CMAKE_CXX_STANDARD was not set: automatically set to currently defined standard 17
+[3.682s] -- hpp-fcl FOUND. hpp-fcl at /opt/ros/humble/lib/x86_64-linux-gnu/libhpp-fcl.so
+[3.700s] -- Found Boost: /usr/include (found version "1.74.0") found components: chrono serialization 
+[3.711s] -- C++ standard sufficient: Minimal required 11, currently defined: 17
+[3.712s] -- C++ standard sufficient: Minimal required 11, currently defined: 17
+[3.724s] -- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+[3.782s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.922s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.922s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ros/docker_pronto_ws/src/pronto_solo12/include>
+[3.922s] -- Configured cppcheck exclude dirs and/or files: 
+[3.924s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.926s] -- Added test 'lint_cmake' to check CMake code style
+[3.927s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.930s] -- Added test 'uncrustify' to check C / C++ code style
+[3.930s] -- Configured uncrustify additional arguments: 
+[3.931s] -- Added test 'xmllint' to check XML markup files
+[3.935s] -- Configuring done
+[3.962s] -- Generating done
+[3.963s] -- Build files have been written to: /home/ros/docker_pronto_ws/build/pronto_solo12
+[3.976s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_solo12' returned '0': CMAKE_PREFIX_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros:/home/ros/docker_pronto_ws/install/pronto_ros:/home/ros/docker_pronto_ws/install/pronto_quadruped:/home/ros/docker_pronto_ws/install/pronto_utils:/home/ros/docker_pronto_ws/install/pronto_quadruped_commons:/home/ros/docker_pronto_ws/install/pronto_msgs:/home/ros/docker_pronto_ws/install/pronto_core:/home/ros/docker_pronto_ws/install/hqp_controller:/home/ros/docker_pronto_ws/install/whole_body_controller:/home/ros/docker_pronto_ws/install/teleoperate_robot:/home/ros/docker_pronto_ws/install/pronto_tuning:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner:/home/ros/docker_pronto_ws/install/velocity_command_msgs:/home/ros/docker_pronto_ws/install/static_walk_planner:/home/ros/docker_pronto_ws/install/robot_gazebo:/home/ros/docker_pronto_ws/install/solo_description:/home/ros/docker_pronto_ws/install/robot_model:/home/ros/docker_pronto_ws/install/ryml:/home/ros/docker_pronto_ws/install/rviz_legged_plugins:/home/ros/docker_pronto_ws/install/rviz_legged_msgs:/home/ros/docker_pronto_ws/install/anymal_c_simple_description:/home/ros/docker_pronto_ws/install/robot_control:/home/ros/docker_pronto_ws/install/hierarchical_optimization:/home/ros/docker_pronto_ws/install/quadprog:/home/ros/docker_pronto_ws/install/pronto_ros2_controller:/home/ros/docker_pronto_ws/install/pronto_solo12:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs:/home/ros/docker_pronto_ws/install/generalized_pose_msgs:/opt/openrobots:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble LD_LIBRARY_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros/lib:/home/ros/docker_pronto_ws/install/pronto_ros/lib:/home/ros/docker_pronto_ws/install/pronto_quadruped/lib:/home/ros/docker_pronto_ws/install/pronto_utils/lib:/home/ros/docker_pronto_ws/install/pronto_msgs/lib:/home/ros/docker_pronto_ws/install/pronto_core/lib:/home/ros/docker_pronto_ws/install/hqp_controller/lib:/home/ros/docker_pronto_ws/install/whole_body_controller/lib:/home/ros/docker_pronto_ws/install/teleoperate_robot/lib:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner/lib:/home/ros/docker_pronto_ws/install/velocity_command_msgs/lib:/home/ros/docker_pronto_ws/install/static_walk_planner/lib:/home/ros/docker_pronto_ws/install/robot_model/lib:/home/ros/docker_pronto_ws/install/ryml/lib:/home/ros/docker_pronto_ws/install/rviz_legged_plugins/lib:/home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib:/home/ros/docker_pronto_ws/install/hierarchical_optimization/lib:/home/ros/docker_pronto_ws/install/quadprog/lib:/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib:/home/ros/docker_pronto_ws/install/pronto_solo12/lib:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs/lib:/home/ros/docker_pronto_ws/install/generalized_pose_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/openrobots/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake /home/ros/docker_pronto_ws/src/pronto_solo12 -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ros/docker_pronto_ws/install/pronto_solo12
+[3.976s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_solo12': CMAKE_PREFIX_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros:/home/ros/docker_pronto_ws/install/pronto_ros:/home/ros/docker_pronto_ws/install/pronto_quadruped:/home/ros/docker_pronto_ws/install/pronto_utils:/home/ros/docker_pronto_ws/install/pronto_quadruped_commons:/home/ros/docker_pronto_ws/install/pronto_msgs:/home/ros/docker_pronto_ws/install/pronto_core:/home/ros/docker_pronto_ws/install/hqp_controller:/home/ros/docker_pronto_ws/install/whole_body_controller:/home/ros/docker_pronto_ws/install/teleoperate_robot:/home/ros/docker_pronto_ws/install/pronto_tuning:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner:/home/ros/docker_pronto_ws/install/velocity_command_msgs:/home/ros/docker_pronto_ws/install/static_walk_planner:/home/ros/docker_pronto_ws/install/robot_gazebo:/home/ros/docker_pronto_ws/install/solo_description:/home/ros/docker_pronto_ws/install/robot_model:/home/ros/docker_pronto_ws/install/ryml:/home/ros/docker_pronto_ws/install/rviz_legged_plugins:/home/ros/docker_pronto_ws/install/rviz_legged_msgs:/home/ros/docker_pronto_ws/install/anymal_c_simple_description:/home/ros/docker_pronto_ws/install/robot_control:/home/ros/docker_pronto_ws/install/hierarchical_optimization:/home/ros/docker_pronto_ws/install/quadprog:/home/ros/docker_pronto_ws/install/pronto_ros2_controller:/home/ros/docker_pronto_ws/install/pronto_solo12:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs:/home/ros/docker_pronto_ws/install/generalized_pose_msgs:/opt/openrobots:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble LD_LIBRARY_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros/lib:/home/ros/docker_pronto_ws/install/pronto_ros/lib:/home/ros/docker_pronto_ws/install/pronto_quadruped/lib:/home/ros/docker_pronto_ws/install/pronto_utils/lib:/home/ros/docker_pronto_ws/install/pronto_msgs/lib:/home/ros/docker_pronto_ws/install/pronto_core/lib:/home/ros/docker_pronto_ws/install/hqp_controller/lib:/home/ros/docker_pronto_ws/install/whole_body_controller/lib:/home/ros/docker_pronto_ws/install/teleoperate_robot/lib:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner/lib:/home/ros/docker_pronto_ws/install/velocity_command_msgs/lib:/home/ros/docker_pronto_ws/install/static_walk_planner/lib:/home/ros/docker_pronto_ws/install/robot_model/lib:/home/ros/docker_pronto_ws/install/ryml/lib:/home/ros/docker_pronto_ws/install/rviz_legged_plugins/lib:/home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib:/home/ros/docker_pronto_ws/install/hierarchical_optimization/lib:/home/ros/docker_pronto_ws/install/quadprog/lib:/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib:/home/ros/docker_pronto_ws/install/pronto_solo12/lib:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs/lib:/home/ros/docker_pronto_ws/install/generalized_pose_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/openrobots/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_solo12 -- -j16 -l16
+[4.038s] [  9%] [32mBuilding CXX object CMakeFiles/pinocchio_test_node.dir/src/pinocchio_node.cpp.o[0m
+[4.038s] [ 18%] [32mBuilding CXX object CMakeFiles/pronto_solo12.dir/src/feet_jacobians.cpp.o[0m
+[4.040s] [ 27%] [32mBuilding CXX object CMakeFiles/pronto_solo12.dir/src/dynamics.cpp.o[0m
+[4.040s] [ 36%] [32mBuilding CXX object CMakeFiles/pronto_solo12.dir/src/feet_contact_forces.cpp.o[0m
+[4.040s] [ 45%] [32mBuilding CXX object CMakeFiles/pronto_solo12.dir/src/pronto_mammal_utilities.cpp.o[0m
+[4.041s] [ 54%] [32mBuilding CXX object CMakeFiles/pronto_solo12.dir/src/pinocchio_pronto_quadruped_model.cpp.o[0m
+[4.041s] [ 63%] [32mBuilding CXX object CMakeFiles/pronto_solo12.dir/src/forward_kinematics.cpp.o[0m
+[7.939s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:[m[K In member function ‘[01m[Kbool pronto_controller::Pinocchio_Feet_Force::getLegJacobian(const LegID&, pronto_controller::LinVelJac&, bool)[m[K’:
+[7.940s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:16:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kworld[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[7.940s]    16 |         [01;35m[Kbool world[m[K
+[7.940s]       |         [01;35m[K~~~~~^~~~~[m[K
+[8.111s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Matrix3d pronto_controller::Pinocchio_FK::getFootOrientation(const JointState&, const LegID&)[m[K’:
+[8.111s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:262:72:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kq[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[8.111s]   262 |     Eigen::Matrix3d Pinocchio_FK::getFootOrientation([01;35m[Kconst JointState& q[m[K, const LegID& leg)
+[8.111s]       |                                                      [01;35m[K~~~~~~~~~~~~~~~~~~^[m[K
+[8.111s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:262:88:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kleg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[8.111s]   262 |     Eigen::Matrix3d Pinocchio_FK::getFootOrientation(const JointState& q, [01;35m[Kconst LegID& leg[m[K)
+[8.111s]       |                                                                           [01;35m[K~~~~~~~~~~~~~^~~[m[K
+[11.267s] [ 72%] [32m[1mLinking CXX executable pinocchio_test_node[0m
+[11.375s] [ 72%] Built target pinocchio_test_node
+[11.808s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:[m[K In member function ‘[01m[Kpinocchio::DataTpl<double>::Matrix6x pronto::solo::FeetJacobians::ComputeJacobian(const JointState&, const LegID&)[m[K’:
+[11.808s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:33:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.808s]    33 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+[11.808s]       |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.808s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:35:17:[m[K [01;36m[Knote: [m[Khere
+[11.808s]    35 |                 [01;36m[Kcase[m[K quadruped::LegID::RF:
+[11.808s]       |                 [01;36m[K^~~~[m[K
+[11.808s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:37:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.808s]    37 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+[11.808s]       |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.808s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:39:17:[m[K [01;36m[Knote: [m[Khere
+[11.808s]    39 |                 [01;36m[Kcase[m[K quadruped::LegID::LH:
+[11.808s]       |                 [01;36m[K^~~~[m[K
+[11.808s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:41:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.808s]    41 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+[11.808s]       |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.808s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:43:17:[m[K [01;36m[Knote: [m[Khere
+[11.808s]    43 |                 [01;36m[Kcase[m[K quadruped::LegID::RH:
+[11.809s]       |                 [01;36m[K^~~~[m[K
+[11.809s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:45:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.809s]    45 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+[11.809s]       |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[11.809s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:47:17:[m[K [01;36m[Knote: [m[Khere
+[11.809s]    47 |                 [01;36m[Kdefault[m[K:
+[11.809s]       |                 [01;36m[K^~~~~~~[m[K
+[11.817s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:[m[K In member function ‘[01m[Kiit::rbd::Vector3d pronto::solo::FeetJacobians::getFootPos(const JointState&, const LegID&)[m[K’:
+[11.817s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:86:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.817s]    86 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.817s]       |                                     [01;35m[K^[m[K
+[11.817s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:88:13:[m[K [01;36m[Knote: [m[Khere
+[11.817s]    88 |             [01;36m[Kcase[m[K quadruped::LegID::RF:
+[11.817s]       |             [01;36m[K^~~~[m[K
+[11.817s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:90:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.817s]    90 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.817s]       |                                     [01;35m[K^[m[K
+[11.817s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:92:13:[m[K [01;36m[Knote: [m[Khere
+[11.817s]    92 |             [01;36m[Kcase[m[K quadruped::LegID::LH:
+[11.817s]       |             [01;36m[K^~~~[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:94:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.818s]    94 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.818s]       |                                     [01;35m[K^[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:96:13:[m[K [01;36m[Knote: [m[Khere
+[11.818s]    96 |             [01;36m[Kcase[m[K quadruped::LegID::RH:
+[11.818s]       |             [01;36m[K^~~~[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:98:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.818s]    98 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.818s]       |                                     [01;35m[K^[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:100:13:[m[K [01;36m[Knote: [m[Khere
+[11.818s]   100 |             [01;36m[Kdefault[m[K:
+[11.818s]       |             [01;36m[K^~~~~~~[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:[m[K In member function ‘[01m[Kpronto::solo::Matrix3d pronto::solo::FeetJacobians::getFootOrientation(const JointState&, const LegID&)[m[K’:
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:122:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.818s]   122 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.818s]       |                                     [01;35m[K^[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:124:13:[m[K [01;36m[Knote: [m[Khere
+[11.818s]   124 |             [01;36m[Kcase[m[K quadruped::LegID::RF:
+[11.818s]       |             [01;36m[K^~~~[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:126:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.818s]   126 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.818s]       |                                     [01;35m[K^[m[K
+[11.818s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:128:13:[m[K [01;36m[Knote: [m[Khere
+[11.819s]   128 |             [01;36m[Kcase[m[K quadruped::LegID::LH:
+[11.819s]       |             [01;36m[K^~~~[m[K
+[11.819s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:130:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.819s]   130 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.819s]       |                                     [01;35m[K^[m[K
+[11.819s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:132:13:[m[K [01;36m[Knote: [m[Khere
+[11.819s]   132 |             [01;36m[Kcase[m[K quadruped::LegID::RH:
+[11.819s]       |             [01;36m[K^~~~[m[K
+[11.819s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:134:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+[11.819s]   134 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+[11.819s]       |                                     [01;35m[K^[m[K
+[11.819s] [01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:136:13:[m[K [01;36m[Knote: [m[Khere
+[11.819s]   136 |             [01;36m[Kdefault[m[K:
+[11.819s]       |             [01;36m[K^~~~~~~[m[K
+[24.279s] [ 81%] [32m[1mLinking CXX shared library libpronto_solo12.so[0m
+[24.542s] [ 81%] Built target pronto_solo12
+[24.559s] [ 90%] [32mBuilding CXX object CMakeFiles/pronto_estimator_node.dir/src/pronto_estimator.cpp.o[0m
+[49.596s] [100%] [32m[1mLinking CXX executable pronto_estimator_node[0m
+[49.781s] [100%] Built target pronto_estimator_node
+[49.790s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_solo12' returned '0': CMAKE_PREFIX_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros:/home/ros/docker_pronto_ws/install/pronto_ros:/home/ros/docker_pronto_ws/install/pronto_quadruped:/home/ros/docker_pronto_ws/install/pronto_utils:/home/ros/docker_pronto_ws/install/pronto_quadruped_commons:/home/ros/docker_pronto_ws/install/pronto_msgs:/home/ros/docker_pronto_ws/install/pronto_core:/home/ros/docker_pronto_ws/install/hqp_controller:/home/ros/docker_pronto_ws/install/whole_body_controller:/home/ros/docker_pronto_ws/install/teleoperate_robot:/home/ros/docker_pronto_ws/install/pronto_tuning:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner:/home/ros/docker_pronto_ws/install/velocity_command_msgs:/home/ros/docker_pronto_ws/install/static_walk_planner:/home/ros/docker_pronto_ws/install/robot_gazebo:/home/ros/docker_pronto_ws/install/solo_description:/home/ros/docker_pronto_ws/install/robot_model:/home/ros/docker_pronto_ws/install/ryml:/home/ros/docker_pronto_ws/install/rviz_legged_plugins:/home/ros/docker_pronto_ws/install/rviz_legged_msgs:/home/ros/docker_pronto_ws/install/anymal_c_simple_description:/home/ros/docker_pronto_ws/install/robot_control:/home/ros/docker_pronto_ws/install/hierarchical_optimization:/home/ros/docker_pronto_ws/install/quadprog:/home/ros/docker_pronto_ws/install/pronto_ros2_controller:/home/ros/docker_pronto_ws/install/pronto_solo12:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs:/home/ros/docker_pronto_ws/install/generalized_pose_msgs:/opt/openrobots:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble LD_LIBRARY_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros/lib:/home/ros/docker_pronto_ws/install/pronto_ros/lib:/home/ros/docker_pronto_ws/install/pronto_quadruped/lib:/home/ros/docker_pronto_ws/install/pronto_utils/lib:/home/ros/docker_pronto_ws/install/pronto_msgs/lib:/home/ros/docker_pronto_ws/install/pronto_core/lib:/home/ros/docker_pronto_ws/install/hqp_controller/lib:/home/ros/docker_pronto_ws/install/whole_body_controller/lib:/home/ros/docker_pronto_ws/install/teleoperate_robot/lib:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner/lib:/home/ros/docker_pronto_ws/install/velocity_command_msgs/lib:/home/ros/docker_pronto_ws/install/static_walk_planner/lib:/home/ros/docker_pronto_ws/install/robot_model/lib:/home/ros/docker_pronto_ws/install/ryml/lib:/home/ros/docker_pronto_ws/install/rviz_legged_plugins/lib:/home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib:/home/ros/docker_pronto_ws/install/hierarchical_optimization/lib:/home/ros/docker_pronto_ws/install/quadprog/lib:/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib:/home/ros/docker_pronto_ws/install/pronto_solo12/lib:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs/lib:/home/ros/docker_pronto_ws/install/generalized_pose_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/openrobots/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_solo12 -- -j16 -l16
+[49.897s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_solo12': CMAKE_PREFIX_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros:/home/ros/docker_pronto_ws/install/pronto_ros:/home/ros/docker_pronto_ws/install/pronto_quadruped:/home/ros/docker_pronto_ws/install/pronto_utils:/home/ros/docker_pronto_ws/install/pronto_quadruped_commons:/home/ros/docker_pronto_ws/install/pronto_msgs:/home/ros/docker_pronto_ws/install/pronto_core:/home/ros/docker_pronto_ws/install/hqp_controller:/home/ros/docker_pronto_ws/install/whole_body_controller:/home/ros/docker_pronto_ws/install/teleoperate_robot:/home/ros/docker_pronto_ws/install/pronto_tuning:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner:/home/ros/docker_pronto_ws/install/velocity_command_msgs:/home/ros/docker_pronto_ws/install/static_walk_planner:/home/ros/docker_pronto_ws/install/robot_gazebo:/home/ros/docker_pronto_ws/install/solo_description:/home/ros/docker_pronto_ws/install/robot_model:/home/ros/docker_pronto_ws/install/ryml:/home/ros/docker_pronto_ws/install/rviz_legged_plugins:/home/ros/docker_pronto_ws/install/rviz_legged_msgs:/home/ros/docker_pronto_ws/install/anymal_c_simple_description:/home/ros/docker_pronto_ws/install/robot_control:/home/ros/docker_pronto_ws/install/hierarchical_optimization:/home/ros/docker_pronto_ws/install/quadprog:/home/ros/docker_pronto_ws/install/pronto_ros2_controller:/home/ros/docker_pronto_ws/install/pronto_solo12:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs:/home/ros/docker_pronto_ws/install/generalized_pose_msgs:/opt/openrobots:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble LD_LIBRARY_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros/lib:/home/ros/docker_pronto_ws/install/pronto_ros/lib:/home/ros/docker_pronto_ws/install/pronto_quadruped/lib:/home/ros/docker_pronto_ws/install/pronto_utils/lib:/home/ros/docker_pronto_ws/install/pronto_msgs/lib:/home/ros/docker_pronto_ws/install/pronto_core/lib:/home/ros/docker_pronto_ws/install/hqp_controller/lib:/home/ros/docker_pronto_ws/install/whole_body_controller/lib:/home/ros/docker_pronto_ws/install/teleoperate_robot/lib:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner/lib:/home/ros/docker_pronto_ws/install/velocity_command_msgs/lib:/home/ros/docker_pronto_ws/install/static_walk_planner/lib:/home/ros/docker_pronto_ws/install/robot_model/lib:/home/ros/docker_pronto_ws/install/ryml/lib:/home/ros/docker_pronto_ws/install/rviz_legged_plugins/lib:/home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib:/home/ros/docker_pronto_ws/install/hierarchical_optimization/lib:/home/ros/docker_pronto_ws/install/quadprog/lib:/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib:/home/ros/docker_pronto_ws/install/pronto_solo12/lib:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs/lib:/home/ros/docker_pronto_ws/install/generalized_pose_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/openrobots/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_solo12
+[49.912s] -- Install configuration: "Release"
+[49.913s] -- Execute custom install script
+[49.915s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/dynamics.hpp
+[49.931s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/feet_contact_forces.hpp
+[49.947s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/feet_jacobians.hpp
+[49.963s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/forward_kinematics.hpp
+[49.978s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/pinocchio_pronto_quadruped_model.hpp
+[49.993s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/pronto_mammal_utilities.hpp
+[50.009s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/pronto_node.hpp
+[50.024s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/lib/pronto_solo12/pinocchio_test_node
+[50.040s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/library_path.sh
+[50.055s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/library_path.dsv
+[50.070s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/lib/pronto_solo12/pronto_estimator_node
+[50.085s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/launch/pronto_estimator.launch.py
+[50.100s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/prova.urdf
+[50.115s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/solo12.urdf
+[50.130s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/solo12_model.urdf
+[50.146s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/state_estimator.yaml
+[50.162s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/ament_index/resource_index/package_run_dependencies/pronto_solo12
+[50.177s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/ament_index/resource_index/parent_prefix_path/pronto_solo12
+[50.192s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/ament_prefix_path.sh
+[50.207s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/ament_prefix_path.dsv
+[50.222s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/path.sh
+[50.237s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/path.dsv
+[50.252s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.bash
+[50.268s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.sh
+[50.284s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.zsh
+[50.299s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.dsv
+[50.314s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/package.dsv
+[50.329s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/ament_index/resource_index/packages/pronto_solo12
+[50.345s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/ament_cmake_export_include_directories-extras.cmake
+[50.360s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/ament_cmake_export_libraries-extras.cmake
+[50.375s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/ament_cmake_export_dependencies-extras.cmake
+[50.392s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/pronto_solo12Config.cmake
+[50.408s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/pronto_solo12Config-version.cmake
+[50.423s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/package.xml
+[50.437s] -- Installing: /home/ros/docker_pronto_ws/install/pronto_solo12/lib/libpronto_solo12.so
+[50.439s] -- Set runtime path of "/home/ros/docker_pronto_ws/install/pronto_solo12/lib/libpronto_solo12.so" to ""
+[50.443s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_solo12' returned '0': CMAKE_PREFIX_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros:/home/ros/docker_pronto_ws/install/pronto_ros:/home/ros/docker_pronto_ws/install/pronto_quadruped:/home/ros/docker_pronto_ws/install/pronto_utils:/home/ros/docker_pronto_ws/install/pronto_quadruped_commons:/home/ros/docker_pronto_ws/install/pronto_msgs:/home/ros/docker_pronto_ws/install/pronto_core:/home/ros/docker_pronto_ws/install/hqp_controller:/home/ros/docker_pronto_ws/install/whole_body_controller:/home/ros/docker_pronto_ws/install/teleoperate_robot:/home/ros/docker_pronto_ws/install/pronto_tuning:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner:/home/ros/docker_pronto_ws/install/velocity_command_msgs:/home/ros/docker_pronto_ws/install/static_walk_planner:/home/ros/docker_pronto_ws/install/robot_gazebo:/home/ros/docker_pronto_ws/install/solo_description:/home/ros/docker_pronto_ws/install/robot_model:/home/ros/docker_pronto_ws/install/ryml:/home/ros/docker_pronto_ws/install/rviz_legged_plugins:/home/ros/docker_pronto_ws/install/rviz_legged_msgs:/home/ros/docker_pronto_ws/install/anymal_c_simple_description:/home/ros/docker_pronto_ws/install/robot_control:/home/ros/docker_pronto_ws/install/hierarchical_optimization:/home/ros/docker_pronto_ws/install/quadprog:/home/ros/docker_pronto_ws/install/pronto_ros2_controller:/home/ros/docker_pronto_ws/install/pronto_solo12:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs:/home/ros/docker_pronto_ws/install/generalized_pose_msgs:/opt/openrobots:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble LD_LIBRARY_PATH=/home/ros/docker_pronto_ws/install/pronto_quadruped_ros/lib:/home/ros/docker_pronto_ws/install/pronto_ros/lib:/home/ros/docker_pronto_ws/install/pronto_quadruped/lib:/home/ros/docker_pronto_ws/install/pronto_utils/lib:/home/ros/docker_pronto_ws/install/pronto_msgs/lib:/home/ros/docker_pronto_ws/install/pronto_core/lib:/home/ros/docker_pronto_ws/install/hqp_controller/lib:/home/ros/docker_pronto_ws/install/whole_body_controller/lib:/home/ros/docker_pronto_ws/install/teleoperate_robot/lib:/home/ros/docker_pronto_ws/install/lip_walking_trot_planner/lib:/home/ros/docker_pronto_ws/install/velocity_command_msgs/lib:/home/ros/docker_pronto_ws/install/static_walk_planner/lib:/home/ros/docker_pronto_ws/install/robot_model/lib:/home/ros/docker_pronto_ws/install/ryml/lib:/home/ros/docker_pronto_ws/install/rviz_legged_plugins/lib:/home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib:/home/ros/docker_pronto_ws/install/hierarchical_optimization/lib:/home/ros/docker_pronto_ws/install/quadprog/lib:/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib:/home/ros/docker_pronto_ws/install/pronto_solo12/lib:/home/ros/docker_pronto_ws/install/pi3hat_moteus_int_msgs/lib:/home/ros/docker_pronto_ws/install/generalized_pose_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/openrobots/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_solo12

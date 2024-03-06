@@ -1,0 +1,1 @@
+docker exec -it docker_pronto env TERM=xterm-256color /bin/bash

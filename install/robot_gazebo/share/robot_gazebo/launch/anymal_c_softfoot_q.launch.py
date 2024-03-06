@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/src/robot/robot_gazebo/launch/anymal_c_softfoot_q.launch.py

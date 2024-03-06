@@ -1,0 +1,3 @@
+[console_scripts]
+terrain_estimator_node = terrain_estimator.terrain_estimator_node:main
+

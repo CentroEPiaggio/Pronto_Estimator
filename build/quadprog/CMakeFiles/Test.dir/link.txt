@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/Test.dir/test/test.cpp.o -o Test  -Wl,-rpath,/home/ros/docker_pronto_ws/build/quadprog libquadprog.so 

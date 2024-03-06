@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/quadprog/ament_cmake_core/quadprogConfig.cmake

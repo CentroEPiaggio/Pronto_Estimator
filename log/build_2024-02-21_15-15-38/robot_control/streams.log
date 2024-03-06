@@ -1,0 +1,25 @@
+[0.152s] Invoking command in '/home/ros/docker_pronto_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/robot_control -- -j16 -l16
+[0.530s] Invoked command in '/home/ros/docker_pronto_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/robot_control -- -j16 -l16
+[0.580s] Invoking command in '/home/ros/docker_pronto_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/robot_control
+[0.589s] -- Install configuration: "Release"
+[0.589s] -- Execute custom install script
+[0.590s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/config/gazebo/anymal_c_controller_effort.yaml
+[0.590s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/config/gazebo/anymal_c_softfoot_q_controller_effort.yaml
+[0.590s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/config/gazebo/mulinex_controller_effort.yaml
+[0.590s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/config/gazebo/solo12_controller_effort.yaml
+[0.591s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/ament_index/resource_index/package_run_dependencies/robot_control
+[0.591s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/ament_index/resource_index/parent_prefix_path/robot_control
+[0.591s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.sh
+[0.591s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.dsv
+[0.591s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/environment/path.sh
+[0.592s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/environment/path.dsv
+[0.592s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/local_setup.bash
+[0.594s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/local_setup.sh
+[0.594s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/local_setup.zsh
+[0.594s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/local_setup.dsv
+[0.594s] -- Symlinking: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/package.dsv
+[0.604s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/ament_index/resource_index/packages/robot_control
+[0.604s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig.cmake
+[0.604s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig-version.cmake
+[0.604s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/robot_control/share/robot_control/package.xml
+[0.605s] Invoked command in '/home/ros/docker_pronto_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/robot_control

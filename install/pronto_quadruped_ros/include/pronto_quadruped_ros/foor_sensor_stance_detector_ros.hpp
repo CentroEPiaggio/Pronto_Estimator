@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/foor_sensor_stance_detector_ros.hpp

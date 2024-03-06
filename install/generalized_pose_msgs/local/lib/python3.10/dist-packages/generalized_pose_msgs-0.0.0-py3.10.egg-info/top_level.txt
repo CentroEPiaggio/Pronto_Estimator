@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/generalized_pose_msgs/ament_cmake_python/generalized_pose_msgs/generalized_pose_msgs.egg-info/top_level.txt

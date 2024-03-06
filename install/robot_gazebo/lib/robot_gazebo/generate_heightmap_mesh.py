@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/src/robot/robot_gazebo/scripts/generate_heightmap_mesh.py

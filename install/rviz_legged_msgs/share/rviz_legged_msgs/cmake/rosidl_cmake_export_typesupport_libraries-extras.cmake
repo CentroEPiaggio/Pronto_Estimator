@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/rviz_legged_msgs/rosidl_cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake

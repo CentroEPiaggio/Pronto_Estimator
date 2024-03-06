@@ -1,0 +1,37 @@
+[100%] Built target pronto_quadruped_ros
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/environment/library_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/environment/library_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/bias_lock_handler_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/conversions.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/dynamic_stance_estimator_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/foor_sensor_stance_detector_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/force_sensor_stance_estimator_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/leg_odometer_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/pronto_quadruped_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/stance_estimator_ros.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/include/pronto_quadruped_ros/visibility_control.h
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/ament_index/resource_index/package_run_dependencies/pronto_quadruped_ros
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/ament_index/resource_index/parent_prefix_path/pronto_quadruped_ros
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/ament_index/resource_index/packages/pronto_quadruped_ros
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/pronto_quadruped_rosConfig.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/pronto_quadruped_rosConfig-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/package.xml
+-- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/lib/libpronto_quadruped_ros.so
+-- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/export_pronto_quadruped_rosExport.cmake
+-- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_quadruped_ros/share/pronto_quadruped_ros/cmake/export_pronto_quadruped_rosExport-release.cmake

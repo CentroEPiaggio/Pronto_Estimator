@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/robot_model/ament_cmake_core/robot_modelConfig-version.cmake

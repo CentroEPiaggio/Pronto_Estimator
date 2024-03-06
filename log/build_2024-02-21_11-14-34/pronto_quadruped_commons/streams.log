@@ -1,0 +1,60 @@
+[0.361s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_quadruped_commons': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_quadruped_commons -- -j16 -l16
+[0.840s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_quadruped_commons' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_quadruped_commons -- -j16 -l16
+[0.887s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_quadruped_commons': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_quadruped_commons
+[0.897s] -- Install configuration: "Release"
+[0.898s] -- Execute custom install script
+[0.898s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/InertiaMatrix.h
+[0.898s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/StateDependentBase.h
+[0.898s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/StateDependentMatrix.h
+[0.899s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/TransformsBase.h
+[0.900s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/eigen_traits.h
+[0.900s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/internals.h
+[0.900s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/rbd.h
+[0.900s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/robcogen_commons.h
+[0.900s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/scalar_traits.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/iit/rbd/utils.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/declarations.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/feet_contact_forces.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/feet_jacobians.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/forward_kinematics.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/geometry/algebra.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/geometry/rotations.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/inertia_properties.h
+[0.905s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/inverse_dynamics.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/inverse_kinematics.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/joint_bool_map.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/joint_data_map.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/joint_id_tricks.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/jsim.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/leg_bool_map.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/leg_data_map.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/leg_vector_map.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/link_data_map.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/scalar/cppad.h
+[0.906s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/scalar/internals.h
+[0.907s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/test/cmdline_fd.h
+[0.907s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/test/cmdline_id.h
+[0.907s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/test/cmdline_jsim.h
+[0.907s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/test/dynamics_cmd_line.h
+[0.908s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/test/dynamics_consistency.h
+[0.908s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/test/fext.h
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/robcogen/utils.h
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/include/pronto_quadruped_commons/transforms.h
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/ament_index/resource_index/package_run_dependencies/pronto_quadruped_commons
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/ament_index/resource_index/parent_prefix_path/pronto_quadruped_commons
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/environment/ament_prefix_path.sh
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/environment/ament_prefix_path.dsv
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/environment/path.sh
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/environment/path.dsv
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/local_setup.bash
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/local_setup.sh
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/local_setup.zsh
+[0.909s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/local_setup.dsv
+[0.909s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/package.dsv
+[0.918s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/ament_index/resource_index/packages/pronto_quadruped_commons
+[0.918s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.919s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.919s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/cmake/pronto_quadruped_commonsConfig.cmake
+[0.919s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/cmake/pronto_quadruped_commonsConfig-version.cmake
+[0.919s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_quadruped_commons/share/pronto_quadruped_commons/package.xml
+[0.968s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_quadruped_commons' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_quadruped_commons

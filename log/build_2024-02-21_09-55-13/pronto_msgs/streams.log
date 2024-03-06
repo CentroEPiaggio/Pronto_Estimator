@@ -1,0 +1,289 @@
+[0.441s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_msgs -- -j16 -l16
+[0.529s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_generator_c[0m
+[0.541s] [  0%] Built target pronto_msgs__cpp
+[0.547s] [  0%] Built target ament_cmake_python_symlink_pronto_msgs
+[0.571s] [ 12%] Built target pronto_msgs__rosidl_generator_c
+[0.579s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[0.586s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_cpp[0m
+[0.609s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_introspection_cpp[0m
+[0.620s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_fastrtps_c[0m
+[0.634s] [ 24%] Built target pronto_msgs__rosidl_typesupport_cpp
+[0.651s] [ 35%] Built target pronto_msgs__rosidl_typesupport_fastrtps_cpp
+[0.659s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_introspection_c[0m
+[0.660s] [ 47%] Built target pronto_msgs__rosidl_typesupport_introspection_cpp
+[0.668s] [ 59%] Built target pronto_msgs__rosidl_typesupport_fastrtps_c
+[0.668s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_c[0m
+[0.680s] [ 71%] Built target pronto_msgs__rosidl_typesupport_introspection_c
+[0.685s] [ 83%] Built target pronto_msgs__rosidl_typesupport_c
+[0.721s] [ 83%] Built target pronto_msgs
+[0.760s] [ 84%] Built target pronto_msgs__py
+[0.784s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_generator_py[0m
+[0.822s] [ 95%] Built target pronto_msgs__rosidl_generator_py
+[0.841s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[0.842s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[0.842s] [35m[1mConsolidate compiler generated dependencies of target pronto_msgs__rosidl_typesupport_c__pyext[0m
+[0.856s] [ 97%] Built target pronto_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.858s] [ 99%] Built target pronto_msgs__rosidl_typesupport_introspection_c__pyext
+[0.858s] [100%] Built target pronto_msgs__rosidl_typesupport_c__pyext
+[0.908s] running egg_info
+[0.911s] writing pronto_msgs.egg-info/PKG-INFO
+[0.911s] writing dependency_links to pronto_msgs.egg-info/dependency_links.txt
+[0.912s] writing top-level names to pronto_msgs.egg-info/top_level.txt
+[0.913s] reading manifest file 'pronto_msgs.egg-info/SOURCES.txt'
+[0.913s] writing manifest file 'pronto_msgs.egg-info/SOURCES.txt'
+[0.954s] [100%] Built target ament_cmake_python_build_pronto_msgs_egg
+[1.035s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_msgs -- -j16 -l16
+[1.609s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_msgs
+[1.725s] -- Install configuration: "Release"
+[1.725s] -- Execute custom install script
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/ament_index/resource_index/rosidl_interfaces/pronto_msgs
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/biped_force_torque_sensors.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/controller_foot_contact.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__functions.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__struct.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__type_support.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__functions.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__struct.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__type_support.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__functions.h
+[1.725s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__struct.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__type_support.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__functions.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__struct.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__type_support.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__functions.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__struct.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__type_support.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__functions.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__struct.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__type_support.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__functions.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__struct.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__type_support.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__functions.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__struct.h
+[1.726s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__type_support.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__functions.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__struct.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__type_support.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__functions.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__struct.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__type_support.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__functions.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__struct.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__type_support.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/filter_state.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/gps_data.h
+[1.727s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/indexed_measurement.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/joint_state_with_acceleration.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/lidar_odometry_update.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/quadruped_force_torque_sensors.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/quadruped_stance.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/rosidl_generator_c__visibility_control.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/velocity_with_sigma_bounds.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/visual_odometry_update.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/library_path.sh
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/library_path.dsv
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_fastrtps_c.h
+[1.728s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_fastrtps_c.h
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_fastrtps_c.h
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_fastrtps_c.h
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/biped_force_torque_sensors.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/controller_foot_contact.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__builder.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__struct.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__traits.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__builder.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__struct.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__traits.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__builder.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__struct.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__traits.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__builder.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__struct.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__traits.hpp
+[1.729s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__builder.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__struct.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__traits.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__builder.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__struct.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__traits.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__builder.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__struct.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__traits.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__builder.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__struct.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__traits.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__builder.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__struct.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__traits.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__builder.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__struct.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__traits.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__builder.hpp
+[1.730s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__struct.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__traits.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/filter_state.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/gps_data.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/indexed_measurement.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/joint_state_with_acceleration.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/lidar_odometry_update.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/quadruped_force_torque_sensors.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/quadruped_stance.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/velocity_with_sigma_bounds.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/visual_odometry_update.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_fastrtps_cpp.hpp
+[1.731s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_fastrtps_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_introspection_c.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_introspection_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_introspection_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_introspection_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_introspection_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_introspection_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_introspection_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_introspection_cpp.hpp
+[1.732s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_introspection_cpp.hpp
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_introspection_cpp.hpp
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_introspection_cpp.hpp
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/include/pronto_msgs/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_introspection_cpp.hpp
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/pythonpath.sh
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/pythonpath.dsv
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs-0.3.0-py3.10.egg-info/PKG-INFO
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs-0.3.0-py3.10.egg-info/SOURCES.txt
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs-0.3.0-py3.10.egg-info/dependency_links.txt
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs-0.3.0-py3.10.egg-info/top_level.txt
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/__init__.py
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/_pronto_msgs_s.ep.rosidl_typesupport_c.c
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/_pronto_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/_pronto_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/libpronto_msgs__rosidl_generator_py.so
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/__init__.py
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_biped_force_torque_sensors.py
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_biped_force_torque_sensors_s.c
+[1.733s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_controller_foot_contact.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_controller_foot_contact_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_filter_state.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_filter_state_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_gps_data.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_gps_data_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_indexed_measurement.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_indexed_measurement_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_joint_state_with_acceleration.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_joint_state_with_acceleration_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_lidar_odometry_update.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_lidar_odometry_update_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_quadruped_force_torque_sensors.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_quadruped_force_torque_sensors_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_quadruped_stance.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_quadruped_stance_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_velocity_with_sigma_bounds.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_velocity_with_sigma_bounds_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_visual_odometry_update.py
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg/_visual_odometry_update_s.c
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/pronto_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/pronto_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.734s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/pronto_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/pronto_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/pronto_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/pronto_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/FilterState.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/IndexedMeasurement.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/QuadrupedStance.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/JointStateWithAcceleration.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/ControllerFootContact.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/QuadrupedForceTorqueSensors.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/VelocityWithSigmaBounds.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/VisualOdometryUpdate.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/GPSData.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/LidarOdometryUpdate.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/BipedForceTorqueSensors.idl
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/FilterState.msg
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/IndexedMeasurement.msg
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/QuadrupedStance.msg
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/JointStateWithAcceleration.msg
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/ControllerFootContact.msg
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/QuadrupedForceTorqueSensors.msg
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/VelocityWithSigmaBounds.msg
+[1.735s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/VisualOdometryUpdate.msg
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/GPSData.msg
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/LidarOdometryUpdate.msg
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/msg/BipedForceTorqueSensors.msg
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/ament_index/resource_index/package_run_dependencies/pronto_msgs
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/ament_index/resource_index/parent_prefix_path/pronto_msgs
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/ament_prefix_path.sh
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/ament_prefix_path.dsv
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/path.sh
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/environment/path.dsv
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/local_setup.bash
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/local_setup.sh
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/local_setup.zsh
+[1.736s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/local_setup.dsv
+[1.736s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/package.dsv
+[1.741s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/ament_index/resource_index/packages/pronto_msgs
+[1.741s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/rosidl_cmake-extras.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgsConfig.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgsConfig-version.cmake
+[1.742s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/package.xml
+[1.742s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_generator_c.so
+[1.743s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_typesupport_fastrtps_c.so
+[1.743s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_typesupport_fastrtps_cpp.so
+[1.743s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_typesupport_introspection_c.so
+[1.744s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_typesupport_c.so
+[1.744s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_typesupport_introspection_cpp.so
+[1.744s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_typesupport_cpp.so
+[1.776s] Listing '/home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs'...
+[1.776s] Listing '/home/ros/docker_pronto_ws/install/pronto_msgs/local/lib/python3.10/dist-packages/pronto_msgs/msg'...
+[1.779s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/lib/libpronto_msgs__rosidl_generator_py.so
+[1.780s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_generator_cExport.cmake
+[1.780s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_generator_cExport-release.cmake
+[1.781s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[1.781s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[1.781s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_generator_cppExport.cmake
+[1.781s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.781s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cExport.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cExport.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cExport-release.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cppExport.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cppExport-release.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_generator_pyExport.cmake
+[1.782s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_msgs/share/pronto_msgs/cmake/export_pronto_msgs__rosidl_generator_pyExport-release.cmake
+[2.072s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_msgs

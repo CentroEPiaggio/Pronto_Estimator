@@ -1,0 +1,49 @@
+[ 14%] [32mBuilding CXX object CMakeFiles/pronto_ros2_controller.dir/src/legodom_manager.cpp.o[0m
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/legodom_manager.cpp:[m[K In constructor ‘[01m[Kpronto_controller::LegOdom_Manager::LegOdom_Manager(rclcpp_lifecycle::LifecycleNode::SharedPtr, std::map<std::__cxx11::basic_string<char>, std::tuple<double, double, double> >&, std::string)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/legodom_manager.cpp:17:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kfound[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   17 |         std::size_t [01;35m[Kfound[m[K;
+      |                     [01;35m[K^~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/legodom_manager.cpp:18:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kind[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   18 |         int [01;35m[Kind[m[K = 0,DOF;
+      |             [01;35m[K^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/legodom_manager.cpp:19:23:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kax[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+   19 |         urdf::Vector3 [01;35m[Kax[m[K = urdf::Vector3(0.0,0.0,0.0);
+      |                       [01;35m[K^~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/legodom_manager.cpp:20:14:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kax_int[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   20 |         bool [01;35m[Kax_int[m[K = false;
+      |              [01;35m[K^~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/legodom_manager.cpp:[m[K In constructor ‘[01m[Kpronto_controller::LegOdom_Manager::LegOdom_Manager(rclcpp_lifecycle::LifecycleNode::SharedPtr, std::map<std::__cxx11::basic_string<char>, std::tuple<double, double, double> >&, std::string)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/legodom_manager.cpp:18:21:[m[K [01;35m[Kwarning: [m[K‘[01m[KDOF[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+   18 |         int ind = 0,[01;35m[KDOF[m[K;
+      |                     [01;35m[K^~~[m[K
+[ 28%] [32m[1mLinking CXX shared library libpronto_ros2_controller.so[0m
+[ 71%] Built target pronto_ros2_controller
+[ 85%] [32m[1mLinking CXX executable test_node[0m
+[100%] Built target test_node
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller//pronto_controller.xml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/library_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/library_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib/pronto_ros2_controller/test_node
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/package_run_dependencies/pronto_ros2_controller
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/parent_prefix_path/pronto_ros2_controller
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/packages/pronto_ros2_controller
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/ament_index/resource_index/controller_interface__pluginlib__plugin/pronto_ros2_controller
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/pronto_ros2_controllerConfig.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/cmake/pronto_ros2_controllerConfig-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/share/pronto_ros2_controller/package.xml
+-- Installing: /home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib/libpronto_ros2_controller.so
+-- Set runtime path of "/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib/libpronto_ros2_controller.so" to ""

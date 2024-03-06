@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/robot_model/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake

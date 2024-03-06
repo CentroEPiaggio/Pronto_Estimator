@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/generalized_pose_msgs/rosidl_generator_py/generalized_pose_msgs/__init__.py

@@ -1,0 +1,2 @@
+# generated from colcon_core/shell/template/command_prefix.sh.em
+. "/home/ros/docker_pronto_ws/install/generalized_pose_msgs/share/generalized_pose_msgs/package.sh"

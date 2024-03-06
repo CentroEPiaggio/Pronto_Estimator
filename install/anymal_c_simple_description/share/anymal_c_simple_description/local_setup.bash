@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/anymal_c_simple_description/ament_cmake_environment_hooks/local_setup.bash

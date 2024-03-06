@@ -1,0 +1,97 @@
+[33mCMake Warning at /usr/share/cmake-3.22/Modules/FindBoost.cmake:2201 (message):
+  No header defined for python310; skipping header check (note: header-only
+  libraries have no designated component)
+Call Stack (most recent call first):
+  /opt/ros/humble/lib/x86_64-linux-gnu/cmake/eigenpy/boost.cmake:144 (find_package)
+  /opt/ros/humble/lib/x86_64-linux-gnu/cmake/eigenpy/eigenpyConfig.cmake:149 (SEARCH_FOR_BOOST_PYTHON)
+  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  /opt/ros/humble/lib/x86_64-linux-gnu/cmake/pinocchio/pinocchioConfig.cmake:160 (find_dependency)
+  CMakeLists.txt:15 (find_package)
+
+[0m
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:[m[K In member function ‘[01m[Kbool pronto_controller::Pinocchio_Feet_Force::getLegJacobian(const LegID&, pronto_controller::LinVelJac&, bool)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:16:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kworld[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   16 |         [01;35m[Kbool world[m[K
+      |         [01;35m[K~~~~~^~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:[m[K In member function ‘[01m[Kvirtual Eigen::Matrix3d pronto_controller::Pinocchio_FK::getFootOrientation(const JointState&, const LegID&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:262:72:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kq[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  262 |     Eigen::Matrix3d Pinocchio_FK::getFootOrientation([01;35m[Kconst JointState& q[m[K, const LegID& leg)
+      |                                                      [01;35m[K~~~~~~~~~~~~~~~~~~^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/pronto_mammal_utilities.cpp:262:88:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kleg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  262 |     Eigen::Matrix3d Pinocchio_FK::getFootOrientation(const JointState& q, [01;35m[Kconst LegID& leg[m[K)
+      |                                                                           [01;35m[K~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:[m[K In member function ‘[01m[Kpinocchio::DataTpl<double>::Matrix6x pronto::solo::FeetJacobians::ComputeJacobian(const JointState&, const LegID&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:33:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   33 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+      |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:35:17:[m[K [01;36m[Knote: [m[Khere
+   35 |                 [01;36m[Kcase[m[K quadruped::LegID::RF:
+      |                 [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:37:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   37 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+      |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:39:17:[m[K [01;36m[Knote: [m[Khere
+   39 |                 [01;36m[Kcase[m[K quadruped::LegID::LH:
+      |                 [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:41:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   41 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+      |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:43:17:[m[K [01;36m[Knote: [m[Khere
+   43 |                 [01;36m[Kcase[m[K quadruped::LegID::RH:
+      |                 [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:45:48:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   45 |                     [01;35m[Kpinocchio::getFrameJacobian(model_, data_, leg_id, pinocchio::ReferenceFrame::WORLD, J)[m[K;
+      |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:47:17:[m[K [01;36m[Knote: [m[Khere
+   47 |                 [01;36m[Kdefault[m[K:
+      |                 [01;36m[K^~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:[m[K In member function ‘[01m[Kiit::rbd::Vector3d pronto::solo::FeetJacobians::getFootPos(const JointState&, const LegID&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:86:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   86 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:88:13:[m[K [01;36m[Knote: [m[Khere
+   88 |             [01;36m[Kcase[m[K quadruped::LegID::RF:
+      |             [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:90:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   90 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:92:13:[m[K [01;36m[Knote: [m[Khere
+   92 |             [01;36m[Kcase[m[K quadruped::LegID::LH:
+      |             [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:94:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   94 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:96:13:[m[K [01;36m[Knote: [m[Khere
+   96 |             [01;36m[Kcase[m[K quadruped::LegID::RH:
+      |             [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:98:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+   98 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:100:13:[m[K [01;36m[Knote: [m[Khere
+  100 |             [01;36m[Kdefault[m[K:
+      |             [01;36m[K^~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:[m[K In member function ‘[01m[Kpronto::solo::Matrix3d pronto::solo::FeetJacobians::getFootOrientation(const JointState&, const LegID&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:122:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+  122 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:124:13:[m[K [01;36m[Knote: [m[Khere
+  124 |             [01;36m[Kcase[m[K quadruped::LegID::RF:
+      |             [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:126:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+  126 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:128:13:[m[K [01;36m[Knote: [m[Khere
+  128 |             [01;36m[Kcase[m[K quadruped::LegID::LH:
+      |             [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:130:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+  130 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:132:13:[m[K [01;36m[Knote: [m[Khere
+  132 |             [01;36m[Kcase[m[K quadruped::LegID::RH:
+      |             [01;36m[K^~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:134:37:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+  134 |                 T = data_.oMf[leg_id[01;35m[K][m[K;
+      |                                     [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_solo12/src/feet_jacobians.cpp:136:13:[m[K [01;36m[Knote: [m[Khere
+  136 |             [01;36m[Kdefault[m[K:
+      |             [01;36m[K^~~~~~~[m[K

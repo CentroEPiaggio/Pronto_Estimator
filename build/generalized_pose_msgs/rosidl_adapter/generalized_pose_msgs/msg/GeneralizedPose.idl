@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from generalized_pose_msgs/msg/GeneralizedPose.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Quaternion.idl"
+#include "geometry_msgs/msg/Vector3.idl"
+
+module generalized_pose_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "A representation of all the quantities that define the desired pose of the robot base and of the swing feet, called desired generalized pose.")
+    struct GeneralizedPose {
+      @verbatim (language="comment", text=
+        "Base linear quantities")
+      geometry_msgs::msg::Vector3 base_acc;
+
+      geometry_msgs::msg::Vector3 base_vel;
+
+      geometry_msgs::msg::Vector3 base_pos;
+
+      @verbatim (language="comment", text=
+        "Base angular quantities")
+      geometry_msgs::msg::Vector3 base_angvel;
+
+      geometry_msgs::msg::Quaternion base_quat;
+
+      @verbatim (language="comment", text=
+        "Swing feet linear quantities")
+      sequence<double> feet_acc;
+
+      sequence<double> feet_vel;
+
+      sequence<double> feet_pos;
+
+      @verbatim (language="comment", text=
+        "List of feet names in contact with the ground")
+      sequence<string> contact_feet;
+    };
+  };
+};

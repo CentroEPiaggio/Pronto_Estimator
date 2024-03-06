@@ -1,0 +1,8 @@
+{
+  "package_name": "generalized_pose_msgs",
+  "non_idl_tuples": [
+    "/home/ros/docker_pronto_ws/src/motion_control/generalized_pose_msgs:msg/GeneralizedPose.msg",
+    "/home/ros/docker_pronto_ws/src/motion_control/generalized_pose_msgs:msg/GeneralizedPoseWithTime.msg",
+    "/home/ros/docker_pronto_ws/src/motion_control/generalized_pose_msgs:msg/GeneralizedPosesWithTime.msg"
+  ]
+}

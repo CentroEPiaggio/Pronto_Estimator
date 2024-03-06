@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+65de0db5426fc3f6f7430b00b2bcebba CMakeFiles/ryml-uninstall
+5352a22f204fc6ef5a26c3e593d3f44e CMakeFiles/ryml_uninstall
+eca4b7546b08738a4b9e8f08096bfbd8 subprojects/c4core/build/CMakeFiles/c4core-amalgamate

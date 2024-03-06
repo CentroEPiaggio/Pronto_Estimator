@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/install/pronto_ros2_controller/lib/libpronto_ros2_controller.so

@@ -1,0 +1,249 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_index_cpp: 1.4.0 (/opt/ros/humble/share/ament_index_cpp/cmake)
+-- pinocchio FOUND. pinocchio at /opt/ros/humble/lib/x86_64-linux-gnu/libpinocchio.so
+-- boost_filesystem FOUND. boost_filesystem at /lib/x86_64-linux-gnu/libboost_filesystem.so
+-- boost_serialization FOUND. boost_serialization at /lib/x86_64-linux-gnu/libboost_serialization.so
+-- boost_system FOUND. boost_system at /lib/x86_64-linux-gnu/libboost_system.so
+-- Found Boost: /usr/include (found version "1.74.0") found components: filesystem serialization system 
+-- eigenpy FOUND. eigenpy at /opt/ros/humble/lib/x86_64-linux-gnu/libeigenpy.so
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter Development.Module NumPy 
+-- PythonLibraryDirs: 
+-- PythonLibVersionString: 3.10.12
+-- Python site lib: lib/python3.10/dist-packages
+-- Python include dirs: /usr/include/python3.10
+-- Checking for NumPy
+--   NUMPY_INCLUDE_DIRS=/home/ros/.local/lib/python3.10/site-packages/numpy/core/include
+--   NUMPY_VERSION=1.26.4
+-- NumPy include dir: /home/ros/.local/lib/python3.10/site-packages/numpy/core/include
+[33mCMake Warning at /usr/share/cmake-3.22/Modules/FindBoost.cmake:2201 (message):
+  No header defined for python310; skipping header check (note: header-only
+  libraries have no designated component)
+Call Stack (most recent call first):
+  /opt/ros/humble/lib/x86_64-linux-gnu/cmake/eigenpy/boost.cmake:144 (find_package)
+  /opt/ros/humble/lib/x86_64-linux-gnu/cmake/eigenpy/eigenpyConfig.cmake:149 (SEARCH_FOR_BOOST_PYTHON)
+  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  /opt/ros/humble/lib/x86_64-linux-gnu/cmake/pinocchio/pinocchioConfig.cmake:160 (find_dependency)
+  CMakeLists.txt:35 (find_package)
+
+[0m
+-- Found Boost: /usr/include (found version "1.74.0") found components: python310 
+-- Boost_PYTHON_LIBRARY: /usr/lib/x86_64-linux-gnu/libboost_python310.so
+-- Default C++ standard: 201703
+-- Minimal C++ standard upgraded to 11
+-- C++ standard sufficient: Minimal required 11, currently defined: 17
+-- hpp-fcl FOUND. hpp-fcl at /opt/ros/humble/lib/x86_64-linux-gnu/libhpp-fcl.so
+-- Found Boost: /usr/include (found version "1.74.0") found components: chrono serialization 
+-- C++ standard sufficient: Minimal required 11, currently defined: 17
+-- C++ standard sufficient: Minimal required 11, currently defined: 17
+-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ros/docker_pronto_ws/src/robot/robot_model/include>
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ros/docker_pronto_ws/build/robot_model
+[ 25%] [32mBuilding CXX object CMakeFiles/robot_model.dir/src/robot_model.cpp.o[0m
+[ 25%] Built target ament_cmake_python_symlink_robot_model
+running egg_info
+creating robot_model.egg-info
+writing robot_model.egg-info/PKG-INFO
+writing dependency_links to robot_model.egg-info/dependency_links.txt
+writing top-level names to robot_model.egg-info/top_level.txt
+writing manifest file 'robot_model.egg-info/SOURCES.txt'
+reading manifest file 'robot_model.egg-info/SOURCES.txt'
+writing manifest file 'robot_model.egg-info/SOURCES.txt'
+[ 25%] Built target ament_cmake_python_build_robot_model_egg
+In file included from [01m[K/usr/include/eigen3/Eigen/Core:294[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/utils/cast.hpp:8[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/fwd.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/spatial/fwd.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+In copy constructor ‘[01m[KEigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::PlainObjectBase<Derived>&) [with Derived = Eigen::Matrix<double, 3, 3>][m[K’,
+    inlined from ‘[01m[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>&) [with _Scalar = double; int _Rows = 3; int _Cols = 3; int _Options = 0; int _MaxRows = 3; int _MaxCols = 3][m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:414:65[m[K,
+    inlined from ‘[01m[Kpinocchio::SE3Tpl<double, 0>::SE3Tpl(const pinocchio::SE3Tpl<double, 0>&)[m[K’ at [01m[K/opt/ros/humble/include/pinocchio/spatial/se3-tpl.hpp:47:10[m[K,
+    inlined from ‘[01m[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Tp = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/usr/include/c++/11/ext/new_allocator.h:162:4[m[K,
+    inlined from ‘[01m[Kstatic constexpr std::_Require<typename std::allocator_traits< <template-parameter-1-1> >::__construct_helper<_Tp, _Args>::type> std::allocator_traits< <template-parameter-1-1> >::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:251:17[m[K,
+    inlined from ‘[01m[Kstatic decltype (std::allocator_traits< <template-parameter-1-1> >::_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits< <template-parameter-1-1> >::construct::__args)...)) std::allocator_traits< <template-parameter-1-1> >::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:364:16[m[K,
+    inlined from ‘[01m[K_ForwardIterator std::__uninitialized_fill_n_a(_ForwardIterator, _Size, const _Tp&, _Allocator&) [with _ForwardIterator = pinocchio::SE3Tpl<double, 0>*; _Size = long unsigned int; _Tp = pinocchio::SE3Tpl<double, 0>; _Allocator = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_uninitialized.h:395:25[m[K,
+    inlined from ‘[01m[Kvoid std::vector<_Tp, _Alloc>::_M_fill_initialize(std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:1596:33[m[K,
+    inlined from ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:525:27[m[K,
+    inlined from ‘[01m[Kpinocchio::container::aligned_vector<T>::aligned_vector(pinocchio::container::aligned_vector<T>::size_type, const value_type&) [with T = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/container/aligned-vector.hpp:43:29[m[K,
+    inlined from ‘[01m[Kpinocchio::JointDataCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataCompositeTpl(const JointDataVector&, int, int) [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:27[m[K,
+    inlined from ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:260:46[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:512:17:[m[K [01;35m[Kwarning: [m[K‘[01m[K*(const Eigen::PlainObjectBase<Eigen::Matrix<double, 3, 3, 0, 3, 3> >*)((char*)&<unnamed> + offsetof(pinocchio::value_type, pinocchio::SE3Tpl<double, 0>::<unnamed>)).Eigen::PlainObjectBase<Eigen::Matrix<double, 3, 3> >::m_storage[m[K’ may be used uninitialized [[01;35m[K-Wmaybe-uninitialized[m[K]
+  512 |       : Base(), [01;35m[Km_storage(other.m_storage)[m[K { }
+      |                 [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-generic.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:17[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:[m[K In member function ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:27:[m[K [01;36m[Knote: [m[K‘[01m[K<anonymous>[m[K’ declared here
+   92 |     : joints(joint_data), [01;36m[KiMlast(joint_data.size())[m[K, pjMi(joint_data.size())
+      |                           [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Core:294[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/utils/cast.hpp:8[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/fwd.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/spatial/fwd.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+In copy constructor ‘[01m[KEigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::PlainObjectBase<Derived>&) [with Derived = Eigen::Matrix<double, 3, 1>][m[K’,
+    inlined from ‘[01m[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>&) [with _Scalar = double; int _Rows = 3; int _Cols = 1; int _Options = 0; int _MaxRows = 3; int _MaxCols = 1][m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:414:65[m[K,
+    inlined from ‘[01m[Kpinocchio::SE3Tpl<double, 0>::SE3Tpl(const pinocchio::SE3Tpl<double, 0>&)[m[K’ at [01m[K/opt/ros/humble/include/pinocchio/spatial/se3-tpl.hpp:47:10[m[K,
+    inlined from ‘[01m[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Tp = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/usr/include/c++/11/ext/new_allocator.h:162:4[m[K,
+    inlined from ‘[01m[Kstatic constexpr std::_Require<typename std::allocator_traits< <template-parameter-1-1> >::__construct_helper<_Tp, _Args>::type> std::allocator_traits< <template-parameter-1-1> >::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:251:17[m[K,
+    inlined from ‘[01m[Kstatic decltype (std::allocator_traits< <template-parameter-1-1> >::_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits< <template-parameter-1-1> >::construct::__args)...)) std::allocator_traits< <template-parameter-1-1> >::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:364:16[m[K,
+    inlined from ‘[01m[K_ForwardIterator std::__uninitialized_fill_n_a(_ForwardIterator, _Size, const _Tp&, _Allocator&) [with _ForwardIterator = pinocchio::SE3Tpl<double, 0>*; _Size = long unsigned int; _Tp = pinocchio::SE3Tpl<double, 0>; _Allocator = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_uninitialized.h:395:25[m[K,
+    inlined from ‘[01m[Kvoid std::vector<_Tp, _Alloc>::_M_fill_initialize(std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:1596:33[m[K,
+    inlined from ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:525:27[m[K,
+    inlined from ‘[01m[Kpinocchio::container::aligned_vector<T>::aligned_vector(pinocchio::container::aligned_vector<T>::size_type, const value_type&) [with T = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/container/aligned-vector.hpp:43:29[m[K,
+    inlined from ‘[01m[Kpinocchio::JointDataCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataCompositeTpl(const JointDataVector&, int, int) [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:27[m[K,
+    inlined from ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:260:46[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:512:17:[m[K [01;35m[Kwarning: [m[K‘[01m[K<unnamed>.pinocchio::SE3Tpl<double, 0>::trans.Eigen::Matrix<double, 3, 1, 0, 3, 1>::<unnamed>.Eigen::PlainObjectBase<Eigen::Matrix<double, 3, 1> >::m_storage[m[K’ may be used uninitialized [[01;35m[K-Wmaybe-uninitialized[m[K]
+  512 |       : Base(), [01;35m[Km_storage(other.m_storage)[m[K { }
+      |                 [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-generic.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:17[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:[m[K In member function ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:27:[m[K [01;36m[Knote: [m[K‘[01m[K<anonymous>[m[K’ declared here
+   92 |     : joints(joint_data), [01;36m[KiMlast(joint_data.size())[m[K, pjMi(joint_data.size())
+      |                           [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Core:294[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/utils/cast.hpp:8[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/fwd.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/spatial/fwd.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+In copy constructor ‘[01m[KEigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::PlainObjectBase<Derived>&) [with Derived = Eigen::Matrix<double, 3, 3>][m[K’,
+    inlined from ‘[01m[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>&) [with _Scalar = double; int _Rows = 3; int _Cols = 3; int _Options = 0; int _MaxRows = 3; int _MaxCols = 3][m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:414:65[m[K,
+    inlined from ‘[01m[Kpinocchio::SE3Tpl<double, 0>::SE3Tpl(const pinocchio::SE3Tpl<double, 0>&)[m[K’ at [01m[K/opt/ros/humble/include/pinocchio/spatial/se3-tpl.hpp:47:10[m[K,
+    inlined from ‘[01m[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Tp = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/usr/include/c++/11/ext/new_allocator.h:162:4[m[K,
+    inlined from ‘[01m[Kstatic constexpr std::_Require<typename std::allocator_traits< <template-parameter-1-1> >::__construct_helper<_Tp, _Args>::type> std::allocator_traits< <template-parameter-1-1> >::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:251:17[m[K,
+    inlined from ‘[01m[Kstatic decltype (std::allocator_traits< <template-parameter-1-1> >::_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits< <template-parameter-1-1> >::construct::__args)...)) std::allocator_traits< <template-parameter-1-1> >::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:364:16[m[K,
+    inlined from ‘[01m[K_ForwardIterator std::__uninitialized_fill_n_a(_ForwardIterator, _Size, const _Tp&, _Allocator&) [with _ForwardIterator = pinocchio::SE3Tpl<double, 0>*; _Size = long unsigned int; _Tp = pinocchio::SE3Tpl<double, 0>; _Allocator = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_uninitialized.h:395:25[m[K,
+    inlined from ‘[01m[Kvoid std::vector<_Tp, _Alloc>::_M_fill_initialize(std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:1596:33[m[K,
+    inlined from ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:525:27[m[K,
+    inlined from ‘[01m[Kpinocchio::container::aligned_vector<T>::aligned_vector(pinocchio::container::aligned_vector<T>::size_type, const value_type&) [with T = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/container/aligned-vector.hpp:43:29[m[K,
+    inlined from ‘[01m[Kpinocchio::JointDataCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataCompositeTpl(const JointDataVector&, int, int) [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:54[m[K,
+    inlined from ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:260:46[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:512:17:[m[K [01;35m[Kwarning: [m[K‘[01m[K*(const Eigen::PlainObjectBase<Eigen::Matrix<double, 3, 3, 0, 3, 3> >*)((char*)&<unnamed> + offsetof(pinocchio::value_type, pinocchio::SE3Tpl<double, 0>::<unnamed>)).Eigen::PlainObjectBase<Eigen::Matrix<double, 3, 3> >::m_storage[m[K’ may be used uninitialized [[01;35m[K-Wmaybe-uninitialized[m[K]
+  512 |       : Base(), [01;35m[Km_storage(other.m_storage)[m[K { }
+      |                 [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-generic.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:17[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:[m[K In member function ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:54:[m[K [01;36m[Knote: [m[K‘[01m[K<anonymous>[m[K’ declared here
+   92 |     : joints(joint_data), iMlast(joint_data.size()), [01;36m[KpjMi(joint_data.size())[m[K
+      |                                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Core:294[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/utils/cast.hpp:8[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/fwd.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/spatial/fwd.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+In copy constructor ‘[01m[KEigen::PlainObjectBase<Derived>::PlainObjectBase(const Eigen::PlainObjectBase<Derived>&) [with Derived = Eigen::Matrix<double, 3, 1>][m[K’,
+    inlined from ‘[01m[KEigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::Matrix(const Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>&) [with _Scalar = double; int _Rows = 3; int _Cols = 1; int _Options = 0; int _MaxRows = 3; int _MaxCols = 1][m[K’ at [01m[K/usr/include/eigen3/Eigen/src/Core/Matrix.h:414:65[m[K,
+    inlined from ‘[01m[Kpinocchio::SE3Tpl<double, 0>::SE3Tpl(const pinocchio::SE3Tpl<double, 0>&)[m[K’ at [01m[K/opt/ros/humble/include/pinocchio/spatial/se3-tpl.hpp:47:10[m[K,
+    inlined from ‘[01m[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Tp = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/usr/include/c++/11/ext/new_allocator.h:162:4[m[K,
+    inlined from ‘[01m[Kstatic constexpr std::_Require<typename std::allocator_traits< <template-parameter-1-1> >::__construct_helper<_Tp, _Args>::type> std::allocator_traits< <template-parameter-1-1> >::_S_construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:251:17[m[K,
+    inlined from ‘[01m[Kstatic decltype (std::allocator_traits< <template-parameter-1-1> >::_S_construct(__a, __p, (forward<_Args>)(std::allocator_traits< <template-parameter-1-1> >::construct::__args)...)) std::allocator_traits< <template-parameter-1-1> >::construct(_Alloc&, _Tp*, _Args&& ...) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Args = {const pinocchio::SE3Tpl<double, 0>&}; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/alloc_traits.h:364:16[m[K,
+    inlined from ‘[01m[K_ForwardIterator std::__uninitialized_fill_n_a(_ForwardIterator, _Size, const _Tp&, _Allocator&) [with _ForwardIterator = pinocchio::SE3Tpl<double, 0>*; _Size = long unsigned int; _Tp = pinocchio::SE3Tpl<double, 0>; _Allocator = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_uninitialized.h:395:25[m[K,
+    inlined from ‘[01m[Kvoid std::vector<_Tp, _Alloc>::_M_fill_initialize(std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:1596:33[m[K,
+    inlined from ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = pinocchio::SE3Tpl<double, 0>; _Alloc = Eigen::aligned_allocator<pinocchio::SE3Tpl<double, 0> >][m[K’ at [01m[K/usr/include/c++/11/bits/stl_vector.h:525:27[m[K,
+    inlined from ‘[01m[Kpinocchio::container::aligned_vector<T>::aligned_vector(pinocchio::container::aligned_vector<T>::size_type, const value_type&) [with T = pinocchio::SE3Tpl<double, 0>][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/container/aligned-vector.hpp:43:29[m[K,
+    inlined from ‘[01m[Kpinocchio::JointDataCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataCompositeTpl(const JointDataVector&, int, int) [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:54[m[K,
+    inlined from ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’ at [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:260:46[m[K:
+[01m[K/usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:512:17:[m[K [01;35m[Kwarning: [m[K‘[01m[K<unnamed>.pinocchio::SE3Tpl<double, 0>::trans.Eigen::Matrix<double, 3, 1, 0, 3, 1>::<unnamed>.Eigen::PlainObjectBase<Eigen::Matrix<double, 3, 1> >::m_storage[m[K’ may be used uninitialized [[01;35m[K-Wmaybe-uninitialized[m[K]
+  512 |       : Base(), [01;35m[Km_storage(other.m_storage)[m[K { }
+      |                 [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-generic.hpp:9[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/multibody/model.hpp:17[m[K,
+                 from [01m[K/opt/ros/humble/include/pinocchio/algorithm/kinematics.hpp:8[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/include/robot_model/robot_model.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/robot/robot_model/src/robot_model.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:[m[K In member function ‘[01m[Kpinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::JointDataDerived pinocchio::JointModelCompositeTpl<Scalar, Options, JointCollectionTpl>::createData() const [with _Scalar = double; int _Options = 0; JointCollectionTpl = pinocchio::JointCollectionDefaultTpl][m[K’:
+[01m[K/opt/ros/humble/include/pinocchio/multibody/joint/joint-composite.hpp:92:54:[m[K [01;36m[Knote: [m[K‘[01m[K<anonymous>[m[K’ declared here
+   92 |     : joints(joint_data), iMlast(joint_data.size()), [01;36m[KpjMi(joint_data.size())[m[K
+      |                                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[ 50%] [32m[1mLinking CXX shared library librobot_model.so[0m
+[ 50%] Built target robot_model
+[ 75%] [32mBuilding CXX object CMakeFiles/TestRobotModel.dir/test/test_robot_model.cpp.o[0m
+[100%] [32m[1mLinking CXX executable TestRobotModel[0m
+[100%] Built target TestRobotModel
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/library_path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/library_path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/include/robot_model/robot_model/robot_model.hpp
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/robots/all_robots.yaml
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/pythonpath.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/pythonpath.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/PKG-INFO
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model-0.0.0-py3.10.egg-info/top_level.txt
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model/__init__.py
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model/robot_model.py
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/ament_index/resource_index/package_run_dependencies/robot_model
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/ament_index/resource_index/parent_prefix_path/robot_model
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/ament_prefix_path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/ament_prefix_path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/environment/path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.bash
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.zsh
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/package.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/ament_index/resource_index/packages/robot_model
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_modelConfig.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_modelConfig-version.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/package.xml
+-- Installing: /home/ros/docker_pronto_ws/install/robot_model/lib/librobot_model.so
+-- Set runtime path of "/home/ros/docker_pronto_ws/install/robot_model/lib/librobot_model.so" to ""
+Listing '/home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model'...
+Compiling '/home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model/__init__.py'...
+Compiling '/home/ros/docker_pronto_ws/install/robot_model/local/lib/python3.10/dist-packages/robot_model/robot_model.py'...
+-- Installing: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_model_targetsExport.cmake
+-- Installing: /home/ros/docker_pronto_ws/install/robot_model/share/robot_model/cmake/robot_model_targetsExport-release.cmake

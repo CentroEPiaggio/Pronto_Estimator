@@ -1,0 +1,32 @@
+[35m[1mConsolidate compiler generated dependencies of target command_node[0m
+[35m[1mConsolidate compiler generated dependencies of target tuning_node[0m
+[ 50%] Built target command_node
+[100%] Built target tuning_node
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/lib/pronto_tuning/tuning_node
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/lib/pronto_tuning/command_node
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/launch/cmd_rec.launch.py
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/launch/command_tuning.launch.py
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/launch/experiments_pronto.launch.py
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/launch/filter_tuning.launch.py
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/config/Exp_1_cmd.yaml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/config/Exp_2_cmd.yaml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/config/Exp_3_cmd.yaml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/config/Exp_4_cmd.yaml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/config/tuning_node_param.yaml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/ament_index/resource_index/package_run_dependencies/pronto_tuning
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/ament_index/resource_index/parent_prefix_path/pronto_tuning
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/ament_index/resource_index/packages/pronto_tuning
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/cmake/pronto_tuningConfig.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/cmake/pronto_tuningConfig-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_tuning/share/pronto_tuning/package.xml

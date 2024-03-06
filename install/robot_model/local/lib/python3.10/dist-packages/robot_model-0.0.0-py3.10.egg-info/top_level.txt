@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/robot_model/ament_cmake_python/robot_model/robot_model.egg-info/top_level.txt

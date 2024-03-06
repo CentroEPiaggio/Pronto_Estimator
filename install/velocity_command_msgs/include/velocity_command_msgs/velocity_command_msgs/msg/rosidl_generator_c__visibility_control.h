@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/velocity_command_msgs/rosidl_generator_c/velocity_command_msgs/msg/rosidl_generator_c__visibility_control.h

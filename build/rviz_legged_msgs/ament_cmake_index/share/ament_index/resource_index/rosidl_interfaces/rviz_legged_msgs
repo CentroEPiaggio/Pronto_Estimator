@@ -1,0 +1,8 @@
+msg/FrictionCone.idl
+msg/FrictionCone.msg
+msg/FrictionCones.idl
+msg/FrictionCones.msg
+msg/Paths.idl
+msg/Paths.msg
+msg/WrenchesStamped.idl
+msg/WrenchesStamped.msg

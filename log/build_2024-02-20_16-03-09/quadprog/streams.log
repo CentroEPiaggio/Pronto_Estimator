@@ -1,0 +1,72 @@
+[0.250s] Invoking command in '/home/ros/docker_pronto_ws/build/quadprog': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake /home/ros/docker_pronto_ws/src/external/quadprog -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ros/docker_pronto_ws/install/quadprog
+[0.310s] -- The C compiler identification is GNU 11.4.0
+[0.372s] -- The CXX compiler identification is GNU 11.4.0
+[0.379s] -- Detecting C compiler ABI info
+[0.459s] -- Detecting C compiler ABI info - done
+[0.469s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.469s] -- Detecting C compile features
+[0.469s] -- Detecting C compile features - done
+[0.473s] -- Detecting CXX compiler ABI info
+[0.566s] -- Detecting CXX compiler ABI info - done
+[0.577s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.577s] -- Detecting CXX compile features
+[0.578s] -- Detecting CXX compile features - done
+[0.581s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.802s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.868s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.917s] -- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.054s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.060s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.060s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ros/docker_pronto_ws/src/external/quadprog/include>
+[1.060s] -- Configured cppcheck exclude dirs and/or files: 
+[1.087s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.087s] -- Configured cpplint exclude dirs and/or files: 
+[1.087s] -- Added test 'lint_cmake' to check CMake code style
+[1.087s] -- Added test 'uncrustify' to check C / C++ code style
+[1.087s] -- Configured uncrustify additional arguments: 
+[1.088s] -- Added test 'xmllint' to check XML markup files
+[1.095s] -- Configuring done
+[1.104s] -- Generating done
+[1.105s] -- Build files have been written to: /home/ros/docker_pronto_ws/build/quadprog
+[1.130s] Invoked command in '/home/ros/docker_pronto_ws/build/quadprog' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake /home/ros/docker_pronto_ws/src/external/quadprog -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ros/docker_pronto_ws/install/quadprog
+[1.130s] Invoking command in '/home/ros/docker_pronto_ws/build/quadprog': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/quadprog -- -j16 -l16
+[1.297s] [ 14%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/quadprog.cpp.o[0m
+[1.314s] [ 28%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/qr-update.cpp.o[0m
+[1.318s] [ 42%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/solve.QP.cpp.o[0m
+[1.329s] [ 57%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/linear-algebra.cpp.o[0m
+[2.648s] [ 71%] [32m[1mLinking CXX shared library libquadprog.so[0m
+[2.799s] [ 71%] Built target quadprog
+[2.880s] [ 85%] [32mBuilding CXX object CMakeFiles/Test.dir/test/test.cpp.o[0m
+[4.632s] [100%] [32m[1mLinking CXX executable Test[0m
+[4.955s] [100%] Built target Test
+[4.985s] Invoked command in '/home/ros/docker_pronto_ws/build/quadprog' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/quadprog -- -j16 -l16
+[5.757s] Invoking command in '/home/ros/docker_pronto_ws/build/quadprog': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/quadprog
+[5.785s] -- Install configuration: "Release"
+[5.785s] -- Execute custom install script
+[5.785s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/library_path.sh
+[5.812s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/library_path.dsv
+[5.843s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/linear-algebra.hpp
+[5.891s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/qr-update.hpp
+[5.934s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/quadprog.hpp
+[5.981s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/solve.QP.hpp
+[6.018s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/package_run_dependencies/quadprog
+[6.052s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/parent_prefix_path/quadprog
+[6.090s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/ament_prefix_path.sh
+[6.137s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/ament_prefix_path.dsv
+[6.197s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/path.sh
+[6.257s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/path.dsv
+[6.297s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.bash
+[6.363s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.sh
+[6.417s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.zsh
+[6.474s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.dsv
+[6.525s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/package.dsv
+[6.577s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/packages/quadprog
+[6.619s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/ament_cmake_export_targets-extras.cmake
+[6.675s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.715s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprogConfig.cmake
+[6.743s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprogConfig-version.cmake
+[6.775s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/package.xml
+[6.822s] -- Installing: /home/ros/docker_pronto_ws/install/quadprog/lib/libquadprog.so
+[6.822s] -- Installing: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprog_targetsExport.cmake
+[6.823s] -- Installing: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprog_targetsExport-release.cmake
+[6.837s] Invoked command in '/home/ros/docker_pronto_ws/build/quadprog' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/quadprog

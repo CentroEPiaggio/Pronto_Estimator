@@ -1,0 +1,451 @@
+[0.011s] Invoking command in '/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs': PS1=(venv) /home/anymalopc/MATLAB/bin/glnxa64/cmake/bin/cmake /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs -DCMAKE_BUILD_TYPE=Release -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-no-as-needed -DBUILD_TESTING=OFF -DALIAS_ROS2_TF2=1 -DCMAKE_CXX_FLAGS_RELEASE=-O0 -G Ninja -DCMAKE_INSTALL_PREFIX=/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install
+[0.127s] -- The C compiler identification is GNU 9.4.0
+[0.205s] -- The CXX compiler identification is GNU 9.4.0
+[0.218s] -- Detecting C compiler ABI info
+[0.303s] -- Detecting C compiler ABI info - done
+[0.318s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.318s] -- Detecting C compile features
+[0.319s] -- Detecting C compile features - done
+[0.325s] -- Detecting CXX compiler ABI info
+[0.425s] -- Detecting CXX compiler ABI info - done
+[0.437s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.437s] -- Detecting CXX compile features
+[0.438s] -- Detecting CXX compile features - done
+[0.460s] -- Found ament_cmake: 0.9.8 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/ament_cmake/cmake)
+[0.498s] -- Found PythonInterp: /home/anymalopc/.matlab/R2023a/ros2/glnxa64/venv/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.498s] -- Using PYTHON_EXECUTABLE: /home/anymalopc/.matlab/R2023a/ros2/glnxa64/venv/bin/python3
+[0.662s] -- Found ament_cmake_ros: 0.9.2 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/ament_cmake_ros/cmake)
+[0.681s] -- Found rosidl_typesupport_c: 1.0.2 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/rosidl_typesupport_c/cmake)
+[0.686s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.704s] -- Found rosidl_adapter: 1.2.1 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/rosidl_adapter/cmake)
+[0.804s] -- Found FastRTPS: /home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/include  
+[0.874s] -- Found rosidl_typesupport_cpp: 1.0.2 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/rosidl_typesupport_cpp/cmake)
+[0.875s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.891s] -- Found rosidl_default_generators: 1.0.1 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/rosidl_default_generators/cmake)
+[0.895s] -- Found builtin_interfaces: 1.0.0 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/builtin_interfaces/cmake)
+[0.907s] -- Found class_loader: 2.0.2 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/class_loader/cmake)
+[0.912s] -- Found geometry_msgs: 2.0.4 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/geometry_msgs/cmake)
+[0.957s] -- Found rclcpp: 2.3.1 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/rclcpp/cmake)
+[0.979s] -- Found rmw_implementation_cmake: 1.0.3 (/home/anymalopc/MATLAB/sys/ros2/glnxa64/ros2/share/rmw_implementation_cmake/cmake)
+[0.979s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.980s] -- Looking for pthread.h
+[1.033s] -- Looking for pthread.h - found
+[1.034s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.123s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.124s] -- Looking for pthread_create in pthreads
+[1.188s] -- Looking for pthread_create in pthreads - not found
+[1.189s] -- Looking for pthread_create in pthread
+[1.272s] -- Looking for pthread_create in pthread - found
+[1.274s] -- Found Threads: TRUE  
+[1.359s] -- Found PythonInterp: /home/anymalopc/.matlab/R2023a/ros2/glnxa64/venv/bin/python3 (found version "3.8.10") 
+[1.717s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.800s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.807s] -- Configuring done
+[1.831s] -- Generating done
+[1.837s] -- Build files have been written to: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs
+[1.844s] Invoked command in '/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs' returned '0': PS1=(venv) /home/anymalopc/MATLAB/bin/glnxa64/cmake/bin/cmake /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pronto_msgs -DCMAKE_BUILD_TYPE=Release -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-no-as-needed -DBUILD_TESTING=OFF -DALIAS_ROS2_TF2=1 -DCMAKE_CXX_FLAGS_RELEASE=-O0 -G Ninja -DCMAKE_INSTALL_PREFIX=/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install
+[1.845s] Invoking command in '/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs': PS1=(venv) /home/anymalopc/MATLAB/bin/glnxa64/cmake/bin/cmake --build /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs -- -j16 -l16
+[2.499s] [1/104] Generating C code for ROS interfaces
+[2.557s] [2/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/gps_data__functions.c.o
+[2.557s] [3/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/controller_foot_contact__functions.c.o
+[2.560s] [4/104] Generating C++ code for ROS interfaces
+[2.573s] [5/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/biped_force_torque_sensors__functions.c.o
+[2.573s] [6/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/filter_state__functions.c.o
+[2.578s] [7/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/indexed_measurement__functions.c.o
+[2.589s] [8/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/joint_state_with_acceleration__functions.c.o
+[2.605s] [9/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/lidar_odometry_update__functions.c.o
+[2.610s] [10/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/quadruped_force_torque_sensors__functions.c.o
+[2.610s] [11/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/quadruped_stance__functions.c.o
+[2.612s] [12/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/visual_odometry_update__functions.c.o
+[2.627s] [13/104] Building C object CMakeFiles/pronto_msgs__rosidl_generator_c.dir/rosidl_generator_c/pronto_msgs/msg/detail/velocity_with_sigma_bounds__functions.c.o
+[2.647s] [14/104] Linking C shared library libpronto_msgs__rosidl_generator_c.so
+[2.959s] [15/104] Generating C++ type support dispatch for ROS interfaces
+[3.055s] [16/104] Generating C type support dispatch for ROS interfaces
+[3.099s] [17/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/biped_force_torque_sensors__type_support.cpp.o
+[3.104s] [18/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/controller_foot_contact__type_support.cpp.o
+[3.151s] [19/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/filter_state__type_support.cpp.o
+[3.159s] [20/104] Generating C++ introspection for ROS interfaces
+[3.160s] [21/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/gps_data__type_support.cpp.o
+[3.185s] [22/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/indexed_measurement__type_support.cpp.o
+[3.193s] [23/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/joint_state_with_acceleration__type_support.cpp.o
+[3.208s] [24/104] Generating C++ type support for eProsima Fast-RTPS
+[3.227s] [25/104] Generating C introspection for ROS interfaces
+[3.237s] [26/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/lidar_odometry_update__type_support.cpp.o
+[3.249s] [27/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/gps_data__type_support.cpp.o
+[3.250s] [28/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/biped_force_torque_sensors__type_support.cpp.o
+[3.251s] [29/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/indexed_measurement__type_support.cpp.o
+[3.251s] [30/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/controller_foot_contact__type_support.cpp.o
+[3.252s] [31/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/visual_odometry_update__type_support.cpp.o
+[3.253s] [32/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/lidar_odometry_update__type_support.cpp.o
+[3.253s] [33/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/joint_state_with_acceleration__type_support.cpp.o
+[3.254s] [34/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/quadruped_stance__type_support.cpp.o
+[3.259s] [35/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/quadruped_force_torque_sensors__type_support.cpp.o
+[3.260s] [36/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/quadruped_force_torque_sensors__type_support.cpp.o
+[3.261s] [37/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/velocity_with_sigma_bounds__type_support.cpp.o
+[3.288s] [38/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pronto_msgs/msg/filter_state__type_support.cpp.o
+[3.313s] [39/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/filter_state__type_support.c.o
+[3.333s] [40/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/biped_force_torque_sensors__type_support.c.o
+[3.347s] [41/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/controller_foot_contact__type_support.c.o
+[3.375s] [42/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/gps_data__type_support.c.o
+[3.400s] [43/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/indexed_measurement__type_support.c.o
+[3.429s] [44/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/joint_state_with_acceleration__type_support.c.o
+[3.474s] [45/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/quadruped_force_torque_sensors__type_support.c.o
+[3.479s] [46/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/lidar_odometry_update__type_support.c.o
+[3.504s] [47/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/quadruped_stance__type_support.c.o
+[3.510s] [48/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/biped_force_torque_sensors__type_support.cpp.o
+[3.548s] [49/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/velocity_with_sigma_bounds__type_support.c.o
+[3.565s] [50/104] Building C object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pronto_msgs/msg/detail/visual_odometry_update__type_support.c.o
+[3.605s] [51/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/velocity_with_sigma_bounds__type_support.cpp.o
+[3.627s] [52/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/quadruped_stance__type_support.cpp.o
+[3.649s] [53/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/pronto_msgs/msg/visual_odometry_update__type_support.cpp.o
+[3.669s] [54/104] Linking CXX shared library libpronto_msgs__rosidl_typesupport_cpp.so
+[3.683s] [55/104] Linking C shared library libpronto_msgs__rosidl_typesupport_introspection_c.so
+[3.690s] [56/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/biped_force_torque_sensors__type_support.cpp.o
+[3.692s] [57/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/quadruped_stance__type_support.cpp.o
+[3.714s] [58/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/lidar_odometry_update__type_support.cpp.o
+[3.720s] [59/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/quadruped_force_torque_sensors__type_support.cpp.o
+[3.745s] [60/104] Linking CXX shared library libpronto_msgs__rosidl_typesupport_c.so
+[3.753s] [61/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/filter_state__type_support.cpp.o
+[3.753s] [62/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/gps_data__type_support.cpp.o
+[3.771s] [63/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/visual_odometry_update__type_support.cpp.o
+[3.774s] [64/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/controller_foot_contact__type_support.cpp.o
+[3.807s] [65/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/indexed_measurement__type_support.cpp.o
+[3.828s] [66/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/velocity_with_sigma_bounds__type_support.cpp.o
+[3.874s] [67/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pronto_msgs/msg/detail/dds_fastrtps/joint_state_with_acceleration__type_support.cpp.o
+[3.970s] [68/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/visual_odometry_update__type_support.cpp.o
+[3.979s] [69/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/gps_data__type_support.cpp.o
+[4.010s] [70/104] Linking CXX shared library libpronto_msgs__rosidl_typesupport_fastrtps_cpp.so
+[4.011s] [71/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/controller_foot_contact__type_support.cpp.o
+[4.017s] [72/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/filter_state__type_support.cpp.o
+[4.020s] [73/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/quadruped_stance__type_support.cpp.o
+[4.030s] [74/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/quadruped_force_torque_sensors__type_support.cpp.o
+[4.035s] [75/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/lidar_odometry_update__type_support.cpp.o
+[4.052s] [76/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/velocity_with_sigma_bounds__type_support.cpp.o
+[4.068s] [77/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/indexed_measurement__type_support.cpp.o
+[4.069s] [78/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pronto_msgs/msg/detail/joint_state_with_acceleration__type_support.cpp.o
+[4.112s] [79/104] Linking CXX shared library libpronto_msgs__rosidl_typesupport_introspection_cpp.so
+[4.497s] [80/104] Generating C type support for eProsima Fast-RTPS
+[4.834s] [81/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/indexed_measurement__type_support_c.cpp.o
+[4.850s] [82/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/biped_force_torque_sensors__type_support_c.cpp.o
+[4.851s] [83/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/velocity_with_sigma_bounds__type_support_c.cpp.o
+[4.856s] [84/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/quadruped_stance__type_support_c.cpp.o
+[4.856s] [85/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/filter_state__type_support_c.cpp.o
+[4.860s] [86/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/quadruped_force_torque_sensors__type_support_c.cpp.o
+[4.860s] [87/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/visual_odometry_update__type_support_c.cpp.o
+[4.861s] [88/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/lidar_odometry_update__type_support_c.cpp.o
+[4.862s] [89/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/gps_data__type_support_c.cpp.o
+[4.870s] [90/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/joint_state_with_acceleration__type_support_c.cpp.o
+[4.876s] [91/104] Building CXX object CMakeFiles/pronto_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pronto_msgs/msg/detail/controller_foot_contact__type_support_c.cpp.o
+[4.967s] [92/104] Linking CXX shared library libpronto_msgs__rosidl_typesupport_fastrtps_c.so
+[12.490s] [93/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_QuadrupedStance_message.cpp.o
+[13.090s] [94/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_QuadrupedForceTorqueSensors_message.cpp.o
+[13.269s] [95/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_VelocityWithSigmaBounds_message.cpp.o
+[13.382s] [96/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_LidarOdometryUpdate_message.cpp.o
+[13.452s] [97/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_BipedForceTorqueSensors_message.cpp.o
+[13.524s] [98/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_JointStateWithAcceleration_message.cpp.o
+[13.609s] [99/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_VisualOdometryUpdate_message.cpp.o
+[13.626s] [100/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_ControllerFootContact_message.cpp.o
+[13.628s] [101/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_IndexedMeasurement_message.cpp.o
+[13.654s] [102/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_FilterState_message.cpp.o
+[13.681s] [103/104] Building CXX object CMakeFiles/pronto_msgs_matlab.dir/src/pronto_msgs_GPSData_message.cpp.o
+[15.033s] [104/104] Linking CXX shared library libpronto_msgs_matlab.so
+[15.034s] Invoked command in '/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs' returned '0': PS1=(venv) /home/anymalopc/MATLAB/bin/glnxa64/cmake/bin/cmake --build /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs -- -j16 -l16
+[15.046s] Invoking command in '/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs': PS1=(venv) /home/anymalopc/MATLAB/bin/glnxa64/cmake/bin/cmake --install /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs
+[15.047s] -- Install configuration: "Release"
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/ament_index/resource_index/rosidl_interfaces/pronto_msgs
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/rosidl_generator_c__visibility_control.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/biped_force_torque_sensors.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/joint_state_with_acceleration.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/visual_odometry_update.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__functions.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__struct.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__functions.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__functions.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__type_support.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__struct.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__struct.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__struct.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__functions.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__struct.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__functions.h
+[15.048s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__struct.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__functions.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__functions.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__functions.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__functions.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__struct.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__struct.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__functions.c
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__struct.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__struct.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__functions.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__type_support.h
+[15.049s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__type_support.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__type_support.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__functions.c
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__functions.c
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__struct.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__functions.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/controller_foot_contact.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/quadruped_force_torque_sensors.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/indexed_measurement.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/filter_state.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/gps_data.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/quadruped_stance.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/lidar_odometry_update.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/velocity_with_sigma_bounds.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/environment/library_path.sh
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/environment/library_path.dsv
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs__rosidl_generator_c.so
+[15.050s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs
+[15.050s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg
+[15.050s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_fastrtps_c.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_fastrtps_c.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_fastrtps_c.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_fastrtps_c.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_fastrtps_c.h
+[15.050s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_fastrtps_c.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_fastrtps_c.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_fastrtps_c.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_fastrtps_c.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_fastrtps_c.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_fastrtps_c.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs__rosidl_typesupport_fastrtps_c.so
+[15.051s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs
+[15.051s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg
+[15.051s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/dds_fastrtps
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_fastrtps_cpp.hpp
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[15.051s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs__rosidl_typesupport_fastrtps_cpp.so
+[15.051s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs
+[15.051s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg
+[15.051s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__type_support.c
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_introspection_c.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs__rosidl_typesupport_introspection_c.so
+[15.052s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs__rosidl_typesupport_c.so
+[15.052s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs
+[15.052s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/biped_force_torque_sensors.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/quadruped_stance.hpp
+[15.053s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__traits.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__traits.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__traits.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__traits.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__struct.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__builder.hpp
+[15.053s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__builder.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__builder.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__struct.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__traits.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__traits.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__traits.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__struct.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__traits.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__traits.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__traits.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__traits.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/quadruped_force_torque_sensors.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/velocity_with_sigma_bounds.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/lidar_odometry_update.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/joint_state_with_acceleration.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/visual_odometry_update.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/gps_data.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/filter_state.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/controller_foot_contact.hpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/indexed_measurement.hpp
+[15.054s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs
+[15.054s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg
+[15.054s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__type_support.cpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__type_support.cpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__type_support.cpp
+[15.054s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/gps_data__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/visual_odometry_update__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/biped_force_torque_sensors__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/filter_state__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_force_torque_sensors__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/quadruped_stance__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/joint_state_with_acceleration__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/lidar_odometry_update__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/indexed_measurement__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/controller_foot_contact__rosidl_typesupport_introspection_cpp.hpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/msg/detail/velocity_with_sigma_bounds__type_support.cpp
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs__rosidl_typesupport_introspection_cpp.so
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs__rosidl_typesupport_cpp.so
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/BipedForceTorqueSensors.idl
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/ControllerFootContact.idl
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/FilterState.idl
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/GPSData.idl
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/IndexedMeasurement.idl
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/JointStateWithAcceleration.idl
+[15.055s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/LidarOdometryUpdate.idl
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/QuadrupedForceTorqueSensors.idl
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/QuadrupedStance.idl
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/VelocityWithSigmaBounds.idl
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/VisualOdometryUpdate.idl
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/BipedForceTorqueSensors.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/ControllerFootContact.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/FilterState.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/GPSData.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/IndexedMeasurement.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/JointStateWithAcceleration.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/LidarOdometryUpdate.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/QuadrupedForceTorqueSensors.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/QuadrupedStance.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/VelocityWithSigmaBounds.msg
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/msg/VisualOdometryUpdate.msg
+[15.056s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include
+[15.056s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/include/pronto_msgs/visibility_control.h
+[15.056s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/lib/libpronto_msgs_matlab.so
+[15.068s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m/
+[15.068s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros
+[15.068s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal
+[15.068s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2
+[15.068s] -- Up-to-date: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_GPSData_1To2_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/filterState.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_IndexedMeasurement_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_VelocityWithSigmaBounds_1To2_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_FilterState_1To2_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/gPSData.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_QuadrupedStance_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/quadrupedStance.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_BipedForceTorqueSensors_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/quadrupedForceTorqueSensors.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_BipedForceTorqueSensors_1To2_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/jointStateWithAcceleration.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_QuadrupedForceTorqueSensors_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_GPSData_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_JointStateWithAcceleration_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_VelocityWithSigmaBounds_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_LidarOdometryUpdate_2To1_Converter.m
+[15.068s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_QuadrupedStance_1To2_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_ControllerFootContact_1To2_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_VisualOdometryUpdate_1To2_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/controllerFootContact.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_JointStateWithAcceleration_1To2_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_LidarOdometryUpdate_1To2_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_ControllerFootContact_2To1_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/lidarOdometryUpdate.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/velocityWithSigmaBounds.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/visualOdometryUpdate.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_QuadrupedForceTorqueSensors_1To2_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_IndexedMeasurement_1To2_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_VisualOdometryUpdate_2To1_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/pronto_msgs_msg_FilterState_2To1_Converter.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/indexedMeasurement.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/m//+ros/+internal/+ros2/+custommessages/+pronto_msgs/bipedForceTorqueSensors.m
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/ament_index/resource_index/package_run_dependencies/pronto_msgs
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/ament_index/resource_index/parent_prefix_path/pronto_msgs
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/environment/ament_prefix_path.sh
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/environment/ament_prefix_path.dsv
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/environment/path.sh
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/environment/path.dsv
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/local_setup.bash
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/local_setup.sh
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/local_setup.zsh
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/local_setup.dsv
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/package.dsv
+[15.069s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/ament_index/resource_index/packages/pronto_msgs
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_generator_cExport.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_generator_cExport-release.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cExport.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cExport.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cExport-release.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_generator_cppExport.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cppExport.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgs__rosidl_typesupport_cppExport-release.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/rosidl_cmake-extras.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgsConfig.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/cmake/pronto_msgsConfig-version.cmake
+[15.070s] -- Installing: /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/install/share/pronto_msgs/package.xml
+[15.075s] Invoked command in '/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs' returned '0': PS1=(venv) /home/anymalopc/MATLAB/bin/glnxa64/cmake/bin/cmake --install /home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/build/pronto_msgs

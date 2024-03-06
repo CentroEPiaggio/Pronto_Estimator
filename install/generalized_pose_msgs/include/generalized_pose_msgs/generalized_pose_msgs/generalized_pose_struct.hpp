@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/src/motion_control/generalized_pose_msgs/include/generalized_pose_msgs/generalized_pose_struct.hpp

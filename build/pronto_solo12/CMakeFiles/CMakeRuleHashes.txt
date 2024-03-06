@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+b9cf79ace23cd657fa149964519e5fc5 CMakeFiles/pronto_solo12_uninstall

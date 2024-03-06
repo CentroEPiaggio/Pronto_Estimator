@@ -1,0 +1,6 @@
+/home/ros/docker_pronto_ws/install/teleoperate_robot/lib/teleoperate_robot/teleop_robot_base_node
+/home/ros/docker_pronto_ws/install/teleoperate_robot/lib/teleoperate_robot/teleop_velocity_command_node
+/home/ros/docker_pronto_ws/install/teleoperate_robot/share/teleoperate_robot/cmake/teleop_robot_base_node_targetsExport.cmake
+/home/ros/docker_pronto_ws/install/teleoperate_robot/share/teleoperate_robot/cmake/teleop_robot_base_node_targetsExport-release.cmake
+/home/ros/docker_pronto_ws/install/teleoperate_robot/share/teleoperate_robot/cmake/teleop_velocity_command_node_targetsExport.cmake
+/home/ros/docker_pronto_ws/install/teleoperate_robot/share/teleoperate_robot/cmake/teleop_velocity_command_node_targetsExport-release.cmake

@@ -1,0 +1,166 @@
+[0.234s] Invoking command in '/home/ros/docker_pronto_ws/build/rviz_legged_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/rviz_legged_msgs -- -j16 -l16
+[0.313s] [  1%] Built target rviz_legged_msgs__cpp
+[0.320s] [ 12%] Built target rviz_legged_msgs__rosidl_generator_c
+[0.335s] [ 12%] Built target ament_cmake_python_symlink_rviz_legged_msgs
+[0.372s] [ 23%] Built target rviz_legged_msgs__rosidl_typesupport_fastrtps_cpp
+[0.427s] [ 45%] Built target rviz_legged_msgs__rosidl_typesupport_fastrtps_c
+[0.427s] [ 45%] Built target rviz_legged_msgs__rosidl_typesupport_introspection_cpp
+[0.428s] [ 56%] Built target rviz_legged_msgs__rosidl_typesupport_introspection_c
+[0.429s] [ 67%] Built target rviz_legged_msgs__rosidl_typesupport_c
+[0.430s] [ 78%] Built target rviz_legged_msgs__rosidl_typesupport_cpp
+[0.458s] [ 78%] Built target rviz_legged_msgs
+[0.491s] [ 80%] Built target rviz_legged_msgs__py
+[0.528s] [ 89%] Built target rviz_legged_msgs__rosidl_generator_py
+[0.572s] [ 92%] Built target rviz_legged_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.585s] [ 96%] Built target rviz_legged_msgs__rosidl_typesupport_c__pyext
+[0.591s] [100%] Built target rviz_legged_msgs__rosidl_typesupport_introspection_c__pyext
+[0.685s] running egg_info
+[0.686s] writing rviz_legged_msgs.egg-info/PKG-INFO
+[0.686s] writing dependency_links to rviz_legged_msgs.egg-info/dependency_links.txt
+[0.686s] writing top-level names to rviz_legged_msgs.egg-info/top_level.txt
+[0.690s] reading manifest file 'rviz_legged_msgs.egg-info/SOURCES.txt'
+[0.693s] writing manifest file 'rviz_legged_msgs.egg-info/SOURCES.txt'
+[0.732s] [100%] Built target ament_cmake_python_build_rviz_legged_msgs_egg
+[0.776s] Invoked command in '/home/ros/docker_pronto_ws/build/rviz_legged_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/rviz_legged_msgs -- -j16 -l16
+[1.329s] Invoking command in '/home/ros/docker_pronto_ws/build/rviz_legged_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/rviz_legged_msgs
+[1.399s] -- Install configuration: "Release"
+[1.399s] -- Execute custom install script
+[1.399s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/ament_index/resource_index/rosidl_interfaces/rviz_legged_msgs
+[1.399s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__functions.h
+[1.399s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__struct.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__type_support.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__functions.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__struct.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__type_support.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__functions.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__struct.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__type_support.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__functions.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__struct.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__type_support.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/friction_cone.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/friction_cones.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/paths.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/rosidl_generator_c__visibility_control.h
+[1.400s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/wrenches_stamped.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/library_path.sh
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/library_path.dsv
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__rosidl_typesupport_fastrtps_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__rosidl_typesupport_fastrtps_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__rosidl_typesupport_fastrtps_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__rosidl_typesupport_fastrtps_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__rosidl_typesupport_introspection_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__rosidl_typesupport_introspection_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__rosidl_typesupport_introspection_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__rosidl_typesupport_introspection_c.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__builder.hpp
+[1.401s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__struct.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__traits.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__builder.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__struct.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__traits.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__builder.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__struct.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__traits.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__builder.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__struct.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__traits.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/friction_cone.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/friction_cones.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/paths.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/wrenches_stamped.hpp
+[1.402s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__rosidl_typesupport_fastrtps_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__rosidl_typesupport_fastrtps_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__rosidl_typesupport_fastrtps_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__rosidl_typesupport_fastrtps_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cone__rosidl_typesupport_introspection_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/friction_cones__rosidl_typesupport_introspection_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/paths__rosidl_typesupport_introspection_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/include/rviz_legged_msgs/rviz_legged_msgs/msg/detail/wrenches_stamped__rosidl_typesupport_introspection_cpp.hpp
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/pythonpath.sh
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/pythonpath.dsv
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/__init__.py
+[1.403s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/_rviz_legged_msgs_s.ep.rosidl_typesupport_c.c
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/_rviz_legged_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/_rviz_legged_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/librviz_legged_msgs__rosidl_generator_py.so
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/__init__.py
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_friction_cone.py
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_friction_cone_s.c
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_friction_cones.py
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_friction_cones_s.c
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_paths.py
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_paths_s.c
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_wrenches_stamped.py
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg/_wrenches_stamped_s.c
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/rviz_legged_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/rviz_legged_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/rviz_legged_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/rviz_legged_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/rviz_legged_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.404s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/rviz_legged_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/WrenchesStamped.idl
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/FrictionCone.idl
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/FrictionCones.idl
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/Paths.idl
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/WrenchesStamped.msg
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/FrictionCone.msg
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/FrictionCones.msg
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/msg/Paths.msg
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/ament_index/resource_index/package_run_dependencies/rviz_legged_msgs
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/ament_index/resource_index/parent_prefix_path/rviz_legged_msgs
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/ament_prefix_path.sh
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/ament_prefix_path.dsv
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/path.sh
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/environment/path.dsv
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/local_setup.bash
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/local_setup.sh
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/local_setup.zsh
+[1.405s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/local_setup.dsv
+[1.405s] -- Symlinking: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/package.dsv
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/ament_index/resource_index/packages/rviz_legged_msgs
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rosidl_cmake-extras.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgsConfig.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgsConfig-version.cmake
+[1.406s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/package.xml
+[1.406s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_generator_c.so
+[1.406s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_typesupport_fastrtps_c.so
+[1.406s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_typesupport_introspection_c.so
+[1.406s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_typesupport_c.so
+[1.406s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_typesupport_fastrtps_cpp.so
+[1.406s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_typesupport_introspection_cpp.so
+[1.406s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_typesupport_cpp.so
+[1.424s] Listing '/home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs'...
+[1.424s] Listing '/home/ros/docker_pronto_ws/install/rviz_legged_msgs/local/lib/python3.10/dist-packages/rviz_legged_msgs/msg'...
+[1.428s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/lib/librviz_legged_msgs__rosidl_generator_py.so
+[1.428s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_generator_cExport.cmake
+[1.428s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_generator_cExport-release.cmake
+[1.428s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[1.428s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[1.428s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_introspection_cExport.cmake
+[1.428s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_cExport.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_cExport-release.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_generator_cppExport.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_cppExport.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/rviz_legged_msgs__rosidl_typesupport_cppExport-release.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_generator_pyExport.cmake
+[1.429s] -- Up-to-date: /home/ros/docker_pronto_ws/install/rviz_legged_msgs/share/rviz_legged_msgs/cmake/export_rviz_legged_msgs__rosidl_generator_pyExport-release.cmake
+[1.773s] Invoked command in '/home/ros/docker_pronto_ws/build/rviz_legged_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/rviz_legged_msgs

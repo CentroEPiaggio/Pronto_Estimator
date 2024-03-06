@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/ros/docker_pronto_ws/build/pronto_tuning/tuning_node" "/home/ros/docker_pronto_ws/build/pronto_tuning/command_node" "TARGETS" "tuning_node" "command_node" "DESTINATION" "lib/pronto_tuning")

@@ -1,0 +1,87 @@
+[
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/Filter.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/Filter.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/Filter.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/HeavyLowPassFilter.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/HeavyLowPassFilter.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/HeavyLowPassFilter.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/DataFileLogger.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/DataFileLogger.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/DataFileLogger.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/BipolarSchmittTrigger.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/BipolarSchmittTrigger.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/BipolarSchmittTrigger.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/MedianFilter.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/MedianFilter.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/MedianFilter.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/RateChange.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/RateChange.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/RateChange.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/TrapezoidalInt.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/TrapezoidalInt.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/TrapezoidalInt.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/DistributedDiff.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/DistributedDiff.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/DistributedDiff.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/NumericalDiff.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/NumericalDiff.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/NumericalDiff.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/ExpireTimer.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/ExpireTimer.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/ExpireTimer.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/SchmittTrigger.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/SchmittTrigger.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/SchmittTrigger.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dpronto_utils_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/pronto_utils.dir/src/Gaussian.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/Gaussian.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/Gaussian.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dkalman_filter_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/kalman_filter.dir/src/alpha_filter.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/alpha_filter.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/alpha_filter.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dkalman_filter_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/kalman_filter.dir/src/kalman_filter.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/kalman_filter.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/kalman_filter.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dkalman_filter_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/kalman_filter.dir/src/simple_kalman_filter.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/simple_kalman_filter.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/simple_kalman_filter.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dbacklash_filter_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/backlash_filter.dir/src/backlash_filter.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/backlash_filter.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/backlash_filter.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/pronto_utils",
+  "command": "/usr/bin/c++ -DPRONTO_UTILS_BUILDING_LIBRARY -Dbacklash_filter_EXPORTS -I/home/ros/docker_pronto_ws/src/pronto_utils/include -O3 -DNDEBUG -fPIC -o CMakeFiles/backlash_filter.dir/src/torque_adjustment.cpp.o -c /home/ros/docker_pronto_ws/src/pronto_utils/src/torque_adjustment.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/pronto_utils/src/torque_adjustment.cpp"
+}
+]

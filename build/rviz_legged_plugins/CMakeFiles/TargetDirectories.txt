@@ -1,0 +1,12 @@
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/uninstall.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/rviz_legged_plugins_uninstall.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/rviz_legged_plugins.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/ament_cmake_python_symlink_rviz_legged_plugins.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/ament_cmake_python_build_rviz_legged_plugins_egg.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/test.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/edit_cache.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/rebuild_cache.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/list_install_components.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/install.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/install/local.dir
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/CMakeFiles/install/strip.dir

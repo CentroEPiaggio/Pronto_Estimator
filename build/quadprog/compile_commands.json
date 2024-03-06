@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/ros/docker_pronto_ws/build/quadprog",
+  "command": "/usr/bin/c++ -Dquadprog_EXPORTS -I/home/ros/docker_pronto_ws/src/external/quadprog/include -I/usr/include/eigen3 -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/quadprog.dir/src/quadprog.cpp.o -c /home/ros/docker_pronto_ws/src/external/quadprog/src/quadprog.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/quadprog/src/quadprog.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/quadprog",
+  "command": "/usr/bin/c++ -Dquadprog_EXPORTS -I/home/ros/docker_pronto_ws/src/external/quadprog/include -I/usr/include/eigen3 -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/quadprog.dir/src/solve.QP.cpp.o -c /home/ros/docker_pronto_ws/src/external/quadprog/src/solve.QP.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/quadprog/src/solve.QP.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/quadprog",
+  "command": "/usr/bin/c++ -Dquadprog_EXPORTS -I/home/ros/docker_pronto_ws/src/external/quadprog/include -I/usr/include/eigen3 -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/quadprog.dir/src/qr-update.cpp.o -c /home/ros/docker_pronto_ws/src/external/quadprog/src/qr-update.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/quadprog/src/qr-update.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/quadprog",
+  "command": "/usr/bin/c++ -Dquadprog_EXPORTS -I/home/ros/docker_pronto_ws/src/external/quadprog/include -I/usr/include/eigen3 -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/quadprog.dir/src/linear-algebra.cpp.o -c /home/ros/docker_pronto_ws/src/external/quadprog/src/linear-algebra.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/quadprog/src/linear-algebra.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/quadprog",
+  "command": "/usr/bin/c++  -I/usr/include/eigen3 -I/home/ros/docker_pronto_ws/src/external/quadprog/include -O3 -DNDEBUG -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/Test.dir/test/test.cpp.o -c /home/ros/docker_pronto_ws/src/external/quadprog/test/test.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/external/quadprog/test/test.cpp"
+}
+]

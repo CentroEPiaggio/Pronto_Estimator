@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+logger_gazebo/__init__.py
+logger_gazebo/logger_node.py
+logger_gazebo/plot.py
+logger_gazebo.egg-info/PKG-INFO
+logger_gazebo.egg-info/SOURCES.txt
+logger_gazebo.egg-info/dependency_links.txt
+logger_gazebo.egg-info/entry_points.txt
+logger_gazebo.egg-info/requires.txt
+logger_gazebo.egg-info/top_level.txt
+logger_gazebo.egg-info/zip-safe
+resource/logger_gazebo

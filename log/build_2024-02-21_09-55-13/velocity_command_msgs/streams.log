@@ -1,0 +1,129 @@
+[0.401s] Invoking command in '/home/ros/docker_pronto_ws/build/velocity_command_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/velocity_command_msgs -- -j16 -l16
+[0.474s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_generator_c[0m
+[0.508s] [  3%] Built target velocity_command_msgs__cpp
+[0.525s] [ 12%] Built target velocity_command_msgs__rosidl_generator_c
+[0.533s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_introspection_cpp[0m
+[0.538s] [ 12%] Built target ament_cmake_python_symlink_velocity_command_msgs
+[0.545s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[0.560s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_fastrtps_c[0m
+[0.564s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_cpp[0m
+[0.570s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_introspection_c[0m
+[0.583s] [ 25%] Built target velocity_command_msgs__rosidl_typesupport_introspection_cpp
+[0.583s] [ 32%] Built target velocity_command_msgs__rosidl_typesupport_fastrtps_cpp
+[0.583s] [ 41%] Built target velocity_command_msgs__rosidl_typesupport_fastrtps_c
+[0.592s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_c[0m
+[0.600s] [ 51%] Built target velocity_command_msgs__rosidl_typesupport_cpp
+[0.620s] [ 61%] Built target velocity_command_msgs__rosidl_typesupport_introspection_c
+[0.669s] [ 70%] Built target velocity_command_msgs__rosidl_typesupport_c
+[0.697s] [ 70%] Built target velocity_command_msgs
+[0.726s] [ 74%] Built target velocity_command_msgs__py
+[0.745s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_generator_py[0m
+[0.771s] [ 80%] Built target velocity_command_msgs__rosidl_generator_py
+[0.782s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[0.782s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[0.782s] [35m[1mConsolidate compiler generated dependencies of target velocity_command_msgs__rosidl_typesupport_c__pyext[0m
+[0.803s] [ 93%] Built target velocity_command_msgs__rosidl_typesupport_c__pyext
+[0.803s] [ 93%] Built target velocity_command_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.803s] [100%] Built target velocity_command_msgs__rosidl_typesupport_introspection_c__pyext
+[0.874s] running egg_info
+[0.875s] writing velocity_command_msgs.egg-info/PKG-INFO
+[0.876s] writing dependency_links to velocity_command_msgs.egg-info/dependency_links.txt
+[0.876s] writing top-level names to velocity_command_msgs.egg-info/top_level.txt
+[0.878s] reading manifest file 'velocity_command_msgs.egg-info/SOURCES.txt'
+[0.879s] writing manifest file 'velocity_command_msgs.egg-info/SOURCES.txt'
+[0.922s] [100%] Built target ament_cmake_python_build_velocity_command_msgs_egg
+[0.993s] Invoked command in '/home/ros/docker_pronto_ws/build/velocity_command_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/velocity_command_msgs -- -j16 -l16
+[1.407s] Invoking command in '/home/ros/docker_pronto_ws/build/velocity_command_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/velocity_command_msgs
+[1.416s] -- Install configuration: "Release"
+[1.416s] -- Execute custom install script
+[1.416s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/ament_index/resource_index/rosidl_interfaces/velocity_command_msgs
+[1.417s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__functions.h
+[1.417s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__struct.h
+[1.417s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__type_support.h
+[1.417s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/rosidl_generator_c__visibility_control.h
+[1.417s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/simple_velocity_command.h
+[1.417s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/library_path.sh
+[1.417s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/library_path.dsv
+[1.418s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__rosidl_typesupport_fastrtps_c.h
+[1.418s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.418s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__rosidl_typesupport_introspection_c.h
+[1.418s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.418s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__builder.hpp
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__struct.hpp
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__traits.hpp
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/simple_velocity_command.hpp
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__rosidl_typesupport_fastrtps_cpp.hpp
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/include/velocity_command_msgs/velocity_command_msgs/msg/detail/simple_velocity_command__rosidl_typesupport_introspection_cpp.hpp
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/pythonpath.sh
+[1.419s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/pythonpath.dsv
+[1.420s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[1.420s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.420s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.420s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[1.420s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/__init__.py
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/_velocity_command_msgs_s.ep.rosidl_typesupport_c.c
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/_velocity_command_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/_velocity_command_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/libvelocity_command_msgs__rosidl_generator_py.so
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/msg/__init__.py
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/msg/_simple_velocity_command.py
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/msg/_simple_velocity_command_s.c
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/velocity_command_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/velocity_command_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/velocity_command_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/velocity_command_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.421s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/velocity_command_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/velocity_command_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/msg/SimpleVelocityCommand.idl
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/msg/SimpleVelocityCommand.msg
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/ament_index/resource_index/package_run_dependencies/velocity_command_msgs
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/ament_index/resource_index/parent_prefix_path/velocity_command_msgs
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/ament_prefix_path.sh
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/ament_prefix_path.dsv
+[1.422s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/path.sh
+[1.423s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/environment/path.dsv
+[1.423s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/local_setup.bash
+[1.423s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/local_setup.sh
+[1.423s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/local_setup.zsh
+[1.423s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/local_setup.dsv
+[1.423s] -- Symlinking: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/package.dsv
+[1.430s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/ament_index/resource_index/packages/velocity_command_msgs
+[1.430s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/rosidl_cmake-extras.cmake
+[1.431s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.431s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.431s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[1.431s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[1.431s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.431s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.431s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgsConfig.cmake
+[1.432s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgsConfig-version.cmake
+[1.432s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/package.xml
+[1.432s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_generator_c.so
+[1.432s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_typesupport_fastrtps_c.so
+[1.432s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_typesupport_introspection_c.so
+[1.433s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_typesupport_c.so
+[1.433s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_typesupport_fastrtps_cpp.so
+[1.433s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_typesupport_introspection_cpp.so
+[1.433s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_typesupport_cpp.so
+[1.464s] Listing '/home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs'...
+[1.464s] Listing '/home/ros/docker_pronto_ws/install/velocity_command_msgs/local/lib/python3.10/dist-packages/velocity_command_msgs/msg'...
+[1.467s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/lib/libvelocity_command_msgs__rosidl_generator_py.so
+[1.467s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_generator_cExport.cmake
+[1.467s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_generator_cExport-release.cmake
+[1.467s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[1.467s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[1.467s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_introspection_cExport.cmake
+[1.468s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[1.468s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_cExport.cmake
+[1.468s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_cExport-release.cmake
+[1.468s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_generator_cppExport.cmake
+[1.468s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.468s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[1.468s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[1.469s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[1.469s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_cppExport.cmake
+[1.469s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/velocity_command_msgs__rosidl_typesupport_cppExport-release.cmake
+[1.470s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_generator_pyExport.cmake
+[1.470s] -- Up-to-date: /home/ros/docker_pronto_ws/install/velocity_command_msgs/share/velocity_command_msgs/cmake/export_velocity_command_msgs__rosidl_generator_pyExport-release.cmake
+[1.684s] Invoked command in '/home/ros/docker_pronto_ws/build/velocity_command_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/velocity_command_msgs

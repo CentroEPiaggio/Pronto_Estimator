@@ -1,0 +1,6 @@
+msg/GeneralizedPose.idl
+msg/GeneralizedPose.msg
+msg/GeneralizedPoseWithTime.idl
+msg/GeneralizedPoseWithTime.msg
+msg/GeneralizedPosesWithTime.idl
+msg/GeneralizedPosesWithTime.msg

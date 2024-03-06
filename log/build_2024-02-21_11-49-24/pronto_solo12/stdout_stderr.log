@@ -1,0 +1,40 @@
+[ 18%] Built target pinocchio_test_node
+[ 81%] Built target pronto_solo12
+[100%] Built target pronto_estimator_node
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/dynamics.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/feet_contact_forces.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/feet_jacobians.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/forward_kinematics.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/pinocchio_pronto_quadruped_model.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/pronto_mammal_utilities.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/include/pronto_solo12/pronto_node.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/lib/pronto_solo12/pinocchio_test_node
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/library_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/library_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/lib/pronto_solo12/pronto_estimator_node
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/launch/pronto_estimator.launch.py
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/prova.urdf
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/solo12.urdf
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/solo12_model.urdf
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/config/state_estimator.yaml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/ament_index/resource_index/package_run_dependencies/pronto_solo12
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/ament_index/resource_index/parent_prefix_path/pronto_solo12
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/ament_index/resource_index/packages/pronto_solo12
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/pronto_solo12Config.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/cmake/pronto_solo12Config-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_solo12/share/pronto_solo12/package.xml
+-- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_solo12/lib/libpronto_solo12.so

@@ -1,0 +1,3 @@
+/home/ros/docker_pronto_ws/install/whole_body_controller/lib/libwhole_body_controller.so
+/home/ros/docker_pronto_ws/install/whole_body_controller/share/whole_body_controller/cmake/whole_body_controller_targetsExport.cmake
+/home/ros/docker_pronto_ws/install/whole_body_controller/share/whole_body_controller/cmake/whole_body_controller_targetsExport-release.cmake

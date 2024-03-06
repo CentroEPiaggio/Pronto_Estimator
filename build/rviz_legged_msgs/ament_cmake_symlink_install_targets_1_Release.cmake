@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/ros/docker_pronto_ws/build/rviz_legged_msgs/rosidl_generator_py/rviz_legged_msgs/rviz_legged_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" "TARGETS" "rviz_legged_msgs__rosidl_typesupport_introspection_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/rviz_legged_msgs")

@@ -1,0 +1,37 @@
+function [data, info] = velocityWithSigmaBounds
+%VelocityWithSigmaBounds gives an empty data for pronto_msgs/VelocityWithSigmaBounds
+% Copyright 2019-2021 The MathWorks, Inc.
+data = struct();
+data.MessageType = 'pronto_msgs/VelocityWithSigmaBounds';
+[data.header, info.header] = ros.internal.ros2.messages.std_msgs.header;
+info.header.MLdataType = 'struct';
+[data.velocity_plus_one_sigma, info.velocity_plus_one_sigma] = ros.internal.ros2.messages.geometry_msgs.vector3;
+info.velocity_plus_one_sigma.MLdataType = 'struct';
+[data.velocity_minus_one_sigma, info.velocity_minus_one_sigma] = ros.internal.ros2.messages.geometry_msgs.vector3;
+info.velocity_minus_one_sigma.MLdataType = 'struct';
+[data.plus_one_sigma, info.plus_one_sigma] = ros.internal.ros2.messages.geometry_msgs.vector3;
+info.plus_one_sigma.MLdataType = 'struct';
+info.MessageType = 'pronto_msgs/VelocityWithSigmaBounds';
+info.constant = 0;
+info.default = 0;
+info.maxstrlen = NaN;
+info.MaxLen = 1;
+info.MinLen = 1;
+info.MatPath = cell(1,17);
+info.MatPath{1} = 'header';
+info.MatPath{2} = 'header.stamp';
+info.MatPath{3} = 'header.stamp.sec';
+info.MatPath{4} = 'header.stamp.nanosec';
+info.MatPath{5} = 'header.frame_id';
+info.MatPath{6} = 'velocity_plus_one_sigma';
+info.MatPath{7} = 'velocity_plus_one_sigma.x';
+info.MatPath{8} = 'velocity_plus_one_sigma.y';
+info.MatPath{9} = 'velocity_plus_one_sigma.z';
+info.MatPath{10} = 'velocity_minus_one_sigma';
+info.MatPath{11} = 'velocity_minus_one_sigma.x';
+info.MatPath{12} = 'velocity_minus_one_sigma.y';
+info.MatPath{13} = 'velocity_minus_one_sigma.z';
+info.MatPath{14} = 'plus_one_sigma';
+info.MatPath{15} = 'plus_one_sigma.x';
+info.MatPath{16} = 'plus_one_sigma.y';
+info.MatPath{17} = 'plus_one_sigma.z';

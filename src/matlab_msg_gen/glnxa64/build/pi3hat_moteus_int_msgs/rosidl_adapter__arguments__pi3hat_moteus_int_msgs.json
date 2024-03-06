@@ -1,0 +1,9 @@
+{
+  "package_name": "pi3hat_moteus_int_msgs",
+  "non_idl_tuples": [
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pi3hat_moteus_int_msgs:msg/JointsCommand.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pi3hat_moteus_int_msgs:msg/JointsStates.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pi3hat_moteus_int_msgs:msg/OmniMulinexCommand.msg",
+    "/home/anymalopc/docker_pronto_estimator/src/matlab_msg_gen/glnxa64/src/pi3hat_moteus_int_msgs:msg/PacketPass.msg"
+  ]
+}

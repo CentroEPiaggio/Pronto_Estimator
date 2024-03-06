@@ -1,0 +1,3 @@
+-o
+/home/ros/docker_pronto_ws/build/rviz_legged_plugins/include/rviz_legged_plugins/displays/moc_external_wrench_display.cpp
+/home/ros/docker_pronto_ws/src/rviz_legged/rviz_legged_plugins/include/rviz_legged_plugins/displays/external_wrench_display.hpp

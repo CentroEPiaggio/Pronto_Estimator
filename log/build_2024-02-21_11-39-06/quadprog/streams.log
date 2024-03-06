@@ -1,0 +1,34 @@
+[0.278s] Invoking command in '/home/ros/docker_pronto_ws/build/quadprog': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/quadprog -- -j16 -l16
+[0.391s] [ 71%] Built target quadprog
+[0.459s] [100%] Built target Test
+[0.703s] Invoked command in '/home/ros/docker_pronto_ws/build/quadprog' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/quadprog -- -j16 -l16
+[0.796s] Invoking command in '/home/ros/docker_pronto_ws/build/quadprog': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/quadprog
+[0.812s] -- Install configuration: "Release"
+[0.814s] -- Execute custom install script
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/library_path.sh
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/library_path.dsv
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/linear-algebra.hpp
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/qr-update.hpp
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/quadprog.hpp
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/solve.QP.hpp
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/package_run_dependencies/quadprog
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/parent_prefix_path/quadprog
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/ament_prefix_path.sh
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/ament_prefix_path.dsv
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/path.sh
+[0.815s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/path.dsv
+[0.816s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.bash
+[0.816s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.sh
+[0.816s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.zsh
+[0.816s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.dsv
+[0.816s] -- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/package.dsv
+[0.827s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/packages/quadprog
+[0.828s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/ament_cmake_export_targets-extras.cmake
+[0.828s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.828s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprogConfig.cmake
+[0.828s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprogConfig-version.cmake
+[0.828s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/package.xml
+[0.828s] -- Up-to-date: /home/ros/docker_pronto_ws/install/quadprog/lib/libquadprog.so
+[0.829s] -- Up-to-date: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprog_targetsExport.cmake
+[0.829s] -- Up-to-date: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprog_targetsExport-release.cmake
+[0.868s] Invoked command in '/home/ros/docker_pronto_ws/build/quadprog' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/quadprog

@@ -1,0 +1,11 @@
+source;share/quadprog/hook/cmake_prefix_path.ps1
+source;share/quadprog/hook/cmake_prefix_path.dsv
+source;share/quadprog/hook/cmake_prefix_path.sh
+source;share/quadprog/hook/ld_library_path_lib.ps1
+source;share/quadprog/hook/ld_library_path_lib.dsv
+source;share/quadprog/hook/ld_library_path_lib.sh
+source;share/quadprog/local_setup.bash
+source;share/quadprog/local_setup.dsv
+source;share/quadprog/local_setup.ps1
+source;share/quadprog/local_setup.sh
+source;share/quadprog/local_setup.zsh

@@ -1,0 +1,66 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ros/docker_pronto_ws/src/external/quadprog/include>
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ros/docker_pronto_ws/build/quadprog
+[ 14%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/quadprog.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/qr-update.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/solve.QP.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/quadprog.dir/src/linear-algebra.cpp.o[0m
+[ 71%] [32m[1mLinking CXX shared library libquadprog.so[0m
+[ 71%] Built target quadprog
+[ 85%] [32mBuilding CXX object CMakeFiles/Test.dir/test/test.cpp.o[0m
+[100%] [32m[1mLinking CXX executable Test[0m
+[100%] Built target Test
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/library_path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/library_path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/linear-algebra.hpp
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/qr-update.hpp
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/quadprog.hpp
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/include/quadprog/quadprog/solve.QP.hpp
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/package_run_dependencies/quadprog
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/parent_prefix_path/quadprog
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/ament_prefix_path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/ament_prefix_path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/path.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/environment/path.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.bash
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.sh
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.zsh
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/package.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/ament_index/resource_index/packages/quadprog
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprogConfig.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprogConfig-version.cmake
+-- Symlinking: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/package.xml
+-- Installing: /home/ros/docker_pronto_ws/install/quadprog/lib/libquadprog.so
+-- Installing: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprog_targetsExport.cmake
+-- Installing: /home/ros/docker_pronto_ws/install/quadprog/share/quadprog/cmake/quadprog_targetsExport-release.cmake

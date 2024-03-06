@@ -1,0 +1,31 @@
+function [data, info] = jointsCommand
+%JointsCommand gives an empty data for pi3hat_moteus_int_msgs/JointsCommand
+% Copyright 2019-2021 The MathWorks, Inc.
+data = struct();
+data.MessageType = 'pi3hat_moteus_int_msgs/JointsCommand';
+[data.header, info.header] = ros.internal.ros2.messages.std_msgs.header;
+info.header.MLdataType = 'struct';
+[data.name, info.name] = ros.internal.ros2.messages.ros2.char('string',NaN,NaN,0);
+[data.position, info.position] = ros.internal.ros2.messages.ros2.default_type('double',NaN,0);
+[data.velocity, info.velocity] = ros.internal.ros2.messages.ros2.default_type('double',NaN,0);
+[data.effort, info.effort] = ros.internal.ros2.messages.ros2.default_type('double',NaN,0);
+[data.kp_scale, info.kp_scale] = ros.internal.ros2.messages.ros2.default_type('double',NaN,0);
+[data.kd_scale, info.kd_scale] = ros.internal.ros2.messages.ros2.default_type('double',NaN,0);
+info.MessageType = 'pi3hat_moteus_int_msgs/JointsCommand';
+info.constant = 0;
+info.default = 0;
+info.maxstrlen = NaN;
+info.MaxLen = 1;
+info.MinLen = 1;
+info.MatPath = cell(1,11);
+info.MatPath{1} = 'header';
+info.MatPath{2} = 'header.stamp';
+info.MatPath{3} = 'header.stamp.sec';
+info.MatPath{4} = 'header.stamp.nanosec';
+info.MatPath{5} = 'header.frame_id';
+info.MatPath{6} = 'name';
+info.MatPath{7} = 'position';
+info.MatPath{8} = 'velocity';
+info.MatPath{9} = 'effort';
+info.MatPath{10} = 'kp_scale';
+info.MatPath{11} = 'kd_scale';

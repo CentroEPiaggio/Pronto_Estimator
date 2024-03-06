@@ -1,0 +1,152 @@
+[0.197s] Invoking command in '/home/ros/docker_pronto_ws/build/ryml': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/ryml -- -j16 -l16
+[0.279s] [ 39%] Built target c4core
+[0.284s] [100%] Built target ryml
+[0.668s] Invoked command in '/home/ros/docker_pronto_ws/build/ryml' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/ryml -- -j16 -l16
+[0.900s] Invoking command in '/home/ros/docker_pronto_ws/build/ryml': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/ryml
+[1.014s] -- Install configuration: "Release"
+[1.015s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/libryml.so
+[1.015s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/allocator.hpp
+[1.015s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/base64.hpp
+[1.015s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/blob.hpp
+[1.015s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/bitmask.hpp
+[1.015s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/charconv.hpp
+[1.015s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/c4_pop.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/c4_push.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/char_traits.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/common.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/compiler.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/config.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/cpu.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ctor_dtor.hpp
+[1.016s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/dump.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/enum.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/error.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/export.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/format.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/hash.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/language.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/memory_resource.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/memory_util.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/platform.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/preprocessor.hpp
+[1.017s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/restrict.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/span.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/std.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/std_fwd.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/string.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/string_fwd.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/tuple.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/vector.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/vector_fwd.hpp
+[1.018s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/substr.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/substr_fwd.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/szconv.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/type_name.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/types.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/unrestrict.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/utf.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/windows.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/windows_pop.hpp
+[1.019s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/windows_push.hpp
+[1.020s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/debugbreak/debugbreak.h
+[1.020s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/rng/rng.hpp
+[1.020s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/sg14/inplace_function.h
+[1.020s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/fast_float.hpp
+[1.020s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/fast_float_all.h
+[1.020s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/c4core.natvis
+[1.024s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/ryml.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/ryml_std.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/detail/checks.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/detail/parser_dbg.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/detail/print.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/detail/stack.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/common.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/emit.def.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/emit.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/export.hpp
+[1.025s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/node.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/parse.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/preprocess.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/std/map.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/std/std.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/std/string.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/std/vector.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/tree.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/writer.hpp
+[1.026s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/yml/yml.hpp
+[1.027s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/ryml.natvis
+[1.027s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/ryml/rymlTargets.cmake
+[1.027s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/ryml/rymlTargets-release.cmake
+[1.027s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/ryml/rymlConfig.cmake
+[1.027s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/ryml/rymlConfigVersion.cmake
+[1.027s] -- Execute custom install script
+[1.027s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ament_index/resource_index/package_run_dependencies/ryml
+[1.027s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ament_index/resource_index/parent_prefix_path/ryml
+[1.027s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/environment/ament_prefix_path.sh
+[1.027s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/environment/ament_prefix_path.dsv
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/environment/path.sh
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/environment/path.dsv
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/local_setup.bash
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/local_setup.sh
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/local_setup.zsh
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/local_setup.dsv
+[1.028s] -- Symlinking: /home/ros/docker_pronto_ws/install/ryml/share/ryml/package.dsv
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ament_index/resource_index/packages/ryml
+[1.028s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/cmake/rymlConfig.cmake
+[1.029s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/cmake/rymlConfig-version.cmake
+[1.029s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/ryml/share/ryml/package.xml
+[1.029s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/libc4core.a
+[1.029s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/allocator.hpp
+[1.029s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/base64.hpp
+[1.029s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/blob.hpp
+[1.029s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/bitmask.hpp
+[1.029s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/charconv.hpp
+[1.031s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/c4_pop.hpp
+[1.031s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/c4_push.hpp
+[1.031s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/char_traits.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/common.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/compiler.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/config.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/cpu.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ctor_dtor.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/dump.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/enum.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/error.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/export.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/format.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/hash.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/language.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/memory_resource.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/memory_util.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/platform.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/preprocessor.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/restrict.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/span.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/std.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/std_fwd.hpp
+[1.032s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/string.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/string_fwd.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/tuple.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/vector.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/std/vector_fwd.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/substr.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/substr_fwd.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/szconv.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/type_name.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/types.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/unrestrict.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/utf.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/windows.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/windows_pop.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/windows_push.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/debugbreak/debugbreak.h
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/rng/rng.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/sg14/inplace_function.h
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/fast_float.hpp
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/ext/fast_float_all.h
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/include/c4/c4core.natvis
+[1.033s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/c4core/c4coreTargets.cmake
+[1.034s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/c4core/c4coreTargets-release.cmake
+[1.034s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/c4core/c4coreConfig.cmake
+[1.034s] -- Up-to-date: /home/ros/docker_pronto_ws/install/ryml/lib/cmake/c4core/c4coreConfigVersion.cmake
+[1.221s] Invoked command in '/home/ros/docker_pronto_ws/build/ryml' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/ryml

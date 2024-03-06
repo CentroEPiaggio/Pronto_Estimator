@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/solo_description/ament_cmake_core/solo_descriptionConfig-version.cmake

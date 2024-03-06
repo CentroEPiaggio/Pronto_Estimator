@@ -1,0 +1,6 @@
+In file included from [01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/include/pronto_ros2_controller/pronto_controller.hpp:12[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/src/pronto_controller.cpp:1[m[K:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/include/pronto_ros2_controller/exteroceptive_sensor_sensor_manager.hpp:[m[K In constructor ‘[01m[Kpronto_controller::Exte_Sensor_Manager::Exte_Sensor_Manager(rclcpp_lifecycle::LifecycleNode::SharedPtr)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_ros2_controller/include/pronto_ros2_controller/exteroceptive_sensor_sensor_manager.hpp:20:76:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcontroller[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   20 |             Exte_Sensor_Manager([01;35m[Krclcpp_lifecycle::LifecycleNode::SharedPtr controller[m[K)
+      |                                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~[m[K

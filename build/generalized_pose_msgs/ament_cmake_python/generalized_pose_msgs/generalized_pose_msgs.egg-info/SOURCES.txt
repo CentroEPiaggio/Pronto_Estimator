@@ -1,0 +1,10 @@
+setup.py
+generalized_pose_msgs/__init__.py
+generalized_pose_msgs.egg-info/PKG-INFO
+generalized_pose_msgs.egg-info/SOURCES.txt
+generalized_pose_msgs.egg-info/dependency_links.txt
+generalized_pose_msgs.egg-info/top_level.txt
+generalized_pose_msgs/msg/__init__.py
+generalized_pose_msgs/msg/_generalized_pose.py
+generalized_pose_msgs/msg/_generalized_pose_with_time.py
+generalized_pose_msgs/msg/_generalized_poses_with_time.py

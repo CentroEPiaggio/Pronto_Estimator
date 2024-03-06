@@ -1,0 +1,26 @@
+// generated from rosidl_typesupport_introspection_c/resource/idl__rosidl_typesupport_introspection_c.h.em
+// with input from generalized_pose_msgs:msg/GeneralizedPoseWithTime.idl
+// generated code does not contain a copyright notice
+
+#ifndef GENERALIZED_POSE_MSGS__MSG__DETAIL__GENERALIZED_POSE_WITH_TIME__ROSIDL_TYPESUPPORT_INTROSPECTION_C_H_
+#define GENERALIZED_POSE_MSGS__MSG__DETAIL__GENERALIZED_POSE_WITH_TIME__ROSIDL_TYPESUPPORT_INTROSPECTION_C_H_
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+
+#include "rosidl_runtime_c/message_type_support_struct.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "generalized_pose_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h"
+
+ROSIDL_TYPESUPPORT_INTROSPECTION_C_PUBLIC_generalized_pose_msgs
+const rosidl_message_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, generalized_pose_msgs, msg, GeneralizedPoseWithTime)();
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // GENERALIZED_POSE_MSGS__MSG__DETAIL__GENERALIZED_POSE_WITH_TIME__ROSIDL_TYPESUPPORT_INTROSPECTION_C_H_

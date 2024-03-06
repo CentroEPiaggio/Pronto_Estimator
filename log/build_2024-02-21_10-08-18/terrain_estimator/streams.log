@@ -1,0 +1,21 @@
+[1.199s] Invoking command in '/home/ros/docker_pronto_ws/build/terrain_estimator': PYTHONPATH=/home/ros/docker_pronto_ws/build/terrain_estimator/prefix_override:/home/ros/docker_pronto_ws/install/terrain_estimator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/ros/docker_pronto_ws/build/terrain_estimator/build --no-deps install_data
+[1.407s] running develop
+[1.407s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.407s]   warnings.warn(
+[1.409s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.409s]   warnings.warn(
+[1.514s] running egg_info
+[1.514s] writing terrain_estimator.egg-info/PKG-INFO
+[1.514s] writing dependency_links to terrain_estimator.egg-info/dependency_links.txt
+[1.514s] writing entry points to terrain_estimator.egg-info/entry_points.txt
+[1.514s] writing requirements to terrain_estimator.egg-info/requires.txt
+[1.514s] writing top-level names to terrain_estimator.egg-info/top_level.txt
+[1.516s] reading manifest file 'terrain_estimator.egg-info/SOURCES.txt'
+[1.516s] writing manifest file 'terrain_estimator.egg-info/SOURCES.txt'
+[1.519s] running build_ext
+[1.519s] Creating /home/ros/docker_pronto_ws/install/terrain_estimator/lib/python3.10/site-packages/terrain-estimator.egg-link (link to .)
+[1.519s] Installing terrain_estimator_node script to /home/ros/docker_pronto_ws/install/terrain_estimator/lib/terrain_estimator
+[1.519s] 
+[1.519s] Installed /home/ros/docker_pronto_ws/build/terrain_estimator
+[1.519s] running install_data
+[1.880s] Invoked command in '/home/ros/docker_pronto_ws/build/terrain_estimator' returned '0': PYTHONPATH=/home/ros/docker_pronto_ws/build/terrain_estimator/prefix_override:/home/ros/docker_pronto_ws/install/terrain_estimator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/ros/docker_pronto_ws/build/terrain_estimator/build --no-deps install_data

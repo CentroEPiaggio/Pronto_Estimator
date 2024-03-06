@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/ros/docker_pronto_ws/build/hierarchical_optimization",
+  "command": "/usr/bin/c++ -Dhierarchical_optimization_EXPORTS -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hierarchical_optimization/include -isystem /usr/include/eigen3 -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -O3 -DNDEBUG -fPIC -Wall -Wextra -Wpedantic -o CMakeFiles/hierarchical_optimization.dir/src/hierarchical_qp.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hierarchical_optimization/src/hierarchical_qp.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hierarchical_optimization/src/hierarchical_qp.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/hierarchical_optimization",
+  "command": "/usr/bin/c++  -I/opt/ros/humble/src/gtest_vendor/include -I/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hierarchical_optimization/include -isystem /usr/include/eigen3 -isystem /home/ros/docker_pronto_ws/install/quadprog/include/quadprog -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/hierarchical_optimization_test.dir/test/test_hierarchical_optimization.cpp.o -c /home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hierarchical_optimization/test/test_hierarchical_optimization.cpp",
+  "file": "/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hierarchical_optimization/test/test_hierarchical_optimization.cpp"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/hierarchical_optimization/gtest",
+  "command": "/usr/bin/c++  -I/opt/ros/humble/src/gtest_vendor/include -I/opt/ros/humble/src/gtest_vendor/. -O3 -DNDEBUG -fPIC -Wno-missing-field-initializers -Wall -Wextra -Wpedantic -Wno-null-dereference -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /opt/ros/humble/src/gtest_vendor/src/gtest-all.cc",
+  "file": "/opt/ros/humble/src/gtest_vendor/src/gtest-all.cc"
+},
+{
+  "directory": "/home/ros/docker_pronto_ws/build/hierarchical_optimization/gtest",
+  "command": "/usr/bin/c++  -I/opt/ros/humble/src/gtest_vendor/include -I/opt/ros/humble/src/gtest_vendor/. -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /opt/ros/humble/src/gtest_vendor/src/gtest_main.cc",
+  "file": "/opt/ros/humble/src/gtest_vendor/src/gtest_main.cc"
+}
+]

@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/velocity_command_msgs/rosidl_typesupport_introspection_c/velocity_command_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h

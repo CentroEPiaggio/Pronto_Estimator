@@ -1,0 +1,35 @@
+[ 36%] Built target gtest_main
+[ 36%] Built target gtest
+[ 81%] Built target lip_walking_trot_planner
+[100%] Built target lip_walking_trot_planner_test
+-- Install configuration: "Release"
+-- Execute custom install script
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner//lip_walking_trot_planner_controller.xml
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/environment/library_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/environment/library_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/include/lip_walking_trot_planner/lip_walking_trot_planner/fading_filter.tpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/include/lip_walking_trot_planner/lip_walking_trot_planner/interpolator.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/include/lip_walking_trot_planner/lip_walking_trot_planner/lip_planner.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/include/lip_walking_trot_planner/lip_walking_trot_planner/lip_walking_trot_planner_controller.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/include/lip_walking_trot_planner/lip_walking_trot_planner/quaternion_math.hpp
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/ament_index/resource_index/package_run_dependencies/lip_walking_trot_planner
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/ament_index/resource_index/parent_prefix_path/lip_walking_trot_planner
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/environment/path.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/environment/path.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/local_setup.bash
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/local_setup.sh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/local_setup.zsh
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/local_setup.dsv
+-- Symlinking: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/package.dsv
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/ament_index/resource_index/packages/lip_walking_trot_planner
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/ament_index/resource_index/controller_interface__pluginlib__plugin/lip_walking_trot_planner
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/cmake/lip_walking_trot_plannerConfig.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/cmake/lip_walking_trot_plannerConfig-version.cmake
+-- Up-to-date symlink: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/package.xml
+-- Up-to-date: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/lib/liblip_walking_trot_planner.so
+-- Up-to-date: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/cmake/lip_walking_trot_planner_targetsExport.cmake
+-- Up-to-date: /home/ros/docker_pronto_ws/install/lip_walking_trot_planner/share/lip_walking_trot_planner/cmake/lip_walking_trot_planner_targetsExport-release.cmake

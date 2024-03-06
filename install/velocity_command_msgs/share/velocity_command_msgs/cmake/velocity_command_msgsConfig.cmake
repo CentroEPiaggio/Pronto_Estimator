@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/velocity_command_msgs/ament_cmake_core/velocity_command_msgsConfig.cmake

@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/pronto_solo12/ament_cmake_core/pronto_solo12Config.cmake

@@ -1,0 +1,137 @@
+In file included from [01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:31[m[K:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:[m[K In constructor ‘[01m[Kpronto::quadruped::LegodoHandlerWithAccelerationROS::LegodoHandlerWithAccelerationROS(rclcpp::Node::SharedPtr, pronto::quadruped::StanceEstimatorROS&, pronto::quadruped::LegOdometerROS&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:194:29:[m[K [01;35m[Kwarning: [m[K‘[01m[Kpronto::quadruped::LegodoHandlerWithAccelerationROS::nh_[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+  194 |     rclcpp::Node::SharedPtr [01;35m[Knh_[m[K;
+      |                             [01;35m[K^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:177:45:[m[K [01;35m[Kwarning: [m[K  base ‘[01m[Kpronto::quadruped::LegodoHandlerBase[m[K’ [[01;35m[K-Wreorder[m[K]
+  177 |     LegodoHandlerBase(nh, stance_est, legodo[01;35m[K)[m[K
+      |                                             [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:173:5:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+  173 |     [01;35m[KLegodoHandlerWithAccelerationROS[m[K(rclcpp::Node::SharedPtr nh,
+      |     [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:[m[K In member function ‘[01m[Kvirtual bool pronto::quadruped::LegodoHandlerWithAccelerationROS::processMessageInit(const JointStateWithAcceleration*, const std::map<std::__cxx11::basic_string<char>, bool>&, const pronto::RBIS&, const RBIM&, pronto::RBIS&, pronto::RBIM&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:186:81:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  186 |     bool processMessageInit([01;35m[Kconst pronto_msgs::msg::JointStateWithAcceleration *msg[m[K,
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:187:64:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ksensor_initialized[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  187 |                             [01;35m[Kconst std::map<std::string, bool>& sensor_initialized[m[K,
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:188:41:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  188 |                             [01;35m[Kconst RBIS& default_state[m[K,
+      |                             [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:189:41:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  189 |                             [01;35m[Kconst RBIM& default_cov[m[K,
+      |                             [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:190:35:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  190 |                             [01;35m[KRBIS& init_state[m[K,
+      |                             [01;35m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:191:35:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  191 |                             [01;35m[KRBIM& init_cov[m[K) override { return true; }
+      |                             [01;35m[K~~~~~~^~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:[m[K In constructor ‘[01m[Kpronto::quadruped::LegodoHandlerBase::LegodoHandlerBase(rclcpp::Node::SharedPtr, pronto::quadruped::StanceEstimatorROS&, pronto::quadruped::LegOdometerROS&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:143:29:[m[K [01;35m[Kwarning: [m[K‘[01m[Kpronto::quadruped::LegodoHandlerBase::nh_[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+  143 |     rclcpp::Node::SharedPtr [01;35m[Knh_[m[K;
+      |                             [01;35m[K^~~[m[K
+In file included from [01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:31[m[K:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:84:25:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kpronto::quadruped::StanceEstimatorROS& pronto::quadruped::LegodoHandlerBase::stance_estimator_[m[K’ [[01;35m[K-Wreorder[m[K]
+   84 |     StanceEstimatorROS& [01;35m[Kstance_estimator_[m[K;
+      |                         [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:38:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   38 | [01;35m[KLegodoHandlerBase[m[K::LegodoHandlerBase(rclcpp::Node::SharedPtr nh,
+      | [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:31[m[K:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:[m[K In constructor ‘[01m[Kpronto::quadruped::LegodoHandlerROS::LegodoHandlerROS(rclcpp::Node::SharedPtr, pronto::quadruped::StanceEstimatorROS&, pronto::quadruped::LegOdometerROS&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:166:29:[m[K [01;35m[Kwarning: [m[K‘[01m[Kpronto::quadruped::LegodoHandlerROS::nh_[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+  166 |     rclcpp::Node::SharedPtr [01;35m[Knh_[m[K;
+      |                             [01;35m[K^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:286:46:[m[K [01;35m[Kwarning: [m[K  base ‘[01m[Kpronto::quadruped::LegodoHandlerBase[m[K’ [[01;35m[K-Wreorder[m[K]
+  286 |     LegodoHandlerBase(nh_, stance_est, legodo[01;35m[K)[m[K
+      |                                              [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:282:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+  282 | [01;35m[KLegodoHandlerROS[m[K::LegodoHandlerROS(rclcpp::Node::SharedPtr nh,
+      | [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:[m[K In member function ‘[01m[Kvirtual bool pronto::quadruped::LegodoHandlerROS::processMessageInit(const JointState*, const std::map<std::__cxx11::basic_string<char>, bool>&, const pronto::RBIS&, const RBIM&, pronto::RBIS&, pronto::RBIM&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:312:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  312 | bool LegodoHandlerROS::processMessageInit([01;35m[Kconst sensor_msgs::msg::JointState *msg[m[K,
+      |                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:313:78:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ksensor_initialized[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  313 |                                           [01;35m[Kconst std::map<std::string, bool>& sensor_initialized[m[K,
+      |                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:314:55:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  314 |                                           [01;35m[Kconst RBIS& default_state[m[K,
+      |                                           [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:315:55:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  315 |                                           [01;35m[Kconst RBIM& default_cov[m[K,
+      |                                           [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:316:49:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  316 |                                           [01;35m[KRBIS& init_state[m[K,
+      |                                           [01;35m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:317:49:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  317 |                                           [01;35m[KRBIM& init_cov[m[K)
+      |                                           [01;35m[K~~~~~~^~~~~~~~[m[K
+In file included from [01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:31[m[K:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:[m[K In constructor ‘[01m[Kpronto::quadruped::FootSensorLegodoHandlerROS::FootSensorLegodoHandlerROS(rclcpp::Node::SharedPtr, pronto::quadruped::StanceEstimatorROS&, pronto::quadruped::LegOdometerROS&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:247:29:[m[K [01;35m[Kwarning: [m[K‘[01m[Kpronto::quadruped::FootSensorLegodoHandlerROS::nh_[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+  247 |     rclcpp::Node::SharedPtr [01;35m[Knh_[m[K;
+      |                             [01;35m[K^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:349:43:[m[K [01;35m[Kwarning: [m[K  base ‘[01m[Kpronto::quadruped::LegodoHandlerBase[m[K’ [[01;35m[K-Wreorder[m[K]
+  349 |   LegodoHandlerBase(nh, stance_est, legodo[01;35m[K)[m[K
+      |                                           [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:345:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+  345 | [01;35m[KFootSensorLegodoHandlerROS[m[K::FootSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
+      | [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:[m[K In member function ‘[01m[Kvirtual bool pronto::quadruped::FootSensorLegodoHandlerROS::processMessageInit(const JointState*, const std::map<std::__cxx11::basic_string<char>, bool>&, const pronto::RBIS&, const RBIM&, pronto::RBIS&, pronto::RBIM&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:353:89:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  353 | bool FootSensorLegodoHandlerROS::processMessageInit([01;35m[Kconst sensor_msgs::msg::JointState *msg[m[K,
+      |                                                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:354:88:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ksensor_initialized[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  354 |                                                  [01;35m[Kconst std::map<std::string, bool>& sensor_initialized[m[K,
+      |                                                  [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:355:65:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  355 |                                                     [01;35m[Kconst RBIS& default_state[m[K,
+      |                                                     [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:356:65:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  356 |                                                     [01;35m[Kconst RBIM& default_cov[m[K,
+      |                                                     [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:357:59:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  357 |                                                     [01;35m[KRBIS& init_state[m[K,
+      |                                                     [01;35m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:358:59:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  358 |                                                     [01;35m[KRBIM& init_cov[m[K)
+      |                                                     [01;35m[K~~~~~~^~~~~~~~[m[K
+In file included from [01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:31[m[K:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:[m[K In constructor ‘[01m[Kpronto::quadruped::ForceSensorLegodoHandlerROS::ForceSensorLegodoHandlerROS(rclcpp::Node::SharedPtr, pronto::quadruped::StanceEstimatorROS&, pronto::quadruped::LegOdometerROS&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/include/pronto_quadruped_ros/legodo_handler_ros.hpp:221:29:[m[K [01;35m[Kwarning: [m[K‘[01m[Kpronto::quadruped::ForceSensorLegodoHandlerROS::nh_[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+  221 |     rclcpp::Node::SharedPtr [01;35m[Knh_[m[K;
+      |                             [01;35m[K^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:395:44:[m[K [01;35m[Kwarning: [m[K  base ‘[01m[Kpronto::quadruped::LegodoHandlerBase[m[K’ [[01;35m[K-Wreorder[m[K]
+  395 |   LegodoHandlerBase(nh_, stance_est, legodo[01;35m[K)[m[K
+      |                                            [01;35m[K^[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:391:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+  391 | [01;35m[KForceSensorLegodoHandlerROS[m[K::ForceSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
+      | [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:[m[K In member function ‘[01m[Kvirtual bool pronto::quadruped::ForceSensorLegodoHandlerROS::processMessageInit(const JointState*, const std::map<std::__cxx11::basic_string<char>, bool>&, const pronto::RBIS&, const RBIM&, pronto::RBIS&, pronto::RBIM&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:414:90:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  414 | bool ForceSensorLegodoHandlerROS::processMessageInit([01;35m[Kconst sensor_msgs::msg::JointState *msg[m[K,
+      |                                                      [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:415:90:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ksensor_initialized[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  415 |                                                 [01;35m[Kconst std::map<std::string, bool> & sensor_initialized[m[K,
+      |                                                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:416:66:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  416 |                                                      [01;35m[Kconst RBIS& default_state[m[K,
+      |                                                      [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:417:66:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdefault_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  417 |                                                      [01;35m[Kconst RBIM& default_cov[m[K,
+      |                                                      [01;35m[K~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:418:60:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_state[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  418 |                                                      [01;35m[KRBIS& init_state[m[K,
+      |                                                      [01;35m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/legodo_handler_ros.cpp:419:60:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kinit_cov[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  419 |                                                      [01;35m[KRBIM& init_cov[m[K){
+      |                                                      [01;35m[K~~~~~~^~~~~~~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/force_sensor_stance_estimator_ros.cpp:[m[K In constructor ‘[01m[Kpronto::quadruped::ForceSensorStanceEstimatorROS::ForceSensorStanceEstimatorROS(rclcpp::Node::SharedPtr)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/pronto_quadruped_ros/src/force_sensor_stance_estimator_ros.cpp:18:20:[m[K [01;35m[Kwarning: [m[K‘[01m[Kstance_threshold[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+   18 |   [01;35m[Kforce_threshold_ = stance_threshold[m[K;
+      |   [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K

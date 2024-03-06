@@ -1,0 +1,4 @@
+source;share/hierarchical_optimization/local_setup.bash
+source;share/hierarchical_optimization/local_setup.dsv
+source;share/hierarchical_optimization/local_setup.sh
+source;share/hierarchical_optimization/local_setup.zsh

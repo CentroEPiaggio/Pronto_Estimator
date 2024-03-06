@@ -1,0 +1,50 @@
+[0.547s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_core -- -j16 -l16
+[0.637s] [100%] Built target pronto_core
+[0.986s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --build /home/ros/docker_pronto_ws/build/pronto_core -- -j16 -l16
+[1.188s] Invoking command in '/home/ros/docker_pronto_ws/build/pronto_core': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_core
+[1.253s] -- Install configuration: "Release"
+[1.253s] -- Execute custom install script
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/library_path.sh
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/library_path.dsv
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/definitions.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/gps_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/indexed_meas_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/init_message_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/ins_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/lidar_odometry_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/pose_meas_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/pronto_core.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rbis.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rbis_update_interface.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rigidbody.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/rotations.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/scan_matcher_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/sensing_module.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/state_est.hpp
+[1.253s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/update_history.hpp
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/vicon_module.hpp
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/visibility_control.h
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/include/pronto_core/visual_odometry_module.hpp
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/ament_index/resource_index/package_run_dependencies/pronto_core
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/ament_index/resource_index/parent_prefix_path/pronto_core
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/ament_prefix_path.sh
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/ament_prefix_path.dsv
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/path.sh
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/environment/path.dsv
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.bash
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.sh
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.zsh
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/local_setup.dsv
+[1.254s] -- Symlinking: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/package.dsv
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/ament_index/resource_index/packages/pronto_core
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.254s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_libraries-extras.cmake
+[1.260s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.261s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/ament_cmake_export_targets-extras.cmake
+[1.261s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/pronto_coreConfig.cmake
+[1.261s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/pronto_coreConfig-version.cmake
+[1.261s] -- Up-to-date symlink: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/package.xml
+[1.261s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_core/lib/libpronto_core.so
+[1.261s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/export_pronto_coreExport.cmake
+[1.261s] -- Up-to-date: /home/ros/docker_pronto_ws/install/pronto_core/share/pronto_core/cmake/export_pronto_coreExport-release.cmake
+[1.418s] Invoked command in '/home/ros/docker_pronto_ws/build/pronto_core' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/docker_pronto_ws/install/planners_python:/home/ros/docker_pronto_ws/install/logger_gazebo:/home/ros/docker_pronto_ws/install/terrain_estimator:/home/ros/docker_pronto_ws/install/pose_estimator:/opt/ros/humble /usr/bin/cmake --install /home/ros/docker_pronto_ws/build/pronto_core

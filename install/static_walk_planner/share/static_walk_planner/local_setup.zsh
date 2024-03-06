@@ -1,0 +1,1 @@
+/home/ros/docker_pronto_ws/build/static_walk_planner/ament_cmake_environment_hooks/local_setup.zsh

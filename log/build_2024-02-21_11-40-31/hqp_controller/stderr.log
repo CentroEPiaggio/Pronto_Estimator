@@ -1,0 +1,44 @@
+[01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/src/hqp_controller.cpp:[m[K In member function ‘[01m[Kvirtual hqp_controller::CallbackReturn hqp_controller::HQPController::on_configure(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/src/hqp_controller.cpp:345:44:[m[K [01;31m[Kerror: [m[K‘[01m[KQoS[m[K’ is not a member of ‘[01m[Kstd[m[K’; did you mean ‘[01m[Krclcpp::QoS[m[K’?
+  345 |             "/pronto_estimator/pose", std::[01;31m[KQoS[m[K(QUEUE_SIZE),
+      |                                            [01;31m[K^~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_graph_interface.hpp:32[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:42[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/include/hqp_controller/hqp_publisher.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/include/hqp_controller/hqp_controller.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/src/hqp_controller.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/rclcpp/rclcpp/qos.hpp:110:21:[m[K [01;36m[Knote: [m[K‘[01m[Krclcpp::QoS[m[K’ declared here
+  110 | class RCLCPP_PUBLIC [01;36m[KQoS[m[K
+      |                     [01;36m[K^~~[m[K
+[01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/src/hqp_controller.cpp:355:45:[m[K [01;31m[Kerror: [m[K‘[01m[KQoS[m[K’ is not a member of ‘[01m[Kstd[m[K’; did you mean ‘[01m[Krclcpp::QoS[m[K’?
+  355 |             "/pronto_estimator/twist", std::[01;31m[KQoS[m[K(QUEUE_SIZE),
+      |                                             [01;31m[K^~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_graph_interface.hpp:32[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:42[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/include/hqp_controller/hqp_publisher.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/include/hqp_controller/hqp_controller.hpp:3[m[K,
+                 from [01m[K/home/ros/docker_pronto_ws/src/motion_control/whole_body_control/hqp_controller/src/hqp_controller.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/rclcpp/rclcpp/qos.hpp:110:21:[m[K [01;36m[Knote: [m[K‘[01m[Krclcpp::QoS[m[K’ declared here
+  110 | class RCLCPP_PUBLIC [01;36m[KQoS[m[K
+      |                     [01;36m[K^~~[m[K
+gmake[2]: *** [CMakeFiles/hqp_controller.dir/build.make:76: CMakeFiles/hqp_controller.dir/src/hqp_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hqp_controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

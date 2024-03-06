@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/ros/docker_pronto_ws/build/generalized_pose_msgs/rosidl_generator_py/generalized_pose_msgs/generalized_pose_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" "TARGETS" "generalized_pose_msgs__rosidl_typesupport_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/generalized_pose_msgs")
