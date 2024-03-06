@@ -1,0 +1,29 @@
+function [data, info] = indexedMeasurement
+%IndexedMeasurement gives an empty data for pronto_msgs/IndexedMeasurement
+% Copyright 2019-2021 The MathWorks, Inc.
+data = struct();
+data.MessageType = 'pronto_msgs/IndexedMeasurement';
+[data.header, info.header] = ros.internal.ros2.messages.std_msgs.header;
+info.header.MLdataType = 'struct';
+[data.utime, info.utime] = ros.internal.ros2.messages.ros2.default_type('uint64',1,0);
+[data.state_utime, info.state_utime] = ros.internal.ros2.messages.ros2.default_type('uint64',1,0);
+[data.z_effective, info.z_effective] = ros.internal.ros2.messages.ros2.default_type('double',NaN,0);
+[data.z_indices, info.z_indices] = ros.internal.ros2.messages.ros2.default_type('int32',NaN,0);
+[data.r_effective, info.r_effective] = ros.internal.ros2.messages.ros2.default_type('double',NaN,0);
+info.MessageType = 'pronto_msgs/IndexedMeasurement';
+info.constant = 0;
+info.default = 0;
+info.maxstrlen = NaN;
+info.MaxLen = 1;
+info.MinLen = 1;
+info.MatPath = cell(1,10);
+info.MatPath{1} = 'header';
+info.MatPath{2} = 'header.stamp';
+info.MatPath{3} = 'header.stamp.sec';
+info.MatPath{4} = 'header.stamp.nanosec';
+info.MatPath{5} = 'header.frame_id';
+info.MatPath{6} = 'utime';
+info.MatPath{7} = 'state_utime';
+info.MatPath{8} = 'z_effective';
+info.MatPath{9} = 'z_indices';
+info.MatPath{10} = 'r_effective';
