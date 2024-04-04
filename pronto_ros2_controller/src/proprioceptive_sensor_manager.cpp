@@ -152,6 +152,7 @@ namespace pronto_controller
 
 
     };
+
     void Prop_Sensor_Manager::conf_imu_bias_lock()
     {
         // the change of the imu frame into base frame is done by the hardwareinterface
@@ -186,6 +187,7 @@ namespace pronto_controller
         ibl_ = std::make_unique<ImuBiasLock>(ins_to_body,cnf);
     };
 
+
     bool Prop_Sensor_Manager::isInsInitialized(
                 const pronto::ImuMeasurement * msr,
                 std::map<std::string,bool> init_map,
@@ -205,6 +207,7 @@ namespace pronto_controller
     {
         return ins_->processMessage(msr, est);
     }
+
     
     pronto::RBISUpdateInterface* Prop_Sensor_Manager::processImuBaisData(
         const pronto::ImuMeasurement * msr,
@@ -223,6 +226,7 @@ namespace pronto_controller
             ibl_ ->processSecondaryMessage(stt_data);
             return ibl_ -> processMessage(msr,est);
     }
+
     pronto::RBISUpdateInterface* Prop_Sensor_Manager::update_odom(rclcpp::Time time, pronto::StateEstimator* stt_est)
     {
         //load data from map to leg odom structure
