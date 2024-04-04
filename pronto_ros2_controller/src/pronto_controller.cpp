@@ -248,6 +248,13 @@ controller_interface::return_type Pronto_Controller::update(const rclcpp::Time& 
         // set the update dt get from the update arguments
 
         propr_man_->setInsTimeStep(period);
+
+        // get the update of ImuBiasLock
+        pronto::RBISUpdateInterface* update_ibl = propr_man_->processImuBaisData(&imu_data_,stt_est_.get(),&jnt_stt_);
+        // update bias if needed
+        if(update_ibl != nullptr)
+            stt_est_->addUpdate(update_ibl,true);
+
         // get the update from imu sensor
         pronto::RBISUpdateInterface* update_imu = propr_man_->processInsData(&imu_data_, stt_est_.get());
 
