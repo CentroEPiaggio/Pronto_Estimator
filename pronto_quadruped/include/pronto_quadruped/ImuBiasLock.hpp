@@ -93,6 +93,11 @@ public:
     inline bool getRecordStatus() const {
       return do_record_;
     }
+    
+    inline void setTimeStep(double dt)
+    {
+      dt_ = dt;
+    }
 
 protected:
     bool debug_ = false;

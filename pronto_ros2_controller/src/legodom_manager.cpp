@@ -268,11 +268,12 @@ namespace pronto_controller
 
       
         stance_est_->getStance(stance_,stance_prob_);
+
     //    std::cout<<grf_<<std::endl;
     //    std::cout<<stance_prob_<<std::endl;
      
         leg_odom_->setGrf(grf_);
-        
+
         use_cor = leg_odom_->estimateVelocity(
             utime,
             q_,
@@ -283,33 +284,43 @@ namespace pronto_controller
             dx_,
             cov_legodo_
         );
+
+        // [gazebo_params.yaml-1] [gzserver-1] [INFO] [1708350386.728100190] [pronto_estimator]: the correction values are [-0.136067,-0.136115,0.043791]
+
+        if(stance_[LegID::LF]+stance_[LegID::LH]+stance_[LegID::RF]+stance_[LegID::RH] == 1)
+        {
+            RCLCPP_INFO(controller_->get_logger(),"the correction values are [%f,%f,%f] and use correction is %d",dx_[0],dx_[1],dx_[2],use_cor);
+            // RCLCPP_INFO(controller_->get_logger(),"the stance is [%d,%d,%d,%d]",stance_[LegID::LF],stance_[LegID::LH],stance_[LegID::RF],stance_[LegID::RH]);
+        }
         Eigen::Vector3d foot_vel;
         Vec3_msg aaa;
-
+        rclcpp::Time time_stamp =  controller_->get_clock()->now();
+        aaa.header.stamp = time_stamp;
         pub_est_force();
         pub_est_stance();
         leg_odom_->get_foot_corr(0,foot_vel);
-        aaa.x = foot_vel(0);
-        aaa.y = foot_vel(1);
-        aaa.z = foot_vel(2);
+        aaa.vector.x = foot_vel(0);
+        aaa.vector.y = foot_vel(1);
+        aaa.vector.z = foot_vel(2);
         fl_jac_pub_->publish(aaa);
 
         leg_odom_->get_foot_corr(1,foot_vel);
-        aaa.x = foot_vel(0);
-        aaa.y = foot_vel(1);
-        aaa.z = foot_vel(2);
+        aaa.vector.x = foot_vel(0);
+        aaa.vector.y = foot_vel(1);
+        aaa.vector.z = foot_vel(2);
         fr_jac_pub_->publish(aaa);
         
         leg_odom_->get_foot_corr(2,foot_vel);
-        aaa.x = foot_vel(0);
-        aaa.y = foot_vel(1);
-        aaa.z = foot_vel(2);
+        aaa.vector.x = foot_vel(0);
+        aaa.vector.y = foot_vel(1);
+        aaa.vector.z = foot_vel(2);
         hl_jac_pub_->publish(aaa);
 
         leg_odom_->get_foot_corr(3,foot_vel);
-        aaa.x = foot_vel(0);
-        aaa.y = foot_vel(1);
-        aaa.z = foot_vel(2);
+        aaa.vector.x = foot_vel(0);
+        aaa.vector.y = foot_vel(1);
+        aaa.vector.z = foot_vel(2);
+
         hr_jac_pub_->publish(aaa);
         
         if(DEBUG)
@@ -320,9 +331,12 @@ namespace pronto_controller
 
             // auto vel_b = orient_.toRotationMatrix()*dx_;
             auto vel_b = leg_odom_->get_odom_corr();
-            deb_cor_msg.x = vel_b(0);
-            deb_cor_msg.y = vel_b(1);
-            deb_cor_msg.z = vel_b(2);
+
+            deb_cor_msg.header.stamp = time_stamp;
+            deb_cor_msg.vector.x = vel_b(0);
+            deb_cor_msg.vector.y = vel_b(1);
+            deb_cor_msg.vector.z = vel_b(2);
+
             odom_cor_pub_->publish(deb_cor_msg);
         }
         // RCLCPP_INFO(controller_->get_logger(),"the velocity correction is [%f,%f,%f]",dx_(0),dx_(1),dx_(2));
