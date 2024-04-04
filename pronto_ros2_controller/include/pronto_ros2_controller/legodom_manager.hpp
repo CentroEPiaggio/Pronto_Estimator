@@ -48,7 +48,9 @@ namespace pronto_controller
     using AverageMode = pronto::quadruped::LegOdometer::AverageMode;
     using FeetContactForces = pronto::quadruped::FeetContactForces;
     using Jointind = pronto::quadruped::JointIdentifiers;
+
     using Vec3_msg = geometry_msgs::msg::Vector3Stamped;
+
     using JntStt = sensor_msgs::msg::JointState;
     using ForceEst = pronto_msgs::msg::QuadrupedForceTorqueSensors;
     using StanceEst = pronto_msgs::msg::QuadrupedStance;

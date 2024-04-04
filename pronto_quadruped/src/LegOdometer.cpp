@@ -270,6 +270,7 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
         //   }
         //   xd_b_ = xd_b_peak;
         // }
+
         // std::cout << stance_legs << std::endl << stance_legs[0] + stance_legs[1] + stance_legs[2] + stance_legs[3]<< std::endl;
       
         // std::cout<< "PDPDPPDPDPDPPDPDPD"<<std::endl;
@@ -283,6 +284,7 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
             // {
             //   std::cout<<"at time "
             // }
+
             if(count == 0)
             {
               xd_b_peak = old_xd_b;
@@ -291,11 +293,13 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
             xd_b_ = xd_b_peak;
             return false;
         }
+
         else if(leg_count == 1)
         {
           
           return false;
         }
+
         else
         {
           count = 0;

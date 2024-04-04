@@ -5,6 +5,7 @@
 #include "pronto_core/ins_module.hpp"
 #include <vector>
 #include <string>
+
 #include <map>
 #include <tuple>
 #include "rclcpp/rclcpp.hpp"
@@ -14,11 +15,14 @@
 
 
 
+
 namespace pronto_controller
 {
     
     using INS_module = pronto::InsModule;
+
     using ImuBiasLock = pronto::quadruped::ImuBiasLock;
+
     using StateEst = pronto::StateEstimator;
     class Prop_Sensor_Manager
     {
@@ -41,7 +45,9 @@ namespace pronto_controller
                 // legodom_man_->get_q_size();
                 // configure ins sensor
                 conf_ins();
+
                 conf_imu_bias_lock();
+
                 // legodom_man_->get_q_size();
                 //configure proprioceptive odometry
                 legodom_man_->get_stance_param();
@@ -53,19 +59,23 @@ namespace pronto_controller
             void setInsTimeStep(rclcpp::Duration dur)
             {
                 ins_->setTimeStep(dur.seconds());
+
                 ibl_->setTimeStep(dur.seconds());
+
             };
             // this function use the Ins_module to process the incoming data and update the filter state and covariance
             pronto::RBISUpdateInterface* processInsData(
                     const pronto::ImuMeasurement * msr,
                     StateEst * est
             );
+
             // this function update the imu bias lock if necessary 
             pronto::RBISUpdateInterface* processImuBaisData(
                     const pronto::ImuMeasurement * msr,
                     StateEst * est,
                     std::map<std::string,std::tuple<double,double,double>>* jnt_stt
             );
+
             // this function use the Ins_module to initialize the filter
             bool isInsInitialized(
                 const pronto::ImuMeasurement * msr,
@@ -81,14 +91,18 @@ namespace pronto_controller
             }
         protected:
             void conf_ins();
+
             void conf_imu_bias_lock();
+
         private:
             // init INS part 
             
             // shared pointer to the pronto core ins module, TODO check the correct initialization of it
             std::unique_ptr<INS_module> ins_;
 
+
             std::unique_ptr<ImuBiasLock> ibl_;
+
 
             int downsample_factor_,utime_offset_;
 
