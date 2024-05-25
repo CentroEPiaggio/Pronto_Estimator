@@ -1,0 +1,4 @@
+[0mCMake Error: The current CMakeCache.txt directory /home/punk-opc/Documents/Davides_Simulation/Pronto_Estimator/build/pronto_quadruped_commons/CMakeCache.txt is different than the directory /home/jacopo/Documents/Repo_Projects/Pronto_Estimator/build/pronto_quadruped_commons where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0mCMake Error: The source directory "/home/jacopo/Documents/Repo_Projects/Pronto_Estimator/pronto_quadruped_commons" does not exist.
+Specify --help for usage, or press the help button on the CMake GUI.[0m
+gmake: *** [Makefile:226: cmake_check_build_system] Error 1

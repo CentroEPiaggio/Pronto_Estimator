@@ -14,7 +14,7 @@
 
 using namespace pronto;
 
-const std::string urdf_file = "$(find solo_robot_description)/urdf/again/solo12.urdf";
+const std::string urdf_file = "test_urdf.urdf";
 pinocchio::Model robot_model;
 
 int main(int argc, char *argv[])
@@ -29,8 +29,9 @@ int main(int argc, char *argv[])
     solo::ForwardKinematics fwd_kin(feet_jacs);
     solo::Dynamics dynamics(robot_model, data);
     solo::FeetContactForces feet_forces(feet_jacs, dynamics);
-
+    RCLCPP_INFO(rclcpp::get_logger("aaaa"),"pass here");
     solo::ProntoNode<sensor_msgs::msg::JointState> node(fwd_kin, feet_jacs, feet_forces);
+    RCLCPP_INFO(rclcpp::get_logger("aaaa"),"pass here");
 
     node.run();
 
