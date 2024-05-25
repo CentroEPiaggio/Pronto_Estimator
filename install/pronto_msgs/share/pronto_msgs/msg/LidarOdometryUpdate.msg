@@ -1,1 +1,0 @@
-/home/jacopo/Documents/Repo_Projects/Pronto_Estimator/pronto_msgs/msg/LidarOdometryUpdate.msg

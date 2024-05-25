@@ -27,14 +27,16 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(urdf REQUIRED)
 find_package(pronto_solo12 REQUIRED)
 find_package(pronto_msgs REQUIRED)
-
+find_package(gazebo_msgs REQUIRED)
 add_library(
   ${PROJECT_NAME}
   SHARED
   src/pronto_controller.cpp
   src/proprioceptive_sensor_manager.cpp
+  src/exteroceptive_sensor_sensor_manager.cpp
   src/quad_model_parser.cpp
   src/legodom_manager.cpp
+  src/gazebo_mt.cpp
   
 )
 
@@ -66,6 +68,7 @@ ament_target_dependencies(${PROJECT_NAME}
   pronto_solo12
   urdf
   pronto_solo12
+  gazebo_msgs
 )
 
 # ament_target_dependencies(
@@ -135,6 +138,7 @@ ament_export_dependencies(
   pronto_solo12
   urdf
   pronto_solo12
+  gazebo_msgs
 )
 ament_export_include_directories(
   include

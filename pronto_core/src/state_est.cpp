@@ -111,6 +111,10 @@ void StateEstimator::addUpdate(RBISUpdateInterface * update, bool roll_forward)
     std::cerr << history.toString(update->utime,3) << std::endl;
   }
 #endif
+  // if(update->sensor_id == RBISUpdateInterface::vicon){
+  //   std::cerr << "HISTORY AFTER: " << std::endl;
+  //   std::cerr << history.toString(update->utime,3) << std::endl;
+  // }
   // If there are no unprocessed updates other than the current one,
   // the current one only is where the "unprocessed" queue starts
   if (unprocessed_updates_start == history.updateMap.end() ||
@@ -157,6 +161,7 @@ void StateEstimator::addUpdate(RBISUpdateInterface * update, bool roll_forward)
 
 void StateEstimator::getHeadState(RBIS & head_state, RBIM & head_cov) const
 {
+  
   RBISUpdateInterface * head_update = history.updateMap.rbegin()->second;
   head_state = head_update->posterior_state;
   head_cov = head_update->posterior_covariance;

@@ -49,6 +49,7 @@ bool InsModule::allInitializedExcept(const std::map<std::string, bool> &_sensors
     return true;
 }
 
+
 RBISUpdateInterface * InsModule::processMessage(const ImuMeasurement * msg,
                                                  StateEstimator* state_estimator)
 {
@@ -92,11 +93,6 @@ bool InsModule::processMessageInit(const ImuMeasurement * msg,
     init_state.utime = msg->utime;
 
     RBISIMUProcessStep * update = dynamic_cast<RBISIMUProcessStep *>(processMessage(msg, NULL));
-
-    //force the INS to go last
-    if(!allInitializedExcept(sensors_initialized, "ins")){
-      return false;
-    }
 
     init_counter++;
     

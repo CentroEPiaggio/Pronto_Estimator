@@ -21,6 +21,9 @@
 #include "geometry_msgs/msg/pose_with_covariance.hpp"
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 #include "geometry_msgs/msg/vector3.hpp"
+
+#include "geometry_msgs/msg/vector3_stamped.hpp"
+
 #include "std_srvs/srv/empty.hpp"
 #include "pronto_msgs/msg/quadruped_stance.hpp"
 #include "pronto_msgs/msg/quadruped_force_torque_sensors.hpp"
@@ -35,7 +38,9 @@ namespace tuning_node
     using PosewCov = geometry_msgs::msg::PoseWithCovarianceStamped;
     using TwistwCov = geometry_msgs::msg::TwistWithCovarianceStamped;
     using StopSrv = std_srvs::srv::Empty;
-    using Vec3 = geometry_msgs::msg::Vector3;
+
+    using Vec3 = geometry_msgs::msg::Vector3Stamped;
+
     using ForceEst = pronto_msgs::msg::QuadrupedForceTorqueSensors;
     using StanceEst = pronto_msgs::msg::QuadrupedStance;
 
@@ -113,7 +118,9 @@ namespace tuning_node
 
                 writer_->create_topic(
                     {odom_twist_cor_t_name_,
-                    "geometry_msgs/msg/Vector3",
+
+                    "geometry_msgs/msg/Vector3Stamped",
+
                     rmw_get_serialization_format(),
                     ""}
                 );
@@ -194,7 +201,9 @@ namespace tuning_node
                 {
                     rclcpp::Time time_stamp = this->now();
                     const std::string name = odom_twist_cor_t_name_;
-                    const std::string type = "geometry_msgs/msg/Vector3";
+
+                    const std::string type = "geometry_msgs/msg/Vector3Stamped";
+
                     writer_-> write(msg,name,type,time_stamp);
                 }
             }
