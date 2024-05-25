@@ -14,12 +14,14 @@ find_package(pronto_msgs REQUIRED)
 find_package(pronto_core REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(tf2)
+find_package(rclcpp_lifecycle)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_eigen REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(gazebo_msgs REQUIRED)
 
 add_library(pronto_ros  SHARED  src/ins_ros_handler.cpp
                                 # src/index_meas_ros_handler.cpp
@@ -30,7 +32,7 @@ add_library(pronto_ros  SHARED  src/ins_ros_handler.cpp
                                 src/pronto_ros_conversions.cpp
                                 # src/visual_odometry_ros_handler.cpp
                                 # src/lidar_odometry_ros_handler.cpp
-                                # src/vicon_ros_handler.cpp
+                                #src/vicon_ros_handler.cpp
                                 # src/gps_ros_handler.cpp
 )
 
@@ -50,6 +52,8 @@ ament_target_dependencies(
   "tf2_geometry_msgs" 
   "rclcpp"
   "nav_msgs"
+  "gazebo_msgs"
+  "rclcpp_lifecycle"
 )
 
 set(LIBS ${Eigen3_LIBRARIES} ${ament_cmake_LIBRARIES}
@@ -88,7 +92,9 @@ ament_export_dependencies(
 "geometry_msgs"
 "tf2_geometry_msgs" 
 "rclcpp"
-"nav_msgs")
+"nav_msgs"
+"gazebo_msgs"
+"rclcpp_lifecycle")
 
 add_executable(${PROJECT_NAME}_node src/pronto_ros_node.cpp)
 target_include_directories(${PROJECT_NAME}_node PUBLIC

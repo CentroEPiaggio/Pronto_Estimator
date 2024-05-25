@@ -19,6 +19,7 @@
 
 #include <geometry_msgs/msg/pose_with_covariance_stamped.hpp>
 #include <geometry_msgs/msg/twist_with_covariance_stamped.hpp>
+#include <geometry_msgs/msg/vector3.hpp>
 #include <geometry_msgs/msg/transform_stamped.hpp>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Vector3.h>
@@ -26,7 +27,7 @@
 #include "pronto_core/sensing_module.hpp"
 #include "pronto_core/state_est.hpp"
 #include "pronto_core/rotations.hpp"
-
+#include <mutex>
 #include <array>
 #include <map>
 #include <tuple>
@@ -113,6 +114,16 @@ namespace pronto_controller
             controller_interface::return_type update(
                 const rclcpp::Time & time, const rclcpp::Duration & period
             ) override;
+
+            bool isFilterInitialized()
+            {
+                return filter_initialized_;
+            };
+            void safe_add_update(pronto::RBISUpdateInterface* update, bool r_f)
+            {
+                std::lock_guard<std::mutex> l_g(exter_man_->filt_mutex_);
+                stt_est_->addUpdate(update,r_f);
+            };
         protected:
             //
             bool initializeFilter();
@@ -124,21 +135,21 @@ namespace pronto_controller
 
             void initializeCovariance();
 
-            bool isFilterInitialized()
-            {
-                return filter_initialized_;
-            };
+            
             // use the exteroceptive sensor to understand when all its sensors are initialize
             bool isExteroceptiveSensorInit()
             {
-                // TODO call the class for exteroceptive sensor 
-                // when will be used it will be called
-                return true;
+                return exter_man_->is_all_init();
             }
 
             void get_IMU_data(rclcpp::Time time);
 
             void get_joints_data();
+
+            std::shared_ptr<StateEst> get_state_estimator_pointer()
+            {
+                return stt_est_;
+            };
         private:
             //state estimator
             std::shared_ptr<StateEst> stt_est_;
@@ -164,7 +175,7 @@ namespace pronto_controller
             std::vector<std::string> est_params_ = {
                 "sigma0.vb",
                 "sigma0.chi_xy",
-                "sigma0.chi_x",
+                "sigma0.chi_z",
                 "sigma0.Delta_xy",
                 "sigma0.Delta_z",
                 "sigma0.gyro_bias",
@@ -210,8 +221,7 @@ namespace pronto_controller
             std::unique_ptr<Exte_Sensor_Manager> exter_man_;
 
             pronto::ImuMeasurement imu_data_;
-
-
+            std::mutex filter_mutex_;
             // TODO the class to manage the proprioceptive and exteroceptive sensors
             // should manage for sure the init map
             //=> each module should menage a subset of sensor and fill the controller map

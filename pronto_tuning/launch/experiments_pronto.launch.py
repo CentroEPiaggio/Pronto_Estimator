@@ -30,6 +30,7 @@ def generate_launch_description():
             record_launch,command_time
         ]
     )
+    
     simulator_solo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
                     os.path.join(get_package_share_path('robot_gazebo'), 'launch', 'anymal_c.launch.py')
@@ -45,6 +46,7 @@ def generate_launch_description():
         shell=True,
         output = "screen"
     )
+    
     return LaunchDescription([
         simulator_solo,
         

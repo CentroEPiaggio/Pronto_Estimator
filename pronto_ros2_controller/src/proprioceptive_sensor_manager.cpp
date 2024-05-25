@@ -1,5 +1,6 @@
 #include "pronto_ros2_controller/proprioceptive_sensor_manager.hpp"
 
+
 namespace pronto_controller
 {
     void Prop_Sensor_Manager::conf_ins()
@@ -152,6 +153,41 @@ namespace pronto_controller
 
     };
 
+    void Prop_Sensor_Manager::conf_imu_bias_lock()
+    {
+        // the change of the imu frame into base frame is done by the hardwareinterface
+        Eigen::Isometry3d ins_to_body = Eigen::Isometry3d::Identity();
+
+        std::string ibl_param_prefix = "bias_lock.";
+        // start to get all parameters
+        pronto::quadruped::ImuBiasLockConfig cnf;
+
+        double torque_t = 3.0, velocity_t = 0.01;
+
+        // get the ImuBiasLock parameters
+        if(!filt_controler_-> get_parameter(ibl_param_prefix + "torque_threshold",torque_t))
+        {
+            RCLCPP_WARN_STREAM(filt_controler_->get_logger(), 
+            "Couldn't get param " << filt_controler_->get_namespace() << "/" << ibl_param_prefix 
+            << "q_accel\". Using default: "
+            << torque_t);
+        }
+
+        if(!filt_controler_->get_parameter(ibl_param_prefix + "velocity_threshold",velocity_t))
+        {
+            RCLCPP_WARN_STREAM(filt_controler_->get_logger(), 
+            "Couldn't get param " << filt_controler_->get_namespace() << "/" << ibl_param_prefix 
+            << "q_accel\". Using default: "
+            << velocity_t);
+        }
+
+        cnf.torque_threshold_ = torque_t;
+        cnf.velocity_threshold_ = velocity_t;
+
+        ibl_ = std::make_unique<ImuBiasLock>(ins_to_body,cnf);
+    };
+
+
     bool Prop_Sensor_Manager::isInsInitialized(
                 const pronto::ImuMeasurement * msr,
                 std::map<std::string,bool> init_map,
@@ -170,6 +206,25 @@ namespace pronto_controller
             )
     {
         return ins_->processMessage(msr, est);
+    }
+
+    
+    pronto::RBISUpdateInterface* Prop_Sensor_Manager::processImuBaisData(
+        const pronto::ImuMeasurement * msr,
+        StateEst * est,
+        std::map<std::string,std::tuple<double,double,double>>* jnt_stt
+    )
+    {
+            pronto::JointState stt_data;
+            std::tuple<double,double,double> jnt_data;
+            for(size_t i = 0; i < jnt_id.size(); i++)
+            {
+                jnt_data = jnt_stt->at(jnt_id[i]);
+                stt_data.joint_velocity[i] = std::get<1>(jnt_data);
+                stt_data.joint_effort[i] = std::get<2>(jnt_data);
+            }
+            ibl_ ->processSecondaryMessage(stt_data);
+            return ibl_ -> processMessage(msr,est);
     }
 
     pronto::RBISUpdateInterface* Prop_Sensor_Manager::update_odom(rclcpp::Time time, pronto::StateEstimator* stt_est)

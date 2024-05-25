@@ -53,11 +53,19 @@ CallbackReturn Pronto_Controller::on_init()
 
         auto_declare<std::string>("urdf_path", std::string());
 
+        //declare exterocpetive init list sensor
+        auto_declare<std::vector<std::string>>("init_exteroceptive_sensors",std::vector<std::string>());
+        
+        //declare exterocpetive active list sensor
+        auto_declare<std::vector<std::string>>("active_exteroceptive_sensors",std::vector<std::string>());
+
+
         // RCLCPP_INFO(rclcpp::get_logger("PRONTO_ESTIMATOR INIT"),"Declared Parameter urdf");
     }
     catch (const std::exception& e) {
         RCLCPP_ERROR(get_node()->get_logger(), "Exception thrown during declaration of joints name with message: %s", e.what());
     }
+    
     RCLCPP_INFO(rclcpp::get_logger("PRONTO_ESTIMATOR INIT"), "Construct the Ros2 Control Estimator Pronto-based");
     return CallbackReturn::SUCCESS;
 };
@@ -68,6 +76,7 @@ CallbackReturn Pronto_Controller::on_configure(const rclcpp_lifecycle::State&)
     rclcpp::QoS out_qos(10);
     std::string name_spot;
     std::tuple<double, double, double> zeros = {0.0, 0.0, 0.0};
+    std::vector<std::string> init_sens,active_sens;
     out_qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
 
     RCLCPP_INFO(get_node()->get_logger(), "on_configure: init broadcaster ");
@@ -135,6 +144,7 @@ CallbackReturn Pronto_Controller::on_configure(const rclcpp_lifecycle::State&)
         RCLCPP_ERROR(get_node()->get_logger(), "Error parsing the joints name");
         return CallbackReturn::ERROR;
     }
+
     if (joints_.empty()) {
         RCLCPP_INFO(get_node()->get_logger(), "the joints could not be empty");
         return CallbackReturn::ERROR;
@@ -148,17 +158,46 @@ CallbackReturn Pronto_Controller::on_configure(const rclcpp_lifecycle::State&)
     for (auto& jnt_n : joints_) {
         jnt_stt_.insert({jnt_n, zeros});
     }
-    // initialize state and covariance from parameter calling the init function
 
+    // get exteroceptive sensors lists
+    if(!get_node()->get_parameter("init_exteroceptive_sensors",init_sens))
+    {
+        RCLCPP_ERROR(get_node()->get_logger(), "Error parsing exteroceptive init sensor");
+        return CallbackReturn::ERROR;
+    }
+    RCLCPP_INFO(get_node()->get_logger(),"the init module desired are [");
+    for(auto a : init_sens)
+    {
+        RCLCPP_INFO(get_node()->get_logger(),"%s",a.c_str());
+    }
+    RCLCPP_INFO(get_node()->get_logger(),"]");
+    if(!get_node()->get_parameter("active_exteroceptive_sensors",active_sens))
+    {
+        RCLCPP_ERROR(get_node()->get_logger(), "Error parsing exteroceptive active sensor");
+        return CallbackReturn::ERROR;
+    }
+
+    RCLCPP_INFO(get_node()->get_logger(),"the active module desired are [");
+    for(auto a : active_sens)
+    {
+        RCLCPP_INFO(get_node()->get_logger(),"%s",a.c_str());
+    }
+    RCLCPP_INFO(get_node()->get_logger(),"]");
+
+    // initialize state and covariance from parameter calling the init function
     initializeState();
     RCLCPP_INFO(get_node()->get_logger(), "on_configure: made state initialization");
     initializeCovariance();
     RCLCPP_INFO(get_node()->get_logger(), "on_configure: made covariance initialization");
-    // create the proprioceptive and exteroceptive sensormanager and build the data structure
+    // create the proprioceptive  sensormanager and build the data structure
     propr_man_ = std::make_unique<Prop_Sensor_Manager>(get_node(), jnt_stt_, urdf_path_);
     RCLCPP_INFO(get_node()->get_logger(), "on_configure:create prop sens menager");
-
     propr_man_->conf_prop_sens();
+
+    // build exteroceptive sensor manager and build the init and acrtive subs
+    exter_man_ = std::make_unique<Exte_Sensor_Manager>(get_node(),active_sens,init_sens);
+    RCLCPP_INFO(get_node()->get_logger(), "on_configure:create exter sens menager");
+    exter_man_->configure_exteroceptive_module(default_state_,default_cov_);
     // exter_man_ = std::make_unique<Exte_Sensor_Manager>(get_node());
     RCLCPP_INFO(get_node()->get_logger(), "Completed estimator Configuration ");
     return CallbackReturn::SUCCESS;
@@ -232,38 +271,61 @@ controller_interface::return_type Pronto_Controller::update(const rclcpp::Time& 
         if (!isFilterInitialized()) {
             // try to init the INS
 
-            if (propr_man_->isInsInitialized(
-                    &imu_data_,
-                    sens_init_stt_,
-                    default_state_,
-                    default_cov_,
-                    init_state_,
-                    init_cov_)) {
-                initializeFilter();
-                RCLCPP_INFO(get_node()->get_logger(), "the filter is initialized");
-                fil_stt_ = Filter_State::INITIALIZED;
+            //Add cndition init exteroceptive sensing module
+            if (isExteroceptiveSensorInit()) 
+            {
+                // get the init state and cov from exteroceptive
+                if(sens_init_stt_.empty())
+                {
+                    sens_init_stt_ = exter_man_->get_initialized_sens();
+                }
+                if (propr_man_->isInsInitialized(
+                        &imu_data_,
+                        sens_init_stt_,
+                        default_state_,
+                        default_cov_,
+                        init_state_,
+                        init_cov_)) {
+                    initializeFilter();
+                    exter_man_->set_estimator(stt_est_);
+                    RCLCPP_INFO(get_node()->get_logger(), "the filter is initialized");
+                    fil_stt_ = Filter_State::INITIALIZED;
+                 
+                }
             }
         }
+    
     } else if (fil_stt_ == Filter_State::INITIALIZED) {
         // set the update dt get from the update arguments
 
         propr_man_->setInsTimeStep(period);
-        // get the update from imu sensor
-        pronto::RBISUpdateInterface* update_imu = propr_man_->processInsData(&imu_data_, stt_est_.get());
 
-        // update the filter with Ins
-        stt_est_->addUpdate(update_imu,true);
-        //update the proprioceptive update
+        {
+            std::lock_guard<std::mutex> m_t(exter_man_->filt_mutex_);
+            // get the update of ImuBiasLock
+            pronto::RBISUpdateInterface* update_ibl = propr_man_->processImuBaisData(&imu_data_,stt_est_.get(),&jnt_stt_);
 
-        pronto::RBISUpdateInterface* update_odom = propr_man_->update_odom(time, stt_est_.get());
-        // RCLCPP_INFO(get_node()->get_logger(),"pass");
-        // // update the filter with Ins
-        if(update_odom != nullptr)
-            stt_est_->addUpdate(update_odom, true);
-        // RCLCPP_INFO(get_node()->get_logger(),"pass");
-        //get the updated state anc cov
-        stt_est_->getHeadState(head_state_, head_cov_);
+            // get the update from imu sensor
+            pronto::RBISUpdateInterface* update_imu = propr_man_->processInsData(&imu_data_, stt_est_.get());
 
+            //update the proprioceptive update
+            pronto::RBISUpdateInterface* update_odom = propr_man_->update_odom(time, stt_est_.get());
+
+        
+            // std::lock_guard<std::mutex>(filter_mutex_.get);
+            // update bias if needed
+            if(update_ibl != nullptr)
+                stt_est_->addUpdate(update_ibl,true);
+            // update the filter with Ins
+            stt_est_->addUpdate(update_imu,true);
+            // RCLCPP_INFO(get_node()->get_logger(),"pass");
+            // // update the filter with Ins
+            if(update_odom != nullptr)
+                stt_est_->addUpdate(update_odom, true);
+            // RCLCPP_INFO(get_node()->get_logger(),"pass");
+            //get the updated state anc cov
+            stt_est_->getHeadState(head_state_, head_cov_);
+        }
         // get the base state and build the ros2 message
         // start from velocity
         Eigen::Quaterniond orient;
@@ -417,9 +479,7 @@ void Pronto_Controller::initializeCovariance()
 
 bool Pronto_Controller::initializeFilter()
 {
-    if (!isExteroceptiveSensorInit()) {
-        return false;
-    }
+    
     if (isFilterInitialized()) {
         return true;
     }

@@ -55,6 +55,7 @@ public:
 protected:
   bool allInitializedExcept(const std::map<std::string, bool> & _sensors_initialized,
                             const std::string & sensor_prefix);
+  
 
   // Common Initialization Function:
   bool processMessageInitCommon(const std::map<std::string, bool> & sensors_initialized,

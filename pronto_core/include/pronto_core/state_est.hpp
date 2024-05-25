@@ -34,6 +34,11 @@ public:
 
   double getMeasurementsLogLikelihood() const;
   void EKFSmoothBackwardsPass(double dt);
+
+  int prova()
+  {
+    return 1;
+  }
 };
 
 }  // namespace pronto
