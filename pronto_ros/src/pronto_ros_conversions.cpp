@@ -77,7 +77,7 @@ void msgToImuMeasurement(const sensor_msgs::msg::Imu &imu_msg,
   // tf2::convert(imu_msg.orientation, imu_meas.orientation);
   // tf2::convert(imu_msg.angular_velocity, imu_meas.omega);
 
-  imu_meas.utime = imu_msg.header.stamp.nanosec / 1000 + utime_offset;
+  imu_meas.utime = imu_msg.header.stamp.sec*std::pow(10,6) +(int)(imu_msg.header.stamp.nanosec /1000)  + utime_offset;
 }
 
 void poseMsgFromROS(const geometry_msgs::msg::PoseWithCovarianceStamped &msg,

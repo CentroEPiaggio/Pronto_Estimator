@@ -39,6 +39,8 @@
 #include <geometry_msgs/msg/twist_stamped.hpp>
 #include <geometry_msgs/msg/accel_stamped.hpp>
 
+#include "pi3hat_moteus_int_msgs/msg/joints_states.hpp"
+
 
 namespace pronto {
 namespace quadruped {
@@ -68,7 +70,12 @@ unsigned long toNsec(const builtin_interfaces::msg::Time & time)
     uint64_t nsec = time.nanosec;
     return sec*1000000000ull + nsec; 
 }
-
+unsigned long tomsec(const builtin_interfaces::msg::Time & time) 
+{ 
+    uint64_t sec = time.sec;
+    uint64_t nsec = time.nanosec;
+    return sec*1000000000ull + nsec; 
+}
 class LegodoHandlerBase {
 public:
     using LegScalarMap = LegDataMap<double>;
@@ -76,13 +83,25 @@ public:
 
 public:
     LegodoHandlerBase(rclcpp::Node::SharedPtr nh,
-                      StanceEstimatorROS& fcf,
-                      LegOdometerROS& fj);
+                      StanceEstimatorROS* fcf,
+                      LegOdometerROS* fj,
+                      std::vector<std::string> jnt_names=
+                                     {"LF_HAA", "LF_HFE", "LF_KFE",
+                                      "RF_HAA", "RF_HFE", "RF_KFE",
+                                      "LH_HAA", "LH_HFE", "LH_KFE",
+                                      "RH_HAA", "RH_HFE", "RH_KFE"});
     virtual ~LegodoHandlerBase() = default;
+    // void order_msg()
+    // {
+    //     for(auto &jnt_n:jnt_names_)
+    //     {
+    //         find()
+    //     }
+    // }
 
 protected:
-    StanceEstimatorROS& stance_estimator_;
-    LegOdometerROS& leg_odometer_;
+    StanceEstimatorROS* stance_estimator_;
+    LegOdometerROS* leg_odometer_;
 
     std::string base_link_name_;           ///< Name of the base_link
     std::vector<std::string> foot_names_;  ///< Name of the feet frames (in LF, RF, LH, RH order)
@@ -123,7 +142,7 @@ protected:
     rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr prior_velocity_debug_;
     rclcpp::Publisher<geometry_msgs::msg::AccelStamped>::SharedPtr prior_accel_debug_;
     rclcpp::Publisher<pronto_msgs::msg::VelocityWithSigmaBounds>::SharedPtr vel_sigma_bounds_pub_;
-
+    std::vector<std::string> jnt_names_;
     bool debug_ = true;  // Debug output including CSV output
     bool output_log_to_file_ = true;
     geometry_msgs::msg::WrenchStamped wrench_msg_;
@@ -138,18 +157,74 @@ protected:
 
     virtual Update* computeVelocity();
     virtual void getPreviousState (const StateEstimator *est);
-
-private:
     rclcpp::Node::SharedPtr nh_;
+
+    
 };
 
+
+class LegodoHandlerPinRos : public pronto::SensingModule<pi3hat_moteus_int_msgs::msg::JointsStates>,
+                            public LegodoHandlerBase
+{
+    public:
+        LegodoHandlerPinRos(
+            rclcpp::Node::SharedPtr nh,
+            StanceEstimatorROS* stance_est,
+            LegOdometerROS* legodo,
+            std::vector<std::string> jnt_names=
+                                     {"LF_HAA", "LF_HFE", "LF_KFE",
+                                      "RF_HAA", "RF_HFE", "RF_KFE",
+                                      "LH_HAA", "LH_HFE", "LH_KFE",
+                                      "RH_HAA", "RH_HFE", "RH_KFE"}
+        );
+        virtual ~LegodoHandlerPinRos() = default;
+        Update* processMessage(const pi3hat_moteus_int_msgs::msg::JointsStates *msg, 
+                                StateEstimator *est) override;
+
+        bool processMessageInit(const pi3hat_moteus_int_msgs::msg::JointsStates *msg,
+                                const std::map<std::string, bool> &sensor_initialized,
+                                const RBIS &default_state,
+                                const RBIM &default_cov,
+                                RBIS &init_state,
+                                RBIM &init_cov) override;
+    
+
+};
+
+class LegodoHandlerPinRos_Sim : public pronto::SensingModule<sensor_msgs::msg::JointState>,
+                            public LegodoHandlerBase
+{
+    public:
+        LegodoHandlerPinRos_Sim(
+            rclcpp::Node::SharedPtr nh,
+            StanceEstimatorROS* stance_est,
+            LegOdometerROS* legodo,
+            std::vector<std::string> jnt_names=
+                                     {"LF_HAA", "LF_HFE", "LF_KFE",
+                                      "RF_HAA", "RF_HFE", "RF_KFE",
+                                      "LH_HAA", "LH_HFE", "LH_KFE",
+                                      "RH_HAA", "RH_HFE", "RH_KFE"}
+        );
+        virtual ~LegodoHandlerPinRos_Sim() = default;
+        Update* processMessage(const sensor_msgs::msg::JointState *msg, 
+                                StateEstimator *est) override;
+
+        bool processMessageInit(const sensor_msgs::msg::JointState *msg,
+                                const std::map<std::string, bool> &sensor_initialized,
+                                const RBIS &default_state,
+                                const RBIM &default_cov,
+                                RBIS &init_state,
+                                RBIM &init_cov) override;
+    
+
+};
 class LegodoHandlerROS : public pronto::SensingModule<sensor_msgs::msg::JointState>,
                          public LegodoHandlerBase
 {
 public:
     LegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                     StanceEstimatorROS &stance_est,
-                     LegOdometerROS &legodo);
+                     StanceEstimatorROS *stance_est,
+                     LegOdometerROS *legodo);
     virtual ~LegodoHandlerROS() = default;
 
     Update* processMessage(const sensor_msgs::msg::JointState *msg, 
@@ -171,8 +246,8 @@ class LegodoHandlerWithAccelerationROS : public pronto::SensingModule<pronto_msg
 {
 public:
     LegodoHandlerWithAccelerationROS(rclcpp::Node::SharedPtr nh,
-                                       StanceEstimatorROS &stance_est,
-                                       LegOdometerROS &legodo) : 
+                                       StanceEstimatorROS *stance_est,
+                                       LegOdometerROS *legodo) : 
     nh_(nh),
     LegodoHandlerBase(nh, stance_est, legodo) 
     {
@@ -200,8 +275,8 @@ class ForceSensorLegodoHandlerROS : public LegodoHandlerBase,
 {
 public:
     ForceSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                                StanceEstimatorROS& stance_est,
-                                LegOdometerROS& legodo);
+                                StanceEstimatorROS* stance_est,
+                                LegOdometerROS* legodo);
     virtual ~ForceSensorLegodoHandlerROS() = default;
 
         
@@ -227,8 +302,8 @@ class FootSensorLegodoHandlerROS : public LegodoHandlerBase,
 {
 public:
     FootSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                                StanceEstimatorROS& stance_est,
-                                LegOdometerROS& legodo);
+                                StanceEstimatorROS* stance_est,
+                                LegOdometerROS* legodo);
     virtual ~FootSensorLegodoHandlerROS() = default;
 
     Update* processMessage(const sensor_msgs::msg::JointState *msg, 

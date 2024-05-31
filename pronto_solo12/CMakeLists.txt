@@ -16,7 +16,7 @@ find_package(pinocchio REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(urdf REQUIRED)
 
-add_executable(pinocchio_test_node  src/pinocchio_node.cpp)
+# add_executable(pinocchio_test_node  src/pinocchio_node.cpp)
 
 add_library(${PROJECT_NAME}  SHARED src/feet_jacobians.cpp
                                     src/forward_kinematics.cpp
@@ -39,18 +39,18 @@ ament_target_dependencies(
   "pinocchio"
   "nav_msgs"
 )
-ament_target_dependencies(
-  pinocchio_test_node
-  "pronto_ros"
-  "pronto_quadruped_ros"
-  "rclcpp"
-  "sensor_msgs"
-  "pinocchio"
-  "nav_msgs"
-  "urdf"
-)
-# ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
-# ament_export_dependencies(some_dependency)
+# ament_target_dependencies(
+#   pinocchio_test_node
+#   "pronto_ros"
+#   "pronto_quadruped_ros"
+#   "rclcpp"
+#   "sensor_msgs"
+#   "pinocchio"
+#   "nav_msgs"
+#   "urdf"
+# )
+# # ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
+# # ament_export_dependencies(some_dependency)
 
 install(
   DIRECTORY include/
@@ -63,9 +63,9 @@ install(
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
-install(TARGETS
-  pinocchio_test_node
-  DESTINATION lib/${PROJECT_NAME})
+# install(TARGETS
+#   pinocchio_test_node
+#   DESTINATION lib/${PROJECT_NAME})
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
@@ -77,29 +77,29 @@ ament_export_dependencies("pronto_ros"
 "nav_msgs")
 
 
-add_executable(pronto_estimator_node src/pronto_estimator.cpp)
-target_include_directories(pronto_estimator_node PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_compile_features(pronto_estimator_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+# add_executable(pronto_estimator_node src/pronto_estimator.cpp)
+# target_include_directories(pronto_estimator_node PUBLIC
+#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#   $<INSTALL_INTERFACE:include>)
+# target_compile_features(pronto_estimator_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-target_link_libraries(pronto_estimator_node ${PROJECT_NAME})
+# target_link_libraries(pronto_estimator_node ${PROJECT_NAME})
 
-install(TARGETS pronto_estimator_node
-  DESTINATION lib/${PROJECT_NAME})
+# install(TARGETS pronto_estimator_node
+#   DESTINATION lib/${PROJECT_NAME})
 
 install(
   DIRECTORY launch config
   DESTINATION share/${PROJECT_NAME}
 )
 
-ament_target_dependencies(
-  pronto_estimator_node
-  "pronto_ros"
-  "pronto_quadruped_ros"
-  "rclcpp"
-  "sensor_msgs"
-)
+# ament_target_dependencies(
+#   pronto_estimator_node
+#   "pronto_ros"
+#   "pronto_quadruped_ros"
+#   "rclcpp"
+#   "sensor_msgs"
+# )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

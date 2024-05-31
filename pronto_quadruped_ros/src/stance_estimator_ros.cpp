@@ -31,7 +31,7 @@ StanceEstimatorROS::StanceEstimatorROS(rclcpp::Node::SharedPtr nh,
      StanceEstimator(feet_forces), nh_(nh)
 {
     // get parameters for the leg odometry
-    std::string legodo_prefix = "legodo/";
+    std::string legodo_prefix = "legodo.";
 
     // stance estimator parameters
     std::vector<double> beta;
@@ -43,8 +43,16 @@ StanceEstimatorROS::StanceEstimatorROS(rclcpp::Node::SharedPtr nh,
     int stance_hysteresis_delay_high_int = 0;
     double hysteresis_high = 50;
     double stance_threshold = 50;
-
     int stance_mode;
+
+    nh_->declare_parameter<int>(legodo_prefix + "stance_mode",0);
+    nh_->declare_parameter<double>(legodo_prefix + "stance_threshold",stance_threshold);
+    nh_->declare_parameter<double>(legodo_prefix + "stance_hysteresis_low",stance_hysteresis_delay_low);
+    nh_->declare_parameter<double>(legodo_prefix + "stance_hysteresis_high",stance_hysteresis_delay_high);
+    nh_->declare_parameter<int>(legodo_prefix + "stance_hysteresis_delay_low",stance_hysteresis_delay_low_int);
+    nh_->declare_parameter<int>(legodo_prefix + "stance_hysteresis_delay_high",stance_hysteresis_delay_high_int);
+    nh_->declare_parameter<std::vector<double>>(legodo_prefix + "stance_regression_beta",std::vector<double>());
+
     if(!nh_->get_parameter(legodo_prefix + "stance_mode", stance_mode)){
         RCLCPP_WARN(nh->get_logger(), "Could not read the stance mode from param server. Using threshold with default 50 N.");
         setMode(Mode::THRESHOLD);

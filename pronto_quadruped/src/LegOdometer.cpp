@@ -51,20 +51,20 @@ LegOdometer::~LegOdometer() {
 }
 
 void LegOdometer::setMode(const SigmaMode s_mode, const AverageMode a_mode) {
-  std::cout << "[ LegOdometer ] Sigma Mode changed to: ";
+  std::cerr << "[ LegOdometer ] Sigma Mode changed to: ";
 
   switch(s_mode){
   case SigmaMode::STATIC_SIGMA:
-    std::cout << "Static Sigma" << std::endl;
+    std::cerr << "Static Sigma" << std::endl;
     break;
   case SigmaMode::VAR_SIGMA:
-    std::cout << "Var Sigma" << std::endl;
+    std::cerr << "Var Sigma" << std::endl;
     break;
   case SigmaMode::VAR_AND_IMPACT_SIGMA:
-    std::cout << "Var and Impact Sigma" << std::endl;
+    std::cerr << "Var and Impact Sigma" << std::endl;
     break;
   case SigmaMode::IMPACT_SIGMA:
-    std::cout << "Impact Sigma" << std::endl;
+    std::cerr << "Impact Sigma" << std::endl;
     break;
   default:
     throw std::runtime_error("Unknown SigmaMode");
@@ -72,13 +72,13 @@ void LegOdometer::setMode(const SigmaMode s_mode, const AverageMode a_mode) {
   }
 
   s_mode_ = s_mode;
-  std::cout << "[ LegOdometer ] Average Mode changed to: ";
+  std::cerr << "[ LegOdometer ] Average Mode changed to: ";
   switch (a_mode) {
   case AverageMode::SIMPLE_AVG:
-    std::cout << "Simple Average" << std::endl;
+    std::cerr << "Simple Average" << std::endl;
     break;
   case AverageMode::WEIGHTED_AVG:
-    std::cout << "Weighted Average" << std::endl;
+    std::cerr << "Weighted Average" << std::endl;
     break;
   default:
     throw std::runtime_error("Unknown AverageMode");
@@ -135,10 +135,10 @@ void LegOdometer::setInitVelocityStd(const Eigen::Vector3d& vel_std){
     vel_std_ = initial_vel_std_;
     initial_vel_cov_ = vel_std.array().square().matrix().asDiagonal();
     Eigen::IOFormat clean_fmt(4, 0, ", ", "\n", "[", "]");
-    std::cout << "Set Initial standard deviation: " << std::endl;
-    std::cout << initial_vel_std_.format(clean_fmt) << std::endl;
-    std::cout << "Set Initial covariance: " << std::endl;
-    std::cout << initial_vel_cov_.format(clean_fmt) << std::endl;
+    std::cerr << "Set Initial standard deviation: " << std::endl;
+    std::cerr << initial_vel_std_.format(clean_fmt) << std::endl;
+    std::cerr << "Set Initial covariance: " << std::endl;
+    std::cerr << initial_vel_cov_.format(clean_fmt) << std::endl;
 }
 
 void LegOdometer::setInitPositionCov(const Eigen::Matrix3d& pos_cov){
@@ -179,7 +179,7 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
         base_vel_leg_[LegID(leg)] = - feet_jacobians_.getFootJacobian(q, LegID(leg))
                             * qd.block<3,1>(leg * 3, 0) ; //+ Eigen::Vector3d(0.4,0.0,0.0);
                               - omega.cross(foot_pos_[LegID(leg)]);
-
+                      
         // base_vel_leg_[LegID(leg)] = -feet_jacobians_.getFootJacobian(q,LegID(leg)).block
         //                       - omega.cross(foot_pos_[LegID(leg)]);
         // std::cerr<< " the "<<leg<<"-th jacbian is "<<std::endl
@@ -193,6 +193,7 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
     // std::cerr << " the "<< leg<<"-th leg est_vel is "<<base_vel_leg_[LegID(leg)].transpose()<< "and the stance prob is "<< stance_legs[leg]<<std::endl;
     // std::cerr << " the "<<leg<<"-th jacobian is "<<std::endl<<feet_jacobians_.getFootJacobian(q, LegID(leg))<<std::endl;
     // std::cerr << " the "<<leg<<"-th qdot are "<<std::endl<<qd.block<3,1>(leg * 3, 0)<<std::endl;
+    // std::cerr << " the "<<leg<<"-th q are "<<std::endl<<q.block<3,1>(leg * 3, 0)<<std::endl;
     // std::cerr << "the FK of "<<leg<<"-th leg is "<< foot_pos_[leg].transpose()<<std::endl;
     // std::cerr<< leg<< "-th the jacobian part is " <<  feet_jacobians_.getFootJacobian(q, LegID(leg))<<std::endl<<std::endl;
     }
@@ -271,26 +272,26 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
         //   xd_b_ = xd_b_peak;
         // }
 
-        // std::cout << stance_legs << std::endl << stance_legs[0] + stance_legs[1] + stance_legs[2] + stance_legs[3]<< std::endl;
+        // std::cerr << stance_legs << std::endl << stance_legs[0] + stance_legs[1] + stance_legs[2] + stance_legs[3]<< std::endl;
       
-        // std::cout<< "PDPDPPDPDPDPPDPDPD"<<std::endl;
+        // std::cerr<< "PDPDPPDPDPDPPDPDPD"<<std::endl;
         // if(stance_legs[0] + stance_legs[1] + stance_legs[2] + stance_legs[3] == 4)
         // {
-        //   std::cout << "leg count è uno devo tornare false PDPDPDPDPD"<<std::endl;
+        //   std::cerr << "leg count è uno devo tornare false PDPDPDPDPD"<<std::endl;
           
         // }
         if(leg_count == 0) { 
             // if(leg_count == 1)
             // {
-            //   std::cout<<"at time "
+            //   std::cerr<<"at time "
             // }
 
-            if(count == 0)
-            {
-              xd_b_peak = old_xd_b;
-              count ++;
-            }
-            xd_b_ = xd_b_peak;
+            // if(count == 0)
+            // {
+            //   xd_b_peak = old_xd_b;
+            //   count ++;
+            // }
+            // xd_b_ = xd_b_peak;
             return false;
         }
 

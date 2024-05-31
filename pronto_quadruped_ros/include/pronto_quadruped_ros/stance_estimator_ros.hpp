@@ -33,6 +33,7 @@ class StanceEstimatorROS : public StanceEstimator {
 public:
     StanceEstimatorROS(rclcpp::Node::SharedPtr nh,
                        FeetContactForces& feet_forces);
+
 private:
     rclcpp::Node::SharedPtr nh_;
 };

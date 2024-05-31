@@ -36,13 +36,16 @@ namespace pronto {
 namespace quadruped {
 
 LegodoHandlerBase::LegodoHandlerBase(rclcpp::Node::SharedPtr nh,
-                                     StanceEstimatorROS& stance_est,
-                                     LegOdometerROS& legodo) :
+                                     StanceEstimatorROS* stance_est,
+                                     LegOdometerROS* legodo,
+                                     std::vector<std::string> jnt_names 
+                                     ) :
     nh_(nh),
     stance_estimator_(stance_est),
-    leg_odometer_(legodo)
+    leg_odometer_(legodo),
+    jnt_names_(jnt_names)
 {
-    const std::string prefix = "legodo/";
+    const std::string prefix = "legodo.";
 
     int downsample_factor_ = nh_->get_parameter_or<int>(prefix + "downsample_factor", 1);
     int utime_offset_ = nh_->get_parameter_or<int>(prefix + "utime_offset", 0);
@@ -52,6 +55,11 @@ LegodoHandlerBase::LegodoHandlerBase(rclcpp::Node::SharedPtr nh,
     double r_vx;
     double r_vy;
     double r_vz;
+
+    nh_->declare_parameter<double>(prefix + "r_vx",0.01);
+    nh_->declare_parameter<double>(prefix + "r_vy",0.01);
+    nh_->declare_parameter<double>(prefix + "r_vz",0.01);
+    nh_->declare_parameter<bool>(prefix + "publish_debug_topics",true);
     if (!nh_->get_parameter(prefix + "r_vx", r_vx)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), "Could not retrieve r_vx from parameter server. Setting to default.");
         r_vx = 0.1;
@@ -66,7 +74,7 @@ LegodoHandlerBase::LegodoHandlerBase(rclcpp::Node::SharedPtr nh,
     }
 
     Eigen::Vector3d r_legodo_init(r_vx, r_vy, r_vz);
-    leg_odometer_.setInitVelocityStd(r_legodo_init);
+    leg_odometer_->setInitVelocityStd(r_legodo_init);
 
     // Get link name settings for debug topic publishing
     base_link_name_ = nh_->get_parameter_or<std::string>("base_link_name", "base");
@@ -148,7 +156,7 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
 {
     if (debug_) {
         // Publish GRF
-        LegVectorMap grf = stance_estimator_.getGRF();
+        LegVectorMap grf = stance_estimator_->getGRF();
         wrench_msg_.header.stamp = fromNSec(nsec_); // da controllare
         stance_msg_.header.stamp = wrench_msg_.header.stamp;
         for (int i = 0; i < 4; i++) {
@@ -161,12 +169,12 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
 
             // Publish GRF in locally-aligned (foot) frame (for visualization)
             // TODO: Fix the upstream API to not require a cast
-            Eigen::Matrix3d R = reinterpret_cast<LegOdometer*>(&leg_odometer_)->getForwardKinematics().getFootOrientation(q_, LegID(i));
+            Eigen::Matrix3d R = reinterpret_cast<LegOdometer*>(leg_odometer_)->getForwardKinematics().getFootOrientation(q_, LegID(i));
             Eigen::Vector3d grf_in_foot_frame = R.transpose() * grf[LegID(i)];
             wrench_msg_.header.frame_id = foot_names_[i];
             wrench_msg_.wrench.force.x = grf_in_foot_frame.x();
             wrench_msg_.wrench.force.y = grf_in_foot_frame.y();
-            wrench_msg_.wrench.force.z = grf_in_foot_frame.z();
+            wrench_msg_.wrench.force.z = grf_in_foot_frame.z();            
             grf_in_foot_frame_debug_[i]->publish(wrench_msg_);
         }
         stance_msg_.lf = stance_[LegID::LF] * 0.4;
@@ -174,7 +182,6 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
         stance_msg_.lh = stance_[LegID::LH] * 0.2;
         stance_msg_.rh = stance_[LegID::RH] * 0.1;
         stance_pub_->publish(stance_msg_);
-
         // Publish prior accel
         geometry_msgs::msg::AccelStamped prior_accel_msg;
         prior_accel_msg.header.frame_id = base_link_name_;
@@ -201,7 +208,6 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
                                         qdd_(6), qdd_(7), qdd_(8),
                                         qdd_(9), qdd_(10), qdd_(11)};
         prior_joint_accel_debug_->publish(prior_joint_accel_msg);
-
         // Publish prior velocity
         geometry_msgs::msg::TwistStamped prior_vel_msg;
         prior_vel_msg.header.frame_id = base_link_name_;
@@ -219,13 +225,12 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
     // TODO add support for the dynamic stance estimator
 
     // get the ground reaction forces from the stance estimator
-    stance_estimator_.getGRF(grf_);
+    stance_estimator_->getGRF(grf_);
 
     // and pass them over to the leg odometer
-    leg_odometer_.setGrf(grf_);
-
+    leg_odometer_->setGrf(grf_);
     // NB: All required variables are updated in their respective processMessage() methods
-    if (leg_odometer_.estimateVelocity(utime_,
+    if (leg_odometer_->estimateVelocity(utime_,
                                        q_,
                                        qd_,
                                        omega_,
@@ -244,7 +249,7 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
             vectToMsg(xd_ - r_legodo_, vel_sigma_bound_msg_.velocity_minus_one_sigma);
             vel_sigma_bounds_pub_->publish(vel_sigma_bound_msg_);
             LegVectorMap veldebug;
-            leg_odometer_.getVelocitiesFromLegs(veldebug);
+            leg_odometer_->getVelocitiesFromLegs(veldebug);
             geometry_msgs::msg::TwistStamped twist;
             twist.header.stamp = fromNSec(nsec_);
             twist.twist.angular.x = 0;
@@ -280,8 +285,8 @@ LegodoHandlerBase::Update *LegodoHandlerBase::computeVelocity()
     return nullptr;
 }
 LegodoHandlerROS::LegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                                   StanceEstimatorROS& stance_est,
-                                   LegOdometerROS& legodo) :
+                                   StanceEstimatorROS* stance_est,
+                                   LegOdometerROS* legodo) :
     nh_(nh),
     LegodoHandlerBase(nh_, stance_est, legodo)
 {
@@ -299,12 +304,12 @@ LegodoHandlerROS::Update* LegodoHandlerROS::processMessage(const sensor_msgs::ms
     }
     getPreviousState(est);
 
-    stance_estimator_.setJointStates(nsec_, q_, qd_, tau_, orientation_,
+    stance_estimator_->setJointStates(nsec_, q_, qd_, tau_, orientation_,
                                      // optional arguments starts from here
                                      // note passing previous value for velocity
                                      qdd_, xd_, xdd_, omega_, omegad_);
 
-    stance_estimator_.getStance(stance_, stance_prob_);
+    stance_estimator_->getStance(stance_, stance_prob_);
 
     return computeVelocity();
 }
@@ -332,19 +337,19 @@ LegodoHandlerWithAccelerationROS::Update* LegodoHandlerWithAccelerationROS::proc
     }
     getPreviousState(est);
 
-    stance_estimator_.setJointStates(nsec_, q_, qd_, tau_, orientation_,
+    stance_estimator_->setJointStates(nsec_, q_, qd_, tau_, orientation_,
                                      // optional arguments starts from here
                                      // note passing previous value for velocity
                                      qdd_, xd_, xdd_, omega_, omegad_);
 
-    stance_estimator_.getStance(stance_, stance_prob_);
+    stance_estimator_->getStance(stance_, stance_prob_);
 
     return computeVelocity();
 }
 
 FootSensorLegodoHandlerROS::FootSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                                                       StanceEstimatorROS& stance_est,
-                                                       LegOdometerROS& legodo) :
+                                                       StanceEstimatorROS* stance_est,
+                                                       LegOdometerROS* legodo) :
   nh_(nh),
   LegodoHandlerBase(nh, stance_est, legodo)
 {
@@ -371,7 +376,7 @@ LegodoHandlerBase::Update * FootSensorLegodoHandlerROS::processMessage(const sen
   }
   getPreviousState(est);
   // the data to compute the stance are processed in processSecondaryMessage()
-  stance_estimator_.getStance(stance_, stance_prob_);
+  stance_estimator_->getStance(stance_, stance_prob_);
   return computeVelocity();
 }
 
@@ -385,12 +390,12 @@ void FootSensorLegodoHandlerROS::processSecondaryMessage(const pronto_msgs::msg:
   stance[LH] = std::abs(msg.lh) > 0.01;
   stance[RH] = std::abs(msg.rh) > 0.01;
 
-  stance_estimator_.setStance(stance);
+  stance_estimator_->setStance(stance);
 }
 
 ForceSensorLegodoHandlerROS::ForceSensorLegodoHandlerROS(rclcpp::Node::SharedPtr nh,
-                                                         StanceEstimatorROS& stance_est,
-                                                         LegOdometerROS& legodo) :
+                                                         StanceEstimatorROS* stance_est,
+                                                         LegOdometerROS* legodo) :
   nh_(nh),
   LegodoHandlerBase(nh_, stance_est, legodo)
 {
@@ -407,7 +412,7 @@ LegodoHandlerBase::Update * ForceSensorLegodoHandlerROS::processMessage(const se
   }
   getPreviousState(est);
   // the data to compute the stance are processed in processSecondaryMessage()
-  stance_estimator_.getStance(stance_, stance_prob_);
+  stance_estimator_->getStance(stance_, stance_prob_);
   return computeVelocity();
 }
 
@@ -427,8 +432,93 @@ void ForceSensorLegodoHandlerROS::processSecondaryMessage(const pronto_msgs::msg
   grf[LH] << msg.lh.force.x, msg.lh.force.y, msg.lh.force.z;
   grf[RH] << msg.rh.force.x, msg.rh.force.y, msg.rh.force.z;
 
-  stance_estimator_.setGRF(grf);
+  stance_estimator_->setGRF(grf);
 }
+
+LegodoHandlerPinRos::LegodoHandlerPinRos(
+    rclcpp::Node::SharedPtr nh,
+    StanceEstimatorROS* stance_est,
+    LegOdometerROS* legodo,
+    std::vector<std::string> jnt_names 
+):LegodoHandlerBase(nh,stance_est,legodo)
+{
+}
+
+
+bool LegodoHandlerPinRos::processMessageInit(const pi3hat_moteus_int_msgs::msg::JointsStates *msg,
+                                            const std::map<std::string, bool> &sensor_initialized,
+                                            const RBIS &default_state,
+                                            const RBIM &default_cov,
+                                            RBIS &init_state,
+                                            RBIM &init_cov)
+{
+  return true;
+}
+
+
+LegodoHandlerPinRos::Update* LegodoHandlerPinRos::processMessage( const pi3hat_moteus_int_msgs::msg::JointsStates *msg,
+                                                                                            StateEstimator *est)
+{
+    nsec_ = toNsec(msg->header.stamp); // save nsecs for later.
+    utime_ = 1e-3 * nsec_;  // A lot of internals still assume microseconds
+    // TODO: transition from microseconds to nanoseconds everywhere
+    if(!JointsStatesFromROS(*msg, utime_, q_, qd_, qdd_, tau_,jnt_names_)){
+      RCLCPP_WARN(nh_->get_logger(), "[LegodoHandlerROS::processMessage] Could not process joint state from ROS!");
+      return nullptr;
+    }
+    getPreviousState(est);
+
+    stance_estimator_->setJointStates(nsec_, q_, qd_, tau_, orientation_,
+                                     // optional arguments starts from here
+                                     // note passing previous value for velocity
+                                     qdd_, xd_, xdd_, omega_, omegad_);
+
+    stance_estimator_->getStance(stance_, stance_prob_);
+
+    return computeVelocity();
+}
+LegodoHandlerPinRos_Sim::LegodoHandlerPinRos_Sim(
+    rclcpp::Node::SharedPtr nh,
+    StanceEstimatorROS* stance_est,
+    LegOdometerROS* legodo,
+    std::vector<std::string> jnt_names 
+):LegodoHandlerBase(nh,stance_est,legodo)
+{
+    jnt_names_ = jnt_names;
+}
+
+bool LegodoHandlerPinRos_Sim::processMessageInit(const sensor_msgs::msg::JointState *msg,
+                                            const std::map<std::string, bool> &sensor_initialized,
+                                            const RBIS &default_state,
+                                            const RBIM &default_cov,
+                                            RBIS &init_state,
+                                            RBIM &init_cov)
+{
+  return true;
+}
+
+
+LegodoHandlerPinRos_Sim::Update* LegodoHandlerPinRos_Sim::processMessage( const sensor_msgs::msg::JointState *msg,
+                                                                                            StateEstimator *est)
+{
+    nsec_ = toNsec(msg->header.stamp); // save nsecs for later.
+    utime_ = 1e-3 * nsec_;  // A lot of internals still assume microseconds
+    if(!jointStateFromROS(*msg, utime_, q_, qd_, qdd_, tau_,jnt_names_)){
+      RCLCPP_WARN(nh_->get_logger(), "[LegodoHandlerROS::processMessage] Could not process joint state from ROS!");
+      return nullptr;
+    }
+    getPreviousState(est);
+
+    stance_estimator_->setJointStates(nsec_, q_, qd_, tau_, orientation_,
+                                     // optional arguments starts from here
+                                     // note passing previous value for velocity
+                                     qdd_, xd_, xdd_, omega_, omegad_);
+
+    stance_estimator_->getStance(stance_, stance_prob_);
+
+    return computeVelocity();
+}
+
 
 } // namespace quadruped
 } // namespace pronto
