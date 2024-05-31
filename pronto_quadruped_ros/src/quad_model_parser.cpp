@@ -1,6 +1,6 @@
-#include "pronto_ros2_controller/quad_model_parser.hpp"
+#include "pronto_quadruped_ros/quad_model_parser.hpp"
 #include "rclcpp/rclcpp.hpp"
-namespace pronto_controller
+namespace pronto
 {
 
     Model_Parser::Model_Parser(
@@ -12,7 +12,7 @@ namespace pronto_controller
         int leg_jnt,parse_leg_count,parse_jnt_leg_count;
         
         std::map<std::string,std::array<double,3>> leg_map;
-        if(!model_.initString(urdf_path))
+        if(!model_.initFile(urdf_path))
         {
             RCLCPP_INFO(rclcpp::get_logger("URDF_MODEL_PARSER"),"The Model parsing throw an error");
             urdf_usable_ = false;

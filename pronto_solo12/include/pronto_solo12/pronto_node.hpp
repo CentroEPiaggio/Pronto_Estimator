@@ -110,6 +110,8 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(bool subscribe) {
     std::string topic;
     std::string secondary_topic;
 
+    
+
     for (SensorList::iterator it = active_sensors.begin(); it != active_sensors.end(); ++it) {
         all_sensors.insert(*it);
     }
@@ -121,6 +123,13 @@ void ProntoNode<JointStateMsgT, ContactStateMsgT>::init(bool subscribe) {
     // of the init sensors and active sensors
     // iterate over the sensors
     for (SensorSet::iterator it = all_sensors.begin(); it != all_sensors.end(); ++it) {
+
+        //declare parameter
+        declare_parameter<bool>(*it + ".roll_forward_on_receive",false);
+        declare_parameter<bool>(*it + ".publish_head_on_message",false);
+        declare_parameter<std::string>(*it + ".topic","");
+        declare_parameter<std::string>(*it + ".secondary_topic","");
+
         if (!this->get_parameter(*it + ".roll_forward_on_receive", roll_forward)) {
             RCLCPP_WARN_STREAM(this->get_logger(),"Not adding sensor \"" << *it << "\".");
             RCLCPP_WARN(this->get_logger(), "Param \"roll_forward_on_receive\" not available.");

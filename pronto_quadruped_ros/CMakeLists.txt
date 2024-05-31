@@ -22,6 +22,10 @@ find_package(visualization_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(pinocchio REQUIRED)
+find_package(urdf REQUIRED)
+find_package(pi3hat_moteus_int_msgs REQUIRED)
+
 
 
 add_library(${PROJECT_NAME} SHARED  src/legodo_handler_ros.cpp
@@ -30,8 +34,10 @@ add_library(${PROJECT_NAME} SHARED  src/legodo_handler_ros.cpp
                                     src/foot_sensor_stance_detector_ros.cpp
                                     src/conversions.cpp
                                     src/leg_odometer_ros.cpp
+                                    src/pronto_mammal_utilities.cpp
                                     src/dynamic_stance_estimator_ros.cpp
-                                    src/bias_lock_handler_ros.cpp)
+                                    src/bias_lock_handler_ros.cpp
+                                    src/quad_model_parser.cpp)
 
 target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -52,6 +58,9 @@ ament_target_dependencies(
   "tf2_ros"
   "tf2_geometry_msgs" 
   "nav_msgs"
+  "pinocchio"
+  "urdf"
+  "pi3hat_moteus_int_msgs"
 )
 
 # Causes the visibility macros to use dllexport rather than dllimport,
@@ -72,7 +81,10 @@ ament_export_dependencies("rclcpp"
 "visualization_msgs"
 "tf2_ros"
 "tf2_geometry_msgs" 
-"nav_msgs")
+"nav_msgs"
+"pinocchio"
+  "urdf"
+  "pi3hat_moteus_int_msgs")
 
 
 install(

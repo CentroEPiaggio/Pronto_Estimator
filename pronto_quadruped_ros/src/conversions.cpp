@@ -9,11 +9,12 @@ bool jointStateFromROS(const sensor_msgs::msg::JointState& msg,
                        JointState& q,
                        JointState& qd,
                        JointState& qdd,
-                       JointState& tau)
+                       JointState& tau,
+                       std::vector<std::string> jnt_names)
 {
     // if the size of the joint state message does not match our own,
     // we silently return an invalid update
-    std::size_t size = static_cast<size_t>(q.size());
+    std::size_t size = jnt_names.size();
 
     if (msg.position.size() != size ||
         msg.velocity.size() != size ||
@@ -23,11 +24,23 @@ bool jointStateFromROS(const sensor_msgs::msg::JointState& msg,
         return false;
     }
     // store message time in microseconds
-    utime = msg.header.stamp.nanosec / 1000;
-    for(int i=0; i<12; i++){
-      q(i) = msg.position[i];
-      qd(i) = msg.velocity[i];
-      tau(i) = msg.effort[i];
+    utime = msg.header.stamp.sec * std::pow(10,6) +msg.header.stamp.nanosec /1000;
+    int j;
+    for(int i=0; i<size; i++){
+      j = -1;
+      for(int k = 0; k<size; k++)
+      {
+        if(jnt_names[k].compare(msg.name[i])==0)
+        {
+          j = k;
+        }
+      }
+      if(j==-1)
+        throw(std::logic_error("unconsistent joints nomenclature"));
+      q(j) = msg.position[i];
+      qd(j) = msg.velocity[i];
+      tau(j) = msg.effort[i];
+      // RCLCPP_INFO_STREAM(rclcpp::get_logger("JOINT CONV"),"jnts data "<< q <<" "<<qd <<" " << tau);
     }
     //q = Eigen::Map<const JointState>(msg.position.data());
     //qd = Eigen::Map<const JointState>(msg.velocity.data());
@@ -43,7 +56,8 @@ bool jointStateWithAccelerationFromROS(const pronto_msgs::msg::JointStateWithAcc
                                JointState& q,
                                JointState& qd,
                                JointState& qdd,
-                               JointState& tau)
+                               JointState& tau,
+                       std::vector<std::string> jnt_names)
 {
     // if the size of the joint state message does not match our own,
     // we silently return an invalid update
@@ -58,7 +72,7 @@ bool jointStateWithAccelerationFromROS(const pronto_msgs::msg::JointStateWithAcc
         return false;
     }
     // store message time in microseconds
-    utime = 1e-3 * msg.header.stamp.nanosec;
+    utime = msg.header.stamp.sec * std::pow(10,6) +msg.header.stamp.nanosec /1000;
     for(int i=0; i<12; i++){
       q(i) = msg.position[i];
       qd(i) = msg.velocity[i];
@@ -68,6 +82,55 @@ bool jointStateWithAccelerationFromROS(const pronto_msgs::msg::JointStateWithAcc
 
     return true;
 }
+
+bool JointsStatesFromROS(const pi3hat_moteus_int_msgs::msg::JointsStates& msg,
+                               uint64_t& utime,
+                               JointState& q,
+                               JointState& qd,
+                               JointState& qdd,
+                               JointState& tau,
+                       std::vector<std::string> jnt_names)
+{
+    // if the size of the joint state message does not match our own,
+    // we silently return an invalid update
+    std::size_t size = jnt_names.size();
+
+    if (msg.position.size() != size ||
+        msg.velocity.size() != size ||
+        msg.effort.size() != size ||
+        msg.temperature.size() != size){
+        RCLCPP_WARN(rclcpp::get_logger("jointStateFromROS"), "Joint State is expected %zu joints but %zu / %zu / %zu / %zu are provided.",
+                         size, msg.position.size(), msg.velocity.size(), msg.effort.size(), msg.temperature.size());
+        return false;
+    }
+    // store message time in microseconds
+    utime = msg.header.stamp.sec * std::pow(10,6) +msg.header.stamp.nanosec /1000;
+    int j;
+    for(int i=0; i<size; i++){
+      j = -1;
+      for(int k = 0; k<size; k++)
+      {
+        if(jnt_names[k].compare(msg.name[i])==0)
+        {
+          j = k;
+        }
+      }
+      if(j==-1)
+        throw(std::logic_error("unconsistent joints nomenclature"));
+      q(j) = msg.position[i];
+      qd(j) = msg.velocity[i];
+      tau(j) = msg.effort[i];
+    }
+    //q = Eigen::Map<const JointState>(msg.position.data());
+    //qd = Eigen::Map<const JointState>(msg.velocity.data());
+    //tau = Eigen::Map<const JointState>(msg.effort.data());
+
+    qdd.setZero(); // TODO compute the acceleration
+
+
+    return true;
+}
+
 
 }  // namespace quadruped
 }  // namespace pronto

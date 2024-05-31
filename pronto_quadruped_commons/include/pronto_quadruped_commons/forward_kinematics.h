@@ -50,8 +50,8 @@ public:
     {
         LegVectorMap feetPos(Vector3d::Zero());
         feetPos[quadruped::LF] = getFootPos(q, LegID::LF);
-        feetPos[quadruped::RF] = getFootPos(q, LegID::RF);
         feetPos[quadruped::LH] = getFootPos(q, LegID::LH);
+        feetPos[quadruped::RF] = getFootPos(q, LegID::RF);
         feetPos[quadruped::RH] = getFootPos(q, LegID::RH);
         return feetPos;
     }

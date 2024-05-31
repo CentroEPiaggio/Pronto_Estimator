@@ -14,13 +14,45 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
 {
     tf2::BufferCore tf_imu_to_body_buffer_;
     tf2_ros::TransformListener tf_imu_to_body_listener_(tf_imu_to_body_buffer_);
-
-    const std::string ins_param_prefix = "ins/";
+    //allocate params
+    const std::string ins_param_prefix = "ins.";
     std::string imu_frame = "imu";
+    std::string base_frame = "base";
+    InsConfig cfg;
+    std::vector<double> accel_bias_initial_v;
+    std::vector<double> gyro_bias_initial_v;
+
+    double std_accel = 0;
+    double std_gyro = 0;
+    double std_gyro_bias = 0;
+    double std_accel_bias = 0;
+
+    //declare params
+    nh_->declare_parameter<std::string>(ins_param_prefix + "frame",imu_frame);
+    nh_->declare_parameter<std::string>("base_link_name",base_frame);
+    nh_->declare_parameter<int>(ins_param_prefix + "num_to_init",cfg.num_to_init);
+    nh_->declare_parameter<bool>(ins_param_prefix + "accel_bias_update_online",cfg.accel_bias_update_online);
+    nh_->declare_parameter<bool>(ins_param_prefix + "gyro_bias_update_online",cfg.gyro_bias_update_online);
+    nh_->declare_parameter<bool>(ins_param_prefix + "gyro_bias_recalc_at_start",cfg.gyro_bias_update_online);
+    nh_->declare_parameter<bool>(ins_param_prefix + "accel_bias_recalc_at_start",cfg.accel_bias_recalc_at_start);
+    nh_->declare_parameter<double>(ins_param_prefix + "timestep_dt",cfg.dt);
+    nh_->declare_parameter<double>(ins_param_prefix + "max_initial_gyro_bias",cfg.max_initial_gyro_bias);
+    nh_->declare_parameter<double>(ins_param_prefix + "q_gyro",std_gyro);
+    nh_->declare_parameter<double>(ins_param_prefix + "q_gyro_bias",std_gyro_bias);
+    nh_->declare_parameter<double>(ins_param_prefix + "q_accel",std_accel);
+    nh_->declare_parameter<double>(ins_param_prefix + "q_accel_bias",std_accel_bias);
+    nh_->declare_parameter<std::vector<double>>(ins_param_prefix + "gyro_bias_initial",gyro_bias_initial_v);
+    nh_->declare_parameter<std::vector<double>>(ins_param_prefix + "accel_bias_initial",accel_bias_initial_v);
+    nh_->declare_parameter<int>(ins_param_prefix + "downsample_factor",1);
+    nh_->declare_parameter<int>(ins_param_prefix + "utime_offset",0);
+
+
+
+    // get_params and allocate ins handler
 
     imu_frame = nh_->get_parameter(ins_param_prefix + "frame").as_string();
-    std::string base_frame = "base";
     base_frame = nh_->get_parameter("base_link_name").get_value<std::string>();
+
     RCLCPP_INFO_STREAM(nh_->get_logger(), 
         "[InsHandlerROS] Name of base_link: " 
         << base_frame);
@@ -42,7 +74,7 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
         }
     }
 
-    InsConfig cfg;
+    
 
     if (!nh_->get_parameter(ins_param_prefix + "num_to_init", cfg.num_to_init)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(),
@@ -85,8 +117,7 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
             << "timestep_dt\". Using default: "
             << cfg.dt);
     }
-    std::vector<double> accel_bias_initial_v;
-    std::vector<double> gyro_bias_initial_v;
+    
     if (!nh_->get_parameter(ins_param_prefix + "accel_bias_initial", accel_bias_initial_v)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
             "Couldn't get param " << nh_->get_namespace() << "/" << ins_param_prefix 
@@ -149,10 +180,6 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
         utime_offset_ = utime_offset;
     }
 
-    double std_accel = 0;
-    double std_gyro = 0;
-    double std_gyro_bias = 0;
-    double std_accel_bias = 0;
 
     if (!nh_->get_parameter(ins_param_prefix + "q_gyro", std_gyro)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), 
