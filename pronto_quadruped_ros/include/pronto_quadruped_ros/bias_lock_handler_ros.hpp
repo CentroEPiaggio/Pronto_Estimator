@@ -14,6 +14,7 @@
 #include "visualization_msgs/msg/marker_array.hpp"
 #include "geometry_msgs/msg/point_stamped.hpp"
 #include "pronto_msgs/msg/joint_state_with_acceleration.hpp"
+#include "pi3hat_moteus_int_msgs/msg/joints_states.hpp"
 
 #include "tf2_ros/buffer.h"
 #include "tf2_ros/transform_listener.h"
@@ -67,10 +68,10 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
     tf2_ros::Buffer tfBuffer(nh_->get_clock());
     tf2_ros::TransformListener tf_imu_to_body_listener_(tfBuffer);
 
-    std::string ins_param_prefix = "ins/";
-    std::string lock_param_prefix = "bias_lock/";
+    std::string ins_param_prefix = "ins.";
+    std::string lock_param_prefix = "bias_lock.";
 
-    std::string imu_frame = "imu";
+    std::string imu_frame = "imu_link";
 
     nh_->get_parameter_or("ins/frame", imu_frame, imu_frame);
     std::string base_frame = "base";
@@ -232,11 +233,11 @@ bool ImuBiasLockBaseROS<JointStateT>::processMessageInit(
     );
 }
 
-class ImuBiasLockROS : public ImuBiasLockBaseROS<sensor_msgs::msg::JointState>
+class ImuBiasLockROS_Sim : public ImuBiasLockBaseROS<sensor_msgs::msg::JointState>
 {
 public:
-    ImuBiasLockROS(rclcpp::Node::SharedPtr nh);
-    virtual ~ImuBiasLockROS() = default;
+    ImuBiasLockROS_Sim(rclcpp::Node::SharedPtr nh);
+    virtual ~ImuBiasLockROS_Sim() = default;
 
     RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) /*override*/; 
 
@@ -260,6 +261,28 @@ public:
 
     void processSecondaryMessage(const pronto_msgs::msg::JointStateWithAcceleration &msg);
 };
+
+class ImuBiasLockROS: public ImuBiasLockBaseROS<pi3hat_moteus_int_msgs::msg::JointsStates>
+{
+public:
+    ImuBiasLockROS(rclcpp::Node::SharedPtr nh);
+    virtual ~ImuBiasLockROS() = default;
+
+    RBISUpdateInterface* processMessage(const sensor_msgs::msg::Imu *msg, StateEstimator *est) /*override*/; 
+
+    bool processMessageInit(
+        const sensor_msgs::msg::Imu *msg,
+        const std::map<std::string, bool> &sensor_initialized,
+        const RBIS &default_state,
+        const RBIM &default_cov,
+        RBIS &init_state,
+        RBIM &init_cov
+    );
+
+    void processSecondaryMessage(const pi3hat_moteus_int_msgs::msg::JointsStates &msg) /*override*/;
+};
+
+
 
 }  // namespace quadruped
 }  // namespace pronto

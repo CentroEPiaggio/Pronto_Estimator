@@ -22,6 +22,7 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(gazebo_msgs REQUIRED)
+find_package(pi3hat_moteus_int_msgs REQUIRED)
 
 add_library(pronto_ros  SHARED  src/ins_ros_handler.cpp
                                 # src/index_meas_ros_handler.cpp
@@ -54,6 +55,7 @@ ament_target_dependencies(
   "nav_msgs"
   "gazebo_msgs"
   "rclcpp_lifecycle"
+  "pi3hat_moteus_int_msgs"
 )
 
 set(LIBS ${Eigen3_LIBRARIES} ${ament_cmake_LIBRARIES}
@@ -94,7 +96,8 @@ ament_export_dependencies(
 "rclcpp"
 "nav_msgs"
 "gazebo_msgs"
-"rclcpp_lifecycle")
+"rclcpp_lifecycle"
+"pi3hat_moteus_int_msgs")
 
 add_executable(${PROJECT_NAME}_node src/pronto_ros_node.cpp)
 target_include_directories(${PROJECT_NAME}_node PUBLIC

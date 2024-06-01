@@ -12,8 +12,8 @@ Pronto_ROS2_Node :
     publish_tf : true
     tf_child_frame_id : "base_pronto"
     republish_sensors : false
-    init_sensors : ["ins"] 
-    active_sensors : ["ins","legodo"]
+    init_sensors : ["ins", "bias_lock"] 
+    active_sensors : ["ins","legodo", "bias_lock"]
     utime_history_span : 60000
 
 
@@ -87,7 +87,7 @@ Pronto_ROS2_Node :
       stance_hysteresis_low : 60.0 # hysteresis low threshold
       stance_hysteresis_high : 120.0 # hysteresis high threshold
       stance_hysteresis_delay_low : 0 # delay low for schmitt trigger in nanoseconds
-      stance_hysteresis_delay_high : 40000000 # delay in for schmitt trigger in nanoseconds
+      stance_hysteresis_delay_high : 20000000 # delay in for schmitt trigger in nanoseconds
 
       stance_alpha : 0.02 # alpha for the alpha filter
       
@@ -109,11 +109,14 @@ Pronto_ROS2_Node :
       publish_head_on_message : false
     
     bias_lock:
+      sim: true
       torque_threshold : 12.5 # Nm on knee joints
       velocity_threshold : 0.006 # rad/s
       roll_forward_on_receive : true
       publish_head_on_message : false
       utime_offset : 0
+      topic : "/imu_sensor_broadcaster/imu"
+      secondary_topic : "/joint_states"
     gazebo_mt:
         robot_name: "anymal_c"
         base_link_name: "base"

@@ -16,6 +16,7 @@
 #include "pronto_msgs/msg/lidar_odometry_update.hpp"
 #include "pronto_msgs/msg/biped_force_torque_sensors.hpp"
 #include "pronto_msgs/msg/joint_state_with_acceleration.hpp"
+#include "pi3hat_moteus_int_msgs/msg/joints_states.hpp"
 
 namespace pronto {
 
@@ -58,6 +59,8 @@ void lidarOdometryFromROS(const pronto_msgs::msg::LidarOdometryUpdate& ros_msg,
 
 void forceTorqueFromROS(const pronto_msgs::msg::BipedForceTorqueSensors& ros_msg,
                         pronto::ForceTorqueSensorArray& msg);
+
+void JointStatesFromROS(const pi3hat_moteus_int_msgs::msg::JointsStates &ros_msg, JointState &msg);
 
 inline void vectFromMsg(const geometry_msgs::msg::Vector3 & msg, Eigen::Vector3d & out)
 {
