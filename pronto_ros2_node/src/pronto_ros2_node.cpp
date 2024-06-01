@@ -22,6 +22,7 @@
 
 
 #include "pronto_quadruped_ros/quad_model_parser.hpp"
+#include "pronto_quadruped_ros/bias_lock_handler_ros.hpp"
 
 const pinocchio::JointModelFreeFlyer root_fb;
 namespace pronto
@@ -131,7 +132,7 @@ namespace pronto
                             }
 
                     }
-                    if (it->compare("legodo") == 0) 
+                    else if (it->compare("legodo") == 0) 
                     {
                         //try to make the model and the pinocchio's matrix
                         declare_parameter<bool>(*it + ".sim",false);
@@ -205,7 +206,42 @@ namespace pronto
                                     ros_fe_->addInitModule(*lo_pin_handler_, *it, topic, subscribe);
                             }
                     }
+                    else if(it->compare("bias_lock")==0)
+                    {
+                        declare_parameter<bool>(*it + ".sim",false);
+                        declare_parameter<std::string>(*it + ".secondary_topic","");
+                        bool sim ;
+                        std::string sec_topic;
+                        get_parameter(*it+".sim",sim);
+                        get_parameter(*it + ".secondary_topic",sec_topic);
                     
+                     if(sim)
+                            ibl_handler_sim_ = std::make_shared<quadruped::ImuBiasLockROS_Sim>(shared_from_this());
+                        else
+
+                            ibl_handler_ = std::make_shared<quadruped::ImuBiasLockROS>(shared_from_this());
+                       
+                        if (active)
+                            {
+                                if(sim)
+                                {
+                                    ros_fe_->addSensingModule(*ibl_handler_sim_, *it, roll_forward, publish_head, topic, subscribe);
+                                    ros_fe_->addSecondarySensingModule(*ibl_handler_sim_,*it,sec_topic,subscribe);
+                                }
+                                else
+                                {
+                                    ros_fe_->addSensingModule(*ibl_handler_, *it, roll_forward, publish_head, topic, subscribe);
+                                    ros_fe_->addSecondarySensingModule(*ibl_handler_,*it,sec_topic,subscribe);
+                                }                            
+                            }
+                            if (init) 
+                            {
+                                if(sim)
+                                    ros_fe_->addInitModule(*ibl_handler_sim_, *it, topic, subscribe);
+                                else
+                                    ros_fe_->addInitModule(*ibl_handler_, *it, topic, subscribe);
+                            }
+                    }
                 }
             }
 
@@ -228,10 +264,10 @@ namespace pronto
 
                 //declare shared ptr to proprioceptive sensors handler
                 std::shared_ptr<InsHandlerROS> ins_handler_;
-                std::shared_ptr<quadruped::ImuBiasLock> ibl_handler_;
                 std::shared_ptr<quadruped::LegodoHandlerPinRos> lo_pin_handler_;
                 std::shared_ptr<quadruped::LegodoHandlerPinRos_Sim> lo_pin_handler_sim_;
-
+                std::shared_ptr<quadruped::ImuBiasLockROS> ibl_handler_;
+                std::shared_ptr<quadruped::ImuBiasLockROS_Sim> ibl_handler_sim_;
         };
         
     }; // namespace pronto_node
