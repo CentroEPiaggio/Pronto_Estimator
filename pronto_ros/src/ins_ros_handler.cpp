@@ -17,7 +17,8 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
     //allocate params
     const std::string ins_param_prefix = "ins.";
     std::string imu_frame = "imu";
-    std::string base_frame = "base";
+    std::string base_frame = "base_link";
+
     InsConfig cfg;
     std::vector<double> accel_bias_initial_v;
     std::vector<double> gyro_bias_initial_v;
@@ -26,10 +27,10 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
     double std_gyro = 0;
     double std_gyro_bias = 0;
     double std_accel_bias = 0;
-
+   
     //declare params
     nh_->declare_parameter<std::string>(ins_param_prefix + "frame",imu_frame);
-    nh_->declare_parameter<std::string>("base_link_name",base_frame);
+    nh_->declare_parameter<std::string>(ins_param_prefix + "base_link_name",base_frame);
     nh_->declare_parameter<int>(ins_param_prefix + "num_to_init",cfg.num_to_init);
     nh_->declare_parameter<bool>(ins_param_prefix + "accel_bias_update_online",cfg.accel_bias_update_online);
     nh_->declare_parameter<bool>(ins_param_prefix + "gyro_bias_update_online",cfg.gyro_bias_update_online);
@@ -51,7 +52,7 @@ InsHandlerROS::InsHandlerROS(rclcpp::Node::SharedPtr nh) : nh_(nh)
     // get_params and allocate ins handler
 
     imu_frame = nh_->get_parameter(ins_param_prefix + "frame").as_string();
-    base_frame = nh_->get_parameter("base_link_name").get_value<std::string>();
+    base_frame = nh_->get_parameter(ins_param_prefix +"base_link_name").get_value<std::string>();
 
     RCLCPP_INFO_STREAM(nh_->get_logger(), 
         "[InsHandlerROS] Name of base_link: " 

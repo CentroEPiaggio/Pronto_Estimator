@@ -12,7 +12,7 @@ namespace pronto
         int leg_jnt,parse_leg_count,parse_jnt_leg_count;
         
         std::map<std::string,std::array<double,3>> leg_map;
-        if(!model_.initFile(urdf_path))
+        if(!model_.initString(urdf_path))
         {
             RCLCPP_INFO(rclcpp::get_logger("URDF_MODEL_PARSER"),"The Model parsing throw an error");
             urdf_usable_ = false;

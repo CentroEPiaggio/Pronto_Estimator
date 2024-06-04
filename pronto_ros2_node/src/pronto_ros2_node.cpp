@@ -34,7 +34,7 @@ namespace pronto
         class Pronto_Ros2 : public rclcpp::Node
         {
             using SensorList = std::vector<std::string>;
-            using SensorSet = std::set<std::string>;
+            using SensorSet = std::unordered_set<std::string>;
             public:
             Pronto_Ros2():
             Node("Pronto_ROS2_Node")
@@ -52,6 +52,7 @@ namespace pronto
                 try
                 {
                 urdf_file_ = this->get_parameter("urdf_file").as_string();
+                RCLCPP_INFO(get_logger(),"the urdf file is %s",urdf_file_.c_str());
                 init_sensors_ = this->get_parameter("init_sensors").as_string_array();
                 active_sensors_ = this->get_parameter("active_sensors").as_string_array();
                 }
@@ -93,6 +94,7 @@ namespace pronto
 
                 for (SensorSet::iterator it = all_sensors_.begin(); it != all_sensors_.end(); ++it) 
                 {
+                    RCLCPP_INFO(get_logger(),"allocate sensor %s",it->c_str());
                     declare_parameter<bool>(*it + ".roll_forward_on_receive",false);
                     declare_parameter<bool>(*it + ".publish_head_on_message",false);
                     declare_parameter<std::string>(*it + ".topic","");
@@ -159,7 +161,7 @@ namespace pronto
                            throw(std::logic_error("not correct xacro file"));
                         }
 
-                        pinocchio::urdf::buildModel(urdf_file_,root_fb,model_);
+                        pinocchio::urdf::buildModelFromXML(urdf_file_,root_fb,model_);
                         feet_force_ = pronto_pinocchio::Pinocchio_Feet_Force(model_,ax_ker,dof);
                         jacs_ = pronto_pinocchio::Pinocchio_Jacobian(&feet_force_);
                         fk_ = pronto_pinocchio::Pinocchio_FK(&feet_force_);
@@ -181,7 +183,9 @@ namespace pronto
                                                             "RH_KFE"        
                                                         };
                         //                                 RCLCPP_INFO(get_logger(),"aaaa");
-                        for(int i = 0; i< 12 ; i++)
+                        // mod_parse_->get_jnt_names(jnt_n);
+                        RCLCPP_INFO(get_logger(),"The joints name are %d", jnt_n.size());
+                        for(size_t i = 0; i< jnt_n.size() ; i++)
                         {
                             RCLCPP_INFO(get_logger(),"%s",jnt_n[i].c_str());
                         }
