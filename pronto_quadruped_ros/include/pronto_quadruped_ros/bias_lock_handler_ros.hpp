@@ -73,9 +73,10 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
 
     std::string imu_frame = "imu_link";
 
-    nh_->get_parameter_or("ins/frame", imu_frame, imu_frame);
+    
+    nh_->get_parameter_or(ins_param_prefix + "frame", imu_frame, imu_frame);
     std::string base_frame = "base";
-    nh_->get_parameter_or<std::string>("base_link_name", base_frame, "base");
+    nh_->get_parameter_or<std::string>(ins_param_prefix + "base_link_name", base_frame, "base");
     RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] Name of base_link: '" << base_frame << "'");
     Eigen::Isometry3d ins_to_body = Eigen::Isometry3d::Identity();
     while (rclcpp::ok()) {

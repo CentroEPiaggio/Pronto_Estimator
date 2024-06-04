@@ -1,19 +1,18 @@
 Pronto_ROS2_Node :
   ros__parameters:
-    urdf_file: "/home/punk-opc/Documents/estimator/control_quadrupeds_soft_contacts/src/robot/robots/anymal_c_simple_description/urdf/anymal.urdf"
     use_sim_time: True
     # pose_topic : "pose"
     # pose_frame_id : "odom"
-    twist_topic : "ginoi"
-    twist_frame_id : "base"
+    twist_topic : "twist_est"
+    twist_frame_id : "base_link"
     filter_state_topic : "filter_state"
     publish_filter_state : true
     publish_pose : true
     publish_tf : true
     tf_child_frame_id : "base_pronto"
     republish_sensors : false
-    init_sensors : ["ins", "bias_lock"] 
-    active_sensors : ["ins","legodo", "bias_lock"]
+    init_sensors : ["bias_lock","ins"] 
+    active_sensors : ["legodo", "bias_lock","ins"]
     utime_history_span : 60000
 
 
@@ -35,7 +34,7 @@ Pronto_ROS2_Node :
     init_message :
       channel : "filter_initializer"
 
-    ins :
+    ins:
       topic : "/imu_sensor_broadcaster/imu"
       utime_offset : 0 # units 1e-6 seconds
       downsample_factor : 1 # process 1 out of every this many. for 333Hz use 1. for 1kHz use 3
@@ -62,10 +61,10 @@ Pronto_ROS2_Node :
       gyro_bias_recalc_at_start : true
       gyro_bias_update_online : false
     
-      frame : "imu_link"
-
+      frame : "base_link"
+      base_link_name: "base_link"
       # REMEMBER TO CHANGE THIS IF YOU CHANGE THE IMU FREQUENCY or downsample factor
-      timestep_dt : 0.005 # 
+      timestep_dt: 0.005 # 
 
       # attempt to detect drastically incorrect initial gyro biases estimates:
       max_initial_gyro_bias : 0.015 # deg/sec, biases above this will be set to zero
@@ -84,8 +83,8 @@ Pronto_ROS2_Node :
       stance_mode : 1 # 0 : THRESHOLD, 1 : HYSTERESIS, 2 : REGRESSION
       stance_threshold : 90.0 # threshold of GRF[z] to trigger the stance phase
       
-      stance_hysteresis_low : 60.0 # hysteresis low threshold
-      stance_hysteresis_high : 120.0 # hysteresis high threshold
+      stance_hysteresis_low : 3.0 # hysteresis low threshold
+      stance_hysteresis_high : 11.0 # hysteresis high threshold
       stance_hysteresis_delay_low : 0 # delay low for schmitt trigger in nanoseconds
       stance_hysteresis_delay_high : 20000000 # delay in for schmitt trigger in nanoseconds
 

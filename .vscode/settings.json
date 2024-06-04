@@ -72,5 +72,43 @@
         "bit": "cpp",
         "charconv": "cpp"
     },
-    "ros.distro": "humble"
+    "ros.distro": "humble",
+    "python.autoComplete.extraPaths": [
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/planners_python",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/planners_python/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/logger_gazebo",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/logger_gazebo/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/velocity_command_msgs/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/terrain_estimator",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/terrain_estimator/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/pose_estimator",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/pose_estimator/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/robot_model/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/rviz_legged_plugins/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/rviz_legged_msgs/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/generalized_pose_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/opt/openrobots/lib/python3.10/site-packages",
+        ""
+    ],
+    "python.analysis.extraPaths": [
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/planners_python",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/planners_python/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/logger_gazebo",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/logger_gazebo/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/velocity_command_msgs/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/terrain_estimator",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/terrain_estimator/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/build/pose_estimator",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/pose_estimator/lib/python3.10/site-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/robot_model/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/rviz_legged_plugins/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/rviz_legged_msgs/local/lib/python3.10/dist-packages",
+        "/home/punk-opc/Documents/Davides_Simulation/control_quadrupeds_soft_contacts/install/generalized_pose_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/opt/openrobots/lib/python3.10/site-packages",
+        ""
+    ]
 }

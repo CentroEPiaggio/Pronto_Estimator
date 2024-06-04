@@ -79,6 +79,7 @@ namespace pronto_pinocchio
                 const Vector3d& omegad
             )
     {
+        
         if(updated_ == 0)
         {
             // update all pinocchio quantities
@@ -94,12 +95,34 @@ namespace pronto_pinocchio
             ddq_pin_.block<3,1>(0,0) = xdd;
             dq_pin_.block<3,1>(3,0) = omega;
             ddq_pin_.block<3,1>(3,0) = omegad;
-            for(size_t i = 0; i < pin_jnt_name_.size(); i++)
+            if(DOF_ == 12)
             {
-                // std::cerr << "the "<< i<<"-th joints name is "<< pin_jnt_name_[i]<<std::endl;
-                q_pin_(i + FB_DOF) = q(i);
-                dq_pin_(i + FB_VEL) = qd(i);
-                tau_msr_(i) = tau(i);
+                for(size_t i = 0; i < pin_jnt_name_.size(); i++)
+                {
+                    // std::cerr << "the "<< i<<"-th joints name is "<< pin_jnt_name_[i]<<std::endl;
+                    q_pin_(i + FB_DOF) = q(i);
+                    dq_pin_(i + FB_VEL) = qd(i);
+                    tau_msr_(i) = tau(i);
+                }
+            }
+            else if(DOF_ == 8)
+            {
+                for(size_t i = 0; i < pin_jnt_name_.size(); i++)
+                {
+                    // std::cerr << "the "<< i<<"-th joints name is "<< pin_jnt_name_[i]<<std::endl;
+                    int k;
+                    if(i < 2)
+                        k = i + 1;
+                    else if(i >= 2 && i < 4)
+                        k = i + 2;
+                    else if(i >= 4 && i < 6)
+                    k = i + 3;
+                    else
+                    k = i + 4;
+                    q_pin_(i + FB_DOF) = q(k);
+                    dq_pin_(i + FB_VEL) = qd(k);
+                    tau_msr_(i) = tau(k);
+                }
             }
             update_All();
             updated_++;
@@ -169,7 +192,7 @@ namespace pronto_pinocchio
             }
             // std::cerr << "the 2d jacobian is "<<std::endl<< J_2d.transpose() << " the nverse jac is " << std::endl<< J_2d.transpose().inverse()<<std::endl << " and tau diff is " << tau_leg_2d << std::endl;;
              
-            Eigen::Vector2d grf_2d = J_2d.transpose().inverse()*tau_leg_2d;
+            Eigen::Vector2d grf_2d = -J_2d.transpose().inverse()*tau_leg_2d;
             // std::cerr<< "foot "<< leg << "has GRF" << grf_2d(0)<< " " << grf_2d(1)  << std::endl;
             if(ker_ == 0)
             {

@@ -54,9 +54,13 @@ namespace pronto
                     return 0;
                 }
             }
-            inline std::vector<std::string> get_jnt_names()
+            inline void get_jnt_names(std::vector<std::string>& jnt_name)
             {
-                return jnt_names_;
+                get_jnt_list();
+                jnt_name = jnt_names_;
+                jnt_name.resize(jnt_names_.size());
+                for(size_t i = 0; i< jnt_names_.size();i++)
+                    jnt_name[i] = jnt_names_[i];
             };
 
 
