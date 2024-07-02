@@ -11,7 +11,7 @@ Pronto_ROS2_Node :
     publish_tf : true
     tf_child_frame_id : "base_pronto"
     republish_sensors : false
-    init_sensors : ["qualysis_mt", "bias_lock", "ins"] 
+    init_sensors : [ "bias_lock", "ins"] 
     active_sensors : [ "bias_lock","legodo","ins"]
     utime_history_span : 60000
 
@@ -35,7 +35,7 @@ Pronto_ROS2_Node :
       channel : "filter_initializer"
 
     ins:
-      topic : "/IMU_Broadcaster/imu"
+      topic : "/imu_sensor_broadcaster/imu" # "/IMU_Broadcaster/imu"
       utime_offset : 0 # units 1e-6 seconds
       downsample_factor : 1 # process 1 out of every this many. for 333Hz use 1. for 1kHz use 3
       roll_forward_on_receive : true
@@ -70,8 +70,8 @@ Pronto_ROS2_Node :
       max_initial_gyro_bias : 0.015 # deg/sec, biases above this will be set to zero
 
     legodo :
-      sim: false
-      topic : "/state_broadcaster/joints_state"
+      sim: true
+      topic : "joint_states"  # "/state_broadcaster/joints_state"
       # ground_truth_channel : "POSE_GROUND_TRUTH"
 
       time_offset : 0.0 # time offset between vicon and other messages (useful for logs)
@@ -83,8 +83,8 @@ Pronto_ROS2_Node :
       stance_mode : 1 # 0 : THRESHOLD, 1 : HYSTERESIS, 2 : REGRESSION
       stance_threshold : 90.0 # threshold of GRF[z] to trigger the stance phase
       
-      stance_hysteresis_low : 4.0 # hysteresis low threshold
-      stance_hysteresis_high : 10.0 # hysteresis high threshold
+      stance_hysteresis_low : 10.0 # hysteresis low threshold
+      stance_hysteresis_high : 115.0 # hysteresis high threshold
       stance_hysteresis_delay_low : 0 # delay low for schmitt trigger in nanoseconds
       stance_hysteresis_delay_high : 20000000 # delay in for schmitt trigger in nanoseconds
 
@@ -108,7 +108,7 @@ Pronto_ROS2_Node :
       publish_head_on_message : false
     
     bias_lock:
-      sim: false
+      sim: true
       torque_threshold : 0.5 # Nm on knee joints
       verbose: false
       velocity_threshold : 0.06 # rad/s
@@ -116,8 +116,8 @@ Pronto_ROS2_Node :
       publish_head_on_message : false
       utime_offset : 0
       publish_debug_topics: true
-      topic : "/IMU_Broadcaster/imu"
-      secondary_topic : "/state_broadcaster/joints_state"
+      topic : "/imu_sensor_broadcaster/imu"
+      secondary_topic : "/joint_states"
     qualysis_mt:
         robot_name: "Omnicar"
        

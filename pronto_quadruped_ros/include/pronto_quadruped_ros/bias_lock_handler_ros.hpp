@@ -73,6 +73,13 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
 
     std::string imu_frame = "imu_link";
 
+    //parameter declaration 
+   
+    nh_->declare_parameter<double>(lock_param_prefix + "torque_threshold", 0.0);
+    nh_->declare_parameter<double>(lock_param_prefix + "velocity_threshold", 0.0);
+    nh_->declare_parameter<bool>(lock_param_prefix + "verbose", false);
+   
+
     
     nh_->get_parameter_or(ins_param_prefix + "frame", imu_frame, imu_frame);
     std::string base_frame = "base";
@@ -96,7 +103,7 @@ ImuBiasLockBaseROS<JointStateT>::ImuBiasLockBaseROS(rclcpp::Node::SharedPtr nh) 
     nh_->get_parameter_or(lock_param_prefix + "torque_threshold", cfg.torque_threshold_, 0.0);
     nh_->get_parameter_or(lock_param_prefix + "velocity_threshold", cfg.velocity_threshold_, 0.0);
     nh_->get_parameter_or(lock_param_prefix + "verbose", cfg.verbose_, false);
-
+    RCLCPP_INFO_STREAM(nh_->get_logger(), "[ImuBiasLockBaseROS] verbose : '" << cfg.verbose_ << "'");
     if (!nh_->get_parameter(ins_param_prefix + "timestep_dt", cfg.dt_)) {
         RCLCPP_WARN_STREAM(nh_->get_logger(), "Couldn't read dt. Using default: " << cfg.dt_);
     }
@@ -188,6 +195,7 @@ RBISUpdateInterface* ImuBiasLockBaseROS<JointStateT>::processMessage(const senso
         state_msg.point.y = state_msg.point.x;
         state_msg.point.z = state_msg.point.x;
         status_pub_->publish(state_msg);
+        RCLCPP_INFO(nh_->get_logger(),"AAAAA");
     }
 
     if (publish_transforms_) {

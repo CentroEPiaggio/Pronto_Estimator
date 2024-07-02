@@ -336,14 +336,14 @@ LegodoHandlerWithAccelerationROS::Update* LegodoHandlerWithAccelerationROS::proc
       return nullptr;
     }
     getPreviousState(est);
-
+    RCLCPP_INFO(nh_->get_logger(),"a1");
     stance_estimator_->setJointStates(nsec_, q_, qd_, tau_, orientation_,
                                      // optional arguments starts from here
                                      // note passing previous value for velocity
                                      qdd_, xd_, xdd_, omega_, omegad_);
-
+    RCLCPP_INFO(nh_->get_logger(),"a2");
     stance_estimator_->getStance(stance_, stance_prob_);
-
+    RCLCPP_INFO(nh_->get_logger(),"a3");
     return computeVelocity();
 }
 
@@ -442,6 +442,7 @@ LegodoHandlerPinRos::LegodoHandlerPinRos(
     std::vector<std::string> jnt_names 
 ):LegodoHandlerBase(nh,stance_est,legodo)
 {
+  jnt_names_ = jnt_names;
 }
 
 

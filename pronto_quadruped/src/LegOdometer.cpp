@@ -176,10 +176,12 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
     foot_pos_ = forward_kinematics_.getFeetPos(q);
     for(int leg = LF; leg <= RH; leg++){
         // auto qd_block = qd.block<3,1>(leg * 3, 0);
+        
+
         base_vel_leg_[LegID(leg)] = - feet_jacobians_.getFootJacobian(q, LegID(leg))
                             * qd.block<3,1>(leg * 3, 0) ; //+ Eigen::Vector3d(0.4,0.0,0.0);
                               - omega.cross(foot_pos_[LegID(leg)]);
-                      
+       
         // base_vel_leg_[LegID(leg)] = -feet_jacobians_.getFootJacobian(q,LegID(leg)).block
         //                       - omega.cross(foot_pos_[LegID(leg)]);
         // std::cerr<< " the "<<leg<<"-th jacbian is "<<std::endl

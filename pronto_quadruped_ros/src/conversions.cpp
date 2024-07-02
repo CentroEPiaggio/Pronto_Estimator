@@ -99,33 +99,40 @@ bool JointsStatesFromROS(const pi3hat_moteus_int_msgs::msg::JointsStates& msg,
 {
     // if the size of the joint state message does not match our own,
     // we silently return an invalid update
-    std::size_t size = jnt_names.size();
+    std::size_t size = msg.position.size();
 
-    if (msg.position.size() != size ||
-        msg.velocity.size() != size ||
-        msg.effort.size() != size ||
-        msg.temperature.size() != size){
-        RCLCPP_WARN(rclcpp::get_logger("jointStateFromROS"), "Joint State is expected %zu joints but %zu / %zu / %zu / %zu are provided.",
-                         size, msg.position.size(), msg.velocity.size(), msg.effort.size(), msg.temperature.size());
-        return false;
-    }
+    // if (msg.position.size() != size ||
+    //     msg.velocity.size() != size ||
+    //     msg.effort.size() != size ||
+    //     msg.temperature.size() != size){
+    //     RCLCPP_WARN(rclcpp::get_logger("jointStateFromROS"), "Joint State is expected %zu joints but %zu / %zu / %zu / %zu are provided.",
+    //                      size, msg.position.size(), msg.velocity.size(), msg.effort.size(), msg.temperature.size());
+    //     return false;
+    // }
     // store message time in microseconds
     utime = msg.header.stamp.sec * std::pow(10,6) +msg.header.stamp.nanosec /1000;
     int j;
-    for(int i=0; i<size; i++){
+    for(int i=0; i<12; i++){
       j = -1;
       for(int k = 0; k<size; k++)
       {
-        if(jnt_names[k].compare(msg.name[i])==0)
+        
+        if(jnt_names[i].compare(msg.name[k])==0)
         {
           j = k;
         }
       }
       if(j==-1)
-        throw(std::logic_error("unconsistent joints nomenclature"));
-      q(j) = msg.position[i];
-      qd(j) = msg.velocity[i];
-      tau(j) = msg.effort[i];
+      {
+        q(i) = 0.0;
+        qd(i) = 0.0;
+        tau(i) = 0.0;
+      }
+        // throw(std::logic_error("unconsistent joints nomenclature"));
+      q(i) = msg.position[j];
+      qd(i) = msg.velocity[j];
+      tau(i) = msg.effort[j];
+      // RCLCPP_INFO_STREAM(rclcpp::get_logger("JOINT CONV"),"jnts data "<< q <<" "<<qd <<" " << tau);
     }
     //q = Eigen::Map<const JointState>(msg.position.data());
     //qd = Eigen::Map<const JointState>(msg.velocity.data());

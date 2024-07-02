@@ -45,17 +45,17 @@ namespace pronto_pinocchio
         q_pin_(6)  = 1.0;
         pinocchio::computeFrameJacobian(model_,data_,q_pin_,leg_id,pinocchio::ReferenceFrame::LOCAL_WORLD_ALIGNED,Jac_);
         
-        int leg_num ;
-        // if(leg == LegID::RF)
-        //     leg_num = LegID::LH;
-        // else if(leg == LegID::LH)
-        //     leg_num = LegID::RF;
-        // else
-            leg_num = leg;
+        // int leg_num ;
+        // // if(leg == LegID::RF)
+        // //     leg_num = LegID::LH;
+        // // else if(leg == LegID::LH)
+        // //     leg_num = LegID::RF;
+        // // else
+        //     leg_num = leg;
         if(DOF_ == 8)
-            Jac.block<3,2>(0,1) = Jac_.block<3,2>(0,6 + leg_num*2);
+            Jac.block<3,2>(0,1) = Jac_.block<3,2>(0,6 + conv_leg_pro2pin_[(int)leg]*2);
         else    
-            Jac = Jac_.block<3,3>(0,6 + leg_num*3);
+            Jac = Jac_.block<3,3>(0,6 + conv_leg_pro2pin_[(int)leg]*3);
         // std::cerr << " the jacobian block is "<< std::endl<<Jac<<std::endl;
         // if(!world)
         //     Jac = R_w2b_.inverse() * Jac;
@@ -95,14 +95,15 @@ namespace pronto_pinocchio
             ddq_pin_.block<3,1>(0,0) = xdd;
             dq_pin_.block<3,1>(3,0) = omega;
             ddq_pin_.block<3,1>(3,0) = omegad;
+            
             if(DOF_ == 12)
             {
                 for(size_t i = 0; i < pin_jnt_name_.size(); i++)
                 {
                     // std::cerr << "the "<< i<<"-th joints name is "<< pin_jnt_name_[i]<<std::endl;
-                    q_pin_(i + FB_DOF) = q(i);
-                    dq_pin_(i + FB_VEL) = qd(i);
-                    tau_msr_(i) = tau(i);
+                    q_pin_(i + FB_DOF) = q(conv_pro2pin_[i]);
+                    dq_pin_(i + FB_VEL) = qd(conv_pro2pin_[i]);
+                    tau_msr_(i) = tau(conv_pro2pin_[i]);
                 }
             }
             else if(DOF_ == 8)
@@ -110,18 +111,9 @@ namespace pronto_pinocchio
                 for(size_t i = 0; i < pin_jnt_name_.size(); i++)
                 {
                     // std::cerr << "the "<< i<<"-th joints name is "<< pin_jnt_name_[i]<<std::endl;
-                    int k;
-                    if(i < 2)
-                        k = i + 1;
-                    else if(i >= 2 && i < 4)
-                        k = i + 2;
-                    else if(i >= 4 && i < 6)
-                    k = i + 3;
-                    else
-                    k = i + 4;
-                    q_pin_(i + FB_DOF) = q(k);
-                    dq_pin_(i + FB_VEL) = qd(k);
-                    tau_msr_(i) = tau(k);
+                    q_pin_(i + FB_DOF) = q(conv_pro2pin_[i]);
+                    dq_pin_(i + FB_VEL) = qd(conv_pro2pin_[i]);
+                    tau_msr_(i) = tau(conv_pro2pin_[i]);
                 }
             }
             update_All();
@@ -156,10 +148,10 @@ namespace pronto_pinocchio
         // else
             leg_num = leg;
         if(DOF_ ==  8)
-            tau_leg_2d = -tau_rnea_.block<2,1>(leg_num*2 + FB_VEL,0) + tau_msr_.block<2,1>(leg_num*2,0);
+            tau_leg_2d = -tau_rnea_.block<2,1>(conv_leg_pro2pin_[(int)leg]*2 + FB_VEL,0) + tau_msr_.block<2,1>(conv_leg_pro2pin_[(int)leg]*2,0);
         
         else
-            tau_leg = - tau_rnea_.block<3,1>(leg_num*3 + FB_VEL,0) + tau_msr_.block<3,1>(leg_num*3,0);
+            tau_leg = - tau_rnea_.block<3,1>(conv_leg_pro2pin_[(int)leg]*3 + FB_VEL,0) + tau_msr_.block<3,1>(conv_leg_pro2pin_[(int)leg]*3,0);
 
         // std::cerr << "the rnea trq of jnt "<<leg<<" is "<<tau_rnea_.block<3,1>(leg*3 + FB_VEL,0).transpose()<<std::endl;
         // std::cerr << "the msrd trq of jnt "<<leg<<" is "<<tau_msr_.block<3,1>(leg*3,0).transpose()<<std::endl<<std::endl;
@@ -266,6 +258,7 @@ namespace pronto_pinocchio
             for(size_t i = 0; i < pin_jnt_name_.size(); i++)
             {
                 // std::cerr << "the "<< i<<"-th joints name is "<< pin_jnt_name_[i]<<std::endl;
+                
                 q_pin_(i + FB_DOF) = std::get<0>(jnt_stt[pin_jnt_name_[i]]);
                 dq_pin_(i + FB_VEL) = std::get<1>(jnt_stt[pin_jnt_name_[i]]);
                 tau_msr_(i) = std::get<2>(jnt_stt[pin_jnt_name_[i]]);

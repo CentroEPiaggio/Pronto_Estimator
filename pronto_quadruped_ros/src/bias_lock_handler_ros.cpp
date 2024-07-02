@@ -57,7 +57,7 @@ RBISUpdateInterface* ImuBiasLockROS::processMessage(const sensor_msgs::msg::Imu 
 {
     msgToImuMeasurement(*msg, bias_lock_imu_msg_);
     RBISUpdateInterface* update = bias_lock_module_->processMessage(&bias_lock_imu_msg_, est);
-
+    
     if (update != nullptr) {
         RBIS head_state;
         RBIM head_cov;
@@ -89,4 +89,5 @@ void ImuBiasLockROS::processSecondaryMessage(const pi3hat_moteus_int_msgs::msg::
 {
     JointStatesFromROS(msg, bias_lock_js_msg_);
     bias_lock_module_->processSecondaryMessage(bias_lock_js_msg_);
+    
 }
