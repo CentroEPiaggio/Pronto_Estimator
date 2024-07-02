@@ -1,0 +1,4 @@
+output_bags:
+  - uri: Exp_pronto_mulinex_2024_06_26_18_05_02_mcap
+    storage_id: mcap
+    all: true

@@ -21,6 +21,8 @@
 
 #define FB_DOF 7
 #define FB_VEL 6
+#define LEG_NUM 4
+#define PRONTO_JNT_P_LEG 3
 namespace pronto_pinocchio
 {
     using JointState = pronto::quadruped::JointState;
@@ -40,13 +42,22 @@ namespace pronto_pinocchio
 
             Pinocchio_Feet_Force()
             {}
-            Pinocchio_Feet_Force(pinocchio::Model mod,int ker,int DOF):
+            Pinocchio_Feet_Force(pinocchio::Model mod,int ker,int DOF,std::vector<int> conv_pro2pin):
             model_(mod),
             data_(pinocchio::Data(mod)),
             ker_(ker),
             DOF_(DOF)
             {
-                
+                int step = DOF/LEG_NUM;
+                conv_pro2pin_.resize(conv_pro2pin.size());
+                for(size_t i = 0; i<conv_pro2pin_.size();i++)
+                {
+                    conv_pro2pin_[i]=conv_pro2pin[i];
+                }
+                for(size_t i = 0; i < LEG_NUM; i++)
+                {
+                    conv_leg_pro2pin_[i] = conv_pro2pin_[i*step]/PRONTO_JNT_P_LEG;
+                }
                 q_pin_ = Eigen::VectorXd::Zero(DOF_ + FB_DOF);
                 dq_pin_ = Eigen::VectorXd::Zero(DOF_ + FB_VEL);
                 ddq_pin_ = Eigen::VectorXd::Zero(DOF_ + FB_VEL);
@@ -186,11 +197,12 @@ namespace pronto_pinocchio
             };
 
             
-           
+        std::vector<int> conv_leg_pro2pin_ = {0,0,0,0};  
 
         private:
             pinocchio::Model model_;
             pinocchio::Data data_;
+            std::vector<int> conv_pro2pin_;
             int ker_,DOF_;
             int leg_count_ = 0;
             bool update_need_ = false;
@@ -199,6 +211,7 @@ namespace pronto_pinocchio
             std::vector<std::string> pin_jnt_name_ = {};
             Eigen::Matrix3d R_w2b_;
             int updated_ = 0;
+            
 
     };
 

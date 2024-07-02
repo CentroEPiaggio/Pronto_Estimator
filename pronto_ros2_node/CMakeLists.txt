@@ -15,8 +15,45 @@ find_package(sensor_msgs REQUIRED)
 find_package(pinocchio REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(pi3hat_moteus_int_msgs REQUIRED)
+find_package(mocap_msgs REQUIRED)
+find_package(gazebo_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+
+add_library(
+  external_sensor SHARED
+  src/qualysis_mt.cpp
+)
 
 
+
+ament_target_dependencies(
+  external_sensor
+  
+  rclcpp
+  pronto_core
+  mocap_msgs
+  gazebo_msgs
+  sensor_msgs
+  nav_msgs
+  std_srvs
+)
+
+
+
+target_include_directories(external_sensor PUBLIC
+
+$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+
+$<INSTALL_INTERFACE:include>)
+
+install(
+  TARGETS
+  external_sensor
+  EXPORT export_external_sensor
+  RUNTIME DESTINATION bin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+)
 add_executable(pronto_node src/pronto_ros2_node.cpp)
 
 ament_target_dependencies(
@@ -29,6 +66,12 @@ ament_target_dependencies(
   pinocchio
   nav_msgs
   pi3hat_moteus_int_msgs
+  # mocap_msgs
+  gazebo_msgs
+  std_srvs
+)
+target_link_libraries(
+  pronto_node  external_sensor
 )
 
 if(BUILD_TESTING)
@@ -51,6 +94,13 @@ pronto_node
 install(
   DIRECTORY config launch  urdf 
   DESTINATION share/${PROJECT_NAME}
+)
+
+ament_export_include_directories(
+  include
+)
+ament_export_libraries(
+  external_sensor
 )
 
 ament_package()

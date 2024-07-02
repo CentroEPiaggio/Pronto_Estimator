@@ -23,6 +23,7 @@
 
 #include "pronto_quadruped_ros/quad_model_parser.hpp"
 #include "pronto_quadruped_ros/bias_lock_handler_ros.hpp"
+#include "pronto_ros2_node/qualysis_mt.hpp"
 
 const pinocchio::JointModelFreeFlyer root_fb;
 namespace pronto
@@ -160,41 +161,68 @@ namespace pronto
                            RCLCPP_ERROR_STREAM(get_logger() ,e.what());
                            throw(std::logic_error("not correct xacro file"));
                         }
+                        std::vector<std::string> jnt_n =  {
+                                                            "LF_HAA",
+                                                            "LF_HFE",
+                                                            "LF_KFE",
+                                                            "RF_HAA",
+                                                            "RF_HFE",
+                                                            "RF_KFE",
+                                                            "LH_HAA",
+                                                            "LH_HFE",
+                                                            "LH_KFE",
+                                                            "RH_HAA",
+                                                            "RH_HFE",
+                                                            "RH_KFE"        
+                                                        }, jnt_pin ;
+                        std::vector<int> conv_pro2pin;
+                        jnt_pin.resize(dof);
+                        conv_pro2pin.resize(dof);
+                        mod_parse_->get_jnt_names(jnt_pin);
+                        bool exist;
+                        for(size_t i = 0; i < jnt_n.size(); i++)
+                        {
+                            exist = false;
+                            for(size_t j = 0; j < jnt_pin.size(); j++)
+                            {
+                                if(jnt_n[i].compare(jnt_pin[j])==0)
+                                {
+                                    conv_pro2pin[j] = i;
+                                    exist = true;
+                                }
 
+                            }
+                            if(!exist)
+                            {
+                                RCLCPP_WARN(get_logger(),"Joint %s is not cointaned into Pinocchio joints list",jnt_n[i].c_str());
+                                if(!(i == 0 || i== 3 || i == 6 || i== 9))
+                                    throw(std::logic_error("error in URDF joints nomenclature"));
+                            }
+                            
+
+                        }
+                            for(size_t i = 0; i< dof ; i++)
+                        {
+                            RCLCPP_INFO(get_logger(),"%s--%s--%d",jnt_n[conv_pro2pin[i]].c_str(),jnt_pin[i].c_str(),conv_pro2pin[i]);
+                        }
                         pinocchio::urdf::buildModelFromXML(urdf_file_,root_fb,model_);
-                        feet_force_ = pronto_pinocchio::Pinocchio_Feet_Force(model_,ax_ker,dof);
+                        feet_force_ = pronto_pinocchio::Pinocchio_Feet_Force(model_,ax_ker,dof,conv_pro2pin);
                         jacs_ = pronto_pinocchio::Pinocchio_Jacobian(&feet_force_);
                         fk_ = pronto_pinocchio::Pinocchio_FK(&feet_force_);
                         
                         stance_est_ = std::make_shared<quadruped::StanceEstimatorROS>(shared_from_this(),feet_force_);
                         leg_odom_ = std::make_shared<quadruped::LegOdometerROS>(shared_from_this(),jacs_,fk_);
-                        std::vector<std::string> jnt_n =  {
-                                                            "LF_HAA",
-                                                            "LF_HFE",
-                                                            "LF_KFE",
-                                                            "LH_HAA",
-                                                            "LH_HFE",
-                                                            "LH_KFE",
-                                                            "RF_HAA",
-                                                            "RF_HFE",
-                                                            "RF_KFE",
-                                                            "RH_HAA",
-                                                            "RH_HFE",
-                                                            "RH_KFE"        
-                                                        };
+                        
                         //                                 RCLCPP_INFO(get_logger(),"aaaa");
-                        // mod_parse_->get_jnt_names(jnt_n);
-                        RCLCPP_INFO(get_logger(),"The joints name are %d", jnt_n.size());
-                        for(size_t i = 0; i< jnt_n.size() ; i++)
-                        {
-                            RCLCPP_INFO(get_logger(),"%s",jnt_n[i].c_str());
-                        }
+
+                        
+                        
+                        
                         if(sim)
                             lo_pin_handler_sim_ = std::make_shared<quadruped::LegodoHandlerPinRos_Sim>(shared_from_this(),stance_est_.get(),leg_odom_.get(),jnt_n);
                         else
 
                             lo_pin_handler_ = std::make_shared<quadruped::LegodoHandlerPinRos>(shared_from_this(),stance_est_.get(),leg_odom_.get(),jnt_n);
-                       
                         if (active)
                             {
                                 if(sim)
@@ -246,6 +274,19 @@ namespace pronto
                                     ros_fe_->addInitModule(*ibl_handler_, *it, topic, subscribe);
                             }
                     }
+                    else if(it->compare("qualysis_mt") == 0)
+                    {
+                            qual_mt_ = std::make_shared<QualysisMTRosHandler>(this->shared_from_this());
+                            if (active)
+                            {
+                                ros_fe_->addSensingModule(*qual_mt_, *it, roll_forward, publish_head, topic, subscribe);
+                            }
+                            if (init) 
+                            {
+                                ros_fe_->addInitModule(*qual_mt_, *it, topic, subscribe);
+                            }
+
+                    }
                 }
             }
 
@@ -272,6 +313,7 @@ namespace pronto
                 std::shared_ptr<quadruped::LegodoHandlerPinRos_Sim> lo_pin_handler_sim_;
                 std::shared_ptr<quadruped::ImuBiasLockROS> ibl_handler_;
                 std::shared_ptr<quadruped::ImuBiasLockROS_Sim> ibl_handler_sim_;
+                std::shared_ptr<QualysisMTRosHandler> qual_mt_;
         };
         
     }; // namespace pronto_node
