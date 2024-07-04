@@ -56,6 +56,7 @@ namespace pronto_pinocchio
             Jac.block<3,2>(0,1) = Jac_.block<3,2>(0,6 + conv_leg_pro2pin_[(int)leg]*2);
         else    
             Jac = Jac_.block<3,3>(0,6 + conv_leg_pro2pin_[(int)leg]*3);
+        // std::cerr<<"the block data LF are "<<std::endl<<q_pin_.block<3,1>(6, 0)<<std::endl;
         // std::cerr << " the jacobian block is "<< std::endl<<Jac<<std::endl;
         // if(!world)
         //     Jac = R_w2b_.inverse() * Jac;

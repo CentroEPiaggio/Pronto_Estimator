@@ -76,7 +76,7 @@ Pronto_ROS2_Node :
 
       time_offset : 0.0 # time offset between vicon and other messages (useful for logs)
       verbose : false # Prints warnings and messages 
-      publish_debug_topics : true # Sends signals and saves text files with signals
+      publish_debug_topics : false # Sends signals and saves text files with signals
 
       legodo_mode : 0 # STATIC_SIGMA 0x00, VAR_SIGMA 0x01, IMPACT_SIGMA 0x02, WEIGHTED_AVG 0x04, ALPHA_FILTER : 0x08, KALMAN_FILTER : 0x10
       
@@ -115,7 +115,7 @@ Pronto_ROS2_Node :
       roll_forward_on_receive : true
       publish_head_on_message : false
       utime_offset : 0
-      publish_debug_topics: true
+      publish_debug_topics: false
       topic : "/IMU_Broadcaster/imu"
       secondary_topic : "/state_broadcaster/joints_state"
     qualysis_mt:
