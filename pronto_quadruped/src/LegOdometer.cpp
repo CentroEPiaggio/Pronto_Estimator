@@ -190,7 +190,8 @@ bool LegOdometer::estimateVelocity(const uint64_t utime,
         //   base_vel_leg_[LegID(leg)](p) = std::fabs( base_vel_leg_[LegID(leg)](p));
         // }
     // std::cerr << " the "<<leg<<"-th jacobian is "<<std::endl<<feet_jacobians_.getFootJacobian(q, LegID(leg))<<std::endl;
-    // std::cerr<<"the block data "<<leg <<"are "<<std::endl<<qd.block<3,1>(leg * 3, 0)<<std::endl;
+    // if(leg == LegID::LF)
+    //   std::cerr<<"the block data "<<leg <<"are "<<std::endl<<qd.block<3,1>(leg * 3, 0)<<std::endl;
     // std::cerr<<"the computation is "<<leg <<"is "<<std::endl<<-((base_vel_leg_[LegID(leg)]))<std::endl;
     // std::cerr << " the "<< leg<<"-th leg est_vel is "<<base_vel_leg_[LegID(leg)].transpose()<< "and the stance prob is "<< stance_legs[leg]<<std::endl;
     // std::cerr << " the "<<leg<<"-th jacobian is "<<std::endl<<feet_jacobians_.getFootJacobian(q, LegID(leg))<<std::endl;

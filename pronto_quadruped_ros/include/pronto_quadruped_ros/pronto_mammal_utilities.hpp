@@ -58,6 +58,7 @@ namespace pronto_pinocchio
                 {
                     conv_leg_pro2pin_[i] = conv_pro2pin_[i*step]/PRONTO_JNT_P_LEG;
                 }
+                std::cerr<<"jnt leg map is [ "<<conv_leg_pro2pin_[0]<<" "<<conv_leg_pro2pin_[1]<<" "<<conv_leg_pro2pin_[2]<<" "<<conv_leg_pro2pin_[3]<<" ]"<<std::endl;
                 q_pin_ = Eigen::VectorXd::Zero(DOF_ + FB_DOF);
                 dq_pin_ = Eigen::VectorXd::Zero(DOF_ + FB_VEL);
                 ddq_pin_ = Eigen::VectorXd::Zero(DOF_ + FB_VEL);

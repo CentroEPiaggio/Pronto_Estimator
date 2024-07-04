@@ -58,7 +58,10 @@ def generate_launch_description():
              '/pose_est','/twist_est','/rh_veldebug','/rh_grf' ,
              '/rf_veldebug','/rf_grf' ,
              '/lh_veldebug','/lh_grf' ,
-             '/lf_veldebug','/lf_grf' ,'-o', bag_path ],
+             '/lf_veldebug','/lf_grf' ,
+             '/state_broadcaster/joints_state',
+             '/state_broadcaster/performance_indexes',
+             '/IMU_Broadcaster/imu','-o', bag_path ],
      output='screen'
     )
     # start the motion delayed ++
