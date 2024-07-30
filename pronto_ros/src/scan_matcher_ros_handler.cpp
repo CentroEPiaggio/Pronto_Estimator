@@ -15,8 +15,16 @@ ScanMatcherHandler::ScanMatcherHandler(rclcpp::Node::SharedPtr nh) : nh_(nh)
     Eigen::VectorXi z_indices;
     Eigen::MatrixXd cov_scan_match;
 
-    std::string prefix = "scan_matcher/";
+    std::string prefix = "scan_matcher.";
     std::string mode_str;
+    nh_->declare_parameter<std::string>(prefix +"mode",std::string());
+    nh_->declare_parameter<double>(prefix +"r_pxy",0.0);
+    nh_->declare_parameter<double>(prefix +"r_pz",0.0);
+    nh_->declare_parameter<double>(prefix +"r_yaw",0.0);
+    nh_->declare_parameter<double>(prefix +"r_vxy",0.0);
+    nh_->declare_parameter<double>(prefix +"r_vz",0.0);
+    nh_->declare_parameter<double>(prefix +"r_rxy",0.0);
+    nh_->declare_parameter<double>(prefix +"r_ryaw",0.0);
 
     if (!nh_->get_parameter(prefix + "mode", mode_str)) {
         RCLCPP_WARN(nh_->get_logger(), "Couldn't get param \"mode\". Using MODE_POSITION by default.");
@@ -136,17 +144,18 @@ ScanMatcherHandler::ScanMatcherHandler(rclcpp::Node::SharedPtr nh) : nh_(nh)
     cov_scan_match = R_scan_match.asDiagonal();
 
     scan_matcher_module_ = ScanMatcherModule(mode, z_indices, cov_scan_match);
+    RCLCPP_INFO(rclcpp::get_logger("ScanMatcherHandler"),"The scan matcher has been initialized");
 }
 
 RBISUpdateInterface * ScanMatcherHandler::processMessage(const geometry_msgs::msg::PoseWithCovarianceStamped *msg,
                                                          StateEstimator* state_estimator)
 {
     poseMsgFromROS(*msg, pose_meas_);
-    std::cerr << "RECEIVED POSE MEASUREMENT: " <<
-                 pose_meas_.pos.transpose() <<
-                 "   " <<
-              rotation::getEulerAnglesDeg(pose_meas_.orientation).transpose() <<
-                 std::endl;
+    // std::cerr << "RECEIVED POSE MEASUREMENT: " <<
+    //              pose_meas_.pos.transpose() <<
+    //              "   " <<
+    //           rotation::getEulerAnglesDeg(pose_meas_.orientation).transpose() <<
+    //              std::endl;
     return scan_matcher_module_.processMessage(&pose_meas_, state_estimator);
 }
 

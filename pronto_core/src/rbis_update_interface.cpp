@@ -146,7 +146,7 @@ void RBISIndexedPlusOrientationMeasurement::updateFilter(const RBIS & prior_stat
                                                                 prior_cov,
                                                                 dstate,
                                                                 dcov);
-#if DEBUG_MODE
+#if true
   std::cerr << "======================================" << std::endl;
   std::cerr << sensorIdToString(sensor_id)  << std::endl;
   std::cerr << "======================================" << std::endl;
@@ -157,7 +157,7 @@ void RBISIndexedPlusOrientationMeasurement::updateFilter(const RBIS & prior_stat
 #endif
   rbisApplyDelta(prior_state, prior_cov, dstate, dcov, posterior_state, posterior_covariance);
 
-#if DEBUG_MODE
+#if true
   std::cerr << "    Prior velocity: " << prior_state.velocity().transpose().format(CleanFmt) << std::endl;
   std::cerr << "Posterior velocity: " << posterior_state.velocity().transpose().format(CleanFmt) << std::endl;
   std::cerr << "    Prior position: " << prior_state.position().transpose().format(CleanFmt) << std::endl;

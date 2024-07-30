@@ -287,6 +287,18 @@ namespace pronto
                             }
 
                     }
+                    else if(it->compare("scan_matcher") == 0)
+                    {
+                        scan_match_handler_ = std::make_shared<ScanMatcherHandler>(this->shared_from_this());
+                        if (active)
+                        {
+                            ros_fe_->addSensingModule(*scan_match_handler_, *it, roll_forward, publish_head, topic, subscribe);
+                        }
+                        if (init) 
+                        {
+                            ros_fe_->addInitModule(*scan_match_handler_, *it, topic, subscribe);
+                        }
+                    }
                 }
             }
 
@@ -314,6 +326,7 @@ namespace pronto
                 std::shared_ptr<quadruped::ImuBiasLockROS> ibl_handler_;
                 std::shared_ptr<quadruped::ImuBiasLockROS_Sim> ibl_handler_sim_;
                 std::shared_ptr<QualysisMTRosHandler> qual_mt_;
+                std::shared_ptr<ScanMatcherHandler> scan_match_handler_;
         };
         
     }; // namespace pronto_node

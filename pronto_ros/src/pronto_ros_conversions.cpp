@@ -101,7 +101,8 @@ void poseMsgFromROS(const geometry_msgs::msg::PoseStamped &msg,
   pose_meas.pos << msg.pose.position.x,
       msg.pose.position.y,
       msg.pose.position.z;
-  pose_meas.utime = (uint64_t)msg.header.stamp.nanosec / 1000;
+    
+  pose_meas.utime = (int)(msg.header.stamp.nanosec / 1000) + msg.header.stamp.sec * std::pow(10,6);
 }
 
 void poseMeasurementFromROS(const nav_msgs::msg::Odometry &ros_msg,
