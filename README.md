@@ -11,7 +11,7 @@ The available list of module contains:
     <li>qualysis_mt: qualysis motion tracker</li>
 
 </ol>
-## ROS1 Pronto Code Desription
+
 ### ROS2 Code UML 
 ![Prova](/doc/pronto_node_ros1.png)
 
