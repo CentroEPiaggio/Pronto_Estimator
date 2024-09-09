@@ -1,78 +1,120 @@
 # Pronto_Estimator
-ROS2 Pronto Floating Base System estimator implementation is a library 
+This is an  EKF base filetr implementation adpted to floating base system and then update to be use in ROS2 Framework and add some module to manage wheeled system.
 
+The system offer a span of module to manage different sensors subscribing to different topics.
+The available list of module contains:
+<ol>
+    <li>ins: inertial navigation system(IMU)</li>
+    <li>legodo: legged odometry</li>
+    <li>bias_lock: bias updater when sytem is standing</li>
+    <li>scan_matcher: lidar scan matcher </li>
+    <li>qualysis_mt: qualysis motion tracker</li>
+
+</ol>
 ## ROS1 Pronto Code Desription
-### Code UML
-Ros1 original code scheme 
+### ROS2 Code UML 
 ![Prova](/doc/pronto_node_ros1.png)
-Revisited Pronto Estimator has been adapted to a Ros2-Controller, it uses directly from the HW State interface the Imu Measure and the Joints State, including position, velocity and torque measure.
-#### TODO
-add other exteroceptive sensors 
-![Controller](/doc/Controller_est.png)
-### TODO
-Add Pronto Parameters Description 
 
-## Usage Simulation
+### Pronto Estimator Parameters
+
+
+#### estimator parameters
+
+<ul>
+    <li>pose_topic: Estimated Pose topic name </li>
+    <li>pose_frame_id: pose tf frame name  </li>
+    <li>twist_topic: Estimated Twist topic name</li>
+    <li>publish_pose: Bool if true publish pose </li>
+    <li>publish_tf: Bool if true publish tf </li>
+    <li>tf_child_frame_id </li>
+    <li>republish_sensors </li>
+    <li>init_sensors: sensor list used to init the filter </li>
+    <li>active_sensors: sensor list used to update the estimation  </li>
+    <li>utime_history_span: max update temporal span dimension </li>
+    <li>sigma0: init covariance </li>
+    <li>x0: init state </li>
+</ul>
+
+#### base module parameters
+
+<ul>
+    <li>topic: module subcrition topic name </li>
+    <li>roll_forward_on_receive: Bool if true update the estimation when the message is recieved </li>
+    <li>publish_head_on_message: Bool if true publish the estimarion when the message is recieved </li>
+</il>
+
+#### ins parameters
+
+<ul>    
+    <li>q_gyro: gyro measures covariance</li>
+    <li>q_accel: accelerometer measure covariance</li>
+    <li>q_gyro_bias: gyro bias covariance </li>
+    <li>q_accel_bias: accelerometer bias covariance</li>
+    <li>num_to_init: message number needed to initialize ins module </li>
+    <li>gyro/accel_bias_initial: bias initial value </li>
+    <li>gyro/accel_bias_recalc_at_start: Bool if true recalc bias during the module initialization </li>
+    <li>gyro/accel_bias_update_online: Bool if true recalc bias during the module initialization </li>
+    <li>frame: imu tf frame name</li>
+    <li>base_frame: base tf frame name</li>
+</ul>
+
+#### legodo parameters
+
+<ul>
+    <li>legodo_mode: it desctibe the covariance computation  mode between: STATIC_SIGMA, VAR_SIGMA,IMPACT_SIGMA, WEIGHTED_AVG and ALPHA_FILTER  </li>
+    <li>stance_mode: it describe the contact detection mode between: THRESHOLD, HYSTERESIS, and  REGRESSION</li>
+    <li>stance_threshold: threshold value</li>
+    <li>stance_hysteresis_low</li>
+    <li>stance_hysteresis_high</li>
+    <li>stance_hysteresis_delay_low</li>
+    <li>stance_hysteresis_delay_high</li>
+    <li>stance_alpha</li>
+    <li>stance_regression_beta_size</li>
+    <li>stance_regression_beta</li>
+    <li>r_vx: init covariance in x direction </li>
+    <li>r_vy: init covariance in y direction</li>
+    <li>r_vz: init covariance in z direction</li>
+    <li>sim: Bool if true the robot use the sensor_msgs otherwise it use pi3hat_msgs</li>
+</ul>
+
+#### bias_lock parameters
+
+<ul>
+    <li>torque_threshold: minimum torque on knee to be in contact with the ground </li>
+    <li>velocity_threshold: maximum velocity to consider the robot standing</li>
+    <li>secondary_topic: joint state topic name</li>
+    <li>sim: Bool if true the robot use the sensor_msgs otherwise it use pi3hat_msgs</li>
+</ul>
+
+#### scan_matcher parameters
+
+<ul>
+    <li>mode: it describe the correction mode between position, yaw and position with yaw</li>
+    <li>r_yaw: yaw covariance</li>
+    <li>r_pxy: position covariance</li>
+    
+</ul>
+
+#### qualysis_mt parameters
+
+<ul>
+    <li>robot_name: qualisys rigid body name</li>
+    <li>r_xyz position covariance</li>
+    <li>r_chi: orientation covariance</li>
+    <li>mode: it describe the correction mode between position, yaw and position with yaw, orientation and position with orientation</li>
+    
+</ul>
+
+## Usage 
+
+The estimator node can be start in this way:
+
+``` ros2 launch  pronto_ros2_node pronto_node.launch.py xacro_pkg:=<robot_description_package> xacro_name:=<xacro_file_name> config_name:=<configuration_file name>```
+
+The config file must be add to the config folder in pronto_ros2_node package.
 ### Dependecies
 Eigen3
 
-## Set up Instruction 
-Create a ROS2 workspace and be sure to have installed GazeboClassic.
-
-Add the simulation and motion control packages provided by [text](https://github.com/ddebenedittis/control_quadrupeds_soft_contacts) and follow the clone instruction.
-
-Clone this repo into the src folder into the workspace.
-
-Define your reference adding a config file into the folder pronto_tuning/config describing a base velocity setpoint used to define a repetable experiments.
-
-Example:
-The straight_motion.yaml file define a staight motion composed by 5 set point producing a trapezoidal velocity reference in forward direction.
-'''
-
-    set_point_list: 
-      - start
-      - move_for
-      - straight
-      - slow_down
-      - stop 
-    start: 
-      vx: 0.0
-      vy: 0.0
-      omega: 0.0
-      time: 0.0
-    move_for: 
-      vx: 0.15
-      vy: 0.0
-      omega: 0.0
-      time: 1.0
-    straight: 
-      vx: 0.15
-      vy: 0.0
-      omega: 0.0
-      time: 51.0
-    slow_down: 
-      vx: 0.0
-      vy: 0.0
-      omega: 0.0
-      time: 52.0
-    stop: 
-      vx: 0.0
-      vy: 0.0
-      omega: 0.0
-      time: 55.0
-
-To launch the code are needed 2 terminals, into the first one should be started the simulation using:
-
-
-    
-    ros2 launch pronto_tuning experiments_pronto.launch.py
-
-despite the second should be started the record and command node
-
-
-    ros2 launch pronto_tuning cmd_rec.launch.py
-    
-The experiments can be changed by adding the new one into the config folder into the pronto_tuning package and changing the configuration file name into the filter_tuning.launch.py launch 
 
 <!-- ### Class and methods
 <ol>
