@@ -1,8 +1,8 @@
 #pragma once
 #include "gazebo_msgs/msg/link_states.hpp"
 #include "gazebo_msgs/msg/link_state.hpp"
-#include "mocap_msgs/msg/rigid_bodies.hpp"
-#include "mocap_msgs/msg/rigid_body.hpp"
+#include "mocap4r2_msgs/msg/rigid_bodies.hpp"
+#include "mocap4r2_msgs/msg/rigid_body.hpp"
 
 #include <functional>
 #include "rclcpp/rclcpp.hpp"
@@ -11,14 +11,14 @@
 
 namespace pronto
 {   
-    class QualysisMTRosHandler : public SensingModule<mocap_msgs::msg::RigidBodies>
+    class QualysisMTRosHandler : public SensingModule<mocap4r2_msgs::msg::RigidBodies>
     {
         public:
             QualysisMTRosHandler(rclcpp::Node::SharedPtr node);
             ~QualysisMTRosHandler(){};
-            RBISUpdateInterface* processMessage(const mocap_msgs::msg::RigidBodies* gz_ls_msg, StateEstimator *est) override; 
+            RBISUpdateInterface* processMessage(const mocap4r2_msgs::msg::RigidBodies* gz_ls_msg, StateEstimator *est) override; 
 
-            bool processMessageInit(const mocap_msgs::msg::RigidBodies* gz_ls_msg,
+            bool processMessageInit(const mocap4r2_msgs::msg::RigidBodies* gz_ls_msg,
                                 const std::map<std::string, bool> &sensor_initialized,
                                 const RBIS &default_state,
                                 const RBIM &default_cov,
@@ -30,7 +30,7 @@ namespace pronto
             }
             
         private:
-            bool get_base_link(mocap_msgs::msg::RigidBodies msg,  mocap_msgs::msg::RigidBody &body_pose)
+            bool get_base_link(mocap4r2_msgs::msg::RigidBodies msg,  mocap4r2_msgs::msg::RigidBody &body_pose)
             {
 
                 for(size_t i=0; i < msg.rigidbodies.size(); i++)
