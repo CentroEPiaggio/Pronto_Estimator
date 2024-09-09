@@ -61,14 +61,14 @@ namespace pronto
         RCLCPP_INFO(node_ptr_->get_logger(),"QualysisMTRosHandler Initialization compleated");
 
     };
-    bool QualysisMTRosHandler::processMessageInit(const mocap_msgs::msg::RigidBodies* mocap_msg,
+    bool QualysisMTRosHandler::processMessageInit(const mocap4r2_msgs::msg::RigidBodies* mocap_msg,
                                 const std::map<std::string, bool> &sensor_initialized,
                                 const RBIS &default_state,
                                 const RBIM &default_cov,
                                 RBIS &init_state,
                                 RBIM &init_cov)
     {
-            mocap_msgs::msg::RigidBody rb;
+            mocap4r2_msgs::msg::RigidBody rb;
             pronto::RigidTransform mt_data;
             
             if(get_base_link(*mocap_msg,rb))
@@ -83,9 +83,9 @@ namespace pronto
                 return false;
               
     };
-    RBISUpdateInterface* QualysisMTRosHandler::processMessage(const mocap_msgs::msg::RigidBodies* mocap_msg, StateEstimator *est)
+    RBISUpdateInterface* QualysisMTRosHandler::processMessage(const mocap4r2_msgs::msg::RigidBodies* mocap_msg, StateEstimator *est)
     {
-        mocap_msgs::msg::RigidBody rb;
+        mocap4r2_msgs::msg::RigidBody rb;
         pronto::RigidTransform mt_data;
         // RCLCPP_INFO(controller_ptr_->get_logger()," start process message");
         if(get_base_link(*mocap_msg,rb))
