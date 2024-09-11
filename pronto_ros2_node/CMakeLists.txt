@@ -15,7 +15,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(pinocchio REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(pi3hat_moteus_int_msgs REQUIRED)
-find_package(mocap_msgs REQUIRED)
+find_package(mocap4r2_msgs REQUIRED)
 find_package(gazebo_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 
@@ -32,11 +32,11 @@ ament_target_dependencies(
   
   rclcpp
   pronto_core
-  mocap_msgs
   gazebo_msgs
   sensor_msgs
   nav_msgs
   std_srvs
+  mocap4r2_msgs
 )
 
 
@@ -93,7 +93,7 @@ pronto_node
 
 
 install(
-  DIRECTORY config launch  urdf 
+  DIRECTORY config launch   
   DESTINATION share/${PROJECT_NAME}
 )
 
