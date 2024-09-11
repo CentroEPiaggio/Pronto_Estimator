@@ -92,7 +92,7 @@ pronto_node
 
 
 install(
-  DIRECTORY config launch  urdf 
+  DIRECTORY config launch   
   DESTINATION share/${PROJECT_NAME}
 )
 
