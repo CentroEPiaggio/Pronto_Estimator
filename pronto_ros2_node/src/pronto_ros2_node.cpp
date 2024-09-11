@@ -1,4 +1,3 @@
-#pragma once
 
 #include <rclcpp/rclcpp.hpp>
 #include "pronto_ros/ros_frontend.hpp"
@@ -11,6 +10,7 @@
 #include "pronto_quadruped_ros/leg_odometer_ros.hpp"
 #include "pronto_quadruped_ros/bias_lock_handler_ros.hpp"
 #include "pronto_quadruped_ros/legodo_handler_ros.hpp"
+#include "pronto_ros2_node/wheeled_odometry.hpp"
 
 #include "pronto_quadruped_ros/pronto_mammal_utilities.hpp"
 
@@ -299,6 +299,18 @@ namespace pronto
                             ros_fe_->addInitModule(*scan_match_handler_, *it, topic, subscribe);
                         }
                     }
+                    else if(it->compare("w_odom") == 0)
+                    {
+                        w_odom_handler_ = std::make_shared<WheeledOdometry>(this->shared_from_this());
+                        if (active)
+                        {
+                            ros_fe_->addSensingModule(*w_odom_handler_, *it, roll_forward, publish_head, topic, subscribe);
+                        }
+                        if (init) 
+                        {
+                            ros_fe_->addInitModule(*w_odom_handler_, *it, topic, subscribe);
+                        }
+                    }
                 }
             }
 
@@ -327,6 +339,7 @@ namespace pronto
                 std::shared_ptr<quadruped::ImuBiasLockROS_Sim> ibl_handler_sim_;
                 std::shared_ptr<QualysisMTRosHandler> qual_mt_;
                 std::shared_ptr<ScanMatcherHandler> scan_match_handler_;
+                std::shared_ptr<WheeledOdometry> w_odom_handler_;
         };
         
     }; // namespace pronto_node

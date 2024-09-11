@@ -15,13 +15,14 @@ find_package(sensor_msgs REQUIRED)
 find_package(pinocchio REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(pi3hat_moteus_int_msgs REQUIRED)
-find_package(mocap4r2_msgs REQUIRED)
+find_package(mocap_msgs REQUIRED)
 find_package(gazebo_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 
 add_library(
   external_sensor SHARED
   src/qualysis_mt.cpp
+  src/wheeled_odometry.cpp
 )
 
 
@@ -31,7 +32,7 @@ ament_target_dependencies(
   
   rclcpp
   pronto_core
-  mocap4r2_msgs
+  mocap_msgs
   gazebo_msgs
   sensor_msgs
   nav_msgs
@@ -66,7 +67,7 @@ ament_target_dependencies(
   pinocchio
   nav_msgs
   pi3hat_moteus_int_msgs
-  # mocap4r2_msgs
+  # mocap_msgs
   gazebo_msgs
   std_srvs
 )
@@ -92,7 +93,7 @@ pronto_node
 
 
 install(
-  DIRECTORY config launch   
+  DIRECTORY config launch  urdf 
   DESTINATION share/${PROJECT_NAME}
 )
 
