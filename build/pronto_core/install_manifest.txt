@@ -1,3 +1,0 @@
-/home/jacopo/Documents/Repo_Projects/Pronto_Estimator/install/pronto_core/lib/libpronto_core.so
-/home/jacopo/Documents/Repo_Projects/Pronto_Estimator/install/pronto_core/share/pronto_core/cmake/export_pronto_coreExport.cmake
-/home/jacopo/Documents/Repo_Projects/Pronto_Estimator/install/pronto_core/share/pronto_core/cmake/export_pronto_coreExport-noconfig.cmake
