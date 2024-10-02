@@ -95,6 +95,15 @@ The available list of module contains:
     
 </ul>
 
+#### Wheel Odomeretry parameters
+
+<ul>
+    <li>mode: it describe the correction mode between linear velocity, agular_velocity and both</li>
+    <li>r_linear: velocity covariance</li>
+    <li>r_chi: angular covariance</li>
+    
+</ul>
+
 #### qualysis_mt parameters
 
 <ul>
@@ -107,11 +116,20 @@ The available list of module contains:
 
 ## Usage 
 
+### Start Estimator
 The estimator node can be start in this way:
 
 ``` ros2 launch  pronto_ros2_node pronto_node.launch.py xacro_pkg:=<robot_description_package> xacro_name:=<xacro_file_name> config_name:=<configuration_file name>```
 
 The config file must be add to the config folder in pronto_ros2_node package.
+
+### Benchmarking
+The Benchmarking launch allows the user to start a list of pronto instance to compare the obtained estimations. The input is a bag cointains all the filter measures input, or at least it should be consistent with the configuration files. The configuration files has to be placed into the config folder and named omnicar_tune_i.yaml, each file is associated with a pronto instace. 
+The launch file cointain the global variable to set the bag name and the list of instance number, subset of the configuration files' list.
+To start the filters the command line is:
+
+``` ros2 launch pronto_ros2_node bench_pronto.launch.py ```
+
 ### Dependecies
 Eigen3
 
