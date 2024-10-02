@@ -53,7 +53,7 @@ namespace pronto
                 try
                 {
                 urdf_file_ = this->get_parameter("urdf_file").as_string();
-                RCLCPP_INFO(get_logger(),"the urdf file is %s",urdf_file_.c_str());
+                // RCLCPP_INFO(get_logger(),"the urdf file is %s",urdf_file_.c_str());
                 init_sensors_ = this->get_parameter("init_sensors").as_string_array();
                 active_sensors_ = this->get_parameter("active_sensors").as_string_array();
                 }

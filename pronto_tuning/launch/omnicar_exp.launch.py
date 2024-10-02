@@ -30,6 +30,13 @@ def generate_launch_description():
                         FindPackageShare("qualisys_driver")
                         , 'launch', 'qualisys.launch.py'])
                 ))
+
+    # qualysis = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource(
+    #                 PathJoinSubstitution([
+    #                     FindPackageShare("pronto_ros2_node")
+    #                     , 'launch', 'qualisys.launch.py'])
+    #             ))
     
     bag_base_path = "/home/ros/docker_pronto_ws/bags/"
     #starts controller 
@@ -79,7 +86,7 @@ def generate_launch_description():
 
     time_str = time.strftime("%Y_%m_%d_%H_%M_%S")
     
-    bag_path = bag_base_path + "_Exp_" +time_str
+    bag_path = bag_base_path + "Exp_" +time_str
     
     start_bag = ExecuteProcess(
         cmd=['ros2', 'bag', 'record','-a','-s','mcap', '-o', bag_path ],

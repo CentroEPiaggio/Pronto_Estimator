@@ -7,15 +7,14 @@ command_node:
       - move_for
       - straight
       - slow_down
+      - turn
       - move_for1
       - straight1
       - slow_down1
+      - turn1
       - move_for2
       - straight2
       - slow_down2
-      - move_for3
-      - straight3
-      - slow_down3
       - stop 
     start: 
       vx: 0.0
@@ -37,53 +36,48 @@ command_node:
       vy: 0.0
       omega: 0.0
       time: 21.0
+    turn: 
+      vx: 0.0
+      vy: 0.0
+      omega: 1.5
+      time: 24.142
     move_for1: 
-      vx: 0.15
+      vx: -0.15
       vy: 0.0
       omega: 0.0
-      time: 22.0
+      time: 25.142
     straight1: 
-      vx: 0.15
+      vx: -0.15
       vy: 0.0
       omega: 0.0
-      time: 42.0
+      time: 45.142
     slow_down1: 
       vx: 0.0
       vy: 0.0
       omega: 0.0
-      time: 43.0
+      time: 46.142
+    turn1: 
+      vx: 0.0
+      vy: 0.0
+      omega: 1.5
+      time: 49.284
     move_for2: 
       vx: -0.15
       vy: 0.0
       omega: 0.0
-      time: 44.0
+      time: 50.284
     straight2: 
       vx: -0.15
       vy: 0.0
       omega: 0.0
-      time: 64.0
+      time: 70.284
     slow_down2: 
       vx: 0.0
       vy: 0.0
       omega: 0.0
-      time: 65.0
-    move_for3: 
-      vx: 0.15
-      vy: 0.0
-      omega: 0.0
-      time: 66.0
-    straight3: 
-      vx: 0.15
-      vy: 0.0
-      omega: 0.0
-      time: 86.0
-    slow_down3: 
-      vx: 0.0
-      vy: 0.0
-      omega: 0.0
-      time: 87.0
+      time: 71.284
     stop: 
       vx: 0.0
       vy: 0.0
       omega: 0.0
-      time: 88.0
+      time: 75.0

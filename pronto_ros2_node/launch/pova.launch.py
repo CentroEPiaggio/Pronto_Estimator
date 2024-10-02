@@ -14,16 +14,15 @@ def generate_launch_description():
     xacro_name_value = LaunchConfiguration("xacro_name")
     config_name_value = LaunchConfiguration("config_name")
     node_name_value = LaunchConfiguration("node_name")
-    topic_name_value = LaunchConfiguration("topic_name")
-    v_topic_name_value = LaunchConfiguration("v_topic_name")
     package_share_path = FindPackageShare('pronto_ros2_node')
+    pose_topic_name = LaunchConfiguration('e_pose_top')
 
     xacro_pkg_arg = DeclareLaunchArgument("xacro_pkg",default_value="pronto_ros2_node")
     xacro_name_arg = DeclareLaunchArgument("xacro_name",default_value="mulinex")
     config_name_arg = DeclareLaunchArgument("config_name",default_value="pronto_mulinex.yaml")
     node_name_arg = DeclareLaunchArgument("node_name",default_value="pronto_node")
-    topic_name_arg = DeclareLaunchArgument("topic_name",default_value="pose_est")
-    v_topic_name_arg = DeclareLaunchArgument("topic_name",default_value="twist_est")
+    pose_topic_name_arg = DeclareLaunchArgument('e_pose_top',default_value="prova")
+
     xacro_file_path = PathJoinSubstitution([
         FindPackageShare(xacro_pkg_value),
        'urdf', xacro_name_value
@@ -32,7 +31,7 @@ def generate_launch_description():
         package_share_path,
         'config',config_name_value
     ])
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
     # ======================================================================== #
 
@@ -41,19 +40,23 @@ def generate_launch_description():
         xacro_name_arg,
         xacro_pkg_arg,
         config_name_arg,
+        pose_topic_name_arg,
+        node_name_arg,
+
         # Subscribe to the joint states of the robot, and publish the 3D pose of each link.
         Node(
             package='pronto_ros2_node',
-            executable='pronto_node',
+            executable= "pronto_node",
             name= node_name_value,
             parameters=[
-                {'use_sim_time': use_sim_time},
                 {'urdf_file': ParameterValue(Command(['xacro', ' ' ,xacro_file_path]), value_type=str)},
-                {'pose_topic': ParameterValue(topic_name_value, value_type=str)},
-                {'twist_topic': ParameterValue(v_topic_name_value, value_type=str)},
                 config_file_path
             ],
-        ),
+        #      remappings=[
+        #     ('/pose_est', pose_topic_name),
+        #     # ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+        # ]
+        )
         
         # # Launch RViz
         # Node(

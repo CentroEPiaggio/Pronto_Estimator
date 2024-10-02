@@ -1,6 +1,7 @@
 command_node:
   ros__parameters:
-    topic_name: "motion_generator/simple_velocity_command"
+    topic_name: "command"
+    controller_name: "omni_controller/"
     set_point_list: 
       - start
       - move_for
@@ -56,4 +57,3 @@ command_node:
       vy: 0.0
       omega: 0.0
       time: 43.0
-    use_sim_time: true
