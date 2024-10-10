@@ -130,7 +130,7 @@ void poseMeasurementFromROS(const nav_msgs::msg::Odometry &ros_msg,
 void jointStateFromROS(const sensor_msgs::msg::JointState &ros_msg, JointState &msg)
 {
   // it is caller's responsibility to check that both joint states have the same size
-   msg.utime = ros_msg.header.stamp.nanosec / 1000 + ros_msg.header.stamp.sec * std::pow(10,6);
+   msg.utime = int(ros_msg.header.stamp.nanosec / 1000 )+ ros_msg.header.stamp.sec * std::pow(10,6);
   msg.joint_position = std::move(ros_msg.position);
   msg.joint_velocity = std::move(ros_msg.velocity);
   msg.joint_effort = std::move(ros_msg.effort);

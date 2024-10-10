@@ -11,7 +11,7 @@ from launch.events import Shutdown
 def generate_launch_description():
     
 
-    pronto_instance = ['1','2','3']
+    pronto_instance = ['2']
 
     bag_name = "Exp_2023_11_22_01_19_54"
     exp_name = os.path.join("bags",bag_name,bag_name+"_0.mcap")

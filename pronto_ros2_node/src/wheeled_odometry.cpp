@@ -10,23 +10,23 @@ namespace pronto{
     {
         int mode_param;
         //declare parameters
-        node_ptr_->declare_parameter<double>(sensor_name + "r_linear",0.0);
+        node_ptr_->declare_parameter<double>(sensor_name + "r_xyz",0.0);
         node_ptr_->declare_parameter<double>(sensor_name + "r_chi",0.0);
         node_ptr_->declare_parameter<int>(sensor_name + "mode",0);
         //get parameters 
         if(! node_ptr_->get_parameter(sensor_name + "r_xyz",r_lin_))
         {
-                RCLCPP_ERROR(node_ptr_->get_logger(),"error in parsing base_link_name parameter, the default name [%f] will be use",DEFAULT_R_LIN);
+                RCLCPP_ERROR(node_ptr_->get_logger(),"error in parsing r_xyz parameter, the default name [%f] will be use",DEFAULT_R_LIN);
                 r_lin_ = DEFAULT_R_LIN;
         }
         if(! node_ptr_->get_parameter(sensor_name + "r_chi",r_ang_))
         {
-                RCLCPP_ERROR(node_ptr_->get_logger(),"error in parsing base_link_name parameter, the default name [%f] will be use",DEFAULT_R_ANG);
+                RCLCPP_ERROR(node_ptr_->get_logger(),"error in parsing r_chi parameter, the default name [%f] will be use",DEFAULT_R_ANG);
                 r_ang_ = DEFAULT_R_ANG;
         }
         if(! node_ptr_->get_parameter(sensor_name + "mode",mode_param))
         {
-                RCLCPP_ERROR(node_ptr_->get_logger(),"error in parsing base_link_name parameter, the default name [%d] will be use",(int)DEFAULT_MODE);
+                RCLCPP_ERROR(node_ptr_->get_logger(),"error in parsing mode parameter, the default name [%d] will be use",(int)DEFAULT_MODE);
                 mode_ = OdomMode::MODE_BOTH;
         }
         else
@@ -61,12 +61,14 @@ namespace pronto{
             break;
         default:
             break;
+        
         }
+        RCLCPP_ERROR_STREAM(node_ptr_->get_logger(),"the z_indexes are "<<z_indices_);
     };
 
     RBISUpdateInterface* WheeledOdometry::processMessage(const OdomMsg* msg,StateEstimator *est )
     {
-        uint64_t utime = msg->header.stamp.sec * std::pow(10,6) + msg->header.stamp.nanosec /1000;
+        uint64_t utime = msg->header.stamp.sec * std::pow(10,6) + int(msg->header.stamp.nanosec /1000);
 
         switch (mode_)
         {

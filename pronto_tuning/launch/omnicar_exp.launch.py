@@ -20,7 +20,7 @@ def generate_launch_description():
     
     exp_name_value = LaunchConfiguration("exp_name")
     package_path = FindPackageShare("pronto_tuning")
-    exp_name_arg = DeclareLaunchArgument("exp_name",default_value="Exp_1_cmd.yaml")
+    exp_name_arg = DeclareLaunchArgument("exp_name",default_value="Exp_o_cmd.yaml")
 
 
     #start qualisys
@@ -40,13 +40,14 @@ def generate_launch_description():
     
     bag_base_path = "/home/ros/docker_pronto_ws/bags/"
     #starts controller 
-    omni_controller_spawner = Node(
-    package="controller_manager",
-    executable="spawner",
-    arguments=["omni_controller", "--controller-manager", "/controller_manager"],
-    )   
+    IMU_Broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["IMU_Broadcaster", "--controller-manager", "/controller_manager"],
+    )
+     
 
-    ordered_omni_controller_spawner = TimerAction(actions=[omni_controller_spawner],period=1.0)
+    ordered_IMU_Broadcaster_spawner = TimerAction(actions=[IMU_Broadcaster_spawner],period=1.0)
 
     state_broadcaster_spawner = Node(
     package="controller_manager",
@@ -56,18 +57,18 @@ def generate_launch_description():
 
     ordered_state_broadcaster_spawner = RegisterEventHandler(
         	
-        OnProcessExit(target_action=omni_controller_spawner, on_exit=[state_broadcaster_spawner])
+        OnProcessExit(target_action=IMU_Broadcaster_spawner, on_exit=[state_broadcaster_spawner])
     )
 
-    IMU_Broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["IMU_Broadcaster", "--controller-manager", "/controller_manager"],
-    )
     
-    ordered_IMU_Broadcaster_spawner = RegisterEventHandler(
+    omni_controller_spawner = Node(
+    package="controller_manager",
+    executable="spawner",
+    arguments=["omni_controller", "--controller-manager", "/controller_manager"],
+    )  
+    ordered_omni_controller_spawner = RegisterEventHandler(
         	
-        OnProcessExit(target_action=state_broadcaster_spawner, on_exit=[IMU_Broadcaster_spawner])
+        OnProcessExit(target_action=state_broadcaster_spawner, on_exit=[omni_controller_spawner])
     )
 
     rf2o_odom = IncludeLaunchDescription(
