@@ -20,6 +20,7 @@
 #include <cxxabi.h>
 #include <nav_msgs/msg/path.hpp>
 #include <eigen3/Eigen/Eigen>
+#include "rclcpp/qos.hpp"
 
 template<typename T>
 std::string type_name()
@@ -84,10 +85,12 @@ public:
         if (!subscribe) {
             return;
         }
+        rclcpp::QoS qos(10);
+        qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
         RCLCPP_INFO_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic
                                                       << " with SecondaryMsgT = " << type_name<SecondaryMsgT>());
         secondary_subscribers_[sensor_id] = nh_->create_subscription<SecondaryMsgT>(
-            topic, 10000,
+            topic, qos,
             [this, sensor_id](typename SecondaryMsgT::UniquePtr msg) {
                 this->secondaryCallback<MsgT, SecondaryMsgT>(std::move(msg), sensor_id);
             });
@@ -188,7 +191,8 @@ void ROSFrontEnd::addInitModule(SensingModule<MsgT>& module,
     }
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Sensor init id: " << sensor_id);
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Topic: " << topic);
-
+    rclcpp::QoS qos(10);
+    qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
     // add the sensor to the list of sensor that require initialization
     std::pair<SensorId, bool> init_id_pair(sensor_id, false);
     initialized_list_.insert(init_id_pair);
@@ -201,7 +205,7 @@ void ROSFrontEnd::addInitModule(SensingModule<MsgT>& module,
         RCLCPP_ERROR_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic);
         RCLCPP_ERROR_STREAM(nh_->get_logger(), " with MsgT = " << type_name<MsgT>());
         init_subscribers_[sensor_id] = nh_->create_subscription<MsgT>(
-            topic, 10000,
+            topic, qos,
             [this, sensor_id](typename MsgT::UniquePtr msg) {
                 this->initCallback<MsgT>(std::move(msg), sensor_id);
             });
@@ -226,7 +230,8 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT>& module,
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Roll forward: " << (roll_forward ? "yes" : "no"));
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Publish head: " << (publish_head ? "yes" : "no"));
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Topic: " << topic);
-
+    rclcpp::QoS qos(10);
+    qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
     // store the will to roll forward when the message is received
     std::pair<SensorId, bool> roll_pair(sensor_id, roll_forward);
     roll_forward_.insert(roll_pair);
@@ -245,7 +250,7 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT>& module,
         RCLCPP_ERROR_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic
                                                          << " with MsgT = " << type_name<MsgT>());
         sensors_subscribers_[sensor_id] = nh_->create_subscription<MsgT>(
-            topic, 10000,
+            topic, qos,
             [this, sensor_id](typename MsgT::UniquePtr msg) {
                 this->callback<MsgT>(std::move(msg), sensor_id);
             });

@@ -1,12 +1,12 @@
 #include "pronto_core/rbis_update_interface.hpp"
 #include "pronto_core/rotations.hpp"
 #include <iostream>
-
+#define DEBUG_MODE_IM 0
 namespace pronto {
 
 const char * RBISUpdateInterface::sensor_enum_chars = "igvlfsorxdukpabmtwy";
 const char * RBISUpdateInterface::sensor_enum_strings[] =
-    { "ins", "gps", "vicon", "laser", "laser_gpf", "scan_matcher", "optic_flow", "reset", "invalid", "rgbd", "fovis", "legodo", "pose_meas", "altimeter", "airspeed", "sideslip", "init_message", "viewer", "yawlock" };
+    { "ins", "gps", "vicon", "laser", "laser_gpf", "scan_matcher", "optic_flow", "reset", "invalid", "rgbd", "fovis", "legodo", "pose_meas", "altimeter", "airspeed", "sideslip", "init_message", "viewer", "yawlock" , "wheel_odom" };
 
 RBISUpdateInterface::sensor_enum RBISUpdateInterface::sensor_enum_from_char(char sensor_char)
 {
@@ -84,8 +84,9 @@ void RBISIndexedMeasurement::updateFilter(const RBIS & prior_state, const RBIM &
   RBIS dstate;
   RBIM dcov;
 
-#if DEBUG_MODE
+#if DEBUG_MODE_IM
     std::cout << "mfallon a\n";
+    std::cout<< "DIOCANEEEEEE\n";
     std::cout << " meas: " << measurement.transpose() << "\n";
     std::cout << " mcov: " << measurement_cov << "\n";
     std::cout << "index: " << index.transpose() << "\n";
@@ -96,7 +97,7 @@ void RBISIndexedMeasurement::updateFilter(const RBIS & prior_state, const RBIM &
   double current_loglikelihood = indexedMeasurement(measurement, measurement_cov, index, prior_state, prior_cov, dstate,
       dcov);
 
-#if DEBUG_MODE
+#if DEBUG_MODE_IM
   std::cout << "dstat: " << dstate <<"\n";
   std::cout << " dcov: " << dcov <<"\n";
   std::cout << dstate.position() << " pos\n";
@@ -146,7 +147,7 @@ void RBISIndexedPlusOrientationMeasurement::updateFilter(const RBIS & prior_stat
                                                                 prior_cov,
                                                                 dstate,
                                                                 dcov);
-#if true
+#if false
   std::cerr << "======================================" << std::endl;
   std::cerr << sensorIdToString(sensor_id)  << std::endl;
   std::cerr << "======================================" << std::endl;
@@ -157,7 +158,7 @@ void RBISIndexedPlusOrientationMeasurement::updateFilter(const RBIS & prior_stat
 #endif
   rbisApplyDelta(prior_state, prior_cov, dstate, dcov, posterior_state, posterior_covariance);
 
-#if true
+#if false
   std::cerr << "    Prior velocity: " << prior_state.velocity().transpose().format(CleanFmt) << std::endl;
   std::cerr << "Posterior velocity: " << posterior_state.velocity().transpose().format(CleanFmt) << std::endl;
   std::cerr << "    Prior position: " << prior_state.position().transpose().format(CleanFmt) << std::endl;
