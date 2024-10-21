@@ -85,8 +85,9 @@ public:
         if (!subscribe) {
             return;
         }
+        
         rclcpp::QoS qos(10);
-        qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
+        qos.reliability(rclcpp::ReliabilityPolicy::Reliable);
         RCLCPP_INFO_STREAM(nh_->get_logger(), sensor_id << " subscribing to " << topic
                                                       << " with SecondaryMsgT = " << type_name<SecondaryMsgT>());
         secondary_subscribers_[sensor_id] = nh_->create_subscription<SecondaryMsgT>(
@@ -119,15 +120,15 @@ public:
     }
 
     template <class MsgT>
-    void initCallback(std::shared_ptr<MsgT const> msg, 
+    void initCallback(std::shared_ptr<MsgT > msg, 
                         const SensorId& Key);
 
     template <class PrimaryMsgT, class SecondaryMsgT>
-    void secondaryCallback(std::shared_ptr<SecondaryMsgT const> msg, 
+    void secondaryCallback(std::shared_ptr<SecondaryMsgT > msg, 
                             const SensorId& sensor_id);
 
     template <class MsgT>
-    void callback(std::shared_ptr<MsgT const> msg, const SensorId& Key);
+    void callback(std::shared_ptr<MsgT > msg, const SensorId& Key);
 
 protected:
     bool initializeFilter();
@@ -192,7 +193,7 @@ void ROSFrontEnd::addInitModule(SensingModule<MsgT>& module,
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Sensor init id: " << sensor_id);
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Topic: " << topic);
     rclcpp::QoS qos(10);
-    qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
+    qos.reliability(rclcpp::ReliabilityPolicy::Reliable);
     // add the sensor to the list of sensor that require initialization
     std::pair<SensorId, bool> init_id_pair(sensor_id, false);
     initialized_list_.insert(init_id_pair);
@@ -231,7 +232,7 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT>& module,
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Publish head: " << (publish_head ? "yes" : "no"));
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Topic: " << topic);
     rclcpp::QoS qos(10);
-    qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
+    qos.reliability(rclcpp::ReliabilityPolicy::Reliable);
     // store the will to roll forward when the message is received
     std::pair<SensorId, bool> roll_pair(sensor_id, roll_forward);
     roll_forward_.insert(roll_pair);
@@ -259,13 +260,14 @@ void ROSFrontEnd::addSensingModule(SensingModule<MsgT>& module,
 
 
 template <class MsgT>
-void ROSFrontEnd::initCallback(std::shared_ptr<MsgT const> msg, const SensorId& sensor_id)
+void ROSFrontEnd::initCallback(std::shared_ptr<MsgT> msg, const SensorId& sensor_id)
 {
     if(verbose_){
         RCLCPP_INFO_STREAM(nh_->get_logger(), "Init callback for sensor " << sensor_id);
     }
     if(initialized_list_.count(sensor_id) > 0 && !initialized_list_[sensor_id])
     {
+       msg->header.set__stamp(nh_->get_clock()->now());
         initialized_list_[sensor_id] = static_cast<SensingModule<MsgT>*>(init_modules_[sensor_id])->processMessageInit(
             msg.get(),
             initialized_list_,
@@ -298,7 +300,7 @@ void ROSFrontEnd::initCallback(std::shared_ptr<MsgT const> msg, const SensorId& 
 #define DEBUG_MODE 0
 
 template <class MsgT>
-void ROSFrontEnd::callback(std::shared_ptr<MsgT const> msg, const SensorId& sensor_id)
+void ROSFrontEnd::callback(std::shared_ptr<MsgT> msg, const SensorId& sensor_id)
 {
 #if DEBUG_MODE
     RCLCPP_INFO_STREAM(nh_->get_logger(), "Callback for sensor " << sensor_id);
@@ -311,6 +313,7 @@ void ROSFrontEnd::callback(std::shared_ptr<MsgT const> msg, const SensorId& sens
         // appropriate casting to the right type and call to the process message
         // function to get the update
         // Record start time
+       msg->header.set__stamp(nh_->get_clock()->now());
 #if DEBUG_MODE
         auto start = std::chrono::high_resolution_clock::now();
 #endif
@@ -448,8 +451,9 @@ void ROSFrontEnd::callback(std::shared_ptr<MsgT const> msg, const SensorId& sens
 }
 
 template <class PrimaryMsgT, class SecondaryMsgT>
-void ROSFrontEnd::secondaryCallback(std::shared_ptr<SecondaryMsgT const> msg, const SensorId& sensor_id)
+void ROSFrontEnd::secondaryCallback(std::shared_ptr<SecondaryMsgT > msg, const SensorId& sensor_id)
 {    
+   msg->header.set__stamp(nh_->get_clock()->now());
     auto a = dynamic_cast<DualSensingModule<PrimaryMsgT,SecondaryMsgT>*>(static_cast<SensingModule<PrimaryMsgT>*>(active_modules_[sensor_id]));
     a->processSecondaryMessage(*msg);
 }

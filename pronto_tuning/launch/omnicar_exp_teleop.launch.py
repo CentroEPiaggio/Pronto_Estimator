@@ -87,23 +87,25 @@ def generate_launch_description():
 
     time_str = time.strftime("%Y_%m_%d_%H_%M_%S")
     
-    bag_path = bag_base_path + "Exp_" +time_str
+    bag_path = bag_base_path + "Exp_TeleOp" +time_str
     
     start_bag = ExecuteProcess(
         cmd=['ros2', 'bag', 'record','-a','-s','mcap', '-o', bag_path ],
      output='screen'
     )
 
-    command_launch  = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    PathJoinSubstitution([
-                        FindPackageShare("pronto_tuning")
-                        , 'launch', 'command_tuning.launch.py'])
-                ),
-                launch_arguments={
-                    "exp_name": exp_name_value
-                }.items()
-            )
+    command_launch  = joy_node = Node(
+        package="omni_mulinex_joystic",
+        executable="omni_mul_joystic_node",
+        output="screen",
+        parameters=[
+            {"bag_folder": "/home/ros/docker_pronto_ws/"},
+            {"sup_vel_x": 0.5},
+            {"sup_vel_y": 0.5},
+            {"sup_omega": 1.0},
+            {"deadzone_joy": 0.1}
+    ]
+    )
 
     delayed_start_exp = TimerAction(
         actions=[command_launch], period=5.0
@@ -127,7 +129,12 @@ def generate_launch_description():
         ordered_state_broadcaster_spawner,
         ordered_IMU_Broadcaster_spawner,
         ordered_rf2o_odom,
-        delayed_start
+        delayed_start,
+        Node(
+        package="joy",
+        executable="joy_node",
+        output="screen"
+    )
         # ordered_start_bag
         # ordered_command_launch
         # start_bag
