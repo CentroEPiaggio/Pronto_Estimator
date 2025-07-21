@@ -1,219 +1,205 @@
-# Pronto_Estimator
-This is an  EKF base filetr implementation adpted to floating base system and then update to be use in ROS2 Framework and add some module to manage wheeled system.
+![](pronto_core/doc/pronto_logotype_se.svg)
 
-The system offer a span of module to manage different sensors subscribing to different topics.
-The available list of module contains:
-<ol>
-    <li>ins: inertial navigation system(IMU)</li>
-    <li>legodo: legged odometry</li>
-    <li>bias_lock: bias updater when sytem is standing</li>
-    <li>scan_matcher: lidar scan matcher </li>
-    <li>qualysis_mt: qualysis motion tracker</li>
+![CI](https://github.com/ori-drs/pronto/workflows/CI/badge.svg)
 
-</ol>
+## Introduction
+Pronto is an efficient, versatile and modular EKF state estimator for both
+proprioceptive (inertial, kinematics) and exteroceptive (LIDAR, camera) sensor
+fusion.  It has been used with a variety of inputs from sensors such as IMUs
+(Microstrain, KVH, XSense), LIDAR (Hokuyo, Velodyne), cameras
+(Carnegie Robotics Multisense SL, Intel RealSense) and joint
+kinematics.
 
-### ROS2 Code UML 
-![Prova](/doc/pronto_node_ros1.png)
+For the ROS 1 version, check the ros1 branch of this repository.
 
-### Pronto Estimator Parameters
+### Legged Robots
+Pronto provided the state estimate that was used by MIT DRC team in the
+DARPA Robotics Challenge to estimate the position and motion of the Boston
+Dynamics Atlas robot.
 
+[![image](http://img.youtube.com/vi/V_DxB76MkE4/0.jpg)](https://www.youtube.com/watch?v=V_DxB76MkE4)
+[Pronto on Atlas](https://www.youtube.com/watch?v=V_DxB76MkE4)
 
-#### estimator parameters
+Since then, it has been adapted to estimate the motion of the NASA Valkyrie robot at
+the University of Edinburgh, the HyQ quadruped robot at the Istituto Italiano di
+Tecnologia, and the ANYmal quadruped robot at the University of Oxford.
 
-<ul>
-    <li>pose_topic: Estimated Pose topic name </li>
-    <li>pose_frame_id: pose tf frame name  </li>
-    <li>twist_topic: Estimated Twist topic name</li>
-    <li>publish_pose: Bool if true publish pose </li>
-    <li>publish_tf: Bool if true publish tf </li>
-    <li>tf_child_frame_id </li>
-    <li>republish_sensors </li>
-    <li>init_sensors: sensor list used to init the filter </li>
-    <li>active_sensors: sensor list used to update the estimation  </li>
-    <li>utime_history_span: max update temporal span dimension </li>
-    <li>sigma0: init covariance </li>
-    <li>x0: init state </li>
-</ul>
+[![image](http://img.youtube.com/vi/39Y1Jx1DMO8/0.jpg)](https://www.youtube.com/watch?v=39Y1Jx1DMO8)
+[Pronto on HyQ](https://www.youtube.com/watch?v=39Y1Jx1DMO8)
 
-#### base module parameters
+### Micro Aerial Vehicles
+Pronto was originally developed for Micro Aerial Vehicle state
+estimation. The modules specific to MAVs (e.g., altimeter, GPS) are not currently supported.
 
-<ul>
-    <li>topic: module subcrition topic name </li>
-    <li>roll_forward_on_receive: Bool if true update the estimation when the message is recieved </li>
-    <li>publish_head_on_message: Bool if true publish the estimarion when the message is recieved </li>
-</il>
+## Software Overview
+The algorithms (and their ROS wrappers) are written in C/C++ and organized as
+`ros` packages.
+The repository consists of the following main modules:
 
-#### ins parameters
+- `pronto_core`: core libraries that implement the filter, the state, and
+basic measurement modules (e.g., IMU, pose update)
+- `pronto_biped` leg odometry measurement modules for humanoid robots (tested
+on Atlas and Valkyrie)
+- `pronto_quadruped` leg odometry libraries for a quadruped robot (tested on
+HyQ and ANYmal)
+- `pronto_quadruped_commons` abstract interfaces to perform leg odometry on a
+quadruped robot. This is a fork of the `iit_commons` package (see
+[here](https://github.com/iit-DLSLab/iit_commons)).
+- `*_ros` ROS wrappers of the above modules
+- other support packages for filtering
 
-<ul>    
-    <li>q_gyro: gyro measures covariance</li>
-    <li>q_accel: accelerometer measure covariance</li>
-    <li>q_gyro_bias: gyro bias covariance </li>
-    <li>q_accel_bias: accelerometer bias covariance</li>
-    <li>num_to_init: message number needed to initialize ins module </li>
-    <li>gyro/accel_bias_initial: bias initial value </li>
-    <li>gyro/accel_bias_recalc_at_start: Bool if true recalc bias during the module initialization </li>
-    <li>gyro/accel_bias_update_online: Bool if true recalc bias during the module initialization </li>
-    <li>frame: imu tf frame name</li>
-    <li>base_frame: base tf frame name</li>
-</ul>
+For further details, refer to [this](doc/architecture.md).
 
-#### legodo parameters
+## Dependencies
+Pronto depends on Eigen and Boost.
 
-<ul>
-    <li>legodo_mode: it desctibe the covariance computation  mode between: STATIC_SIGMA, VAR_SIGMA,IMPACT_SIGMA, WEIGHTED_AVG and ALPHA_FILTER  </li>
-    <li>stance_mode: it describe the contact detection mode between: THRESHOLD, HYSTERESIS, and  REGRESSION</li>
-    <li>stance_threshold: threshold value</li>
-    <li>stance_hysteresis_low</li>
-    <li>stance_hysteresis_high</li>
-    <li>stance_hysteresis_delay_low</li>
-    <li>stance_hysteresis_delay_high</li>
-    <li>stance_alpha</li>
-    <li>stance_regression_beta_size</li>
-    <li>stance_regression_beta</li>
-    <li>r_vx: init covariance in x direction </li>
-    <li>r_vy: init covariance in y direction</li>
-    <li>r_vz: init covariance in z direction</li>
-    <li>sim: Bool if true the robot use the sensor_msgs otherwise it use pi3hat_msgs</li>
-</ul>
+## System Requirements
+The target operating system is **Ubuntu 22.04** with **ROS 2 Humble**.  
+Other versions of Ubuntu/ROS might work but they are **not** actively supported or tested.
 
-#### bias_lock parameters
+## Building the Code
+Pronto is organized as a collection of ROS packages.
+To build the code, run
+```shell
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+Then, source the workspace:
+```shell
+source install/setup.bash
+```
 
-<ul>
-    <li>torque_threshold: minimum torque on knee to be in contact with the ground </li>
-    <li>velocity_threshold: maximum velocity to consider the robot standing</li>
-    <li>secondary_topic: joint state topic name</li>
-    <li>sim: Bool if true the robot use the sensor_msgs otherwise it use pi3hat_msgs</li>
-</ul>
-
-#### scan_matcher parameters
-
-<ul>
-    <li>mode: it describe the correction mode between position, yaw and position with yaw</li>
-    <li>r_yaw: yaw covariance</li>
-    <li>r_pxy: position covariance</li>
-    
-</ul>
-
-#### Wheel Odomeretry parameters
-
-<ul>
-    <li>mode: it describe the correction mode between linear velocity, agular_velocity and both</li>
-    <li>r_linear: velocity covariance</li>
-    <li>r_chi: angular covariance</li>
-    
-</ul>
-
-#### qualysis_mt parameters
-
-<ul>
-    <li>robot_name: qualisys rigid body name</li>
-    <li>r_xyz position covariance</li>
-    <li>r_chi: orientation covariance</li>
-    <li>mode: it describe the correction mode between position, yaw and position with yaw, orientation and position with orientation</li>
-    
-</ul>
-
-## Usage 
+## Usage
 
 ### Start Estimator
-The estimator node can be start in this way:
+The estimator node can be started with
+```shell
+ros2 launch  pronto_ros2_node pronto_node.launch.py xacro_pkg:=<robot_description_package> xacro_name:=<xacro_file_name> config_name:=<configuration_file name>
+```
+Where the arguments within `<...>` must be replaced with the actual values.
 
-``` ros2 launch  pronto_ros2_node pronto_node.launch.py xacro_pkg:=<robot_description_package> xacro_name:=<xacro_file_name> config_name:=<configuration_file name>```
-
-The config file must be add to the config folder in pronto_ros2_node package.
+The config file must be added to the config folder in pronto_ros2_node package.
 
 ### Benchmarking
-The Benchmarking launch allows the user to start a list of pronto instance to compare the obtained estimations. The input is a bag cointains all the filter measures input, or at least it should be consistent with the configuration files. The configuration files has to be placed into the config folder and named omnicar_tune_i.yaml, each file is associated with a pronto instace. 
-The launch file cointain the global variable to set the bag name and the list of instance number, subset of the configuration files' list.
+The Benchmarking launch allows the user to start a list of pronto instance to compare the obtained estimations. The input is a bag contains all the filter measures input, or at least it should be consistent with the configuration files. The configuration files has to be placed into the config folder and named omnicar_tune_i.yaml, each file is associated with a pronto instance.
+The launch file contains the global variable to set the bag name and the list of instance number, subset of the configuration files' list.
 To start the filters the command line is:
 
-``` ros2 launch pronto_ros2_node bench_pronto.launch.py ```
+```shell
+ros2 launch pronto_ros2_node bench_pronto.launch.py
+```
 
-### Dependecies
-Eigen3
+## Robot Implementation Example
+To learn how to use Pronto on your robot, you can have a look at [this repository](https://github.com/ori-drs/pronto_anymal_example), which contains a full implementation on the ANYmal quadruped robot. 
+## Publications
+If you use part of this work in academic context, please cite the following publication:
 
+*M. Camurri, M. Ramezani, S. Nobili, M. Fallon*  
+**Pronto: A Multi-Sensor State Estimator for Legged Robots in Real-World Scenarios**  
+in Frontiers on Robotics and AI, 2020 ([PDF](https://www.frontiersin.org/articles/10.3389/frobt.2020.00068/pdf)) **DOI:** [10.3389/frobt.2020.00068](https://doi.org/10.3389/frobt.2020.00068)
+```
+@article{camurri2020frontiers,
+  author = {Camurri, Marco and Ramezani, Milad and Nobili, Simona and Fallon, Maurice},   
+  title = {{Pronto: A Multi-Sensor State Estimator for Legged Robots in Real-World Scenarios}},      
+  journal = {Frontiers in Robotics and AI},
+  volume = {7},
+  number = {68},
+  pages = {1--18},     
+  year = {2020},      
+  url = {https://www.frontiersin.org/article/10.3389/frobt.2020.00068},
+  doi = {10.3389/frobt.2020.00068},	
+  issn = {2296-9144}
+}
+```
 
-<!-- ### Class and methods
-<ol>
-    <li>
-    ROS_FrontEnd (Pronto Ros)
-    <ul>
-        <li>
-        Constructor: get the topic name of the estimate position, velocity and tf from ROS parameter; at the end initialize filter state and covariance using its own method
-        </li>
-        <li>
-        initializeState: get the initial state, pose and velocity,  from ROS parameter and set the init state variable.
-        </li>
-        <li>
-        initializeCovariance: get the initial covariance matrix from ROS parameter and set the init covariance variable.
-        </li>
-        <li>
-            initializeFilter: check if the sensors module are initialize and if the filter is not then initialize it.
-        </li>
-        <li>
-            areModouleInitialize: evaluate the initialization of all the sensors that need it.
-        </li>
-        <li>
-            addSensingModule: create the data structure for the sensor: maps and topic.
-        </li>
-        <li>
-            InitCallback: callback to initialize the sensing module, when initialized the sensor destroy the topic.
-        </li>
-        <li>
-            callback: data topic subscribe callback, compute the update due to the data update.
-        </li>
-        </li>
-    </ul>
-    </li>
-    <li>
-        InsHandlerRos(Pronto_ROS): class used by the frontend to manage the InsModule.
-        <ul>
-        <li>
-                Constructor: build the InsModule and create its topic
-            </li>
-            <li>
-                ProcessMessage: get the IMU message and the estimator to return the state and covariance update.
-            </li>
-            <li>
-                processMessageInit: get the IMU message and return a boolean reporting the initialization result.
-            </li>
-        </ul>
-    </li>
-    <li>
-        SensinModule (Pronto_Core): virtual class to describe generic sensor.
-        <ul>
-            <li>
-                ProcessMessage(virtual): get the sensor data and the estimator to return the state and covariance update.
-            </li>
-            <li>
-                processMessageInit(virtual): get the init message and return a boolean reporting the initialization result.
-            </li>
-        </ul>
-    </li>
-    <li>
-        DualSensinModule (Pronto_Core): virtual class to describe a sensing module with two sensor input.
-        <ul>
-            <li>
-                ProcessMessage(virtual): get the sensor data and the estimator to return the state and covariance update.
-            </li>
-            <li>
-                processMessageInit(virtual): get the init message and return a boolean reporting the initialization result.
-            </li>
-        </ul>
-    </li>
-    <li>
-        InsModule(Pronto_Core):
-        <ul>
-            <li>
-                Constructor: build the inertial sensing modue from the imu configuration and the imu-body frame tranformation
-            </li>
-            <li>
-                ProcessMessage: get the IMU data and the estimator to return the state and covariance update.
-            </li>
-            <li>
-                processMessageInit: get the IMU init message and return a boolean reporting the initialization result.
-            </li>
-        </ul>
-    </li>
-</ol> -->
+### Previous publications
+
+*S. Nobili, M. Camurri, V. Barasuol, M. Focchi, D.G. Caldwell, C. Semini, M. Fallon*  
+**Heterogeneous Sensor Fusion for Accurate State Estimation of Dynamic Legged Robots**  
+in Proceedings of Robotics: Science and Systems XIII, 2017 ([PDF](http://www.robots.ox.ac.uk/~mobile/drs/Papers/2017RSS_nobili.pdf)) **DOI:** [10.15607/RSS.2017.XIII.007](https://www.doi.org/10.15607/RSS.2017.XIII.007)
+
+```
+@inproceedings{nobili2017rss,
+    author = {Simona Nobili AND Marco Camurri AND Victor Barasuol AND Michele Focchi AND Darwin Caldwell AND Claudio Semini AND Maurice Fallon}, 
+    title = {{Heterogeneous Sensor Fusion for Accurate State Estimation of Dynamic Legged Robots}}, 
+    booktitle = {Proceedings of Robotics: Science and Systems}, 
+    year = {2017}, 
+    address = {Cambridge, Massachusetts}, 
+    month = {July}, 
+    doi = {10.15607/RSS.2017.XIII.007} 
+}
+```
+
+*M. Camurri, M. Fallon, S. Bazeille, A. Radulescu, V. Barasuol, D.G. Caldwell, C. Semini*  
+**Probabilistic Contact Estimation and Impact Detection for State Estimation of Quadruped Robots**  
+in IEEE Robotics and Automation Letters, vol. 2, no. 2, pp. 1023-1030, April 2017 ([PDF](https://iit-dlslab.github.io/papers/camurri17ral.pdf)) **DOI:** [10.1109/LRA.2017.2652491](https://www.doi.org/10.1109/LRA.2017.2652491)
+
+```
+@article{camurri2017ral,
+      author={M. {Camurri} and M. {Fallon} and S. {Bazeille} and A. {Radulescu} and V. {Barasuol} and D. G. {Caldwell} and C. {Semini}},
+      journal={IEEE Robotics and Automation Letters},
+      title={{Probabilistic Contact Estimation and Impact Detection for State Estimation of Quadruped Robots}},
+      year = {2017},
+      volume = {2},
+      number = {2},
+      pages = {1023-1030},
+      doi = {10.1109/LRA.2017.2652491},
+      ISSN = {2377-3766},
+      month = {April}}
+```
+
+*M. Fallon, M. Antone, N. Roy, S. Teller*  
+**Drift-Free Humanoid State Estimation fusing Kinematic, Inertial and LIDAR sensing**  
+2014 IEEE-RAS International Conference on Humanoid Robots ([PDF](https://www.research.ed.ac.uk/portal/files/18903340/14_fallon_humanoids.pdf)) **DOI:**[10.1109/HUMANOIDS.2014.7041346](https://www.doi.org/10.1109/HUMANOIDS.2014.7041346)
+
+```
+@inproceedings{fallon2014humanoids,
+author={M. F. {Fallón} and M. {Antone} and N. {Roy} and S. {Teller}},
+booktitle={2014 IEEE-RAS International Conference on Humanoid Robots},
+title={Drift-free humanoid state estimation fusing kinematic, inertial and LIDAR sensing},
+year={2014},
+volume={},
+number={},
+pages={112-119},
+doi={10.1109/HUMANOIDS.2014.7041346},
+ISSN={},
+month={Nov},}
+```
+
+*A. Bry, A. Bachrach, N. Roy*  
+**State Estimation for Aggressive Flight in GPS-Denied Environments Using Onboard Sensing**  
+2012 IEEE International Conference on Robotics and Automation ([PDF](https://dspace.mit.edu/bitstream/handle/1721.1/86237/icra12_aggressive_flight.pdf)) **DOI:**[10.1109/ICRA.2012.6225295](https://www.doi.org//10.1109/ICRA.2012.6225295)
+
+```
+@inproceedings{bry2012icra,
+author={A. {Bry} and A. {Bachrach} and N. {Roy}},
+booktitle={2012 IEEE International Conference on Robotics and Automation},
+title={State estimation for aggressive flight in GPS-denied environments using onboard sensing},
+year={2012},
+volume={},
+number={},
+pages={1-8},
+doi={10.1109/ICRA.2012.6225295},
+ISSN={},
+month={May},}
+```
+
+## Credits
+
+- Originally Developed by Adam Bry, Abe Bachrach and Nicholas Roy of the
+[MIT Robust Robotics Group](http://groups.csail.mit.edu/rrg) for Micro Aerial Vehicles.
+
+- Extended to support humanoid motion by Maurice Fallon with the help of
+the [MIT DARPA Robotics Challenge Team](http://www.drc.mit.edu).
+
+- Support for quadruped robots, full ROS conversion and logo design by 
+Marco Camurri  ([IIT Dynamic Legged System Lab](http://dls.iit.it) and [ORI Dynamic Robot Systems Group](https://ori.ox.ac.uk/labs/drs))
+
+- Ported to ROS 2 by Jacopo Cioni, Francesco Iotti, and Davide De Benedittis from the University of Pisa, under the supervision of Franco Angelini and Manolo Garabini.
+
+### Additional contributors
+Andy Barry, Pat Marion, Dehann Fourie, Marco Frigerio, Michele Focchi, Benoit Casseau, Russell Buchanan, Wolfgang Merkt
+
+## License
+Pronto is released under the LGPL v2.1 license. Please see the LICENSE file attached to
+this document for more information.
+
