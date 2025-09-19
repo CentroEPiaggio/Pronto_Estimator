@@ -89,7 +89,7 @@ ament_export_dependencies("pronto_ros"
 #   DESTINATION lib/${PROJECT_NAME})
 
 install(
-  DIRECTORY launch config
+  DIRECTORY launch config urdf
   DESTINATION share/${PROJECT_NAME}
 )
 
